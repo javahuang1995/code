@@ -1,0 +1,21 @@
+package cn.it.shop.service.impl;
+
+import java.util.List;
+
+import org.hibernate.*;
+import org.springframework.stereotype.Service;
+
+import cn.it.shop.model.Category;
+import cn.it.shop.service.CategoryService;
+import cn.it.shop.utils.HibernateSessionFactory;
+
+/**
+ * @Description TODO（模块自身的业务逻辑）
+ * @author Ni Shengwu
+ * 
+ */
+@Service("categoryService")
+public class CategoryServiceImpl extends BaseServiceImpl<Category> implements
+		CategoryService {
+
+}
