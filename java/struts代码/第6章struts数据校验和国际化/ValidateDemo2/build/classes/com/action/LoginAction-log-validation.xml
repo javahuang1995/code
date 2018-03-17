@@ -1,0 +1,20 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <!-- age域 -->
+    <field name="age">
+        <!--域类型为int-->
+        <field-validator type="int">
+            <param name="min">10</param>
+            <param name="max">40</param>
+            <message>the age must be from 10 to 40!</message>
+        </field-validator>
+    </field>
+    <!-- name域 -->
+    <field name="name">
+    	<!-- 域类型为requiredstring类型 -->
+        <field-validator type="requiredstring">        
+            <message>the age must be from 10 to 40!</message>
+        </field-validator>
+    </field>
+</validators>

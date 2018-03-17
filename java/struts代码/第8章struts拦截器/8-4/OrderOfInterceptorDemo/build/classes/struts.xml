@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+    	<interceptors>
+    		<interceptor name="firstinterceptor" class="com.interceptor.FirstInterceptor"/>
+    		<interceptor name="secondinterceptor" class="com.interceptor.SecondInterceptor"/>
+    		<interceptor name="thirdinterceptor" class="com.interceptor.ThirdInterceptor"/>
+    		<interceptor-stack name="mystack">
+    			<interceptor-ref name="firstinterceptor"/>
+    			<interceptor-ref name="secondinterceptor"/>
+    			<interceptor-ref name="thirdinterceptor"/>
+    		</interceptor-stack>
+    	</interceptors>
+        <action name="firstaction" class="com.action.FirstAction">
+        	<result type="chain">secondaction</result>
+        	<interceptor-ref name="mystack"></interceptor-ref>
+        </action>
+        <action name="secondaction" class="com.action.SecondAction">
+        	<result>/success.jsp</result> 
+        </action>
+    </package>
+</struts>

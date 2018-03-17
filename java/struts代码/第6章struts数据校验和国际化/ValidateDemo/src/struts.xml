@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login" class="com.action.LoginAction">
+        	<!-- 返回hello.jsp -->
+            <result name="hello">/hello.jsp</result>
+            <!-- 校验出现问题，返回validationLogin.jsp -->
+            <result name="input">/validateLogin.jsp</result>
+        </action>
+    </package>
+</struts>

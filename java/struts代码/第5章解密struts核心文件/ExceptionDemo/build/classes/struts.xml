@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    
+   
+    <package name="default" namespace="/" extends="struts-default">
+        <global-results>
+                       <result name="Exception">/Exception.jsp</result>
+                       <result name="SQLException">/SQLException.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.sql.SQLException" result="SQLException"/>
+            <exception-mapping exception="java.lang.Exception" result="Exception"/>
+        </global-exception-mappings>
+      
+        <action name="user" class="com.action.UserAction">
+            <exception-mapping exception="com.action.SecurityException" result="login"/>
+        
+		   <result name="login" >/loginException.jsp </result>
+            <result>/success.jsp</result>
+        </action>
+    
+    </package>
+    
+</struts>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="default" namespace="/" extends="struts-default">
+<!--定义名为prepare的Action，该Action对应的处理类为com.action.PrepareAction -->
+          <action name="prepare" class="com.action.PrepareAction">
+			<!--返回结果为success.jsp-->
+        	   <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
