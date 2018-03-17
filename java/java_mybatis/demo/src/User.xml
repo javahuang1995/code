@@ -6,6 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- mapper标签要指定namespace属性，不然会报错，可看做包名 -->
 <mapper namespace="user">
 	<select id="findUserById" parameterType="int" resultType="com.model.User">
-		select * from t_user where id = #{id}
+		select
+		* from t_user where id = #{id}
     </select>
+	<insert id="insertUser" parameterType="com.model.User">
+		INSERT INTO t_USER(id,name,password,type)
+		VALUES(#{id}, #{name}, #{password}, #{type})
+    </insert>
 </mapper>

@@ -11,10 +11,10 @@ public class User {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUsername() {
+	public String getName() {
 		return name;
 	}
-	public void setUsername(String username) {
+	public void setName(String username) {
 		this.name = username;
 	}
 	public String getPassword() {

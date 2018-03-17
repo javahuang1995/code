@@ -30,6 +30,15 @@ public class MainApp {
 		
 		User user = session.selectOne("user.findUserById",1); 
         
-		System.out.println(user.getId()+user.getUsername()+user.getType()+user.getPassword());
+		System.out.println(user.getId()+user.getName()+user.getType()+user.getPassword());
+		
+		User test = new User();
+		test.setId(3);
+		test.setName("ningning");
+		
+		session.insert("user.insertUser", test);
+		
+		session.commit();
+		
 	}
 }
