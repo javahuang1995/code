@@ -1,4 +1,4 @@
-每个project运行的时候或多或少会出现异常
+]每个project运行的时候或多或少会出现异常
 或者可以记录下这个project所包含的知识点
 这个文档就可以完成这个任务
 
@@ -25,6 +25,21 @@ Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/lo
 
 ProxyFactoryBean是FactoryBean的接口实现类
 ProxyFactoryBean还是通过ProxyFactory来实现代理功能的
+
+
+
+关于切面，为什么要有切面
+在前面的实验中，增强被添加到目标类的所有方法中，如果我们只需要将增强
+有选择的织入到目标类的某些特定的方法中，就需要用切点对目标链接点进行定位了
+PointCut描述切点，包括ClassFilter,MethodMatcher
+前者定位到类，后者定位到方法
+
+切点：表示目标类的类名和方法的定位
+切面：包括切点定位和增强代码
+
+Advisor:一般切面，切点是类的所有方法，这个切面会给目标类的所有方法添加增强
+PointcuAdvosior:具有切点的切面，包括Advice和PointCut 2个类
+
 
 
 
