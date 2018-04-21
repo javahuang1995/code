@@ -17,8 +17,25 @@
 			<result name="s2">/success.jsp</result>
 		</action>
 
-		<action name="hua" class="com.action.TestAction">
-			<result>/success.jsp</result>
+
+		<action name="init" class="com.action.TestAction" method="init">
+			<result>/init.jsp</result>
 		</action>
+		<action name="next" class="com.action.TestAction" method="next">
+			<result name="next">step1</result>
+		</action>
+
+		<action name="step1" class="com.action.b" method="init">
+			<result>/step.jsp</result>
+		</action>
+		<action name="test" class="com.action.b">
+			<result name="xx">step2</result>
+		</action>
+		
+		
+		<action name="step2" class="com.action.c">
+			<result>/step.jsp</result>
+		</action>
+
 	</package>
 </struts>
