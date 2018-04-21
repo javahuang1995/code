@@ -47,14 +47,17 @@ public class Solution {
 		}
 		int value = preorder[ps];
 		int index = is;
+		//找到根节点在inorder中的位置
 		while (index <= ie && inorder[index] != value) {
 			index++;
 		}
+		//循环结束后index指向inorder中根节点
 		if (index > ie) {
 			throw new RuntimeException("Invalid Input");
 		}
 		TreeNode node = new TreeNode(value);
 
+		
 		node.left = construct(preorder, ps + 1, ps + index - is, inorder, is,
 				index - 1);
 		node.right = construct(preorder, ps + index - is + 1, pe, inorder,
