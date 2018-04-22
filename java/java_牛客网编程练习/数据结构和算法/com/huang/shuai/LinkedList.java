@@ -1,4 +1,4 @@
-package com.huang;
+package com.huang.shuai;
 public class LinkedList {  
     private Link first;  //头结点
     private int nElem; //链表中节点数量  

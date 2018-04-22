@@ -1,4 +1,4 @@
-package com.huang;
+package com.huang.shuai;
 /**
  * 优先级队列就是排序队列
  * @author Administrator

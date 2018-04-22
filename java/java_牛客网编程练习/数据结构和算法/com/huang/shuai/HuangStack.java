@@ -1,4 +1,4 @@
-package com.huang;
+package com.huang.shuai;
 
 public class HuangStack {
 	 private long[] a;  

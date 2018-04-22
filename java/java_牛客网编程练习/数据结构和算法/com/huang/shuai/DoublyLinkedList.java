@@ -1,4 +1,4 @@
-package com.huang;
+package com.huang.shuai;
 /**
  * Ë«ÏòÁ´±í
  * @author Administrator

@@ -1,4 +1,4 @@
-package com.huang;
+package com.huang.shuai;
 /**
  * 循环数组实现队列
  * @author Administrator
