@@ -1,4 +1,4 @@
-package 数据结构;
+package com.huang.datastruct;
 
 import java.util.*;
 import java.util.ArrayList;

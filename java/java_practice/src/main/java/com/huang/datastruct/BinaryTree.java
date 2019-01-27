@@ -1,12 +1,12 @@
-package ���ݽṹ;
+package com.huang.datastruct;
 public class BinaryTree {
-	private BNode root; //���ڵ�
+	private BNode root; //锟斤拷诘锟�
 	
 	public BinaryTree() {
 		root = null;
 	}
 	
-	//�������������ҵ�ʱ�临�Ӷ�ΪO(logN)
+	//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟揭碉拷时锟戒复锟接讹拷为O(logN)
 	public BNode find(int key) { //find node with given key
 		BNode result = root;
 		while(result.key != key) {
@@ -23,7 +23,7 @@ public class BinaryTree {
 		return result;
 	}
 	
-	//����ڵ�
+	//锟斤拷锟斤拷诘锟�
 	public void insert(int key, double value) {
 		BNode newNode = new BNode();
 		newNode.key = key;
@@ -56,18 +56,18 @@ public class BinaryTree {
 		}
 	}
 	
-	//����������
+	//锟斤拷锟斤拷锟斤拷锟斤拷锟�
 	public void traverse(int traverseType) {
 		switch(traverseType)
 		{
 		case 1: System.out.println("Preorder traversal:");
-				preOrder(root);//ǰ�����
+				preOrder(root);//前锟斤拷锟斤拷锟�
 				break;
 		case 2: System.out.println("Inorder traversal:");
-				inOrder(root);//�������
+				inOrder(root);//锟斤拷锟斤拷锟斤拷锟�
 				break;
 		case 3: System.out.println("Postorder traversal:");
-				postOrder(root);//�������
+				postOrder(root);//锟斤拷锟斤拷锟斤拷锟�
 				break;
 		default: System.out.println("Inorder traversal:");
 				inOrder(root);
@@ -76,7 +76,7 @@ public class BinaryTree {
 		System.out.println("");
 	}
 	
-	//ǰ�����
+	//前锟斤拷锟斤拷锟�
 	private void preOrder(BNode localRoot) {
 		if(localRoot != null) {
 			System.out.print(localRoot.data + " ");
@@ -85,7 +85,7 @@ public class BinaryTree {
 		}
 	}
 	
-	//�������
+	//锟斤拷锟斤拷锟斤拷锟�
 	private void inOrder(BNode localRoot) {
 		if(localRoot != null) {
 			inOrder(localRoot.leftChild);
@@ -94,7 +94,7 @@ public class BinaryTree {
 		}
 	}
 	
-	//�������
+	//锟斤拷锟斤拷锟斤拷锟�
 	private void postOrder(BNode localRoot) {
 		if(localRoot != null) {
 			postOrder(localRoot.leftChild);
@@ -103,8 +103,8 @@ public class BinaryTree {
 		}
 	}
 	
-	//������Сֵ
-	/*���ݶ����������Ĵ洢������СֵӦ��������Ǹ�û���ӽڵ���Ǹ��ڵ�*/
+	//锟斤拷锟斤拷锟斤拷小值
+	/*锟斤拷荻锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷拇娲拷锟斤拷锟斤拷锟叫≈涤︼拷锟斤拷锟斤拷锟斤拷锟角革拷没锟斤拷锟接节碉拷锟斤拷歉锟斤拷诘锟�/
 	public BNode minNumber() {
 		BNode current = root;
 		BNode parent = root;
@@ -115,8 +115,8 @@ public class BinaryTree {
 		return parent;
 	}
 	
-	//�������ֵ
-	/*���ݶ����������Ĵ洢�������ֵӦ�����ұ��Ǹ�û���ӽڵ���Ǹ��ڵ�*/
+	//锟斤拷锟斤拷锟斤拷锟街�
+	/*锟斤拷荻锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷拇娲拷锟斤拷锟斤拷锟斤拷值应锟斤拷锟斤拷锟揭憋拷锟角革拷没锟斤拷锟接节碉拷锟斤拷歉锟斤拷诘锟�/
 	public BNode maxNumber() {
 		BNode current = root;
 		BNode parent = root;
@@ -127,13 +127,13 @@ public class BinaryTree {
 		return parent;
 	}
 	
-	//ɾ���ڵ�
+	//删锟斤拷诘锟�
 	/*
-	 * ɾ���ڵ��ڶ�����������ӵģ���Ҫ�����������
-	 * 1. �ýڵ�û���ӽڵ㣨�򵥣�
-	 * 2. �ýڵ���һ���ӽڵ㣨���У�
-	 * 3. �ýڵ��������ӽڵ㣨���ӣ�
-	 * ɾ���ڵ��ʱ�临�Ӷ�ΪO(logN)
+	 * 删锟斤拷诘锟斤拷诙锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷罡达拷拥模锟斤拷锟揭拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+	 * 1. 锟矫节碉拷没锟斤拷锟接节点（锟津单ｏ拷
+	 * 2. 锟矫节碉拷锟斤拷一锟斤拷锟接节点（锟斤拷锟叫ｏ拷
+	 * 3. 锟矫节碉拷锟斤拷锟斤拷锟斤拷锟接节点（锟斤拷锟接ｏ拷
+	 * 删锟斤拷诘锟斤拷时锟戒复锟接讹拷为O(logN)
 	 */
 	public boolean delete(int key) {
 		BNode current = root;
@@ -143,7 +143,7 @@ public class BinaryTree {
 		if(current == null) {
 			return false;
 		}
-		//Ѱ��Ҫɾ���Ľڵ�
+		//寻锟斤拷要删锟斤拷慕诘锟�
 		while(current.data != key) {
 //			parent = current;
 			if(key < current.key) {
@@ -159,18 +159,18 @@ public class BinaryTree {
 			}
 		}
 		
-		//�ҵ���Ҫɾ���Ľڵ㣬���濪ʼɾ��
-		//1. Ҫɾ���Ľڵ�û���ӽڵ�,ֱ�ӽ��丸�ڵ�����ӽڵ�������ӽڵ㸳Ϊnull����
+		//锟揭碉拷锟斤拷要删锟斤拷慕诘悖拷锟斤拷婵忌撅拷锟�
+		//1. 要删锟斤拷慕诘锟矫伙拷锟斤拷咏诘锟�直锟接斤拷锟戒父锟节碉拷锟斤拷锟斤拷咏诘锟斤拷锟斤拷锟斤拷锟接节点赋为null锟斤拷锟斤拷
 		if(current.leftChild == null && current.rightChild == null) {
 			return deleteNoChild(current, isLeftChild);
 		}
 		
-		//3. Ҫɾ���Ľڵ��������ӽڵ�
+		//3. 要删锟斤拷慕诘锟斤拷锟斤拷锟斤拷锟斤拷咏诘锟�
 		else if(current.leftChild != null && current.rightChild != null) {
 			return deleteTwoChild(current, isLeftChild);
 		}
 		
-		//2. Ҫɾ���Ľڵ���һ���ӽڵ㣬ֱ�ӽ��俳�ϣ������ӽڵ����丸�ڵ����������ɣ�Ҫ���������������ɾ�����ڵ㣬��Ϊ���ڵ�û�и��ڵ�
+		//2. 要删锟斤拷慕诘锟斤拷锟揭伙拷锟斤拷咏诘悖憋拷咏锟斤拷淇筹拷希锟斤拷锟斤拷锟斤拷咏诘锟斤拷锟斤拷涓革拷诘锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷桑锟揭拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷删锟斤拷锟节点，锟斤拷为锟斤拷诘锟矫伙拷懈锟斤拷诘锟�
 		else {
 			return deleteOneChild(current, isLeftChild);
 		}
@@ -241,7 +241,7 @@ public class BinaryTree {
 		return true;
 	}
 	
-	//���Ҫɾ���ڵ�ĺ�̽ڵ㣨�����������һ���ڵ㣩
+	//锟斤拷锟揭撅拷锟节碉拷暮锟教节点（锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷锟节点）
 	public BNode getSuccessor(BNode delNode) {
 		BNode successor = delNode;
 		BNode current = delNode.rightChild;
@@ -252,9 +252,9 @@ public class BinaryTree {
 		if(successor != delNode.rightChild) {
 			successor.parent.leftChild = successor.rightChild;
 			if(successor.rightChild != null) {		
-				successor.rightChild.parent = successor.parent;//ɾ�������ڵ���ԭ����λ��
+				successor.rightChild.parent = successor.parent;//删锟斤拷锟斤拷锟节碉拷锟斤拷原锟斤拷锟斤拷位锟斤拷
 			}
-			successor.rightChild = delNode.rightChild;//�������ڵ�ŵ���ȷλ�ã����ұ�����
+			successor.rightChild = delNode.rightChild;//锟斤拷锟斤拷锟斤拷诘锟脚碉拷锟斤拷确位锟矫ｏ拷锟斤拷锟揭憋拷锟斤拷锟斤拷
 		}
 		return successor;
 	}

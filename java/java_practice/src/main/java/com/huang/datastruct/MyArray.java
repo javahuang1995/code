@@ -1,4 +1,4 @@
-package Êı¾İ½á¹¹;
+package com.huang.datastruct;
 
 public class MyArray<T> {
 	
@@ -6,12 +6,12 @@ public class MyArray<T> {
 	private int size;
 	private static final int INIT = 10;
 	
-	public MyArray() { //³õÊ¼»¯Êı×é
+	public MyArray() { //é”Ÿæ–¤æ‹·å§‹é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 		this.table = new Object[INIT];
 		this.size = 0;
 	}
 	
-	public MyArray(int max) { //³õÊ¼»¯Êı×é
+	public MyArray(int max) { //é”Ÿæ–¤æ‹·å§‹é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 		this.table = new Object[max];
 		this.size = 0;
 	}
@@ -25,7 +25,7 @@ public class MyArray<T> {
 	}
 	
 	/**
-	 * ÕâÀï²»ĞèÒªÅĞ¶ÏindexÊÇ·ñ»áĞ¡ÓÚ0£¬javaÈç¹û¿´µ½indexĞ¡ÓÚ0£¬table[]¾Í»á±¨´í¡£
+	 * é”Ÿæ–¤æ‹·é”Ÿæ–¤ä¸é”Ÿæ–¤æ‹·è¦é”Ÿå«è®¹æ‹·indexé”Ÿè§’å‡¤æ‹·é”Ÿå«â˜…æ‹·é”Ÿï¿½é”Ÿæ–¤æ‹·javaé”Ÿæ–¤æ‹·é”Ÿçµ ndexå°é”Ÿæ–¤æ‹·0é”Ÿæ–¤æ‹·table[]é”Ÿé…µä¼šæŠ¥é”Ÿï¿½
 	 * @param index
 	 * @return
 	 */

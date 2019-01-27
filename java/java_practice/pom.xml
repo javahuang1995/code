@@ -30,12 +30,18 @@
 		<jedis.version>2.7.2</jedis.version>
 		<solrj.version>4.10.3</solrj.version>
 		<httpclient.version>4.3.5</httpclient.version>
-
+		<java.version>1.7</java.version>
 	</properties>
 
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -273,7 +279,18 @@
 		</dependency>
 
 	</dependencies>
-
-
-
+	<build>
+		<!-- 配置插件 -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<!-- <encoding>UTF-8</encoding> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
