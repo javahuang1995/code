@@ -1,0 +1,201 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sspyth",
+				"Set Syntax: Python"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/我的文档/计算机技术学习/code",
+		"/D/我的文档/计算机技术学习/code/python",
+		"/D/我的文档/计算机技术学习/code/python/com",
+		"/D/我的文档/计算机技术学习/code/python/com/huang",
+		"/D/我的文档/计算机技术学习/code/python/com/huang/__pycache__"
+	],
+	"file_history":
+	[
+		"/D/我的文档/计算机技术学习/code/python/com/huang/myObject.py",
+		"/D/我的文档/计算机技术学习/code/python/my_main.py",
+		"/D/我的文档/计算机技术学习/code/python/mziSpider.py",
+		"/D/我的文档/计算机技术学习/code/python/readme.txt",
+		"/D/我的文档/计算机技术学习/code/python/turtle_test.py",
+		"/D/我的文档/计算机技术学习/code/python/send_email.py",
+		"/D/我的文档/计算机技术学习/code/python/hello.py",
+		"/D/我的文档/计算机技术学习/code/python/com/huang/test.py",
+		"/D/我的文档/计算机技术学习/code/python/com/__init__.py",
+		"/D/我的文档/计算机技术学习/code/python/com/huang/__init__.py",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-order/src/main/resources/mybatis/SqlMapConfig.xml",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/resources/mybatis/SqlMapConfig.xml",
+		"/D/我的文档/计算机技术学习/code/java/eShop/S2SH整合jar包.zip"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 138.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sys",
+			"print",
+			"192.168.131.102"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"192.168.0.104"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sublime.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"python\\com\\huang\\myObject.py"
+			],
+			[
+				"sqlmapconfig.xml",
+				"java/java_taotao商城/taotao/taotao-rest/src/main/resources/mybatis/SqlMapConfig.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
