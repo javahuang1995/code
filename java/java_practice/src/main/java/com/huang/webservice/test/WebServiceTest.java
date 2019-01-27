@@ -6,7 +6,11 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
-
+/**
+ * 这里是基于httpclient3 好不容易才找到正确的Pom.xml
+ * @author huang
+ *
+ */
 public class WebServiceTest {
 	
 	public static void main(String[] args) {
