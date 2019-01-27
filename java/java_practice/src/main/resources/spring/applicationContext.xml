@@ -12,8 +12,15 @@
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:resource/*.properties" />
 
-	<context:component-scan base-package="com.huang.spring.." />
+	<context:component-scan base-package="com.huang.spring..">
+		<context:include-filter type="annotation"
+			expression="org.aspectj.lang.annotation.Aspect" />
+	</context:component-scan>
 
+
+	<!-- 希望spring容器 启动AspectJ功能 -->
+	<aop:aspectj-autoproxy proxy-target-class="true">
+	</aop:aspectj-autoproxy>
 
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
