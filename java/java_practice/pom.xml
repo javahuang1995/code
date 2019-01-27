@@ -58,14 +58,20 @@
 
 
 		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>${httpclient.version}</version>
+			<artifactId>httpclient-cache</artifactId>
+			<version>4.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>4.5.6</version>
+			<artifactId>httpmime</artifactId>
+			<version>4.3.2</version>
 		</dependency>
 
 
