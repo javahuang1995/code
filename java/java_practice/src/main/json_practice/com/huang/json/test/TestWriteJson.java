@@ -1,4 +1,4 @@
-package com.huang.js.test;
+package com.huang.json.test;
 
 import java.io.IOException;
 

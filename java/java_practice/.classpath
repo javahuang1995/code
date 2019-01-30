@@ -6,6 +6,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src/main/webservice_practice"/>
+	<classpathentry kind="src" path="src/main/redis_practice"/>
+	<classpathentry kind="src" path="src/main/rpc_test"/>
+	<classpathentry kind="src" path="src/main/json_practice"/>
+	<classpathentry kind="src" path="src/main/hibernate_practice"/>
+	<classpathentry kind="src" path="src/main/rabbitmq_practice"/>
+	<classpathentry kind="src" path="src/main/mybatis_practice"/>
+	<classpathentry kind="src" path="src/main/spring_practice"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
