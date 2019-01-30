@@ -1,7 +1,6 @@
 package com.huang.hibernate.test;
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -53,14 +52,6 @@ public class HibernateConnTest {
 		System.out.println(s);
 		
 	}
-	
-	@Test
-	public void testConViaMybatis(){
-		SqlSession s = sqlsessionFactory.openSession();
-		System.out.println(s);
-		
-		
-		
-	}
+
 
 }

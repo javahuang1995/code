@@ -3,7 +3,6 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,17 +25,7 @@ public class MybatisConnTest {
 	@Resource
 	private TbItemMapper itemMapper;
 	
-	
-	
-	@Test
-	public void testCon(){
-		//这样没办法获取连接
-		//Session s = sessionFactory.getCurrentSession();
-		Session s = sessionFactory.openSession();
-		System.out.println(s);
-		
-	}
-	
+
 	@Test
 	public void testConViaMybatis(){
 		SqlSession s = sqlsessionFactory.openSession();
