@@ -1,4 +1,4 @@
-package com.huang.datastruct;
+package com.huang.datastruct.line;
 
 public class MyArray<T> {
 	

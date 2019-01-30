@@ -1,4 +1,4 @@
-package com.huang.datastruct;
+package com.huang.datastruct.btree;
 public class BinaryTree {
 	private BNode root; //锟斤拷诘锟�
 	
