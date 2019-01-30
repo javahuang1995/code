@@ -44,14 +44,26 @@
 	},
 	"expanded_folders":
 	[
-		"/D/我的文档/计算机技术学习/code",
-		"/D/我的文档/计算机技术学习/code/python",
-		"/D/我的文档/计算机技术学习/code/python/com",
-		"/D/我的文档/计算机技术学习/code/python/com/huang",
-		"/D/我的文档/计算机技术学习/code/python/com/huang/__pycache__"
+		"/D/code"
 	],
 	"file_history":
 	[
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-portal/src/main/java/com/taotao/portal/service/impl/SearchServiceImpl.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-portal/src/main/java/com/taotao/portal/service/impl/OrderServiceImpl.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-common/src/main/java/com/taotao/common/utils/HttpClientUtil.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-portal/src/main/java/com/taotao/portal/service/impl/UserServiceImpl.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-manager/taotao-manager-web/src/main/java/com/taotao/controller/PictureController.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/service/impl/ItemServiceImpl.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/controller/ContentController.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/controller/RedisController.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/controller/ItemCatController.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/dao/impl/JedisClientSingle.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/java/com/taotao/rest/dao/impl/JedisClientCluster.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/resources/resource/resource.properties",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/resources/resource/db.properties",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-order/src/main/java/com/taotao/order/dao/impl/JedisClientCluster.java",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-rest/src/main/resources/spring/applicationContext-jedis.xml",
+		"/D/我的文档/计算机技术学习/code/java/java_taotao商城/taotao/taotao-order/src/main/java/com/taotao/order/dao/impl/JedisClientSingle.java",
 		"/D/我的文档/计算机技术学习/code/python/com/huang/myObject.py",
 		"/D/我的文档/计算机技术学习/code/python/my_main.py",
 		"/D/我的文档/计算机技术学习/code/python/mziSpider.py",
@@ -75,6 +87,9 @@
 		"height": 138.0,
 		"where_history":
 		[
+			"",
+			"java",
+			""
 		]
 	},
 	"find_state":
@@ -82,6 +97,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"JsonUtils",
+			"JSON",
+			"toJSONString",
 			"sys",
 			"print",
 			"192.168.131.102"
@@ -157,6 +175,14 @@
 		"selected_items":
 		[
 			[
+				"jedisclientcluster",
+				"java\\java_taotao商城\\taotao\\taotao-order\\src\\main\\java\\com\\taotao\\order\\dao\\impl\\JedisClientCluster.java"
+			],
+			[
+				"jedisclientsingle",
+				"java\\java_taotao商城\\taotao\\taotao-order\\src\\main\\java\\com\\taotao\\order\\dao\\impl\\JedisClientSingle.java"
+			],
+			[
 				"",
 				"python\\com\\huang\\myObject.py"
 			],
@@ -193,7 +219,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 293.0,
+	"side_bar_width": 338.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
