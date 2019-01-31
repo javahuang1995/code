@@ -1,9 +1,24 @@
 package com.huang.sort;
 
+import java.util.Arrays;
+
+/**
+ * 二叉堆排序
+ * 
+ * @author Administrator 其实就是构造一个二叉堆。就完事了。二叉堆本来就是有序的。
+ *
+ */
 public class HeapSort {
 	private int[] array;
 	private int currentIndex;
 	private int maxSize;
+
+	public static void main(String[] args) {
+		HeapSort heap = new HeapSort(50);
+		int[] a = { 2, 3, 5, 1, 23, 6, 78, 34, 23, 4, 5, 78, 34, 65, 32, 65, 76, 32, 76, 1, 9 };
+		heap.insertSort(a);
+		System.out.println(Arrays.toString(a));
+	}
 
 	public HeapSort(int size) {
 		maxSize = size;

@@ -1,45 +1,58 @@
 package com.huang.sort;
 
+import java.util.Arrays;
+
+/**
+ * 归并排序
+ * 
+ * @author Administrator
+ *
+ */
 public class MergeSort {
 
-	public void mergeSort(int[] source) {
-		int[] workSpace = new int[source.length];
-		recMergeSort(source, workSpace, 0, source.length - 1);
+	public static void main(String[] args) {
+		int[] arr = new int[] { 4, 7, 6, 5, 3, 2, 8, 1 };
+		sort(arr, 0, arr.length - 1);
+		System.out.println(Arrays.toString(arr));
 	}
-
-	private void recMergeSort(int[] source, int[] workSpace, int lowerBound, int upperBound) {
-		if (lowerBound == upperBound) {
-			return;
-		} else {
-			int mid = (lowerBound + upperBound) / 2;
-			recMergeSort(source, workSpace, lowerBound, mid); // 左边排
-			recMergeSort(source, workSpace, mid + 1, upperBound); // 右边排
-			merge(source, workSpace, lowerBound, mid + 1, upperBound);// 归并
+	
+	public static int[] sort(int[] a, int low, int high) {
+		int mid = (low + high) / 2;
+		if (low < high) {
+			sort(a, low, mid);
+			sort(a, mid + 1, high);
+			// 左右归并
+			merge(a, low, mid, high);
 		}
+		return a;
 	}
 
-	private void merge(int[] a, int[] workSpace, int lowPtr, int highPtr, int upperBound) {
-		int j = 0;
-		int lowerBound = lowPtr;
-		int mid = highPtr - 1;
-		int n = upperBound - lowerBound + 1;
-		while (lowPtr <= mid && highPtr <= upperBound) {
-			if (a[lowPtr] < a[highPtr]) {
-				workSpace[j++] = a[lowPtr++];
+	public static void merge(int[] a, int low, int mid, int high) {
+		int[] temp = new int[high - low + 1];
+		int i = low;
+		int j = mid + 1;
+		int k = 0;
+		// 把较小的数先移到新数组中
+		while (i <= mid && j <= high) {
+			if (a[i] < a[j]) {
+				temp[k++] = a[i++];
 			} else {
-				workSpace[j++] = a[highPtr++];
+				temp[k++] = a[j++];
 			}
 		}
-		while (lowPtr <= mid) {
-			workSpace[j++] = a[lowPtr++];
+		// 把左边剩余的数移入数组
+		while (i <= mid) {
+			temp[k++] = a[i++];
 		}
-
-		while (highPtr <= upperBound) {
-			workSpace[j++] = a[highPtr++];
+		// 把右边边剩余的数移入数组
+		while (j <= high) {
+			temp[k++] = a[j++];
 		}
-
-		for (j = 0; j < n; j++) {
-			a[lowerBound + j] = workSpace[j];
+		// 把新数组中的数覆盖nums数组
+		for (int x = 0; x < temp.length; x++) {
+			a[x + low] = temp[x];
 		}
 	}
+	
+	
 }

@@ -1,5 +1,7 @@
 package com.huang.sort;
 
+import java.util.Arrays;
+
 public class Tree2Sort {
 	private Node root;
 
@@ -10,7 +12,14 @@ public class Tree2Sort {
 	public Node getRoot() {
 		return root;
 	}
-
+	
+	public static void main(String[] args) {
+		Tree2Sort treesort = new Tree2Sort();
+		int[] a = { 2, 3, 5, 1, 23, 6, 78, 34, 23, 4, 5, 78, 34, 65, 32, 65, 76, 32, 76, 1, 9 };
+		treesort.insertSort(a);
+		treesort.inOrder(treesort.root);
+	}
+	
 	public void insertSort(int[] source) {
 		for (int i = 0; i < source.length; i++) {
 			int value = source[i];
