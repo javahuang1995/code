@@ -28,9 +28,9 @@ public class QuickSort {
 			if (leftPtr >= rightPtr)
 				break;
 			else
-				swap(leftPtr, rightPtr);
+				swap(a,leftPtr, rightPtr);
 		}
-		swap(leftPtr, right);// 将划分放在正确的位置
+		swap(a,leftPtr, right);// 将划分放在正确的位置
 		return leftPtr;// 返回划分点，用于再次小范围划分
 	}
 
@@ -57,19 +57,19 @@ public class QuickSort {
 		}
 		if (size == 2) {
 			if (a[left] > a[right]) { // 2个很好排
-				swap(left, right);
+				swap(a,left, right);
 			}
 			return;
 		} else { // 3个比较下就可以排好了
 			int center = right - 1;
 			if (a[left] > a[center]) {
-				swap(left, center);
+				swap(a,left, center);
 			}
 			if (a[left] > a[right]) {
-				swap(left, right);
+				swap(a,left, right);
 			}
 			if (a[center] > a[right]) {
-				swap(center, right);
+				swap(a,center, right);
 			}
 		}
 	}
@@ -77,15 +77,15 @@ public class QuickSort {
 	private long medianOf3(int[] a, int left, int right) {
 		int center = (left + right) / 2;
 		if (a[left] > a[center]) {
-			swap(left, center);
+			swap(a,left, center);
 		}
 		if (a[left] > a[right]) {
-			swap(left, right);
+			swap(a,left, right);
 		}
 		if (a[center] > a[right]) {
-			swap(center, right);
+			swap(a,center, right);
 		} // 已经将三个排好序
-		swap(center, right - 1); // 然后将枢纽保存在right-1位置
+		swap(a,center, right - 1); // 然后将枢纽保存在right-1位置
 		return a[right - 1];// 这保证了首位置比枢纽值小，最末尾位置比枢纽值大
 	}
 
@@ -100,9 +100,9 @@ public class QuickSort {
 			if (leftPtr >= rightPtr)
 				break;
 			else
-				swap(leftPtr, rightPtr);
+				swap(a,leftPtr, rightPtr);
 		}
-		swap(leftPtr, right - 1);// 把right-1处存放的枢纽放到正确位置
+		swap(a,leftPtr, right - 1);// 把right-1处存放的枢纽放到正确位置
 		return leftPtr;// 返回划分点，用于再次小范围划分
 	}
 
@@ -125,9 +125,16 @@ public class QuickSort {
 	private void insertionSort(int[] a, int left, int right) {
 		for (int i = left + 1; i <= right; i++) {
 			for (int j = i; (j > left) && (a[j] < a[j - 1]); j--) {
-				swap(j, j - 1);
+				swap(a,j, j - 1);
 			}
 		}
+	}
+	
+
+	public static void swap(int[] a, int j, int i) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
 	}
 
 }
