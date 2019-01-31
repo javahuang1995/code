@@ -1,15 +1,17 @@
 package com.huang.datastruct.btree;
 
+import com.huang.datastruct.rbtree.BNode;
+
 /**
- * 二叉树
+ * 二叉排序树BST
  * 
- * @author Administrator 实现方法：查找，插入，遍历，删除。
+ * @author Administrator 实现方法： 查找 遍历 删除 插入
  *
  */
-public class BinaryTree {
-	private BNode root;
+public class BinarySortTree {
+	protected BNode root;
 
-	public BinaryTree() {
+	public BinarySortTree() {
 		root = null;
 	}
 
@@ -52,7 +54,7 @@ public class BinaryTree {
 			BNode current = root;
 			BNode parent;
 			while (true) {
-				parent = current;
+				parent = current;//在更新current之前，先保存current值到parent
 				if (key < current.data) { // turn left
 					current = current.left;
 					if (current == null) {
@@ -197,7 +199,7 @@ public class BinaryTree {
 		node = successor;
 		if (node.right == null) {
 			return deleteNoChild(node);
-		}else{
+		} else {
 			return deleteOneChild(node);
 		}
 	}
@@ -220,14 +222,4 @@ public class BinaryTree {
 	}
 }
 
-class BNode {
-	public int key;
-	public double data;
-	public BNode parent;
-	public BNode left;
-	public BNode right;
 
-	public void displayNode() {
-		System.out.println("{" + key + ":" + data + "}");
-	}
-}
