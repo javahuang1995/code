@@ -1,140 +1,111 @@
 package com.huang.sort;
 
+import java.util.Arrays;
+
+/**
+ * 快速排序
+ * 
+ * @author Administrator
+ *
+ */
 public class QuickSort {
-
-	public void quickSort(int[] a) {
-		recQuickSort(a, 0, a.length - 1);
-	}
-
-	public void recQuickSort(int[] a, int left, int right) {
-		if (right - left <= 0) {
+	public static void quickSort(int[] arr, int startIndex, int endIndex) {
+		// 递归结束条件：startIndex大等于endIndex的时候
+		if (startIndex >= endIndex) {
 			return;
-		} else {
-			int pivot = a[right]; // 保存最右边的值，以这个值作为划分点
-			int partition = partitionIt(a, left, right, pivot);// 将数组划分两部分，并将划分点的值放在正确位置，并返回该位置
-			recQuickSort(a, left, partition - 1);// 调用自身对左边进行排序
-			recQuickSort(a, partition + 1, right);// 调用自身对右边进行排序
 		}
+		// 得到基准元素位置
+		int pivotIndex = partition2(arr, startIndex, endIndex);
+		// 用分治法递归数列的两部分
+		quickSort(arr, startIndex, pivotIndex - 1);
+		quickSort(arr, pivotIndex + 1, endIndex);
 	}
 
-	public int partitionIt(int[] a, int left, int right, int pivot) {
-		int leftPtr = left - 1;
-		int rightPtr = right;
-		while (true) {
-			while (a[++leftPtr] < pivot) {
-			} // 往上找
-			while (rightPtr > 0 && a[--rightPtr] > pivot) {
-			} // 往下找
-			if (leftPtr >= rightPtr)
-				break;
-			else
-				swap(a,leftPtr, rightPtr);
-		}
-		swap(a,leftPtr, right);// 将划分放在正确的位置
-		return leftPtr;// 返回划分点，用于再次小范围划分
-	}
+	/**
+	 * 填坑法
+	 * 
+	 * @param arr
+	 * @param startIndex
+	 * @param endIndex
+	 * @return
+	 */
+	private static int partition(int[] arr, int startIndex, int endIndex) {
+		// 取第一个位置的元素作为基准元素
+		int pivot = arr[startIndex];
 
-	public void quickSort2(int[] a) {
-		recQuickSort2(a, 0, a.length - 1);
-	}
+		int left = startIndex;
+		int right = endIndex;
+		// 坑的位置，初始等于pivot的位置
+		int index = startIndex;
 
-	public void recQuickSort2(int[] a, int left, int right) {
-		int size = right - left + 1;
-		if (size <= 3) {
-			manualSort(a, left, right);// 数据项小于等于3个，直接排
-		} else {
-			long median = medianOf3(a, left, right);// 取左边、右边和中间三个数中中等大小的数作为枢纽
-			int partition = partitionIt2(a, left, right, median);// 将枢纽放到正确的位置
-			recQuickSort2(a, left, partition - 1);// 调用自身对左边进行排序
-			recQuickSort2(a, partition + 1, right);// 调用自身对右边进行排序
-		}
-	}
-
-	private void manualSort(int[] a, int left, int right) {
-		int size = right - left + 1;
-		if (size <= 1) {
-			return; // 1个不用排
-		}
-		if (size == 2) {
-			if (a[left] > a[right]) { // 2个很好排
-				swap(a,left, right);
+		// 大循环在左右指针重合或者交错时结束
+		while (right >= left) {
+			// right指针从右向左进行比较
+			while (right >= left) {
+				if (arr[right] < pivot) {
+					arr[left] = arr[right];
+					index = right;// 成为新的坑
+					left++;// left向右移动
+					break;
+				}
+				right--;
 			}
-			return;
-		} else { // 3个比较下就可以排好了
-			int center = right - 1;
-			if (a[left] > a[center]) {
-				swap(a,left, center);
-			}
-			if (a[left] > a[right]) {
-				swap(a,left, right);
-			}
-			if (a[center] > a[right]) {
-				swap(a,center, right);
+			// left指针从左向右进行比较
+			while (right >= left) {
+				if (arr[left] > pivot) {
+					arr[right] = arr[left];
+					index = left;// 成为新的坑
+					right--;// right向左移动
+					break;
+				}
+				left++;
 			}
 		}
+		arr[index] = pivot;// 填入最后一个坑
+		return index;
 	}
 
-	private long medianOf3(int[] a, int left, int right) {
-		int center = (left + right) / 2;
-		if (a[left] > a[center]) {
-			swap(a,left, center);
-		}
-		if (a[left] > a[right]) {
-			swap(a,left, right);
-		}
-		if (a[center] > a[right]) {
-			swap(a,center, right);
-		} // 已经将三个排好序
-		swap(a,center, right - 1); // 然后将枢纽保存在right-1位置
-		return a[right - 1];// 这保证了首位置比枢纽值小，最末尾位置比枢纽值大
-	}
+	/**
+	 * 指针交换法
+	 * @param arr
+	 * @param startIndex
+	 * @param endIndex
+	 * @return
+	 */
+	private static int partition2(int[] arr, int startIndex, int endIndex) {
+		// 取第一个位置的元素作为基准元素
+		int pivot = arr[startIndex];
+		int left = startIndex;
+		int right = endIndex;
 
-	public int partitionIt2(int[] a, int left, int right, long pivot) {
-		int leftPtr = left;
-		int rightPtr = right - 1;
-		while (true) {
-			while (a[++leftPtr] < pivot) {
-			} // 往上找
-			while (a[--rightPtr] > pivot) {
-			} // 往下找
-			if (leftPtr >= rightPtr)
-				break;
-			else
-				swap(a,leftPtr, rightPtr);
-		}
-		swap(a,leftPtr, right - 1);// 把right-1处存放的枢纽放到正确位置
-		return leftPtr;// 返回划分点，用于再次小范围划分
-	}
-
-	public void quickSort3(int[] a) {
-		recQuickSort3(a, 0, a.length - 1);
-	}
-
-	public void recQuickSort3(int[] a, int left, int right) {
-		int size = right - left + 1;
-		if (size < 10) {
-			insertionSort(a, left, right);// 小于10项使用插入排序
-		} else { // 大于10项使用快速排序
-			long median = medianOf3(a, left, right);
-			int partition = partitionIt2(a, left, right, median);// 上面的partionIt2方法
-			recQuickSort3(a, left, partition - 1);
-			recQuickSort3(a, partition + 1, right);
-		}
-	}
-
-	private void insertionSort(int[] a, int left, int right) {
-		for (int i = left + 1; i <= right; i++) {
-			for (int j = i; (j > left) && (a[j] < a[j - 1]); j--) {
-				swap(a,j, j - 1);
+		while (left != right) {
+			// 控制right指针比较并左移
+			while (left < right && arr[right] > pivot) {
+				right--;
+			}
+			// 控制right指针比较并右移
+			while (left < right && arr[left] <= pivot) {
+				left++;
+			}
+			// 交换left和right指向的元素
+			if (left < right) {
+				int p = arr[left];
+				arr[left] = arr[right];
+				arr[right] = p;
 			}
 		}
-	}
-	
 
-	public static void swap(int[] a, int j, int i) {
-		int tmp = a[i];
-		a[i] = a[j];
-		a[j] = tmp;
+		// pivot和指针重合点交换
+		int p = arr[left];
+		arr[left] = arr[startIndex];
+		arr[startIndex] = p;
+
+		return left;
 	}
 
+	public static void main(String[] args) {
+		int[] arr = new int[] { 4, 7, 6, 5, 3, 2, 8, 1 };
+		quickSort(arr, 0, arr.length - 1);
+		System.out.println(Arrays.toString(arr));
+	}
 }
