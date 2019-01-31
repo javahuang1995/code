@@ -1,53 +1,69 @@
 package com.huang.datastruct.btree;
+
+/**
+ * 二叉树
+ * 
+ * @author Administrator 实现方法：查找，插入，遍历，删除。
+ *
+ */
 public class BinaryTree {
-	private BNode root; //锟斤拷诘锟�
-	
+	private BNode root;
+
 	public BinaryTree() {
 		root = null;
 	}
-	
-	//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟揭碉拷时锟戒复锟接讹拷为O(logN)
-	public BNode find(int key) { //find node with given key
+
+	/**
+	 * 定义一个BNode作为result返回 当result.key和查找的内容不一样，就一直循环 小，则向左，大则向右
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public BNode find(int key) { // find node with given key
 		BNode result = root;
-		while(result.key != key) {
-			if(key < result.key) {
-				result = result.leftChild;
+		while (result.key != key) {
+			if (key < result.key) {
+				result = result.left;
+			} else {
+				result = result.right;
 			}
-			else {
-				result = result.rightChild;
-			}
-			if(result == null) {
+			if (result == null) {
 				return null;
 			}
 		}
 		return result;
 	}
-	
-	//锟斤拷锟斤拷诘锟�
+
+	/**
+	 * 
+	 * @param key
+	 * @param value
+	 */
 	public void insert(int key, double value) {
+		// 根据传入的参数构造一个节点
 		BNode newNode = new BNode();
 		newNode.key = key;
 		newNode.data = value;
-		if(root == null) { //if tree is null
+
+		if (root == null) { // if tree is null
 			root = newNode;
-		}
-		else {
+		} else {
+			// current表示插入的位置，parent是插入位置的父节点。
 			BNode current = root;
 			BNode parent;
-			while(true) {
+			while (true) {
 				parent = current;
-				if(key < current.data) { //turn left
-					current = current.leftChild;
-					if(current == null) {
-						parent.leftChild = newNode;
+				if (key < current.data) { // turn left
+					current = current.left;
+					if (current == null) {
+						parent.left = newNode;
 						newNode.parent = parent;
 						return;
 					}
-				}
-				else { //turn right
-					current = current.rightChild;
-					if(current == null) {
-						parent.rightChild = newNode;
+				} else { // turn right
+					current = current.right;
+					if (current == null) {
+						parent.right = newNode;
 						newNode.parent = parent;
 						return;
 					}
@@ -55,218 +71,162 @@ public class BinaryTree {
 			}
 		}
 	}
-	
-	//锟斤拷锟斤拷锟斤拷锟斤拷锟�
+
+	/**
+	 * 遍历
+	 * 
+	 * @param traverseType
+	 */
 	public void traverse(int traverseType) {
-		switch(traverseType)
-		{
-		case 1: System.out.println("Preorder traversal:");
-				preOrder(root);//前锟斤拷锟斤拷锟�
-				break;
-		case 2: System.out.println("Inorder traversal:");
-				inOrder(root);//锟斤拷锟斤拷锟斤拷锟�
-				break;
-		case 3: System.out.println("Postorder traversal:");
-				postOrder(root);//锟斤拷锟斤拷锟斤拷锟�
-				break;
-		default: System.out.println("Inorder traversal:");
-				inOrder(root);
-				break;
+		switch (traverseType) {
+		case 1:
+			System.out.println("Preorder traversal:");
+			preOrder(root);// 前序遍历
+			break;
+		case 2:
+			System.out.println("Inorder traversal:");
+			inOrder(root);// 中序遍历
+			break;
+		case 3:
+			System.out.println("Postorder traversal:");
+			postOrder(root);// 后序遍历
+			break;
+		default:
+			System.out.println("Inorder traversal:");
+			inOrder(root);
+			break;
 		}
 		System.out.println("");
 	}
-	
-	//前锟斤拷锟斤拷锟�
+
 	private void preOrder(BNode localRoot) {
-		if(localRoot != null) {
-			System.out.print(localRoot.data + " ");
-			preOrder(localRoot.leftChild);
-			preOrder(localRoot.rightChild);
+		if (localRoot != null) {
+			System.out.print(localRoot.data + " ");// 打印data就完事了
+			preOrder(localRoot.left);
+			preOrder(localRoot.right);
 		}
 	}
-	
-	//锟斤拷锟斤拷锟斤拷锟�
+
 	private void inOrder(BNode localRoot) {
-		if(localRoot != null) {
-			inOrder(localRoot.leftChild);
+		if (localRoot != null) {
+			inOrder(localRoot.left);
 			System.out.print(localRoot.data + " ");
-			inOrder(localRoot.rightChild);
+			inOrder(localRoot.right);
 		}
 	}
-	
-	//锟斤拷锟斤拷锟斤拷锟�
+
 	private void postOrder(BNode localRoot) {
-		if(localRoot != null) {
-			postOrder(localRoot.leftChild);
-			postOrder(localRoot.rightChild);
+		if (localRoot != null) {
+			postOrder(localRoot.left);
+			postOrder(localRoot.right);
 			System.out.print(localRoot.data + " ");
 		}
 	}
-	
-	//锟斤拷锟斤拷锟斤拷小值
-	/*锟斤拷荻锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷拇娲拷锟斤拷锟斤拷锟叫≈涤︼拷锟斤拷锟斤拷锟斤拷锟角革拷没锟斤拷锟接节碉拷锟斤拷歉锟斤拷诘锟�/
-	public BNode minNumber() {
-		BNode current = root;
-		BNode parent = root;
-		while(current != null) {
-			parent = current;
-			current = current.leftChild;
-		}	
-		return parent;
-	}
-	
-	//锟斤拷锟斤拷锟斤拷锟街�
-	/*锟斤拷荻锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷拇娲拷锟斤拷锟斤拷锟斤拷值应锟斤拷锟斤拷锟揭憋拷锟角革拷没锟斤拷锟接节碉拷锟斤拷歉锟斤拷诘锟�/
-	public BNode maxNumber() {
-		BNode current = root;
-		BNode parent = root;
-		while(current != null) {
-			parent = current;
-			current = current.rightChild;
-		}	
-		return parent;
-	}
-	
-	//删锟斤拷诘锟�
-	/*
-	 * 删锟斤拷诘锟斤拷诙锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷罡达拷拥模锟斤拷锟揭拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
-	 * 1. 锟矫节碉拷没锟斤拷锟接节点（锟津单ｏ拷
-	 * 2. 锟矫节碉拷锟斤拷一锟斤拷锟接节点（锟斤拷锟叫ｏ拷
-	 * 3. 锟矫节碉拷锟斤拷锟斤拷锟斤拷锟接节点（锟斤拷锟接ｏ拷
-	 * 删锟斤拷诘锟斤拷时锟戒复锟接讹拷为O(logN)
-	 */
+
 	public boolean delete(int key) {
-		BNode current = root;
-//		BNode parent = root;
-		boolean isLeftChild = true;
-		
-		if(current == null) {
+		BNode current = find(key);
+		if (current == null) {
 			return false;
 		}
-		//寻锟斤拷要删锟斤拷慕诘锟�
-		while(current.data != key) {
-//			parent = current;
-			if(key < current.key) {
-				isLeftChild = true;
-				current = current.leftChild;
-			}
-			else {
-				isLeftChild = false;
-				current = current.rightChild;
-			}
-			if(current == null) {
-				return false;
-			}
+		if (current.left == null && current.right == null) {
+			return deleteNoChild(current);
 		}
-		
-		//锟揭碉拷锟斤拷要删锟斤拷慕诘悖拷锟斤拷婵忌撅拷锟�
-		//1. 要删锟斤拷慕诘锟矫伙拷锟斤拷咏诘锟�直锟接斤拷锟戒父锟节碉拷锟斤拷锟斤拷咏诘锟斤拷锟斤拷锟斤拷锟接节点赋为null锟斤拷锟斤拷
-		if(current.leftChild == null && current.rightChild == null) {
-			return deleteNoChild(current, isLeftChild);
+
+		else if (current.left != null && current.right != null) {
+			return deleteTwoChild(current);
+		} else {
+			return deleteOneChild(current);
 		}
-		
-		//3. 要删锟斤拷慕诘锟斤拷锟斤拷锟斤拷锟斤拷咏诘锟�
-		else if(current.leftChild != null && current.rightChild != null) {
-			return deleteTwoChild(current, isLeftChild);
-		}
-		
-		//2. 要删锟斤拷慕诘锟斤拷锟揭伙拷锟斤拷咏诘悖憋拷咏锟斤拷淇筹拷希锟斤拷锟斤拷锟斤拷咏诘锟斤拷锟斤拷涓革拷诘锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷桑锟揭拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷删锟斤拷锟节点，锟斤拷为锟斤拷诘锟矫伙拷懈锟斤拷诘锟�
-		else {
-			return deleteOneChild(current, isLeftChild);
-		}
-		
 	}
-	
-	public boolean deleteNoChild(BNode node, boolean isLeftChild) {
-		if(node == root) {
+
+	public boolean deleteNoChild(BNode node) {
+		if (node == root) {
 			root = null;
 			return true;
 		}
-		if(isLeftChild) {
-			node.parent.leftChild = null;
-		}
-		else {
-			node.parent.rightChild = null;
-		}
-		return true;
-	}
-	
-	public boolean deleteOneChild(BNode node, boolean isLeftChild) {
-		if(node.leftChild == null) {
-			if(node == root) {
-				root = node.rightChild;
-				node.parent = null;
-				return true;
-			}
-			if(isLeftChild) {
-				node.parent.leftChild  = node.rightChild;
-			}
-			else {
-				node.parent.rightChild = node.rightChild;
-			}
-			node.rightChild.parent = node.parent;
-		}
-		else {
-			if(node == root) {
-				root = node.leftChild;
-				node.parent = null;
-				return true;
-			}
-			if(isLeftChild) {
-				node.parent.leftChild  = node.leftChild;
-			}
-			else {
-				node.parent.rightChild = node.leftChild;
-			}
-			node.leftChild.parent = node.parent;
+		// 判断Node是不是父节点的左节点
+		if (node.parent.left == node) {
+			node.parent.left = null;
+		} else {
+			node.parent.right = null;
 		}
 		return true;
 	}
-	
-	public boolean deleteTwoChild(BNode node, boolean isLeftChild) {
+
+	public boolean deleteOneChild(BNode node) {
+		if (node == root) {
+			root = null;
+			return true;
+		}
+		// 先找到子节点，不需要管他是左是右
+		BNode child = null;
+		if (node.left != null) {
+			child = node.left;
+		} else {
+			child = node.right;
+		}
+
+		// 这里忽略了父节点不存在的情况，最后会巧妙的处理这种情况
+		// 将父节点和子节点建立关系
+		if (node.parent.left == node) {
+			node.parent.left = child;
+		} else {
+			node.parent.right = child;
+		}
+
+		child.parent = node.parent;
+		return true;
+	}
+
+	/**
+	 * 1.获取要删除节点的后继节点 2.转移值 3.删除后继节点。
+	 * 
+	 * @param node
+	 * @param isLeftChild
+	 * @return
+	 */
+	public boolean deleteTwoChild(BNode node) {
+		// 获取后继结点
 		BNode successor = getSuccessor(node);
-		if(node == root) {
-			successor.leftChild = root.leftChild;
-			successor.rightChild = root.rightChild;
-			successor.parent = null;
-			root = successor;
+		// 转移后继结点值到当前节点
+		node.key = successor.key;
+
+		// 把要删除的当前节点设置为后继结点
+		// 经过前一步处理，下面只有前两种情况，只能是一个节点或者没有节点
+		// 后继节点一定不会有左节点，但是一定有右节点
+		node = successor;
+		if (node.right == null) {
+			return deleteNoChild(node);
+		}else{
+			return deleteOneChild(node);
 		}
-		else if(isLeftChild) {
-			node.parent.leftChild = successor;
-		}
-		else {
-			node.parent.rightChild = successor;
-		}
-		successor.leftChild = node.leftChild;//connect successor to node's left child
-		return true;
 	}
-	
-	//锟斤拷锟揭撅拷锟节碉拷暮锟教节点（锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷锟节点）
-	public BNode getSuccessor(BNode delNode) {
-		BNode successor = delNode;
-		BNode current = delNode.rightChild;
-		while(current != null) {
+
+	public BNode getSuccessor(BNode node) {
+		BNode successor = node;
+		BNode current = node.right;
+		while (current != null) {
 			successor = current;
-			current = current.leftChild;
+			current = current.left;
 		}
-		if(successor != delNode.rightChild) {
-			successor.parent.leftChild = successor.rightChild;
-			if(successor.rightChild != null) {		
-				successor.rightChild.parent = successor.parent;//删锟斤拷锟斤拷锟节碉拷锟斤拷原锟斤拷锟斤拷位锟斤拷
+		if (successor != node.right) {
+			successor.parent.left = successor.right;
+			if (successor.right != null) {
+				successor.right.parent = successor.parent;
 			}
-			successor.rightChild = delNode.rightChild;//锟斤拷锟斤拷锟斤拷诘锟脚碉拷锟斤拷确位锟矫ｏ拷锟斤拷锟揭憋拷锟斤拷锟斤拷
+			successor.right = node.right;
 		}
 		return successor;
 	}
 }
- 
+
 class BNode {
 	public int key;
 	public double data;
 	public BNode parent;
-	public BNode leftChild;
-	public BNode rightChild;
-	
+	public BNode left;
+	public BNode right;
+
 	public void displayNode() {
 		System.out.println("{" + key + ":" + data + "}");
 	}

@@ -1,379 +1,86 @@
+/**
+ * 最大堆的实现
+ */
 package com.huang.datastruct.heap;
 
-public
-
-class
-
-Heap
-
-{
-
-	private
-
-	Node[] heapArray;
-
-	private
-
-	int maxSize;
-
-	private
-
-	int currentSize;
-
-	public
-
-	Heap(int mx)
-
-	{
-		maxSize = mx;
-		currentSize =
-
-				0;
-		heapArray =
-
-				new
-
-				Node[maxSize];
-
+// 定义节点
+class Node{
+	private int idata;
+	public Node(int data){
+		idata = data;
 	}
-
-	public
-
-			boolean isEmpty()
-
-	{
-
-		return
-
-		(currentSize ==
-
-		0) ?
-
-				true
-
-				:
-
-				false;
-
+	public int getKey(){
+		return idata;
 	}
+}
 
-	public
-
-			boolean isFull()
-
-	{
-
-		return
-
-		(currentSize == maxSize) ?
-
-				true
-
-				:
-
-				false;
-
+// 定义堆
+class Heap{
+	private Node[] heapArray;		// 存储节点的数组
+	private int maxSize;			// 最大存储大小
+	private int currSize;			// 当前大小
+	public Heap(int size){
+		maxSize = size;
+		currSize = 0;
+		heapArray = new Node[size];
 	}
-
-	public
-
-			boolean insert(int key)
-
-	{
-
-		if (isFull())
-
-		{
-
-			return
-
-			false;
-
+	// 判断是否为空
+	public boolean isEmpty(){
+		return (currSize == 0);
+	}
+	// 插入元素
+	public boolean insert(int key){
+		// 存储已满
+		if (currSize == maxSize)
+			return false;
+		Node node = new Node(key);
+		// 将新节点放到数组最后
+		heapArray[currSize] = node;
+		// 调整堆结构
+		trickleUp(currSize++);
+		return true;
+	}
+	// 向上比较
+	private void trickleUp(int i) {
+		// 父节点角标
+		int parent = (i - 1) / 2;
+		Node temp = heapArray[i];
+		// 当前节点关键字大于父节点关键字
+		while (i > 0 && temp.getKey() > heapArray[parent].getKey()){
+			heapArray[i] = heapArray[parent];
+			i = parent;
+			parent = (i - 1) / 2; 
 		}
-
-		Node newNode =
-
-				new
-
-				Node(key);
-		heapArray[currentSize]
-
-				= newNode;
-		trickleUp(currentSize++);
-
-		return
-
-		true;
-
+		heapArray[i] = temp;
 	}
-
-	// 向上调整
-
-	public
-
-			void trickleUp(int index)
-
-	{
-
-		int parent =
-
-				(index -
-
-						1)
-
-						/
-
-						2;
-
-		// 父节点的索引
-
-		Node bottom = heapArray[index];
-
-		// 将新加的尾节点存在bottom中
-
-		while (index >
-
-		0
-
-				&& heapArray[parent].getKey()
-
-				< bottom.getKey())
-
-		{
-			heapArray[index]
-
-					= heapArray[parent];
-			index = parent;
-			parent =
-
-					(parent -
-
-							1)
-
-							/
-
-							2;
-
-		}
-		heapArray[index]
-
-				= bottom;
-
-	}
-
-	public
-
-			Node remove()
-
-	{
-
+	// 删除元素
+	public Node remove(){
 		Node root = heapArray[0];
-		heapArray[0]
-
-				= heapArray[--currentSize];
+		// 最后一个元素放到堆顶
+		heapArray[0] = heapArray[--currSize];
+		// 向下比较
 		trickleDown(0);
-
 		return root;
-
 	}
-
-	// 向下调整
-
-	public
-
-			void trickleDown(int index)
-
-	{
-
-		Node top = heapArray[index];
-
-		int largeChildIndex;
-
-		while (index < currentSize / 2)
-
-		{
-
-			// while node has at least one child
-
-			int leftChildIndex =
-
-					2
-
-							* index +
-
-							1;
-
-			int rightChildIndex = leftChildIndex +
-
-					1;
-
-			// find larger child
-
-			if (rightChildIndex < currentSize &&
-
-			// rightChild exists?
-					heapArray[leftChildIndex].getKey()
-
-					< heapArray[rightChildIndex].getKey())
-
-			{
-				largeChildIndex = rightChildIndex;
-
-			}
-
+	// 向下比较
+	private void trickleDown(int i){
+		int largeChild;
+		Node top = heapArray[i];
+		while (i < currSize/2){
+			int leftChild = 2*i + 1;
+			int rightChild = leftChild + 1;
+			if (rightChild < currSize && 
+					heapArray[rightChild].getKey() > heapArray[leftChild].getKey())
+				largeChild = rightChild;
 			else
-
-			{
-				largeChildIndex = leftChildIndex;
-
-			}
-
-			if (top.getKey()
-
-			>= heapArray[largeChildIndex].getKey())
-
-			{
-
+				largeChild = leftChild;
+			if (top.getKey() >= heapArray[largeChild].getKey())
 				break;
-
-			}
-			heapArray[index]
-
-					= heapArray[largeChildIndex];
-			index = largeChildIndex;
-
+			heapArray[i] = heapArray[largeChild];
+			i = largeChild;
 		}
-		heapArray[index]
-
-				= top;
-
-	}
-
-	// 根据索引改变堆中某个数据
-
-	public
-
-			boolean change(int index,
-
-					int newValue)
-
-	{
-
-		if (index <
-
-		0
-
-				|| index >= currentSize)
-
-		{
-
-			return
-
-			false;
-
-		}
-
-		int oldValue = heapArray[index].getKey();
-		heapArray[index].setKey(newValue);
-
-		if (oldValue < newValue)
-
-		{
-			trickleUp(index);
-
-		}
-
-		else
-
-		{
-			trickleDown(index);
-
-		}
-
-		return
-
-		true;
-
-	}
-
-	public
-
-			void displayHeap()
-
-	{
-
-		System.out.println("heapArray(array format): ");
-
-		for (int i =
-
-				0; i < currentSize; i++)
-
-		{
-
-			if (heapArray[i]
-
-			!=
-
-			null)
-
-			{
-
-				System.out.print(heapArray[i].getKey()
-
-						+
-
-						" ");
-
-			}
-
-			else
-
-			{
-
-				System.out.print("--");
-
-			}
-
-		}
-
+		heapArray[i] = top;
 	}
 }
 
-class
 
-Node
-
-{
-
-	private
-
-	int iData;
-
-	public
-
-	Node(int key)
-
-	{
-		iData = key;
-
-	}
-
-	public
-
-			int getKey()
-
-	{
-
-		return iData;
-
-	}
-
-	public
-
-			void setKey(int key)
-
-	{
-		iData = key;
-
-	}
-}
