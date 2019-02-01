@@ -17,9 +17,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.github.pagehelper.PageHelper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.mapper.TbStudentMapper;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemExample;
 import com.taotao.pojo.TbStudent;
 import com.taotao.pojo.TbTeacher;
 
@@ -41,10 +43,28 @@ public class MybatisTest {
 	@Resource
 	private TbStudentMapper stuMapper;
 
+	/**
+	 * 这个测试下pageHelper的分页插件
+	 */
 	@Test
-	public void testConViaMybatis() {
+	public void testPageQuery() {
+		// 分页处理，显示第一页的10条数据
+		PageHelper.startPage(1, 10);
+		TbItemExample example = new TbItemExample();
+		List<TbItem> list =  itemMapper.selectByExample(example);
+		// 取商品列表
+        for(TbItem item : list) {
+           logger.info(item.getTitle());
+        }
+	}
 
-		String uuid = UUID.randomUUID().toString().replaceAll("-","");
+	/**
+	 * crud 测试
+	 */
+	@Test
+	public void testCRUD() {
+
+		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 
 		logger.info("hi");
 		SqlSession s = sqlsessionFactory.openSession();
@@ -88,7 +108,7 @@ public class MybatisTest {
 		// System.out.println(a.getTitle());
 
 		// delete
-		//stuMapper.deleteStudent(student2);
+		// stuMapper.deleteStudent(student2);
 
 	}
 
