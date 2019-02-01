@@ -5,6 +5,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="TbStudent" type="com.taotao.pojo.TbStudent" />
+		<typeAlias alias="TbTeacher" type="com.taotao.pojo.TbTeacher" />
+
 	</typeAliases>
 
 	<!-- 配置分页插件 -->

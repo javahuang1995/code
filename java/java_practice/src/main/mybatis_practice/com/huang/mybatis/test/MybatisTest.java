@@ -1,5 +1,10 @@
 ﻿package com.huang.mybatis.test;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -39,6 +44,8 @@ public class MybatisTest {
 	@Test
 	public void testConViaMybatis() {
 
+		String uuid = UUID.randomUUID().toString().replaceAll("-","");
+
 		logger.info("hi");
 		SqlSession s = sqlsessionFactory.openSession();
 
@@ -57,7 +64,31 @@ public class MybatisTest {
 			logger.info(tt.getTeacherName());
 		}
 
+		TbStudent student3 = null;
+		student3 = stuMapper.getStudentByName("黄宁");
+		logger.info(student3.getStudentSex());
+
+		Map<String, Object> cond = new HashMap<String, Object>();
+		cond.put("sex", "女");
+		List<TbStudent> list = stuMapper.getStudentByMap(cond);
+		for (TbStudent tmp : list) {
+			logger.info(tmp.getStudentName());
+		}
+
+		/////
+		TbStudent student2 = new TbStudent();
+		student2.setStudentName("哈哈哈哈学渣");
+
+		// 插入
+		stuMapper.insertStudent(student2);
+
+		// update
+		student2.setStudentName("fuckyou");
+		stuMapper.updateStudent(student2);
 		// System.out.println(a.getTitle());
+
+		// delete
+		//stuMapper.deleteStudent(student2);
 
 	}
 
