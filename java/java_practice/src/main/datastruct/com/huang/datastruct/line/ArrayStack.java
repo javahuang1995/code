@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 class
 
@@ -14,13 +14,13 @@ ArrayStack
 
 	int size;
 
-	// Õ»Êı×éµÄ´óĞ¡
+	// æ ˆæ•°ç»„çš„å¤§å°
 
 	private
 
 	int top;
 
-	// Õ»¶¥
+	// æ ˆé¡¶
 
 	public
 
@@ -40,7 +40,7 @@ ArrayStack
 
 				-1;
 
-		// ±íÊ¾¿ÕÕ»
+		// è¡¨ç¤ºç©ºæ ˆ
 
 	}
 
@@ -49,13 +49,13 @@ ArrayStack
 			void push(long value)
 
 	{
-		// ÈëÕ»
+		// å…¥æ ˆ
 
 		if (isFull())
 
 		{
 
-			System.out.println("Õ»ÒÑÂú£¡");
+			System.out.println("æ ˆå·²æ»¡ï¼");
 
 			return;
 
@@ -71,13 +71,13 @@ ArrayStack
 			long peek()
 
 	{
-		// ·µ»ØÕ»¶¥ÄÚÈİ£¬µ«²»É¾³ı
+		// è¿”å›æ ˆé¡¶å†…å®¹ï¼Œä½†ä¸åˆ é™¤
 
 		if (isEmpty())
 
 		{
 
-			System.out.println("Õ»ÖĞÃ»ÓĞÊı¾İ");
+			System.out.println("æ ˆä¸­æ²¡æœ‰æ•°æ®");
 
 			return
 
@@ -95,13 +95,13 @@ ArrayStack
 
 	{
 
-		// µ¯³öÕ»¶¥ÄÚÈİ£¬É¾³ı
+		// å¼¹å‡ºæ ˆé¡¶å†…å®¹ï¼Œåˆ é™¤
 
 		if (isEmpty())
 
 		{
 
-			System.out.println("Õ»ÖĞÃ»ÓĞÊı¾İ£¡");
+			System.out.println("æ ˆä¸­æ²¡æœ‰æ•°æ®ï¼");
 
 			return
 

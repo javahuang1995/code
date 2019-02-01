@@ -1,16 +1,16 @@
-package com.huang.json.test;
+﻿package com.huang.json.test;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- *   代码中使用的标注分析�?
+ * 听 浠ｇ爜涓娇鐢ㄧ殑镙囨敞鍒嗘瀽锛?
  * 
- *    @JsonProperty("xxx"):  将当前的属�?名在json字符串中重新命名为当前设置的这个值，比如在示例中，将age-->testa
- *    @JsonIgnore    将被标注的属性在生成json字符串的时�?，直接忽�?   @JsonInclude  是一个类级别的设置，
- * JsonInclude.Include.NON_EMPTY标识只有非NULL的�?才会被纳入json string之中，其余的都被忽略�?
- * 比如这里的location属�?，并没有出现在最终的结果字符串中�?
+ * 听听 @JsonProperty("xxx"):听 灏嗗綋鍓岖殑灞炴?鍚嶅湪json瀛楃涓蹭腑閲嶆柊锻藉悕涓哄綋鍓嶈缃殑杩欎釜链硷紝姣斿鍦ㄧず渚嬩腑锛屽皢age-->testa
+ * 听听 @JsonIgnore听听听 灏呜镙囨敞镄勫睘镐у湪鐢熸垚json瀛楃涓茬殑镞跺?锛岀洿鎺ュ拷鐣?听听 @JsonInclude听 鏄竴涓被绾у埆镄勮缃紝
+ * JsonInclude.Include.NON_EMPTY镙囱瘑鍙湁闱濶ULL镄勫?镓崭细琚撼鍏son string涔嬩腑锛屽叾浣欑殑閮借蹇界暐锛?
+ * 姣斿杩欓噷镄刲ocation灞炴?锛屽苟娌℃湁鍑虹幇鍦ㄦ渶缁堢殑缁撴灉瀛楃涓蹭腑銆?
  * 
  * @author huang
  *

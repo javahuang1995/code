@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 public
 
@@ -94,7 +94,7 @@ HashDouble {
 
 		if (isFull()) {
 
-			System.out.println("¹şÏ£±íÒÑÂú£¬ÖØĞÂ¹şÏ£»¯..");
+			System.out.println("å“ˆå¸Œè¡¨å·²æ»¡ï¼Œé‡æ–°å“ˆå¸ŒåŒ–..");
 			extendHashTable();
 		}
 
@@ -103,12 +103,12 @@ HashDouble {
 		int hashVal = hashFunction1(key);
 
 		int stepSize = hashFunction2(key);
-		// ÓÃhashFunction2¼ÆËãÌ½²â²½Êı
+		// ç”¨hashFunction2è®¡ç®—æ¢æµ‹æ­¥æ•°
 
 		while (hashArray[hashVal] != null && hashArray[hashVal].getKey() != -1) {
 			hashVal += stepSize;
 			hashVal %= arraySize;
-			// ÒÔÖ¸¶¨µÄ²½ÊıÏòºóÌ½²â
+			// ä»¥æŒ‡å®šçš„æ­¥æ•°å‘åæ¢æµ‹
 		}
 		hashArray[hashVal] = item;
 		itemNum++;
@@ -120,9 +120,9 @@ HashDouble {
 
 		int num = arraySize;
 		itemNum = 0;
-		// ÖØĞÂ¼ÇÊı£¬ÒòÎªÏÂÃæÒª°ÑÔ­À´µÄÊı¾İ×ªÒÆµ½ĞÂµÄÀ©ÕÅµÄÊı×éÖĞ
+		// é‡æ–°è®°æ•°ï¼Œå› ä¸ºä¸‹é¢è¦æŠŠåŸæ¥çš„æ•°æ®è½¬ç§»åˆ°æ–°çš„æ‰©å¼ çš„æ•°ç»„ä¸­
 		arraySize *= 2;
-		// Êı×é´óĞ¡·­±¶
+		// æ•°ç»„å¤§å°ç¿»å€
 
 		DataItem[] oldHashArray = hashArray;
 		hashArray = new

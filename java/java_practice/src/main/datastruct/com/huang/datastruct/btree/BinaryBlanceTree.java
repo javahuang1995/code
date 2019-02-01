@@ -1,7 +1,7 @@
-package com.huang.datastruct.btree;
+ï»¿package com.huang.datastruct.btree;
 /**
- * AVLÆ½ºâÊ÷
- * ÆäËûµØ·½ºÍBST²î²»¶à£¬ÎªÁË±£³ÖÊ÷µÄÆ½ºâ£¬¼ÓÉÏÁËĞı×ª²Ù×÷¡£
+ * AVLå¹³è¡¡æ ‘
+ * å…¶ä»–åœ°æ–¹å’ŒBSTå·®ä¸å¤šï¼Œä¸ºäº†ä¿æŒæ ‘çš„å¹³è¡¡ï¼ŒåŠ ä¸Šäº†æ—‹è½¬æ“ä½œã€‚
  * @author Administrator
  *
  */

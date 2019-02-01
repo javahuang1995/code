@@ -1,4 +1,4 @@
-package com.huang.rabbitmq.test6;
+ï»¿package com.huang.rabbitmq.test6;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
@@ -6,9 +6,9 @@ import com.rabbitmq.client.QueueingConsumer;
 import com.rabbitmq.client.AMQP.BasicProperties;
 import java.util.UUID;
 /**
- *ÎÒÃÇÍ¨¹ıRabbitMQ´î½¨Ò»¸öRPCÏµÍ³£¬
- *Ò»¸ö¿Í»§¶ËºÍÒ»¸öRPC·şÎñÆ÷£¬¿Í»§¶ËÓĞÒ»¸öì³²¨ÄÇÆõÊıÁĞ·½ÃæµÄÎÊÌâĞèÒª½â¾ö£¨Fibonacci numbers£©£¬
- *RPC·şÎñÆ÷¸ºÔğ¼¼ÊõÊÕµ½Õâ¸öÏûÏ¢£¬È»ºó¼ÆËã½á¹û£¬²¢ÇÒ·µ»ØÕâ¸öì³²¨ÄÇÆõÊıÁĞ¡£
+ *æˆ‘ä»¬é€šè¿‡RabbitMQæ­å»ºä¸€ä¸ªRPCç³»ç»Ÿï¼Œ
+ *ä¸€ä¸ªå®¢æˆ·ç«¯å’Œä¸€ä¸ªRPCæœåŠ¡å™¨ï¼Œå®¢æˆ·ç«¯æœ‰ä¸€ä¸ªæ–æ³¢é‚£å¥‘æ•°åˆ—æ–¹é¢çš„é—®é¢˜éœ€è¦è§£å†³ï¼ˆFibonacci numbersï¼‰ï¼Œ
+ *RPCæœåŠ¡å™¨è´Ÿè´£æŠ€æœ¯æ”¶åˆ°è¿™ä¸ªæ¶ˆæ¯ï¼Œç„¶åè®¡ç®—ç»“æœï¼Œå¹¶ä¸”è¿”å›è¿™ä¸ªæ–æ³¢é‚£å¥‘æ•°åˆ—ã€‚
  * @author huang
  *
  */
@@ -64,7 +64,7 @@ public class RPCClient {
 			fibonacciRpc = new RPCClient();
 
 			System.out.println("RPCClient [x] Requesting fib(30)");
-			response = fibonacciRpc.call("30");//ÔÚÕâÀïµ÷ÓÃ
+			response = fibonacciRpc.call("30");//åœ¨è¿™é‡Œè°ƒç”¨
 			System.out.println("RPCClient [.] Got '" + response + "'");
 		} catch (Exception e) {
 			e.printStackTrace();

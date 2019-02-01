@@ -1,11 +1,11 @@
-package com.huang.datastruct.btree;
+﻿package com.huang.datastruct.btree;
 
 import com.huang.datastruct.rbtree.BNode;
 
 /**
- * 二叉排序树BST
+ * 浜屽弶鎺掑簭镙态ST
  * 
- * @author Administrator 实现方法： 查找 遍历 删除 插入
+ * @author Administrator 瀹炵幇鏂规硶锛?镆ユ垒 阆嶅巻 鍒犻櫎 鎻掑叆
  *
  */
 public class BinarySortTree {
@@ -16,7 +16,7 @@ public class BinarySortTree {
 	}
 
 	/**
-	 * 定义一个BNode作为result返回 当result.key和查找的内容不一样，就一直循环 小，则向左，大则向右
+	 * 瀹氢箟涓€涓狟Node浣滀负result杩斿洖 褰搑esult.key鍜屾煡镓剧殑鍐呭涓崭竴镙凤紝灏变竴鐩村惊鐜?灏忥紝鍒椤悜宸︼紝澶у垯鍚戝彸
 	 * 
 	 * @param key
 	 * @return
@@ -42,7 +42,7 @@ public class BinarySortTree {
 	 * @param value
 	 */
 	public void insert(int key, double value) {
-		// 根据传入的参数构造一个节点
+		// 镙规嵁浼犲叆镄勫弬鏁版瀯阃犱竴涓妭镣?
 		BNode newNode = new BNode();
 		newNode.key = key;
 		newNode.data = value;
@@ -50,11 +50,11 @@ public class BinarySortTree {
 		if (root == null) { // if tree is null
 			root = newNode;
 		} else {
-			// current表示插入的位置，parent是插入位置的父节点。
+			// current琛ㄧず鎻掑叆镄勪綅缃紝parent鏄彃鍏ヤ綅缃殑鐖惰妭镣广€?
 			BNode current = root;
 			BNode parent;
 			while (true) {
-				parent = current;//在更新current之前，先保存current值到parent
+				parent = current;//鍦ㄦ洿鏂瘫urrent涔嫔墠锛屽厛淇濆瓨current链煎埌parent
 				if (key < current.data) { // turn left
 					current = current.left;
 					if (current == null) {
@@ -75,7 +75,7 @@ public class BinarySortTree {
 	}
 
 	/**
-	 * 遍历
+	 * 阆嶅巻
 	 * 
 	 * @param traverseType
 	 */
@@ -83,15 +83,15 @@ public class BinarySortTree {
 		switch (traverseType) {
 		case 1:
 			System.out.println("Preorder traversal:");
-			preOrder(root);// 前序遍历
+			preOrder(root);// 鍓嶅簭阆嶅巻
 			break;
 		case 2:
 			System.out.println("Inorder traversal:");
-			inOrder(root);// 中序遍历
+			inOrder(root);// 涓簭阆嶅巻
 			break;
 		case 3:
 			System.out.println("Postorder traversal:");
-			postOrder(root);// 后序遍历
+			postOrder(root);// 鍚庡簭阆嶅巻
 			break;
 		default:
 			System.out.println("Inorder traversal:");
@@ -103,7 +103,7 @@ public class BinarySortTree {
 
 	private void preOrder(BNode localRoot) {
 		if (localRoot != null) {
-			System.out.print(localRoot.data + " ");// 打印data就完事了
+			System.out.print(localRoot.data + " ");// 镓揿嵃data灏卞畲浜嬩简
 			preOrder(localRoot.left);
 			preOrder(localRoot.right);
 		}
@@ -146,7 +146,7 @@ public class BinarySortTree {
 			root = null;
 			return true;
 		}
-		// 判断Node是不是父节点的左节点
+		// 鍒ゆ柇Node鏄笉鏄埗鑺傜偣镄勫乏鑺傜偣
 		if (node.parent.left == node) {
 			node.parent.left = null;
 		} else {
@@ -160,7 +160,7 @@ public class BinarySortTree {
 			root = null;
 			return true;
 		}
-		// 先找到子节点，不需要管他是左是右
+		// 鍏堟垒鍒板瓙鑺傜偣锛屼笉闇€瑕佺浠栨槸宸︽槸鍙?
 		BNode child = null;
 		if (node.left != null) {
 			child = node.left;
@@ -168,8 +168,8 @@ public class BinarySortTree {
 			child = node.right;
 		}
 
-		// 这里忽略了父节点不存在的情况，最后会巧妙的处理这种情况
-		// 将父节点和子节点建立关系
+		// 杩欓噷蹇界暐浜嗙埗鑺傜偣涓嶅瓨鍦ㄧ殑鎯呭喌锛屾渶鍚庝细宸у镄勫鐞呜繖绉嶆儏鍐?
+		// 灏嗙埗鑺傜偣鍜屽瓙鑺傜偣寤虹珛鍏崇郴
 		if (node.parent.left == node) {
 			node.parent.left = child;
 		} else {
@@ -181,21 +181,21 @@ public class BinarySortTree {
 	}
 
 	/**
-	 * 1.获取要删除节点的后继节点 2.转移值 3.删除后继节点。
+	 * 1.銮峰彇瑕佸垹闄よ妭镣圭殑鍚庣户鑺傜偣 2.杞Щ链?3.鍒犻櫎鍚庣户鑺傜偣銆?
 	 * 
 	 * @param node
 	 * @param isLeftChild
 	 * @return
 	 */
 	public boolean deleteTwoChild(BNode node) {
-		// 获取后继结点
+		// 銮峰彇鍚庣户缁撶偣
 		BNode successor = getSuccessor(node);
-		// 转移后继结点值到当前节点
+		// 杞Щ鍚庣户缁撶偣链煎埌褰揿墠鑺傜偣
 		node.key = successor.key;
 
-		// 把要删除的当前节点设置为后继结点
-		// 经过前一步处理，下面只有前两种情况，只能是一个节点或者没有节点
-		// 后继节点一定不会有左节点，但是一定有右节点
+		// 鎶婅鍒犻櫎镄勫綋鍓嶈妭镣硅缃负鍚庣户缁撶偣
+		// 缁忚绷鍓崭竴姝ュ鐞嗭紝涓嬮溃鍙湁鍓崭袱绉嶆儏鍐碉紝鍙兘鏄竴涓妭镣规垨钥呮病链夎妭镣?
+		// 鍚庣户鑺傜偣涓€瀹氢笉浼氭湁宸﹁妭镣癸紝浣嗘槸涓€瀹氭湁鍙宠妭镣?
 		node = successor;
 		if (node.right == null) {
 			return deleteNoChild(node);

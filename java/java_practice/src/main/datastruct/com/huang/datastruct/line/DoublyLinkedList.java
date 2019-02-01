@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 public
 
@@ -12,13 +12,13 @@ DoublyLinkedList
 
 	Node first;
 
-	// Í·½Úµã
+	// å¤´èŠ‚ç‚¹
 
 	private
 
 	Node last;
 
-	// Î²½Úµã
+	// å°¾èŠ‚ç‚¹
 
 	private
 
@@ -71,7 +71,7 @@ DoublyLinkedList
 
 	{
 
-		// ²åÈëÍ·½Úµã
+		// æ’å…¥å¤´èŠ‚ç‚¹
 
 		Node newLink =
 
@@ -108,7 +108,7 @@ DoublyLinkedList
 			void insertLast(long value)
 
 	{
-		// ²åÈëÎ²½Úµã
+		// æ’å…¥å°¾èŠ‚ç‚¹
 
 		Node newLink =
 
@@ -142,7 +142,7 @@ DoublyLinkedList
 			Node deleteFirst()
 
 	{
-		// É¾³ıÍ·½áµã
+		// åˆ é™¤å¤´ç»“ç‚¹
 
 		if (first ==
 
@@ -150,7 +150,7 @@ DoublyLinkedList
 
 		{
 
-			System.out.println("Á´±íÎª¿Õ£¡");
+			System.out.println("é“¾è¡¨ä¸ºç©ºï¼");
 
 			return
 
@@ -166,7 +166,7 @@ DoublyLinkedList
 
 		{
 
-			// Ö»ÓĞÒ»¸ö½Úµã
+			// åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 			last =
 
 					null;
@@ -193,7 +193,7 @@ DoublyLinkedList
 			Node deleteLast()
 
 	{
-		// É¾³ıÎ²½Úµã
+		// åˆ é™¤å°¾èŠ‚ç‚¹
 
 		if (last ==
 
@@ -201,7 +201,7 @@ DoublyLinkedList
 
 		{
 
-			System.out.println("Á´±íÎª¿Õ");
+			System.out.println("é“¾è¡¨ä¸ºç©º");
 
 			return
 
@@ -217,7 +217,7 @@ DoublyLinkedList
 
 		{
 
-			// Ö»ÓĞÒ»¸ö½Úµã
+			// åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 			first =
 
 					null;
@@ -247,7 +247,7 @@ DoublyLinkedList
 
 	{
 
-		// ÔÚkeyºóÃæ²åÈëÖµÎªvalueµÄĞÂ½Úµã
+		// åœ¨keyåé¢æ’å…¥å€¼ä¸ºvalueçš„æ–°èŠ‚ç‚¹
 
 		Node current = first;
 
@@ -262,11 +262,11 @@ DoublyLinkedList
 
 			{
 
-				System.out.println("²»´æÔÚÖµÎª"
+				System.out.println("ä¸å­˜åœ¨å€¼ä¸º"
 
 						+ value +
 
-						"µÄ½Úµã£¡");
+						"çš„èŠ‚ç‚¹ï¼");
 
 				return
 
@@ -311,7 +311,7 @@ DoublyLinkedList
 			Node deleteNode(long key)
 
 	{
-		// É¾³ıÖ¸¶¨Î»ÖÃµÄ½Úµã
+		// åˆ é™¤æŒ‡å®šä½ç½®çš„èŠ‚ç‚¹
 
 		Node current = first;
 
@@ -326,7 +326,7 @@ DoublyLinkedList
 
 			{
 
-				System.out.println("²»´æÔÚ¸Ã½Úµã£¡");
+				System.out.println("ä¸å­˜åœ¨è¯¥èŠ‚ç‚¹ï¼");
 
 				return
 
@@ -369,7 +369,7 @@ DoublyLinkedList
 
 	{
 
-		// ´ÓÍ·µ½Î²±éÀúÁ´±í
+		// ä»å¤´åˆ°å°¾éå†é“¾è¡¨
 
 		System.out.println("List(first --> last): ");
 
@@ -395,7 +395,7 @@ DoublyLinkedList
 
 	{
 
-		// ´ÓÎ²µ½Í·±éÀúÁ´±í
+		// ä»å°¾åˆ°å¤´éå†é“¾è¡¨
 
 		System.out.println("List(last --> first): ");
 

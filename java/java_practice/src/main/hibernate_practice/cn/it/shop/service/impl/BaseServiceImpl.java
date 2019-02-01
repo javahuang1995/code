@@ -1,4 +1,4 @@
-package cn.it.shop.service.impl;
+ï»¿package cn.it.shop.service.impl;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -22,7 +22,7 @@ import cn.it.shop.dao.SorderDao;
 import cn.it.shop.dao.UserDao;
 import cn.it.shop.service.BaseService;
 /**
- * @Description TODO£¨¹«¹²Ä£¿éµÄ³éÈ¡£©
+ * @Description TODOï¼ˆå…¬å…±æ¨¡å—çš„æŠ½å–ï¼‰
  * @author Ni Shengwu
  *
  */
@@ -31,38 +31,38 @@ import cn.it.shop.service.BaseService;
 @Lazy(true)
 public class BaseServiceImpl<T> implements BaseService<T> {
 
-	private Class clazz; //clazzÖĞ´æ´¢ÁËµ±Ç°²Ù×÷µÄÀàĞÍ£¬¼´·ºĞÍT
+	private Class clazz; //clazzä¸­å­˜å‚¨äº†å½“å‰æ“ä½œçš„ç±»å‹ï¼Œå³æ³›å‹T
 	
 	
 	public BaseServiceImpl() {
-		System.out.println("this´ú±íµÄÊÇµ±Ç°µ÷ÓÃ¹¹Ôì·½·¨µÄ¶ÔÏó" + this);
-		System.out.println("»ñÈ¡µ±Ç°this¶ÔÏóµÄ¸¸ÀàĞÅÏ¢" + this.getClass().getSuperclass());
-		System.out.println("»ñÈ¡µ±Ç°this¶ÔÏóµÄ¸¸ÀàĞÅÏ¢(°üÀ¨·ºĞÍĞÅÏ¢)" + this.getClass().getGenericSuperclass());
-		//ÄÃµ½·ºĞÍµÄ²ÎÊıÀàĞÍ
+		System.out.println("thisä»£è¡¨çš„æ˜¯å½“å‰è°ƒç”¨æ„é€ æ–¹æ³•çš„å¯¹è±¡" + this);
+		System.out.println("è·å–å½“å‰thiså¯¹è±¡çš„çˆ¶ç±»ä¿¡æ¯" + this.getClass().getSuperclass());
+		System.out.println("è·å–å½“å‰thiså¯¹è±¡çš„çˆ¶ç±»ä¿¡æ¯(åŒ…æ‹¬æ³›å‹ä¿¡æ¯)" + this.getClass().getGenericSuperclass());
+		//æ‹¿åˆ°æ³›å‹çš„å‚æ•°ç±»å‹
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz = (Class)type.getActualTypeArguments()[0];
 	}
 	
 	@PostConstruct
 	public void init() {
-		//¸ù¾İclazzµÄÀàĞÍ£¬°Ñ²»Í¬µÄdao¶ÔÏó¸´ÖÆ¸øbaseDao¶ÔÏó
+		//æ ¹æ®clazzçš„ç±»å‹ï¼ŒæŠŠä¸åŒçš„daoå¯¹è±¡å¤åˆ¶ç»™baseDaoå¯¹è±¡
 		String clazzName = clazz.getSimpleName();
 		String clazzDao = clazzName.substring(0, 1).toLowerCase() 
-				+ clazzName.substring(1) + "Dao"; //ÀıÈçAccount==>accountDao
+				+ clazzName.substring(1) + "Dao"; //ä¾‹å¦‚Account==>accountDao
 		System.out.println(clazzDao);
 		try {
 //			Field clazzField = this.getClass().getField(clazzDao);
 //			Field baseField = this.getClass().getField("baseDao");
 			Field clazzField = this.getClass().getSuperclass().getDeclaredField(clazzDao);
 			Field baseField = this.getClass().getSuperclass().getDeclaredField("baseDao");
-			baseField.set(this, clazzField.get(this)); //baseDao¾ÍÓĞÖµÁË
+			baseField.set(this, clazzField.get(this)); //baseDaoå°±æœ‰å€¼äº†
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
 	
-	//@Resource //baseDaoÊÇ·ºĞÍ£¬²»ÄÜ¹»×¢ÈëÖ»ÄÜÍ¨¹ıÉÏÃæµÄinit·½·¨¸³Öµ
+	//@Resource //baseDaoæ˜¯æ³›å‹ï¼Œä¸èƒ½å¤Ÿæ³¨å…¥åªèƒ½é€šè¿‡ä¸Šé¢çš„initæ–¹æ³•èµ‹å€¼
 	protected BaseDao baseDao;
 	@Resource
 	protected AccountDao accountDao;

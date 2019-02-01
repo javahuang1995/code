@@ -1,9 +1,9 @@
-package com.huang.sort;
+ï»¿package com.huang.sort;
 
 import java.util.Arrays;
 
 /**
- * ¹é²¢ÅÅĞò
+ * å½’å¹¶æ’åº
  * 
  * @author Administrator
  *
@@ -21,7 +21,7 @@ public class MergeSort {
 		if (low < high) {
 			sort(a, low, mid);
 			sort(a, mid + 1, high);
-			// ×óÓÒ¹é²¢
+			// å·¦å³å½’å¹¶
 			merge(a, low, mid, high);
 		}
 		return a;
@@ -32,7 +32,7 @@ public class MergeSort {
 		int i = low;
 		int j = mid + 1;
 		int k = 0;
-		// °Ñ½ÏĞ¡µÄÊıÏÈÒÆµ½ĞÂÊı×éÖĞ
+		// æŠŠè¾ƒå°çš„æ•°å…ˆç§»åˆ°æ–°æ•°ç»„ä¸­
 		while (i <= mid && j <= high) {
 			if (a[i] < a[j]) {
 				temp[k++] = a[i++];
@@ -40,15 +40,15 @@ public class MergeSort {
 				temp[k++] = a[j++];
 			}
 		}
-		// °Ñ×ó±ßÊ£ÓàµÄÊıÒÆÈëÊı×é
+		// æŠŠå·¦è¾¹å‰©ä½™çš„æ•°ç§»å…¥æ•°ç»„
 		while (i <= mid) {
 			temp[k++] = a[i++];
 		}
-		// °ÑÓÒ±ß±ßÊ£ÓàµÄÊıÒÆÈëÊı×é
+		// æŠŠå³è¾¹è¾¹å‰©ä½™çš„æ•°ç§»å…¥æ•°ç»„
 		while (j <= high) {
 			temp[k++] = a[j++];
 		}
-		// °ÑĞÂÊı×éÖĞµÄÊı¸²¸ÇnumsÊı×é
+		// æŠŠæ–°æ•°ç»„ä¸­çš„æ•°è¦†ç›–numsæ•°ç»„
 		for (int x = 0; x < temp.length; x++) {
 			a[x + low] = temp[x];
 		}

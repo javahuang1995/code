@@ -1,4 +1,4 @@
-package com.huang.rabbitmq.test5;
+ï»¿package com.huang.rabbitmq.test5;
 import com.rabbitmq.client.*;
 import java.io.IOException;
 
@@ -14,12 +14,12 @@ public class ReceiveLogsTopic2 {
 		factory.setUsername("huang");
 		factory.setPassword("1995");		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
-//		ÉùÃ÷Ò»¸öÆ¥ÅäÄ£Ê½µÄ½»»»Æ÷
+//		å£°æ˜ä¸€ä¸ªåŒ¹é…æ¨¡å¼çš„äº¤æ¢å™¨
 		channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 		String queueName = channel.queueDeclare().getQueue();
-		// Â·ÓÉ¹Ø¼ü×Ö
+		// è·¯ç”±å…³é”®å­—
 		String[] routingKeys = new String[]{"*.*.rabbit", "lazy.#"};
-//		°ó¶¨Â·ÓÉ¹Ø¼ü×Ö
+//		ç»‘å®šè·¯ç”±å…³é”®å­—
 		for (String bindingKey : routingKeys) {
 			channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);
 			System.out.println("ReceiveLogsTopic2 exchange:"+EXCHANGE_NAME+", queue:"+queueName+", BindRoutingKey:" + bindingKey);

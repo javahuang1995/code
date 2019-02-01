@@ -1,9 +1,9 @@
-/**
- * ×î´ó¶ÑµÄÊµÏÖ
+ï»¿/**
+ * æœ€å¤§å †çš„å®ç°
  */
 package com.huang.datastruct.heap;
 
-// ¶¨Òå½Úµã
+// å®šä¹‰èŠ‚ç‚¹
 class Node {
 	private int data;
 
@@ -16,11 +16,11 @@ class Node {
 	}
 }
 
-// ¶¨Òå¶Ñ
+// å®šä¹‰å †
 class Heap {
-	private Node[] heapArray; // ´æ´¢½ÚµãµÄÊı×é
-	private int maxSize; // ×î´ó´æ´¢´óĞ¡
-	private int currSize; // µ±Ç°´óĞ¡
+	private Node[] heapArray; // å­˜å‚¨èŠ‚ç‚¹çš„æ•°ç»„
+	private int maxSize; // æœ€å¤§å­˜å‚¨å¤§å°
+	private int currSize; // å½“å‰å¤§å°
 
 	public Heap(int size) {
 		maxSize = size;
@@ -28,56 +28,56 @@ class Heap {
 		heapArray = new Node[size];
 	}
 
-	// ÅĞ¶ÏÊÇ·ñÎª¿Õ
+	// åˆ¤æ–­æ˜¯å¦ä¸ºç©º
 	public boolean isEmpty() {
 		return (currSize == 0);
 	}
 
-	// ²åÈëÔªËØ
+	// æ’å…¥å…ƒç´ 
 	public boolean insert(int key) {
-		// ´æ´¢ÒÑÂú
+		// å­˜å‚¨å·²æ»¡
 		if (currSize == maxSize)
 			return false;
 		Node node = new Node(key);
-		// ½«ĞÂ½Úµã·Åµ½Êı×é×îºó
+		// å°†æ–°èŠ‚ç‚¹æ”¾åˆ°æ•°ç»„æœ€å
 		heapArray[currSize] = node;
-		// µ÷Õû¶Ñ½á¹¹
+		// è°ƒæ•´å †ç»“æ„
 		trickleUp(currSize++);
 		return true;
 	}
 
 	/**
-	 * ±ÈÈç²åÈë100£¬Ò»¸ö±È½Ï´óµÄÊı£¬ĞèÒª´ÓÊı×éÄ©¶ËÏòÉÏµ÷Õû
+	 * æ¯”å¦‚æ’å…¥100ï¼Œä¸€ä¸ªæ¯”è¾ƒå¤§çš„æ•°ï¼Œéœ€è¦ä»æ•°ç»„æœ«ç«¯å‘ä¸Šè°ƒæ•´
 	 * 
 	 * @param i
 	 */
-	// ÏòÉÏ±È½Ï
+	// å‘ä¸Šæ¯”è¾ƒ
 	private void trickleUp(int i) {
-		// ¸¸½Úµã½Ç±ê
+		// çˆ¶èŠ‚ç‚¹è§’æ ‡
 		int parent = (i - 1) / 2;
-		Node temp = heapArray[i];// ÒòÎªÒª½»»»£¬ËùÒÔÕâÀïÖĞ¼ä±£´æÒ»ÏÂ¡£
-		// µ±Ç°½Úµã¹Ø¼ü×Ö´óÓÚ¸¸½Úµã¹Ø¼ü×Ö
+		Node temp = heapArray[i];// å› ä¸ºè¦äº¤æ¢ï¼Œæ‰€ä»¥è¿™é‡Œä¸­é—´ä¿å­˜ä¸€ä¸‹ã€‚
+		// å½“å‰èŠ‚ç‚¹å…³é”®å­—å¤§äºçˆ¶èŠ‚ç‚¹å…³é”®å­—
 		while (i > 0 && heapArray[i].getKey() > heapArray[parent].getKey()) {
 			heapArray[i] = heapArray[parent];
-			i = parent;// ¸üĞÂi£¬i¾ÍÊÇ²åÈëÊı¾İ£¬±ÈÈçËµ100 µÄÎ»ÖÃ¡£ÊÇ²»¶ÏÍùÉÏ×ßµÄ¡£
-			parent = (i - 1) / 2; // i±äÁË£¬parentÒ²Òª±ä
+			i = parent;// æ›´æ–°iï¼Œiå°±æ˜¯æ’å…¥æ•°æ®ï¼Œæ¯”å¦‚è¯´100 çš„ä½ç½®ã€‚æ˜¯ä¸æ–­å¾€ä¸Šèµ°çš„ã€‚
+			parent = (i - 1) / 2; // iå˜äº†ï¼Œparentä¹Ÿè¦å˜
 		}
 
-		heapArray[i] = temp;// iÑ­»·Íê±ÏÖ®ºó¾ÍÊÇ×îÖÕµ÷ÕûµÄÎ»ÖÃ£¬°Ñtemp·Å½øÈ¥¡£
+		heapArray[i] = temp;// iå¾ªç¯å®Œæ¯•ä¹‹åå°±æ˜¯æœ€ç»ˆè°ƒæ•´çš„ä½ç½®ï¼ŒæŠŠtempæ”¾è¿›å»ã€‚
 	}
 
-	// É¾³ıÔªËØ
+	// åˆ é™¤å…ƒç´ 
 	public Node remove() {
 		Node root = heapArray[0];
-		// ×îºóÒ»¸öÔªËØ·Åµ½¶Ñ¶¥
+		// æœ€åä¸€ä¸ªå…ƒç´ æ”¾åˆ°å †é¡¶
 		heapArray[0] = heapArray[--currSize];
-		// ÏòÏÂ±È½Ï
+		// å‘ä¸‹æ¯”è¾ƒ
 		trickleDown(0);
 		return root;
 	}
 
 	/**
-	 * ÏòÏÂµ÷Õû
+	 * å‘ä¸‹è°ƒæ•´
 	 * @param i
 	 */
 	private void trickleDown(int i) {

@@ -1,4 +1,4 @@
-package com.huang.annotation.test;
+ï»¿package com.huang.annotation.test;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 
 /**
  * Validate.java
- * ×Ô¶¨Òå×¢½â
- * @author ITÌÆ²®»¢ 2014Äê7ÔÂ11ÈÕ
+ * è‡ªå®šä¹‰æ³¨è§£
+ * @author ITå”ä¼¯è™ 2014å¹´7æœˆ11æ—¥
  */
 @Documented
 @Inherited

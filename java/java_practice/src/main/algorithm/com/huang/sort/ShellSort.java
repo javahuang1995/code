@@ -1,4 +1,4 @@
-package com.huang.sort;
+锘縫ackage com.huang.sort;
 
 public class ShellSort {
 	public static void main(String[] args) {
@@ -10,19 +10,19 @@ public class ShellSort {
 	}
 
 	/**
-	 * 希尔排序
+	 * 甯屽皵鎺掑簭
 	 * @param arrays
-	 * 需要排序的序列
+	 * 闇�瑕佹帓搴忕殑搴忓垪
 	 */
 	public static void sort(int[] arrays) {
 		if (arrays == null || arrays.length <= 1) {
 			return;
 		}
-		// 增量
+		// 澧為噺
 		int incrementNum = arrays.length / 2;
 		while (incrementNum >= 1) {
 			for (int i = 0; i < arrays.length; i++) {
-				// 进行插入排序
+				// 杩涜鎻掑叆鎺掑簭
 				for (int j = i; j < arrays.length - incrementNum; j = j + incrementNum) {
 					if (arrays[j] > arrays[j + incrementNum]) {
 						int temple = arrays[j];
@@ -31,7 +31,7 @@ public class ShellSort {
 					}
 				}
 			}
-			// 设置新的增量
+			// 璁剧疆鏂扮殑澧為噺
 			incrementNum = incrementNum / 2;
 		}
 	}

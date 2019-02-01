@@ -1,28 +1,28 @@
-package com.huang.sort;
+ï»¿package com.huang.sort;
 
 import java.util.Arrays;
 
 /**
- * ¿ìËÙÅÅĞò
+ * å¿«é€Ÿæ’åº
  * 
  * @author Administrator
  *
  */
 public class QuickSort {
 	public static void quickSort(int[] arr, int startIndex, int endIndex) {
-		// µİ¹é½áÊøÌõ¼ş£ºstartIndex´óµÈÓÚendIndexµÄÊ±ºò
+		// é€’å½’ç»“æŸæ¡ä»¶ï¼šstartIndexå¤§ç­‰äºendIndexçš„æ—¶å€™
 		if (startIndex >= endIndex) {
 			return;
 		}
-		// µÃµ½»ù×¼ÔªËØÎ»ÖÃ
+		// å¾—åˆ°åŸºå‡†å…ƒç´ ä½ç½®
 		int pivotIndex = partition2(arr, startIndex, endIndex);
-		// ÓÃ·ÖÖÎ·¨µİ¹éÊıÁĞµÄÁ½²¿·Ö
+		// ç”¨åˆ†æ²»æ³•é€’å½’æ•°åˆ—çš„ä¸¤éƒ¨åˆ†
 		quickSort(arr, startIndex, pivotIndex - 1);
 		quickSort(arr, pivotIndex + 1, endIndex);
 	}
 
 	/**
-	 * Ìî¿Ó·¨
+	 * å¡«å‘æ³•
 	 * 
 	 * @param arr
 	 * @param startIndex
@@ -30,64 +30,64 @@ public class QuickSort {
 	 * @return
 	 */
 	private static int partition(int[] arr, int startIndex, int endIndex) {
-		// È¡µÚÒ»¸öÎ»ÖÃµÄÔªËØ×÷Îª»ù×¼ÔªËØ
+		// å–ç¬¬ä¸€ä¸ªä½ç½®çš„å…ƒç´ ä½œä¸ºåŸºå‡†å…ƒç´ 
 		int pivot = arr[startIndex];
 
 		int left = startIndex;
 		int right = endIndex;
-		// ¿ÓµÄÎ»ÖÃ£¬³õÊ¼µÈÓÚpivotµÄÎ»ÖÃ
+		// å‘çš„ä½ç½®ï¼Œåˆå§‹ç­‰äºpivotçš„ä½ç½®
 		int index = startIndex;
 
-		// ´óÑ­»·ÔÚ×óÓÒÖ¸ÕëÖØºÏ»òÕß½»´íÊ±½áÊø
+		// å¤§å¾ªç¯åœ¨å·¦å³æŒ‡é’ˆé‡åˆæˆ–è€…äº¤é”™æ—¶ç»“æŸ
 		while (right >= left) {
-			// rightÖ¸Õë´ÓÓÒÏò×ó½øĞĞ±È½Ï
+			// rightæŒ‡é’ˆä»å³å‘å·¦è¿›è¡Œæ¯”è¾ƒ
 			while (right >= left) {
 				if (arr[right] < pivot) {
 					arr[left] = arr[right];
-					index = right;// ³ÉÎªĞÂµÄ¿Ó
-					left++;// leftÏòÓÒÒÆ¶¯
+					index = right;// æˆä¸ºæ–°çš„å‘
+					left++;// leftå‘å³ç§»åŠ¨
 					break;
 				}
 				right--;
 			}
-			// leftÖ¸Õë´Ó×óÏòÓÒ½øĞĞ±È½Ï
+			// leftæŒ‡é’ˆä»å·¦å‘å³è¿›è¡Œæ¯”è¾ƒ
 			while (right >= left) {
 				if (arr[left] > pivot) {
 					arr[right] = arr[left];
-					index = left;// ³ÉÎªĞÂµÄ¿Ó
-					right--;// rightÏò×óÒÆ¶¯
+					index = left;// æˆä¸ºæ–°çš„å‘
+					right--;// rightå‘å·¦ç§»åŠ¨
 					break;
 				}
 				left++;
 			}
 		}
-		arr[index] = pivot;// ÌîÈë×îºóÒ»¸ö¿Ó
+		arr[index] = pivot;// å¡«å…¥æœ€åä¸€ä¸ªå‘
 		return index;
 	}
 
 	/**
-	 * Ö¸Õë½»»»·¨
+	 * æŒ‡é’ˆäº¤æ¢æ³•
 	 * @param arr
 	 * @param startIndex
 	 * @param endIndex
 	 * @return
 	 */
 	private static int partition2(int[] arr, int startIndex, int endIndex) {
-		// È¡µÚÒ»¸öÎ»ÖÃµÄÔªËØ×÷Îª»ù×¼ÔªËØ
+		// å–ç¬¬ä¸€ä¸ªä½ç½®çš„å…ƒç´ ä½œä¸ºåŸºå‡†å…ƒç´ 
 		int pivot = arr[startIndex];
 		int left = startIndex;
 		int right = endIndex;
 
 		while (left != right) {
-			// ¿ØÖÆrightÖ¸Õë±È½Ï²¢×óÒÆ
+			// æ§åˆ¶rightæŒ‡é’ˆæ¯”è¾ƒå¹¶å·¦ç§»
 			while (left < right && arr[right] > pivot) {
 				right--;
 			}
-			// ¿ØÖÆrightÖ¸Õë±È½Ï²¢ÓÒÒÆ
+			// æ§åˆ¶rightæŒ‡é’ˆæ¯”è¾ƒå¹¶å³ç§»
 			while (left < right && arr[left] <= pivot) {
 				left++;
 			}
-			// ½»»»leftºÍrightÖ¸ÏòµÄÔªËØ
+			// äº¤æ¢leftå’ŒrightæŒ‡å‘çš„å…ƒç´ 
 			if (left < right) {
 				int p = arr[left];
 				arr[left] = arr[right];
@@ -95,7 +95,7 @@ public class QuickSort {
 			}
 		}
 
-		// pivotºÍÖ¸ÕëÖØºÏµã½»»»
+		// pivotå’ŒæŒ‡é’ˆé‡åˆç‚¹äº¤æ¢
 		int p = arr[left];
 		arr[left] = arr[startIndex];
 		arr[startIndex] = p;

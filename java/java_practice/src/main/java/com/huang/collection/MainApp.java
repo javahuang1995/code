@@ -1,4 +1,4 @@
-package com.huang.collection;
+ï»¿package com.huang.collection;
 
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -8,13 +8,13 @@ public class MainApp {
 	public static void main(String[] args) {
 		Hashtable a = new Hashtable<String,String>();
 		
-		HashSet b = new HashSet<String>();//¿ÉÒÔ°ÑhashsetÀí½âÎª´«Í³µÄ¹şÏ£±í£¬ÒòÎªvalueÎªnull.¼´Ê¹ÓĞ³åÍ»Ò²²»±¨´í
+		HashSet b = new HashSet<String>();//å¯ä»¥æŠŠhashsetç†è§£ä¸ºä¼ ç»Ÿçš„å“ˆå¸Œè¡¨ï¼Œå› ä¸ºvalueä¸ºnull.å³ä½¿æœ‰å†²çªä¹Ÿä¸æŠ¥é”™
 		b.add("aa");
 		b.add("aa");
 		
-		//ÓĞµÄÊ±ºòĞèÒª´ÓÁíÍâÒ»¸ö¶ÔÏóÀïÃæÈ¡Êı¾İ£¬Í¬ÊÇÒªÇó¹ıÂËÖØ¸´Êı¾İ¡£
-		//1.°ÑÊı¾İÌí¼Óµ½HashSetÀïÃæ
-		//2.Ê¹ÓÃÆäËû¼¯ºÏ¿ò¼Ü£¬±ÈÈçHashMap,HashTable,ArrayList,ÔÚÌí¼ÓµÄÊ±ºò¼ÓÈëÒ»¸öÅĞ¶Ï
+		//æœ‰çš„æ—¶å€™éœ€è¦ä»å¦å¤–ä¸€ä¸ªå¯¹è±¡é‡Œé¢å–æ•°æ®ï¼ŒåŒæ˜¯è¦æ±‚è¿‡æ»¤é‡å¤æ•°æ®ã€‚
+		//1.æŠŠæ•°æ®æ·»åŠ åˆ°HashSeté‡Œé¢
+		//2.ä½¿ç”¨å…¶ä»–é›†åˆæ¡†æ¶ï¼Œæ¯”å¦‚HashMap,HashTable,ArrayList,åœ¨æ·»åŠ çš„æ—¶å€™åŠ å…¥ä¸€ä¸ªåˆ¤æ–­
 		//if(!list.contains(this)) list.add(this)
 		
 		System.out.println(b);

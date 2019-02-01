@@ -1,15 +1,15 @@
-package com.huang.annotation.test2;
+ï»¿package com.huang.annotation.test2;
 
 import java.lang.reflect.Method;
 
 
 /**
  * UserFactory.java
- * ×¢½â½âÎöÆ÷
- * 1.Í¨¹ı·´Éä»ñÈ¡×¢½â¶ÔÏó Init init = method.getAnnotation(Init.class);
- * 2.»ñÈ¡×¢½âµÄÖµ init.value()£¬Ò²¾ÍÊÇÅäÖÃµÄÖµ
- * 3.Í¨¹ıÕâ¸öÅäÖÃµÄÖµÀ´½øĞĞÅäÖÃ£¬ÕâÀïÊÇ´«Èë¹¹Ôì·½·¨
- * @author ITÌÆ²®»¢ 2014Äê7ÔÂ10ÈÕ
+ * æ³¨è§£è§£æå™¨
+ * 1.é€šè¿‡åå°„è·å–æ³¨è§£å¯¹è±¡ Init init = method.getAnnotation(Init.class);
+ * 2.è·å–æ³¨è§£çš„å€¼ init.value()ï¼Œä¹Ÿå°±æ˜¯é…ç½®çš„å€¼
+ * 3.é€šè¿‡è¿™ä¸ªé…ç½®çš„å€¼æ¥è¿›è¡Œé…ç½®ï¼Œè¿™é‡Œæ˜¯ä¼ å…¥æ„é€ æ–¹æ³•
+ * @author ITå”ä¼¯è™ 2014å¹´7æœˆ10æ—¥
  */
 public class UserFactory
 {
@@ -17,18 +17,18 @@ public class UserFactory
     {
         User user = new User();
 
-        // »ñÈ¡UserÀàÖĞËùÓĞµÄ·½·¨£¨getDeclaredMethodsÒ²ĞĞ£©
+        // è·å–Userç±»ä¸­æ‰€æœ‰çš„æ–¹æ³•ï¼ˆgetDeclaredMethodsä¹Ÿè¡Œï¼‰
         Method[] methods = User.class.getMethods();
 
         try
         {
             for (Method method : methods)
             {
-                // Èç¹û´Ë·½·¨ÓĞ×¢½â£¬¾Í°Ñ×¢½âÀïÃæµÄÊı¾İ¸³Öµµ½user¶ÔÏó
+                // å¦‚æœæ­¤æ–¹æ³•æœ‰æ³¨è§£ï¼Œå°±æŠŠæ³¨è§£é‡Œé¢çš„æ•°æ®èµ‹å€¼åˆ°userå¯¹è±¡
                 if (method.isAnnotationPresent(Init.class))
                 {
                     Init init = method.getAnnotation(Init.class);
-                    method.invoke(user, init.value());//init.value()»ñÈ¡×¢½âµÄÅäÖÃµÄÖµ
+                    method.invoke(user, init.value());//init.value()è·å–æ³¨è§£çš„é…ç½®çš„å€¼
                 }
             }
         }

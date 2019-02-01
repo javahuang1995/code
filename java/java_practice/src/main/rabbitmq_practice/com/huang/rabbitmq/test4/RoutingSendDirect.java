@@ -1,15 +1,15 @@
-package com.huang.rabbitmq.test4;
+ï»¿package com.huang.rabbitmq.test4;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
  
 /**
  * @author hushuang
- * ½»»»Æ÷µÄ¹æÔòÓĞ£º
-direct £¨Ö±Á¬£©
-topic £¨Ö÷Ìâ£©
-headers £¨±êÌâ£©
-fanout £¨·Ö·¢£©Ò²ÓĞ·­ÒëÎªÉÈ³öµÄ¡£
+ * äº¤æ¢å™¨çš„è§„åˆ™æœ‰ï¼š
+direct ï¼ˆç›´è¿ï¼‰
+topic ï¼ˆä¸»é¢˜ï¼‰
+headers ï¼ˆæ ‡é¢˜ï¼‰
+fanout ï¼ˆåˆ†å‘ï¼‰ä¹Ÿæœ‰ç¿»è¯‘ä¸ºæ‰‡å‡ºçš„ã€‚
 
  *
  */
@@ -18,7 +18,7 @@ public class RoutingSendDirect {
     private static final String EXCHANGE_NAME = "direct_logs";
     private final static String HOST = "192.168.0.104";
 
- // Â·ÓÉ¹Ø¼ü×Ö
+ // è·¯ç”±å…³é”®å­—
  	private static final String[] routingKeys = new String[]{"info" ,"warning", "error"};
  	
     public static void main(String[] argv) throws Exception {
@@ -29,12 +29,12 @@ public class RoutingSendDirect {
 		factory.setPassword("1995");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-//		ÉùÃ÷½»»»Æ÷
-        channel.exchangeDeclare(EXCHANGE_NAME, "direct");//ÕâÀïµÄÂ·ÓÉ·½Ê½±äÁË£¬³ÉÁËdirect
-//		·¢ËÍÏûÏ¢
+//		å£°æ˜äº¤æ¢å™¨
+        channel.exchangeDeclare(EXCHANGE_NAME, "direct");//è¿™é‡Œçš„è·¯ç”±æ–¹å¼å˜äº†ï¼Œæˆäº†direct
+//		å‘é€æ¶ˆæ¯
         for(String severity :routingKeys){
         	String message = "Send the message level:" + severity;
-        	channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());//·¢ËÍÈı¸öÏûÏ¢£¬routtingkey·Ö±ğÊÇinfo,warning,error
+        	channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());//å‘é€ä¸‰ä¸ªæ¶ˆæ¯ï¼Œrouttingkeyåˆ†åˆ«æ˜¯info,warning,error
         	System.out.println(" [x] Sent '" + severity + "':'" + message + "'");
         }
         channel.close();

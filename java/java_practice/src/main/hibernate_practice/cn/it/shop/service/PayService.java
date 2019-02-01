@@ -1,4 +1,4 @@
-package cn.it.shop.service;
+ï»¿package cn.it.shop.service;
 
 import java.util.Map;
 
@@ -7,10 +7,10 @@ import cn.it.shop.model.SendData;
 
 public interface PayService {
 
-	// °Ñ¼ÓÃÜºóµÄĞÅÏ¢´æ´¢µ½requestMapÖĞ
+	// æŠŠåŠ å¯†åçš„ä¿¡æ¯å­˜å‚¨åˆ°requestMapä¸­
 	public abstract Map<String, Object> saveDataToRequest(
 			Map<String, Object> request, SendData sendData);
 	
-	//°Ñ·µ»ØµÄÊı¾İ½øĞĞ¼ÓÃÜµÃµ½ÃÜÎÄ£¬²¢Óë´«»ØÀ´µÄÃÜÎÄ±È½Ï
+	//æŠŠè¿”å›çš„æ•°æ®è¿›è¡ŒåŠ å¯†å¾—åˆ°å¯†æ–‡ï¼Œå¹¶ä¸ä¼ å›æ¥çš„å¯†æ–‡æ¯”è¾ƒ
 	public boolean checkBackData(BackData backData);
 }

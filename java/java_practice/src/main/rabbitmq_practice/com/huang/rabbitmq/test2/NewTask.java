@@ -1,4 +1,4 @@
-package com.huang.rabbitmq.test2;
+ï»¿package com.huang.rabbitmq.test2;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -6,7 +6,7 @@ import com.rabbitmq.client.MessageProperties;
 
 /**
  * @author hushuang
- * Õâ¸öÊµÑéµÄÄÚÈİÊÇ½«ÏûÏ¢·¢ËÍ¸ø¶à¸öÏû·ÑÕß¡£¡£
+ * è¿™ä¸ªå®éªŒçš„å†…å®¹æ˜¯å°†æ¶ˆæ¯å‘é€ç»™å¤šä¸ªæ¶ˆè´¹è€…ã€‚ã€‚
  * 
  */
 public class NewTask {
@@ -18,7 +18,7 @@ public class NewTask {
     public static void main(String[] argv) throws java.io.IOException, Exception {
 
         ConnectionFactory factory = new ConnectionFactory();
-//		ÉèÖÃRabbitMQµØÖ·
+//		è®¾ç½®RabbitMQåœ°å€
 		factory.setHost(HOST);
 		factory.setUsername("huang");
 		factory.setPassword("1995");
@@ -27,7 +27,7 @@ public class NewTask {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
-//      ·Ö·¢ÏûÏ¢ ·¢²¼ÁË5¸öÏûÏ¢¡£
+//      åˆ†å‘æ¶ˆæ¯ å‘å¸ƒäº†5ä¸ªæ¶ˆæ¯ã€‚
         for(int i = 0 ; i < 5; i++){
             String message = "Hello World! " + i;
             channel.basicPublish("", TASK_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());

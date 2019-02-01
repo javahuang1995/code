@@ -1,4 +1,4 @@
-package com.huang.json.test;
+ï»¿package com.huang.json.test;
 
 import java.io.IOException;
 
@@ -20,11 +20,11 @@ public class TestWriteJson {
 		case1.setUnknownAttr("testVal");
 		case1.setAge(123);
 
-		//ÕâÀïÊÇ½«¶ÔÏóĞòÁĞ»¯³Éjson
+		//è¿™é‡Œæ˜¯å°†å¯¹è±¡åºåˆ—åŒ–æˆjson
 		String jsonStr = mapper.writeValueAsString(case1);
 		System.out.println("JSON:" + jsonStr);
 		
-		//ÕâÀïÊÇ½«json×ª»»³É¶ÔÏó
+		//è¿™é‡Œæ˜¯å°†jsonè½¬æ¢æˆå¯¹è±¡
 		String inputjsonstr = "{\"city\":\"BeiJing\",\"testa\":123}";
 		JSONCaseA readcase = mapper.readValue(inputjsonstr, JSONCaseA.class);
 		System.out.println("object info:" + readcase);

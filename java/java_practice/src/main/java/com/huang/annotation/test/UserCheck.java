@@ -1,11 +1,11 @@
-package com.huang.annotation.test;
+ï»¿package com.huang.annotation.test;
 import java.lang.reflect.Field;
 
 
 /**
  * UserCheck.java
- * ×¢½â½âÎöÆ÷
- * @author ITÌÆ²®»¢ 2014Äê7ÔÂ11ÈÕ
+ * æ³¨è§£è§£æå™¨
+ * @author ITå”ä¼¯è™ 2014å¹´7æœˆ11æ—¥
  */
 public class UserCheck
 {
@@ -13,16 +13,16 @@ public class UserCheck
     {
         if (user == null)
         {
-            System.out.println("£¡£¡Ğ£Ñé¶ÔÏóÎª¿Õ£¡£¡");
+            System.out.println("ï¼ï¼æ ¡éªŒå¯¹è±¡ä¸ºç©ºï¼ï¼");
             return false;
         }
 
-        // »ñÈ¡UserÀàµÄËùÓĞÊôĞÔ£¨Èç¹ûÊ¹ÓÃgetFields£¬¾ÍÎŞ·¨»ñÈ¡µ½privateµÄÊôĞÔ£©
+        // è·å–Userç±»çš„æ‰€æœ‰å±æ€§ï¼ˆå¦‚æœä½¿ç”¨getFieldsï¼Œå°±æ— æ³•è·å–åˆ°privateçš„å±æ€§ï¼‰
         Field[] fields = User.class.getDeclaredFields();
 
         for (Field field : fields)
         {
-            // Èç¹ûÊôĞÔÓĞ×¢½â£¬¾Í½øĞĞĞ£Ñé
+            // å¦‚æœå±æ€§æœ‰æ³¨è§£ï¼Œå°±è¿›è¡Œæ ¡éªŒ
             if (field.isAnnotationPresent(Validate.class))
             {
                 Validate validate = field.getAnnotation(Validate.class);
@@ -32,78 +32,78 @@ public class UserCheck
                     {
                         if (validate.isNotNull())
                         {
-                            System.out.println("£¡£¡ÄêÁä¿É¿ÕĞ£Ñé²»Í¨¹ı£º²»¿ÉÎª¿Õ£¡£¡");
+                            System.out.println("ï¼ï¼å¹´é¾„å¯ç©ºæ ¡éªŒä¸é€šè¿‡ï¼šä¸å¯ä¸ºç©ºï¼ï¼");
                             return false;
                         }
                         else
                         {
-                            System.out.println("ÄêÁä¿É¿ÕĞ£ÑéÍ¨¹ı£º¿ÉÒÔÎª¿Õ");
+                            System.out.println("å¹´é¾„å¯ç©ºæ ¡éªŒé€šè¿‡ï¼šå¯ä»¥ä¸ºç©º");
                             continue;
                         }
                     }
                     else
                     {
-                        System.out.println("ÄêÁä¿É¿ÕĞ£ÑéÍ¨¹ı");
+                        System.out.println("å¹´é¾„å¯ç©ºæ ¡éªŒé€šè¿‡");
                     }
 
-                    if (user.getAge().length() < validate.min())//validate.min()»ñÈ¡MinÖµ
+                    if (user.getAge().length() < validate.min())//validate.min()è·å–Minå€¼
                     {
-                        System.out.println("£¡£¡ÄêÁä×îĞ¡³¤¶ÈĞ£Ñé²»Í¨¹ı£¡£¡");
+                        System.out.println("ï¼ï¼å¹´é¾„æœ€å°é•¿åº¦æ ¡éªŒä¸é€šè¿‡ï¼ï¼");
                         return false;
                     }
                     else
                     {
-                        System.out.println("ÄêÁä×îĞ¡³¤¶ÈĞ£ÑéÍ¨¹ı");
+                        System.out.println("å¹´é¾„æœ€å°é•¿åº¦æ ¡éªŒé€šè¿‡");
                     }
 
-                    if (user.getAge().length() > validate.max())//validate.max()»ñÈ¡maxÖµ
+                    if (user.getAge().length() > validate.max())//validate.max()è·å–maxå€¼
                     {
-                        System.out.println("£¡£¡ÄêÁä×î´ó³¤¶ÈĞ£Ñé²»Í¨¹ı£¡£¡");
+                        System.out.println("ï¼ï¼å¹´é¾„æœ€å¤§é•¿åº¦æ ¡éªŒä¸é€šè¿‡ï¼ï¼");
                         return false;
                     }
                     else
                     {
-                        System.out.println("ÄêÁä×î´ó³¤¶ÈĞ£ÑéÍ¨¹ı");
+                        System.out.println("å¹´é¾„æœ€å¤§é•¿åº¦æ ¡éªŒé€šè¿‡");
                     }
                 }
                 if (field.getName().equals("name"))
                 {
                     if (user.getName() == null)
                     {
-                        if (validate.isNotNull())//validate.isNotNull() »ñÈ¡ÊÇ·ñ¿ÉÒÔÎª¿Õ
+                        if (validate.isNotNull())//validate.isNotNull() è·å–æ˜¯å¦å¯ä»¥ä¸ºç©º
                         {
-                            System.out.println("£¡£¡Ãû×Ö¿É¿ÕĞ£Ñé²»Í¨¹ı£º²»¿ÉÎª¿Õ£¡£¡");
+                            System.out.println("ï¼ï¼åå­—å¯ç©ºæ ¡éªŒä¸é€šè¿‡ï¼šä¸å¯ä¸ºç©ºï¼ï¼");
                             return false;
                         }
                         else
                         {
-                            System.out.println("Ãû×Ö¿É¿ÕĞ£ÑéÍ¨¹ı£º¿ÉÒÔÎª¿Õ");
+                            System.out.println("åå­—å¯ç©ºæ ¡éªŒé€šè¿‡ï¼šå¯ä»¥ä¸ºç©º");
                             continue;
                         }
                     }
                     else
                     {
-                        System.out.println("Ãû×Ö¿É¿ÕĞ£ÑéÍ¨¹ı");
+                        System.out.println("åå­—å¯ç©ºæ ¡éªŒé€šè¿‡");
                     }
 
                     if (user.getName().length() < validate.min())
                     {
-                        System.out.println("£¡£¡Ãû×Ö×îĞ¡³¤¶ÈĞ£Ñé²»Í¨¹ı£¡£¡");
+                        System.out.println("ï¼ï¼åå­—æœ€å°é•¿åº¦æ ¡éªŒä¸é€šè¿‡ï¼ï¼");
                         return false;
                     }
                     else
                     {
-                        System.out.println("Ãû×Ö×îĞ¡³¤¶ÈĞ£ÑéÍ¨¹ı");
+                        System.out.println("åå­—æœ€å°é•¿åº¦æ ¡éªŒé€šè¿‡");
                     }
 
                     if (user.getName().length() > validate.max())
                     {
-                        System.out.println("£¡£¡Ãû×Ö×î´ó³¤¶ÈĞ£Ñé²»Í¨¹ı£¡£¡");
+                        System.out.println("ï¼ï¼åå­—æœ€å¤§é•¿åº¦æ ¡éªŒä¸é€šè¿‡ï¼ï¼");
                         return false;
                     }
                     else
                     {
-                        System.out.println("Ãû×Ö×î´ó³¤¶ÈĞ£ÑéÍ¨¹ı");
+                        System.out.println("åå­—æœ€å¤§é•¿åº¦æ ¡éªŒé€šè¿‡");
                     }
                 }
             }

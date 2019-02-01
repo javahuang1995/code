@@ -1,10 +1,10 @@
-package com.huang.rabbitmq.test5;
+ï»¿package com.huang.rabbitmq.test5;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 /**
- * ÕâÒ»¸öÊµÀıÑ§Ï°µÄÊÇTopicÊµÀıÄ£Ê½¡£
- * Â·ÓÉ·½Ê½±ä³Étopic
+ * è¿™ä¸€ä¸ªå®ä¾‹å­¦ä¹ çš„æ˜¯Topicå®ä¾‹æ¨¡å¼ã€‚
+ * è·¯ç”±æ–¹å¼å˜æˆtopic
  * @author huang
  *
  */
@@ -24,10 +24,10 @@ public class TopicSend {
 			factory.setPassword("1995");
 			connection = factory.newConnection();
 			channel = connection.createChannel();
-//			ÉùÃ÷Ò»¸öÆ¥ÅäÄ£Ê½µÄ½»»»Æ÷
-			channel.exchangeDeclare(EXCHANGE_NAME, "topic");//Â·ÓÉ·½Ê½±ä³Étopic
+//			å£°æ˜ä¸€ä¸ªåŒ¹é…æ¨¡å¼çš„äº¤æ¢å™¨
+			channel.exchangeDeclare(EXCHANGE_NAME, "topic");//è·¯ç”±æ–¹å¼å˜æˆtopic
 
-			// ´ı·¢ËÍµÄÏûÏ¢
+			// å¾…å‘é€çš„æ¶ˆæ¯
 			String[] routingKeys = new String[]{"quick.orange.rabbit", 
 												"lazy.orange.elephant", 
 												"quick.orange.fox", 
@@ -35,7 +35,7 @@ public class TopicSend {
 												"quick.brown.fox", 
 												"quick.orange.male.rabbit", 
 												"lazy.orange.male.rabbit"};
-//			·¢ËÍÏûÏ¢
+//			å‘é€æ¶ˆæ¯
 	        for(String severity :routingKeys){
 	        	String message = "From "+severity+" routingKey' s message!";
 	        	channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());

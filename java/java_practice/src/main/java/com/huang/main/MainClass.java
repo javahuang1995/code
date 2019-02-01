@@ -1,4 +1,4 @@
-package com.huang.main;
+锘縫ackage com.huang.main;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -37,11 +37,11 @@ public class MainClass {
 		try {
 			FileOutputStream fos = new FileOutputStream("test.txt");
 			int count,n=512;
-			byte[] buffer = new byte[n];//字节流需要用字节数组
+			byte[] buffer = new byte[n];//瀛楄妭娴侀渶瑕佺敤瀛楄妭鏁扮粍
 			count = System.in.read(buffer);
 			fos.write(buffer,0,count);
 			fos.flush();
-			System.out.println("写入成功");
+			System.out.println("鍐欏叆鎴愬姛");
 			fos.close();
 //			BufferedOutputStream bos = new BufferedOutputStream(fos);
 //			DataOutputStream dos = new DataOutputStream(bos);

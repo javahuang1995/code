@@ -1,4 +1,4 @@
-package com.huang.webservice.test;
+ï»¿package com.huang.webservice.test;
 
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 
@@ -10,11 +10,11 @@ public class Server {
         String address = "http://localhost:8080/hello/ws";
 
         JaxWsServerFactoryBean sf = new JaxWsServerFactoryBean();
-        sf.setAddress(address); // ÉèÖÃ±©Â¶µØÖ·
-        sf.setServiceClass(HelloWorld.class); // ½Ó¿ÚÀà
-        sf.setServiceBean(implementor); // ÉèÖÃÊµÏÖÀà
-        sf.create(); // ´´½¨webservice½Ó¿Ú
+        sf.setAddress(address); // è®¾ç½®æš´éœ²åœ°å€
+        sf.setServiceClass(HelloWorld.class); // æ¥å£ç±»
+        sf.setServiceBean(implementor); // è®¾ç½®å®ç°ç±»
+        sf.create(); // åˆ›å»ºwebserviceæ¥å£
         System.out.println("web service started");
-        System.out.println("ÇëÇóµØÖ·ÎªÎª£º" + address + "?WSDL");
+        System.out.println("è¯·æ±‚åœ°å€ä¸ºä¸ºï¼š" + address + "?WSDL");
     }
 }

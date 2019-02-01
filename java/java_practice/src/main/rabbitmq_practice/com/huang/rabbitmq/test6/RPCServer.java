@@ -1,4 +1,4 @@
-package com.huang.rabbitmq.test6;
+ï»¿package com.huang.rabbitmq.test6;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
@@ -12,7 +12,7 @@ public class RPCServer {
 
 
     /**
-     * ¼ÆËãì³²¨ÄÇÆõÊıÖµ
+     * è®¡ç®—æ–æ³¢é‚£å¥‘æ•°å€¼
      * @param n
      * @return
      */

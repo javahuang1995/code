@@ -1,11 +1,11 @@
-package com.huang.dynamic.proxy;
+ï»¿package com.huang.dynamic.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * ¶¯Ì¬´úÀí,¶¯Ì¬´úÀíÀà²»ÒªÏÔÊ¾µÄÊµÏÖ±»´úÀíÀàËùÊµÏÖµÄ½Ó¿Ú
+ * åŠ¨æ€ä»£ç†,åŠ¨æ€ä»£ç†ç±»ä¸è¦æ˜¾ç¤ºçš„å®ç°è¢«ä»£ç†ç±»æ‰€å®ç°çš„æ¥å£
  * @author yujie.wang
  *
  */
@@ -27,26 +27,26 @@ public class MyInvocationHandler implements InvocationHandler{
 		for(Object o : args){
 			System.out.println("arg: "+ o);
 		}
-		//Í¨¹ı·´Éäµ÷ÓÃ ±»´úÀíÀàµÄ·½·¨
+		//é€šè¿‡åå°„è°ƒç”¨ è¢«ä»£ç†ç±»çš„æ–¹æ³•
 		method.invoke(object, args);
 		System.out.println("MyInvocationHandler invoke end");
 		return null;
 	}
 	
 	public static void main(String [] args){
-		//´´½¨ĞèÒª±»´úÀíµÄÀà
+		//åˆ›å»ºéœ€è¦è¢«ä»£ç†çš„ç±»
 		Student s = new Student();
-		//ÕâÒ»¾äÊÇÉú³É´úÀíÀàµÄclassÎÄ¼ş£¬Ç°ÌáÊÇÄãĞèÒªÔÚ¹¤³Ì¸ùÄ¿Â¼ÏÂ´´½¨com/sun/proxyÄ¿Â¼£¬²»È»»á±¨ÕÒ²»µ½Â·¾¶µÄioÒì³£
+		//è¿™ä¸€å¥æ˜¯ç”Ÿæˆä»£ç†ç±»çš„classæ–‡ä»¶ï¼Œå‰ææ˜¯ä½ éœ€è¦åœ¨å·¥ç¨‹æ ¹ç›®å½•ä¸‹åˆ›å»ºcom/sun/proxyç›®å½•ï¼Œä¸ç„¶ä¼šæŠ¥æ‰¾ä¸åˆ°è·¯å¾„çš„ioå¼‚å¸¸
 		//System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
-		//»ñµÃ¼ÓÔØ±»´úÀíÀàµÄ Àà¼ÓÔØÆ÷
+		//è·å¾—åŠ è½½è¢«ä»£ç†ç±»çš„ ç±»åŠ è½½å™¨
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		//Ö¸Ã÷±»´úÀíÀàÊµÏÖµÄ½Ó¿Ú
+		//æŒ‡æ˜è¢«ä»£ç†ç±»å®ç°çš„æ¥å£
 		Class<?>[] interfaces = s.getClass().getInterfaces();
-		// ´´½¨±»´úÀíÀàµÄÎ¯ÍĞÀà,Ö®ºóÏëÒªµ÷ÓÃ±»´úÀíÀàµÄ·½·¨Ê±£¬¶¼»áÎ¯ÍĞ¸øÕâ¸öÀàµÄinvoke(Object proxy, Method method, Object[] args)·½·¨
+		// åˆ›å»ºè¢«ä»£ç†ç±»çš„å§”æ‰˜ç±»,ä¹‹åæƒ³è¦è°ƒç”¨è¢«ä»£ç†ç±»çš„æ–¹æ³•æ—¶ï¼Œéƒ½ä¼šå§”æ‰˜ç»™è¿™ä¸ªç±»çš„invoke(Object proxy, Method method, Object[] args)æ–¹æ³•
 		MyInvocationHandler h = new MyInvocationHandler(s);
-		//Éú³É´úÀíÀà
+		//ç”Ÿæˆä»£ç†ç±»
 		Person proxy = (Person)Proxy.newProxyInstance(loader, interfaces, h);
-		//Í¨¹ı´úÀíÀàµ÷ÓÃ ±»´úÀíÀàµÄ·½·¨
+		//é€šè¿‡ä»£ç†ç±»è°ƒç”¨ è¢«ä»£ç†ç±»çš„æ–¹æ³•
 		proxy.sayHello("yujie.wang", 20);
 		proxy.sayGoodBye(true, 100);
 		System.out.println("end");

@@ -1,4 +1,4 @@
-package com.huang.reflect;
+ï»¿package com.huang.reflect;
 
 import java.lang.reflect.*;
 
@@ -37,14 +37,14 @@ public class DumpMethods {
 	private static void getFieldTest() throws NoSuchFieldException,
 			IllegalAccessException {
 		StringBuffer rp1 = new StringBuffer("sdfdkk");
-        Field fieldx = rp1.getClass().getField("x");//±ØĞëÊÇx»òÕßy
+        Field fieldx = rp1.getClass().getField("x");//å¿…é¡»æ˜¯xæˆ–è€…y
         System.out.println(fieldx.get(rp1));
 
         /*
-         * privateµÄ³ÉÔ±±äÁ¿±ØĞëÊ¹ÓÃgetDeclaredField£¬²¢setAccessible(true),·ñÔò¿´µÃµ½ÄÃ²»µ½
+         * privateçš„æˆå‘˜å˜é‡å¿…é¡»ä½¿ç”¨getDeclaredFieldï¼Œå¹¶setAccessible(true),å¦åˆ™çœ‹å¾—åˆ°æ‹¿ä¸åˆ°
          */
         Field fieldy = rp1.getClass().getDeclaredField("y");
-        fieldy.setAccessible(true);//±©Á¦·´Éä
+        fieldy.setAccessible(true);//æš´åŠ›åå°„
         System.out.println(fieldy.get(rp1));
 	}
 	private static void getConstructorTest() throws NoSuchMethodException {
@@ -58,7 +58,7 @@ public class DumpMethods {
         String str = "abc";
         Class cls1 = str.getClass();
         Class cls2 = String.class;
-        Class cls3 = null;//±ØĞëÒª¼ÓÉÏnull
+        Class cls3 = null;//å¿…é¡»è¦åŠ ä¸Šnull
         try {
             cls3 = Class.forName("java.lang.String");
         } catch (ClassNotFoundException e) {
@@ -69,14 +69,14 @@ public class DumpMethods {
         System.out.println(cls1==cls3);
 
         System.out.println(cls1.isPrimitive());
-        System.out.println(int.class.isPrimitive());//ÅĞ¶¨Ö¸¶¨µÄ Class ¶ÔÏóÊÇ·ñ±íÊ¾Ò»¸ö»ù±¾ÀàĞÍ¡£
+        System.out.println(int.class.isPrimitive());//åˆ¤å®šæŒ‡å®šçš„ Class å¯¹è±¡æ˜¯å¦è¡¨ç¤ºä¸€ä¸ªåŸºæœ¬ç±»å‹ã€‚
         System.out.println(int.class == Integer.class);
         System.out.println(int.class == Integer.TYPE);
         System.out.println(int[].class.isPrimitive());
         System.out.println(int[].class.isArray());
 	}
 	/**
-	 * ´òÓ¡ÀàµÄÃû×Ö
+	 * æ‰“å°ç±»çš„åå­—
 	 * @param obj
 	 */
 	void printClassName(Object obj) {
@@ -84,13 +84,13 @@ public class DumpMethods {
 		                            " is " + obj.getClass().getName());
 		    }
 	
-	//»ñµÃÀàÀàĞÍµÄÁ½ÖÖ·½Ê½        
+	//è·å¾—ç±»ç±»å‹çš„ä¸¤ç§æ–¹å¼        
 	//Class cls1 = Role.class;        
 	//Class cls2 = Class.forName("yui.Role");
 	
 	// Object o = cls1.newInstance(); 
-	//´´½¨Ò»¸öÊµÀı        
-	 //Object o1 = new Role();   //ÓëÉÏÃæµÄ·½·¨µÈ¼Û
+	//åˆ›å»ºä¸€ä¸ªå®ä¾‹        
+	 //Object o1 = new Role();   //ä¸ä¸Šé¢çš„æ–¹æ³•ç­‰ä»·
 	
 	
 

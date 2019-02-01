@@ -1,4 +1,4 @@
-package cn.it.shop.service;
+ï»¿package cn.it.shop.service;
 
 import java.util.List;
 
@@ -7,12 +7,12 @@ import cn.it.shop.model.Product;
 import cn.it.shop.model.Sorder;
 
 public interface SorderService extends BaseService<Sorder> {
-	//Ìí¼Ó¹ºÎïÏî£¬·µ»ØĞÂµÄ¹ºÎï³µ
+	//æ·»åŠ è´­ç‰©é¡¹ï¼Œè¿”å›æ–°çš„è´­ç‰©è½¦
 	public Forder addSorder(Forder forder, Product product);
-	//°ÑÉÌÆ·Êı¾İ×ª»¯Îª¹ºÎïÏî
+	//æŠŠå•†å“æ•°æ®è½¬åŒ–ä¸ºè´­ç‰©é¡¹
 	public Sorder productToSorder(Product product);
-	//¸ù¾İÉÌÆ·idºÍÊıÁ¿¸üĞÂÉÌÆ·ÊıÁ¿
+	//æ ¹æ®å•†å“idå’Œæ•°é‡æ›´æ–°å•†å“æ•°é‡
 	public Forder updateSorder(Sorder sorder, Forder forder);
-	//²éÑ¯ÈÈµãÉÌÆ·µÄÏúÊÛÁ¿
+	//æŸ¥è¯¢çƒ­ç‚¹å•†å“çš„é”€å”®é‡
 	public List<Object> querySale(int number);
 }

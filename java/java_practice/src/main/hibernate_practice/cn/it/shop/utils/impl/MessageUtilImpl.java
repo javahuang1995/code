@@ -1,4 +1,4 @@
-package cn.it.shop.utils.impl;
+ï»¿package cn.it.shop.utils.impl;
 
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import cn.it.shop.utils.MessageUtil;
 
 
 /**
- * @Description: TODO(ÊµÏÖ¶ÌĞÅ·¢ËÍ¹¦ÄÜ)
+ * @Description: TODO(å®ç°çŸ­ä¿¡å‘é€åŠŸèƒ½)
  * @author Ni Shengwu
  *
  */
@@ -21,24 +21,24 @@ public class MessageUtilImpl implements MessageUtil {
 	
 	@Override
 	public void sendMessage(String phoneNum, String id) {
-		//1. ´ò¿ªä¯ÀÀÆ÷
+		//1. æ‰“å¼€æµè§ˆå™¨
 		HttpClient client = new HttpClient();
-		//2. ´´½¨ÇëÇóµÄ·½Ê½£ºget/post
+		//2. åˆ›å»ºè¯·æ±‚çš„æ–¹å¼ï¼šget/post
 		PostMethod post = new PostMethod("http://utf8.sms.webchinese.cn/");
-		//3. ÉèÖÃÇëÇóµÄ²ÎÊıĞÅÏ¢
+		//3. è®¾ç½®è¯·æ±‚çš„å‚æ•°ä¿¡æ¯
 		post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 		post.setParameter("Uid", "eson_15");
 		post.setParameter("Key", "0537729d0b59a7e7358b");
 		post.setParameter("smsMob", phoneNum);
-		post.setParameter("smsText", "ÄúµÄ¶©µ¥" + id + "ÒÑ¾­Éú³É£¡");
-		//4. Ìá½»ÇëÇó²¢·µ»Ø×´Ì¬Âë
+		post.setParameter("smsText", "æ‚¨çš„è®¢å•" + id + "å·²ç»ç”Ÿæˆï¼");
+		//4. æäº¤è¯·æ±‚å¹¶è¿”å›çŠ¶æ€ç 
 		try {
 			int code = 0;
 			code = client.executeMethod(post);
-			System.out.println("http·µ»ØµÄ×´Ì¬Âë£º" + code);
-			//5. »ñÈ¡·şÎñÆ÷¶Ë·µ»ØµÄÊı¾İĞÅÏ¢
+			System.out.println("httpè¿”å›çš„çŠ¶æ€ç ï¼š" + code);
+			//5. è·å–æœåŠ¡å™¨ç«¯è¿”å›çš„æ•°æ®ä¿¡æ¯
 			String result = post.getResponseBodyAsString();
-			System.out.println("¶ÌĞÅ·¢ËÍ½á¹ûÎª£º" + result);
+			System.out.println("çŸ­ä¿¡å‘é€ç»“æœä¸ºï¼š" + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -48,22 +48,22 @@ public class MessageUtilImpl implements MessageUtil {
 	}
 /*	
 	public static void main(String[] args) throws Exception {
-		//1. ´ò¿ªä¯ÀÀÆ÷
+		//1. æ‰“å¼€æµè§ˆå™¨
 		HttpClient client = new HttpClient();
-		//2. ´´½¨ÇëÇóµÄ·½Ê½£ºget/post
+		//2. åˆ›å»ºè¯·æ±‚çš„æ–¹å¼ï¼šget/post
 		PostMethod post = new PostMethod("http://utf8.sms.webchinese.cn/");
-		//3. ÉèÖÃÇëÇóµÄ²ÎÊıĞÅÏ¢
+		//3. è®¾ç½®è¯·æ±‚çš„å‚æ•°ä¿¡æ¯
 		post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 		post.setParameter("Uid", "eson_15");
 		post.setParameter("Key", "0537729d0b59a7e7358b");
 		post.setParameter("smsMob", "15216771570");
-		post.setParameter("smsText", "²âÊÔÒ»ÏÂ£¡");
-		//4. Ìá½»ÇëÇó²¢·µ»Ø×´Ì¬Âë
+		post.setParameter("smsText", "æµ‹è¯•ä¸€ä¸‹ï¼");
+		//4. æäº¤è¯·æ±‚å¹¶è¿”å›çŠ¶æ€ç 
 		int code = client.executeMethod(post);
-		System.out.println("http·µ»ØµÄ×´Ì¬Âë£º" + code);
-		//5. »ñÈ¡·şÎñÆ÷¶Ë·µ»ØµÄÊı¾İĞÅÏ¢
+		System.out.println("httpè¿”å›çš„çŠ¶æ€ç ï¼š" + code);
+		//5. è·å–æœåŠ¡å™¨ç«¯è¿”å›çš„æ•°æ®ä¿¡æ¯
 		String result = post.getResponseBodyAsString();
-		System.out.println("¶ÌĞÅ·¢ËÍ½á¹ûÎª£º" + result);
+		System.out.println("çŸ­ä¿¡å‘é€ç»“æœä¸ºï¼š" + result);
 			
 	}*/
 }

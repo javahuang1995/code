@@ -1,4 +1,4 @@
-package com.huang.rpc.test.server;
+锘縫ackage com.huang.rpc.test.server;
 public class HelloServiceImpl implements HelloService{
     @Override
     public String hello(String name) {
@@ -11,4 +11,4 @@ public class HelloServiceImpl implements HelloService{
     }
 }
 
-// 服务本地调用
+// 鏈嶅姟鏈湴璋冪敤

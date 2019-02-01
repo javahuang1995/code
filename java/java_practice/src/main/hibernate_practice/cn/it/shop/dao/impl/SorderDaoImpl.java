@@ -1,4 +1,4 @@
-package cn.it.shop.dao.impl;
+锘縫ackage cn.it.shop.dao.impl;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class SorderDaoImpl extends BaseDaoImpl<Sorder> implements
 	
 	@Override
 	public List<Object> querySale(int number) {
-		//不用fecth查出来的就是两项
+		//涓嶇敤fecth鏌ュ嚭鏉ョ殑灏辨槸涓ら」
 		String hql = "select s.name, sum(s.number) from Sorder s join s.product group by s.product.id";
 		return getSession().createQuery(hql) //
 			.setFirstResult(0) //

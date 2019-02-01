@@ -1,4 +1,4 @@
-package com.huang.redis.test;
+ï»¿package com.huang.redis.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,32 +28,32 @@ public class RedisTest {
 
 	@Test
 	public void testClient() {
-		// Á¬½Ó¶ÔÏó¿ÉÒÔÖ±½ÓnewÒ»¸ö£¬Ò²¿ÉÒÔ¹¤³§´´½¨
-		Jedis jedis = new Jedis(HOST, 6379); // ĞÂ½¨Jedis¶ÔÏó
-		jedis.select(0); // ÇĞ»»RedisÊı¾İ¿â
+		// è¿æ¥å¯¹è±¡å¯ä»¥ç›´æ¥newä¸€ä¸ªï¼Œä¹Ÿå¯ä»¥å·¥å‚åˆ›å»º
+		Jedis jedis = new Jedis(HOST, 6379); // æ–°å»ºJediså¯¹è±¡
+		jedis.select(0); // åˆ‡æ¢Redisæ•°æ®åº“
 		
 		
-//		jedis.set("firstJedis", "hello,Jedis"); // ÓëRedisÃüÁîĞĞ²Ù×÷»ù±¾Ò»ÖÂ
-//		// hsetÊµ¼ÊÉÏ¶¨ÒåµÄÒ»¸öhashMap,hashMapµÄÃû×ÖÊÇa,ÓĞ2¸ök-v¼üÖµ¶Ô£¬ÓÃµÄ×î¶àµÄ»¹ÊÇÕâÖÖ¡£
-//		jedis.hset("a", "xxx", "65"); // Í¬RedisÃüÁîĞĞÖĞµÄhset²Ù×÷£¬ÈçÃûÎªfamilyµÄset²»´æÔÚ£¬Ôò´´½¨set²¢·ÅÈëÃûÎªlbqµÄÔªËØ£¬ÖµÎª65
-//		jedis.hset("a", "zjz", "62"); // Redis²»Ö§³ÖintÀàĞÍ£¬Èç²»´«StringÔò»á±¨´í¡£
+//		jedis.set("firstJedis", "hello,Jedis"); // ä¸Rediså‘½ä»¤è¡Œæ“ä½œåŸºæœ¬ä¸€è‡´
+//		// hsetå®é™…ä¸Šå®šä¹‰çš„ä¸€ä¸ªhashMap,hashMapçš„åå­—æ˜¯a,æœ‰2ä¸ªk-vé”®å€¼å¯¹ï¼Œç”¨çš„æœ€å¤šçš„è¿˜æ˜¯è¿™ç§ã€‚
+//		jedis.hset("a", "xxx", "65"); // åŒRediså‘½ä»¤è¡Œä¸­çš„hsetæ“ä½œï¼Œå¦‚åä¸ºfamilyçš„setä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºsetå¹¶æ”¾å…¥åä¸ºlbqçš„å…ƒç´ ï¼Œå€¼ä¸º65
+//		jedis.hset("a", "zjz", "62"); // Redisä¸æ”¯æŒintç±»å‹ï¼Œå¦‚ä¸ä¼ Stringåˆ™ä¼šæŠ¥é”™ã€‚
 //
 //		Map<String, String> testMap = new HashMap<String, String>();
-//		testMap.put("num1", "1"); // ´Ë´¦Í¬ÉÏÃæ£¬²»ÄÜ´«·ÇStringĞÍ
+//		testMap.put("num1", "1"); // æ­¤å¤„åŒä¸Šé¢ï¼Œä¸èƒ½ä¼ éStringå‹
 //		testMap.put("num2", "15");
 //		testMap.put("num3", "606");
 //		testMap.put("num4", "1024");
-//		jedis.hmset("testMap1", testMap); // ´«ÈëÕû¸ömap¶ÔÏóÈëredis
+//		jedis.hmset("testMap1", testMap); // ä¼ å…¥æ•´ä¸ªmapå¯¹è±¡å…¥redis
 //
-//		// Èç¹ûÊÇÒ»¸ö¶ÔÏó£¬¿ÉÒÔ·Å½øÈ¥Âğ£¿£¿
+//		// å¦‚æœæ˜¯ä¸€ä¸ªå¯¹è±¡ï¼Œå¯ä»¥æ”¾è¿›å»å—ï¼Ÿï¼Ÿ
 		MyUser u = new MyUser("dd", "ddddf");
 //		jedisClientSingle.setObject("uu", u);
 //		MyUser getU = (MyUser)jedisClientSingle.getObject("uu");
-//		System.out.println(getU.getName());//Êä³ödd
+//		System.out.println(getU.getName());//è¾“å‡ºdd
 //		
 //		//List
-//		jedis.lpush("list","dd","ss","lksdjd");//´æ·ÅStringÀàĞÍµÄList
-//		List<MyUser> myUserList = new ArrayList<MyUser>();//Èç¹ûÊÇ´æ·Å¶ÔÏóListÄØ£¿ Ò²×÷ÎªÒ»¸öObjectÈÓ½øÈ¥¡£¡£
+//		jedis.lpush("list","dd","ss","lksdjd");//å­˜æ”¾Stringç±»å‹çš„List
+//		List<MyUser> myUserList = new ArrayList<MyUser>();//å¦‚æœæ˜¯å­˜æ”¾å¯¹è±¡Listå‘¢ï¼Ÿ ä¹Ÿä½œä¸ºä¸€ä¸ªObjectæ‰”è¿›å»ã€‚ã€‚
 //		myUserList.add(new MyUser("ggg","jpp"));
 //		myUserList.add(new MyUser("xx","jpp"));
 //		jedisClientSingle.setObject("myUserList", myUserList);
@@ -61,7 +61,7 @@ public class RedisTest {
 //		System.out.println(getMyUserList);
 		
 		
-		//Ğ´Èëjson¶ÔÏó
+		//å†™å…¥jsonå¯¹è±¡
 		jedisClientSingle.set("json", JsonUtils.objectToJson(u));
 
 

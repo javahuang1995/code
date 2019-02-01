@@ -1,11 +1,11 @@
-package cn.it.shop.service.impl;
+ï»¿package cn.it.shop.service.impl;
 
 import org.springframework.stereotype.Service;
 
 import cn.it.shop.model.Account;
 import cn.it.shop.service.AccountService;
 /**
- * @Description TODO£¨Ä£¿é×ÔÉíµÄÒµÎñÂß¼­£©
+ * @Description TODOï¼ˆæ¨¡å—è‡ªèº«çš„ä¸šåŠ¡é€»è¾‘ï¼‰
  * @author Ni Shengwu
  *
  */
@@ -13,8 +13,8 @@ import cn.it.shop.service.AccountService;
 public class AccountServiceImpl extends BaseServiceImpl<Account> implements AccountService {
 
 	/*
-	 * Ö»ĞèÊµÏÖAccountService½Ó¿ÚÖĞĞÂÔöµÄ·½·¨¼´¿É£¬¹«¹²·½·¨ÒÑ¾­ÔÚBaseServiceImplÖĞÊµÏÖÁË
+	 * åªéœ€å®ç°AccountServiceæ¥å£ä¸­æ–°å¢çš„æ–¹æ³•å³å¯ï¼Œå…¬å…±æ–¹æ³•å·²ç»åœ¨BaseServiceImplä¸­å®ç°äº†
 	 */
 	
-	//¹ÜÀíµÇÂ½¹¦ÄÜ
+	//ç®¡ç†ç™»é™†åŠŸèƒ½
 }

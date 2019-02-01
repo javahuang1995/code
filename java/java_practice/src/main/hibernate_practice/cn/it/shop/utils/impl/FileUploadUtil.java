@@ -1,4 +1,4 @@
-package cn.it.shop.utils.impl;
+ï»¿package cn.it.shop.utils.impl;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -14,14 +14,14 @@ import cn.it.shop.model.FileImage;
 import cn.it.shop.utils.FileUpload;
 
 /**
- * @Description: TODO(ÊµÏÖÎÄ¼şÉÏ´«µÄÒµÎñÂß¼­)
+ * @Description: TODO(å®ç°æ–‡ä»¶ä¸Šä¼ çš„ä¸šåŠ¡é€»è¾‘)
  * @author Ni Shengwu
  *
  */
 @Component("fileUpload")
 public class FileUploadUtil implements FileUpload {
 	
-	//@Value±íÊ¾È¥beans.xmlÎÄ¼şÖĞÕÒid="prop"µÄbean£¬ËüÊÇÍ¨¹ı×¢½âµÄ·½Ê½¶ÁÈ¡propertiesÅäÖÃÎÄ¼şµÄ£¬È»ºóÈ¥ÏàÓ¦µÄÅäÖÃÎÄ¼şÖĞ¶ÁÈ¡key=filePathµÄÖµ
+	//@Valueè¡¨ç¤ºå»beans.xmlæ–‡ä»¶ä¸­æ‰¾id="prop"çš„beanï¼Œå®ƒæ˜¯é€šè¿‡æ³¨è§£çš„æ–¹å¼è¯»å–propertiesé…ç½®æ–‡ä»¶çš„ï¼Œç„¶åå»ç›¸åº”çš„é…ç½®æ–‡ä»¶ä¸­è¯»å–key=filePathçš„å€¼
 	@Value("#{prop.basePath+prop.filePath}") 
 	private String filePath;
 	
@@ -41,22 +41,22 @@ public class FileUploadUtil implements FileUpload {
 	public String[] getBankImage() {
 		String[] list  = new File(bankImagePath).list(new FilenameFilter() {
 			
-			//²âÊÔÖ¸¶¨ÎÄ¼şÊÇ·ñÓ¦¸Ã°üº¬ÔÚÄ³Ò»ÎÄ¼şÁĞ±íÖĞ
+			//æµ‹è¯•æŒ‡å®šæ–‡ä»¶æ˜¯å¦åº”è¯¥åŒ…å«åœ¨æŸä¸€æ–‡ä»¶åˆ—è¡¨ä¸­
 			@Override
 			public boolean accept(File dir, String name) {
 				System.out.println("dir:" + dir + ",name:" + name);				
-				//Í¨¹ıºó×ºÃûÀ´ÊµÏÖÎÄ¼şµÄ¹ıÂËĞ§¹û
-				//·µ»ØÕæ¾Í·Åµ½listÖĞ£¬·µ»Ø¼Ù¾Í¹ıÂËµô
+				//é€šè¿‡åç¼€åæ¥å®ç°æ–‡ä»¶çš„è¿‡æ»¤æ•ˆæœ
+				//è¿”å›çœŸå°±æ”¾åˆ°listä¸­ï¼Œè¿”å›å‡å°±è¿‡æ»¤æ‰
 				return name.endsWith(".gif");
 			}
 		});
 		return list;
 	}
 	
-	//ÊµÏÖÎÄ¼şÉÏ´«µÄ¹¦ÄÜ£¬·µ»ØÉÏ´«ºóĞÂµÄÎÄ¼şÃû³Æ
+	//å®ç°æ–‡ä»¶ä¸Šä¼ çš„åŠŸèƒ½ï¼Œè¿”å›ä¸Šä¼ åæ–°çš„æ–‡ä»¶åç§°
 	@Override
 	public String uploadFile(FileImage fileImage) {
-		//»ñÈ¡ĞÂÎ¨Ò»ÎÄ¼şÃû
+		//è·å–æ–°å”¯ä¸€æ–‡ä»¶å
 		String pic = newFileName(fileImage.getFilename());
 		try {
 			FileUtil.copyFile(fileImage.getFile(), new File(filePath, pic));
@@ -68,12 +68,12 @@ public class FileUploadUtil implements FileUpload {
 		}
 	}
 	
-	//1. Í¨¹ıÎÄ¼şÃû»ñÈ¡À©Õ¹Ãû
+	//1. é€šè¿‡æ–‡ä»¶åè·å–æ‰©å±•å
 	private String getFileExt(String fileName) {
 		return FilenameUtils.getExtension(fileName);
 	}
 	
-	//2. Éú³ÉUUIDËæ»úÊı£¬×÷ÎªĞÂµÄÎÄ¼şÃû
+	//2. ç”ŸæˆUUIDéšæœºæ•°ï¼Œä½œä¸ºæ–°çš„æ–‡ä»¶å
 	private String newFileName(String fileName) {
 		String ext = getFileExt(fileName);
 		return UUID.randomUUID().toString() + "." + ext;

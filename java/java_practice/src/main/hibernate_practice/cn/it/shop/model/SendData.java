@@ -1,8 +1,8 @@
-package cn.it.shop.model;
+锘縫ackage cn.it.shop.model;
 
 import java.io.Serializable;
 /*
- * 商城到易宝支付发送的信息，封装为实体
+ * 鍟嗗煄鍒版槗瀹濇敮浠樺彂閫佺殑淇℃伅锛屽皝瑁呬负瀹炰綋
  * */
 public class SendData implements Serializable {
 

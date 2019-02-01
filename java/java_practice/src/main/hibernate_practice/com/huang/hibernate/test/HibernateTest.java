@@ -1,4 +1,4 @@
-package com.huang.hibernate.test;
+ï»¿package com.huang.hibernate.test;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,7 +20,7 @@ import cn.it.shop.service.BaseService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:spring/applicationContext.xml")
-public class HibernateConnTest {
+public class HibernateTest {
 
 	@Resource
 	private SessionFactory sessionFactory;
@@ -46,7 +46,7 @@ public class HibernateConnTest {
 	
 	@Test
 	public void testCon(){
-		//ÕâÑùÃ»°ì·¨»ñÈ¡Á¬½Ó
+		//è¿™æ ·æ²¡åŠæ³•è·å–è¿æ¥
 		//Session s = sessionFactory.getCurrentSession();
 		Session s = sessionFactory.openSession();
 		System.out.println(s);

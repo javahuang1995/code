@@ -1,4 +1,4 @@
-package com.huang.json.test;
+﻿package com.huang.json.test;
 
 import java.util.List;
 
@@ -7,15 +7,15 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * 淘淘商城自定义响应结�?
+ * 娣樻窐鍟嗗煄镊畾涔夊搷搴旗粨鏋?
  */
 public class JsonUtils {
 
-    // 定义jackson对象
+    // 瀹氢箟jackson瀵硅薄
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /**
-     * 将对象转换成json字符串�?
+     * 灏嗗璞¤浆鎹㈡垚json瀛楃涓层?
      * <p>Title: pojoToJson</p>
      * <p>Description: </p>
      * @param data
@@ -32,10 +32,10 @@ public class JsonUtils {
     }
     
     /**
-     * 将json结果集转化为对象
+     * 灏唈son缁撴灉板呜浆鍖栦负瀵硅薄
      * 
-     * @param jsonData json数据
-     * @param clazz 对象中的object类型
+     * @param jsonData json鏁版嵁
+     * @param clazz 瀵硅薄涓殑object绫诲瀷
      * @return
      */
     public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
@@ -49,7 +49,7 @@ public class JsonUtils {
     }
     
     /**
-     * 将json数据转换成pojo对象list
+     * 灏唈son鏁版嵁杞崲鎴恜ojo瀵硅薄list
      * <p>Title: jsonToList</p>
      * <p>Description: </p>
      * @param jsonData

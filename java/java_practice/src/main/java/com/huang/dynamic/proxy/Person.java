@@ -1,6 +1,6 @@
-package com.huang.dynamic.proxy;
+ï»¿package com.huang.dynamic.proxy;
 /**
- * ¶¥²ã½Ó¿Ú
+ * é¡¶å±‚æ¥å£
  * @author yujie.wang
  *
  */

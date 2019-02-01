@@ -1,4 +1,4 @@
-package com.huang.rpc.test.util;
+ï»¿package com.huang.rpc.test.util;
 
 import java.util.*;
 import java.net.*;
@@ -8,10 +8,10 @@ import java.lang.reflect.Proxy;
 
 public class RpcFramework {
     /**
-     * ±©Â¶·şÎñ
+     * æš´éœ²æœåŠ¡
      *
-     * @param service ·şÎñÊµÏÖ
-     * @param port    ·şÎñ¶Ë¿Ú
+     * @param service æœåŠ¡å®ç°
+     * @param port    æœåŠ¡ç«¯å£
      * @throws Exception
      */
     public static void export(final Object service, int port) throws Exception {
@@ -22,27 +22,27 @@ public class RpcFramework {
             throw new IllegalArgumentException("Invalid port " + port);
         }
         System.out.println("Export service " + service.getClass().getName() + " on port " + port);
-        // ½¨Á¢Socket·şÎñ¶Ë
+        // å»ºç«‹SocketæœåŠ¡ç«¯
         ServerSocket server = new ServerSocket(port);
         for (; ; ) {
             try {
-                // ¼àÌıSocketÇëÇó
+                // ç›‘å¬Socketè¯·æ±‚
                 final Socket socket = server.accept();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             try {
-                                /* »ñÈ¡ÇëÇóÁ÷£¬Server½âÎö²¢»ñÈ¡ÇëÇó*/
-                                // ¹¹½¨¶ÔÏóÊäÈëÁ÷£¬´ÓÔ´ÖĞ¶ÁÈ¡¶ÔÏóµ½³ÌĞòÖĞ
+                                /* è·å–è¯·æ±‚æµï¼ŒServerè§£æå¹¶è·å–è¯·æ±‚*/
+                                // æ„å»ºå¯¹è±¡è¾“å…¥æµï¼Œä»æºä¸­è¯»å–å¯¹è±¡åˆ°ç¨‹åºä¸­
                                 ObjectInputStream input = new ObjectInputStream(
                                     socket.getInputStream());
                                 try {
 
-                                    System.out.println("\nServer½âÎöÇëÇó £º ");
+                                    System.out.println("\nServerè§£æè¯·æ±‚ ï¼š ");
                                     String methodName = input.readUTF();
                                     System.out.println("methodName : " + methodName);
-                                    // ·ºĞÍÓëÊı×éÊÇ²»¼æÈİµÄ£¬³ıÁËÍ¨Åä·û×÷·ºĞÍ²ÎÊıÒÔÍâ
+                                    // æ³›å‹ä¸æ•°ç»„æ˜¯ä¸å…¼å®¹çš„ï¼Œé™¤äº†é€šé…ç¬¦ä½œæ³›å‹å‚æ•°ä»¥å¤–
                                     Class<?>[] parameterTypes = (Class<?>[])input.readObject();
                                     System.out.println(
                                         "parameterTypes : " + Arrays.toString(parameterTypes));
@@ -50,16 +50,16 @@ public class RpcFramework {
                                     System.out.println("arguments : " + Arrays.toString(arguments));
 
 
-                                    /* Server ´¦ÀíÇëÇó£¬½øĞĞÏìÓ¦*/
+                                    /* Server å¤„ç†è¯·æ±‚ï¼Œè¿›è¡Œå“åº”*/
                                     ObjectOutputStream output = new ObjectOutputStream(
                                         socket.getOutputStream());
                                     try {
-                                        // serviceÀàĞÍÎªObjectµÄ(¿ÉÒÔ·¢²¼ÈÎºÎ·şÎñ)£¬¹ÊÖ»ÄÜÍ¨¹ı·´Éäµ÷ÓÃ´¦ÀíÇëÇó
-                                        // ·´Éäµ÷ÓÃ£¬´¦ÀíÇëÇó
+                                        // serviceç±»å‹ä¸ºObjectçš„(å¯ä»¥å‘å¸ƒä»»ä½•æœåŠ¡)ï¼Œæ•…åªèƒ½é€šè¿‡åå°„è°ƒç”¨å¤„ç†è¯·æ±‚
+                                        // åå°„è°ƒç”¨ï¼Œå¤„ç†è¯·æ±‚
                                         Method method = service.getClass().getMethod(methodName,
                                             parameterTypes);
                                         Object result = method.invoke(service, arguments);
-                                        System.out.println("\nServer ´¦Àí²¢Éú³ÉÏìÓ¦ £º");
+                                        System.out.println("\nServer å¤„ç†å¹¶ç”Ÿæˆå“åº” ï¼š");
                                         System.out.println("result : " + result);
                                         output.writeObject(result);
                                     } catch (Throwable t) {
@@ -86,13 +86,13 @@ public class RpcFramework {
 
 
     /**
-     * ÒıÓÃ·şÎñ
+     * å¼•ç”¨æœåŠ¡
      *
-     * @param <T>            ½Ó¿Ú·ºĞÍ
-     * @param interfaceClass ½Ó¿ÚÀàĞÍ
-     * @param host           ·şÎñÆ÷Ö÷»úÃû
-     * @param port           ·şÎñÆ÷¶Ë¿Ú
-     * @return Ô¶³Ì·şÎñ£¬·µ»Ø´úÀí¶ÔÏó
+     * @param <T>            æ¥å£æ³›å‹
+     * @param interfaceClass æ¥å£ç±»å‹
+     * @param host           æœåŠ¡å™¨ä¸»æœºå
+     * @param port           æœåŠ¡å™¨ç«¯å£
+     * @return è¿œç¨‹æœåŠ¡ï¼Œè¿”å›ä»£ç†å¯¹è±¡
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -101,7 +101,7 @@ public class RpcFramework {
         if (interfaceClass == null) {
             throw new IllegalArgumentException("Interface class == null");
         }
-        // JDK ¶¯Ì¬´úÀíµÄÔ¼Êø£¬Ö»ÄÜÊµÏÖ¶Ô½Ó¿ÚµÄ´úÀí
+        // JDK åŠ¨æ€ä»£ç†çš„çº¦æŸï¼Œåªèƒ½å®ç°å¯¹æ¥å£çš„ä»£ç†
         if (!interfaceClass.isInterface()) {
             throw new IllegalArgumentException(
                 "The " + interfaceClass.getName() + " must be interface class!");
@@ -115,23 +115,23 @@ public class RpcFramework {
         System.out.println(
             "Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
 
-        // JDK ¶¯Ì¬´úÀí
+        // JDK åŠ¨æ€ä»£ç†
         T proxy = (T)Proxy.newProxyInstance(interfaceClass.getClassLoader(),
             new Class<?>[] {interfaceClass}, new InvocationHandler() {
-                // invoke·½·¨±¾ÒâÊÇ¶ÔÄ¿±ê·½·¨µÄÔöÇ¿£¬ÔÚÕâÀïÓÃÓÚ·¢ËÍRPCÇëÇóºÍ½ÓÊÕÏìÓ¦
+                // invokeæ–¹æ³•æœ¬æ„æ˜¯å¯¹ç›®æ ‡æ–¹æ³•çš„å¢å¼ºï¼Œåœ¨è¿™é‡Œç”¨äºå‘é€RPCè¯·æ±‚å’Œæ¥æ”¶å“åº”
                 @Override
                 public Object invoke(Object proxy, Method method, Object[] arguments)
                     throws Throwable {
-                    // ´´½¨Socket¿Í»§¶Ë£¬²¢Óë·şÎñ¶Ë½¨Á¢Á´½Ó
+                    // åˆ›å»ºSocketå®¢æˆ·ç«¯ï¼Œå¹¶ä¸æœåŠ¡ç«¯å»ºç«‹é“¾æ¥
                     Socket socket = new Socket(host, port);
                     try {
-                        /* ¿Í»§¶ËÏñ·şÎñ¶Ë½øĞĞÇëÇó£¬²¢½«ÇëÇó²ÎÊıĞ´ÈëÁ÷ÖĞ*/
-                        // ½«¶ÔÏóĞ´Èëµ½¶ÔÏóÊä³öÁ÷£¬²¢½«Æä·¢ËÍµ½SocketÁ÷ÖĞÈ¥
+                        /* å®¢æˆ·ç«¯åƒæœåŠ¡ç«¯è¿›è¡Œè¯·æ±‚ï¼Œå¹¶å°†è¯·æ±‚å‚æ•°å†™å…¥æµä¸­*/
+                        // å°†å¯¹è±¡å†™å…¥åˆ°å¯¹è±¡è¾“å‡ºæµï¼Œå¹¶å°†å…¶å‘é€åˆ°Socketæµä¸­å»
                         ObjectOutputStream output = new ObjectOutputStream(
                             socket.getOutputStream());
                         try {
-                            // ·¢ËÍÇëÇó
-                            System.out.println("\nClient·¢ËÍÇëÇó £º ");
+                            // å‘é€è¯·æ±‚
+                            System.out.println("\nClientå‘é€è¯·æ±‚ ï¼š ");
                             output.writeUTF(method.getName());
                             System.out.println("methodName : " + method.getName());
                             output.writeObject(method.getParameterTypes());
@@ -141,7 +141,7 @@ public class RpcFramework {
                             System.out.println("arguments : " + Arrays.toString(arguments));
 
 
-                            /* ¿Í»§¶Ë¶ÁÈ¡²¢·µ»Ø·şÎñ¶ËµÄÏìÓ¦*/
+                            /* å®¢æˆ·ç«¯è¯»å–å¹¶è¿”å›æœåŠ¡ç«¯çš„å“åº”*/
                             ObjectInputStream input = new ObjectInputStream(
                                 socket.getInputStream());
                             try {
@@ -149,7 +149,7 @@ public class RpcFramework {
                                 if (result instanceof Throwable) {
                                     throw (Throwable)result;
                                 }
-                                System.out.println("\nClientÊÕµ½ÏìÓ¦ £º ");
+                                System.out.println("\nClientæ”¶åˆ°å“åº” ï¼š ");
                                 System.out.println("result : " + result);
                                 return result;
                             } finally {

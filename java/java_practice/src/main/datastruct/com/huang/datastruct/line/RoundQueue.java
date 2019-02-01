@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 public
 
@@ -16,25 +16,25 @@ RoundQueue
 
 	int size;
 
-	// Êı×é´óĞ¡
+	// æ•°ç»„å¤§å°
 
 	private
 
 	int nItems;
 
-	// Êµ¼Ê´æ´¢ÊıÁ¿
+	// å®é™…å­˜å‚¨æ•°é‡
 
 	private
 
 	int front;
 
-	// Í·
+	// å¤´
 
 	private
 
 	int rear;
 
-	// Î²
+	// å°¾
 
 	public
 
@@ -68,7 +68,7 @@ RoundQueue
 
 		if (isFull()) {
 
-			System.out.println("¶ÓÁĞÒÑÂú");
+			System.out.println("é˜Ÿåˆ—å·²æ»¡");
 
 			return;
 
@@ -80,7 +80,7 @@ RoundQueue
 
 				= value;
 
-		// Î²Ö¸ÕëÂúÁË¾ÍÑ­»·µ½0´¦,Õâ¾äÏàµ±ÓÚÏÂÃæ×¢ÊÍÄÚÈİ
+		// å°¾æŒ‡é’ˆæ»¡äº†å°±å¾ªç¯åˆ°0å¤„,è¿™å¥ç›¸å½“äºä¸‹é¢æ³¨é‡Šå†…å®¹
 		nItems++;
 		/*
 		 * if(rear == size-1){ rear = -1; } a[++rear] = value;
@@ -98,7 +98,7 @@ RoundQueue
 
 		{
 
-			System.out.println("¶ÓÁĞÎª¿Õ£¡");
+			System.out.println("é˜Ÿåˆ—ä¸ºç©ºï¼");
 
 			return
 
@@ -122,7 +122,7 @@ RoundQueue
 
 		{
 
-			System.out.println("¶ÓÁĞÎª¿Õ£¡");
+			System.out.println("é˜Ÿåˆ—ä¸ºç©ºï¼");
 
 			return;
 
@@ -160,7 +160,7 @@ RoundQueue
 
 		{
 
-			System.out.println("¶ÓÁĞÎª¿Õ£¡");
+			System.out.println("é˜Ÿåˆ—ä¸ºç©ºï¼");
 
 			return
 

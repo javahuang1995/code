@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 public
 
@@ -9,7 +9,7 @@ HashChain {
 	private
 
 	SortedList[] hashArray;
-	// Êı×éÖĞ´æ·ÅÁ´±í
+	// æ•°ç»„ä¸­å­˜æ”¾é“¾è¡¨
 
 	private
 
@@ -23,7 +23,7 @@ HashChain {
 
 		SortedList[arraySize];
 
-		// new³öÃ¿¸ö¿ÕÁ´±í³õÊ¼»¯Êı×é
+		// newå‡ºæ¯ä¸ªç©ºé“¾è¡¨åˆå§‹åŒ–æ•°ç»„
 
 		for (int i = 0; i < arraySize; i++) {
 			hashArray[i] = new
@@ -58,7 +58,7 @@ HashChain {
 
 		int hashVal = hashFunction(key);
 		hashArray[hashVal].insert(node);
-		// Ö±½ÓÍùÁ´±íÖĞÌí¼Ó¼´¿É
+		// ç›´æ¥å¾€é“¾è¡¨ä¸­æ·»åŠ å³å¯
 	}
 
 	public
@@ -71,7 +71,7 @@ HashChain {
 
 		LinkNode temp = find(key);
 		hashArray[hashVal].delete(key);
-		// ´ÓÁ´±íÖĞÕÒµ½ÒªÉ¾³ıµÄÊı¾İÏî£¬Ö±½ÓÉ¾³ı
+		// ä»é“¾è¡¨ä¸­æ‰¾åˆ°è¦åˆ é™¤çš„æ•°æ®é¡¹ï¼Œç›´æ¥åˆ é™¤
 
 		return temp;
 	}

@@ -1,17 +1,17 @@
-package com.huang.rabbitmq.test4;
+ï»¿package com.huang.rabbitmq.test4;
 import com.rabbitmq.client.*;
  
 import java.io.IOException;
  
 /**
- * °ó¶¨ÁËinfo waring error
+ * ç»‘å®šäº†info waring error
  * @author huang
  *
  */
 public class ReceiveLogsDirect1 {
-	// ½»»»Æ÷Ãû³Æ
+	// äº¤æ¢å™¨åç§°
 	private static final String EXCHANGE_NAME = "direct_logs";
-	// Â·ÓÉ¹Ø¼ü×Ö
+	// è·¯ç”±å…³é”®å­—
 	private static final String[] routingKeys = new String[]{"info" ,"warning", "error"};
     private final static String HOST = "192.168.0.104";
 
@@ -23,13 +23,13 @@ public class ReceiveLogsDirect1 {
 		factory.setPassword("1995");
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
-//		ÉùÃ÷½»»»Æ÷
+//		å£°æ˜äº¤æ¢å™¨
 		channel.exchangeDeclare(EXCHANGE_NAME, "direct");
-//		»ñÈ¡ÄäÃû¶ÓÁĞÃû³Æ
+//		è·å–åŒ¿åé˜Ÿåˆ—åç§°
 		String queueName = channel.queueDeclare().getQueue();
 		
-//		¸ù¾İÂ·ÓÉ¹Ø¼ü×Ö½øĞĞ¶àÖØ°ó¶¨ Ã¿¸öÏû·ÑÕßÖ»ÓĞÒ»¸ö¶ÓÁĞ£¬Õâ¸ö¶ÓÁĞ°ó¶¨µÄruotingKeysÊÇ"info" ,"warning", "error"
-		//ËùÒÔÕâ¸öÏû·ÑÕß¿ÉÒÔ½ÓÊÜµ½"info" ,"warning", "error"ÈıÖÖĞÅÏ¢¡£
+//		æ ¹æ®è·¯ç”±å…³é”®å­—è¿›è¡Œå¤šé‡ç»‘å®š æ¯ä¸ªæ¶ˆè´¹è€…åªæœ‰ä¸€ä¸ªé˜Ÿåˆ—ï¼Œè¿™ä¸ªé˜Ÿåˆ—ç»‘å®šçš„ruotingKeysæ˜¯"info" ,"warning", "error"
+		//æ‰€ä»¥è¿™ä¸ªæ¶ˆè´¹è€…å¯ä»¥æ¥å—åˆ°"info" ,"warning", "error"ä¸‰ç§ä¿¡æ¯ã€‚
 		for (String severity : routingKeys) {
 			channel.queueBind(queueName, EXCHANGE_NAME, severity);
 			System.out.println("ReceiveLogsDirect1 exchange:"+EXCHANGE_NAME+", queue:"+queueName+", BindRoutingKey:" + severity);

@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+ï»¿package com.huang.datastruct.line;
 
 public
 
@@ -19,7 +19,7 @@ PriorityQueue
 	private
 
 	int nItems;
-	// ÔªËØ¸öÊı
+	// å…ƒç´ ä¸ªæ•°
 
 	public
 
@@ -46,7 +46,7 @@ PriorityQueue
 
 		if (isFull()) {
 
-			System.out.println("¶ÓÁĞÒÑÂú£¡");
+			System.out.println("é˜Ÿåˆ—å·²æ»¡ï¼");
 
 			return;
 
@@ -60,7 +60,7 @@ PriorityQueue
 
 		{
 
-			// ¿Õ¶ÓÁĞÖ±½ÓÌí¼Ó
+			// ç©ºé˜Ÿåˆ—ç›´æ¥æ·»åŠ 
 			a[nItems++]
 
 					= value;
@@ -68,7 +68,7 @@ PriorityQueue
 		}
 
 		else {
-			// ½«Êı×éÖĞµÄÊı×ÖÒÀÕÕÏÂ±ê°´ÕÕ´Ó´óµ½Ğ¡ÅÅÁĞ
+			// å°†æ•°ç»„ä¸­çš„æ•°å­—ä¾ç…§ä¸‹æ ‡æŒ‰ç…§ä»å¤§åˆ°å°æ’åˆ—
 
 			for (j = nItems - 1; j >=
 
@@ -109,7 +109,7 @@ PriorityQueue
 
 		if (isEmpty()) {
 
-			System.out.println("¶ÓÁĞÎª¿Õ£¡");
+			System.out.println("é˜Ÿåˆ—ä¸ºç©ºï¼");
 
 			return
 

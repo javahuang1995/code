@@ -1,4 +1,4 @@
-package cn.it.shop.utils.impl;
+ï»¿package cn.it.shop.utils.impl;
 
 import java.util.Properties;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import cn.it.shop.utils.EmailUtil;
 
 /**
- * @Description: TODO(ÓÃÀ´Íê³ÉÓÊ¼şµÄ·¢ËÍ)
+ * @Description: TODO(ç”¨æ¥å®Œæˆé‚®ä»¶çš„å‘é€)
  * @author Ni Shengwu
  *
  */
@@ -23,30 +23,30 @@ public class EmailUtilImpl implements EmailUtil {
 	
 	@Override
 	public void sendEmail(String emailAddress, String id) {
-		// 1. µÇÂ½ÓÊ¼ş¿Í»§¶Ë(´´½¨»á»°session)
+		// 1. ç™»é™†é‚®ä»¶å®¢æˆ·ç«¯(åˆ›å»ºä¼šè¯session)
 		Properties prop = new Properties();
 		Session session = null;
 		Message message = null;
 		Transport transport = null;
 		try {
 			prop.setProperty("mail.transport.protocol", "smtp");
-			// ´´½¨ÁËsession»á»°
+			// åˆ›å»ºäº†sessionä¼šè¯
 			session = Session.getDefaultInstance(prop);
-			// ÉèÖÃdebugÄ£Ê½À´µ÷ÊÔ·¢ËÍĞÅÏ¢
+			// è®¾ç½®debugæ¨¡å¼æ¥è°ƒè¯•å‘é€ä¿¡æ¯
 			session.setDebug(true);
-			// ´´½¨Ò»·âÓÊ¼ş¶ÔÏó
+			// åˆ›å»ºä¸€å°é‚®ä»¶å¯¹è±¡
 			message = new MimeMessage(session);
-			// Ğ´ĞÅ
-				message.setSubject("Ò×¹ºÉÌ³ÇÓÊ¼ş");
-			// ÕıÎÄÄÚÈİ
-			message.setContent("¹Ë¿ÍÄúºÃ£¬»¶Ó­Äú¹â¹ËÍøÉÏÉÌ³Ç£¬¶©µ¥" + id + "ÒÑÖ§¸¶³É¹¦£¡", "text/html;charset=utf-8");
-			// ¸½¼şÈËµØÖ·
+			// å†™ä¿¡
+				message.setSubject("æ˜“è´­å•†åŸé‚®ä»¶");
+			// æ­£æ–‡å†…å®¹
+			message.setContent("é¡¾å®¢æ‚¨å¥½ï¼Œæ¬¢è¿æ‚¨å…‰é¡¾ç½‘ä¸Šå•†åŸï¼Œè®¢å•" + id + "å·²æ”¯ä»˜æˆåŠŸï¼", "text/html;charset=utf-8");
+			// é™„ä»¶äººåœ°å€
 			message.setFrom(new InternetAddress("soft03_test@sina.com"));			
 			transport = session.getTransport();
-			// Á´½ÓÓÊ¼ş·şÎñÆ÷µÄÈÏÖ¤ĞÅÏ¢
+			// é“¾æ¥é‚®ä»¶æœåŠ¡å™¨çš„è®¤è¯ä¿¡æ¯
 			transport.connect("smtp.sina.com", "soft03_test", "soft03_test");
 			
-			// ÉèÖÃÊÕ¼şÈËµØÖ·£¬²¢·¢ËÍÓÊ¼ş
+			// è®¾ç½®æ”¶ä»¶äººåœ°å€ï¼Œå¹¶å‘é€é‚®ä»¶
 			transport.sendMessage(message, new InternetAddress[] { new InternetAddress(emailAddress) });
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,26 +62,26 @@ public class EmailUtilImpl implements EmailUtil {
 	}
 /*
 	public static void main(String[] args) throws Exception {
-		//1. µÇÂ½ÓÊ¼ş¿Í»§¶Ë(´´½¨»á»°session)
+		//1. ç™»é™†é‚®ä»¶å®¢æˆ·ç«¯(åˆ›å»ºä¼šè¯session)
 		Properties prop = new Properties();
 		prop.setProperty("mail.transport.protocol", "smtp");	
-		//´´½¨ÁËsession»á»°
+		//åˆ›å»ºäº†sessionä¼šè¯
 		Session session = Session.getDefaultInstance(prop);
-		//ÉèÖÃdebugÄ£Ê½À´µ÷ÊÔ·¢ËÍĞÅÏ¢
+		//è®¾ç½®debugæ¨¡å¼æ¥è°ƒè¯•å‘é€ä¿¡æ¯
 		session.setDebug(true);
-		//´´½¨Ò»·âÓÊ¼ş¶ÔÏó
+		//åˆ›å»ºä¸€å°é‚®ä»¶å¯¹è±¡
 		Message message = new MimeMessage(session);
-		//Ğ´ĞÅ
-		message.setSubject("»¶Ó­·ÃÎÊÎÒµÄCSDN²©¿ÍÖ÷Ò³£¡");
-		//ÕıÎÄÄÚÈİ
-		message.setContent("Èç¹ûÄãÈ¥·ÃÎÊÎÒµÄCSDN²©¿ÍÖ÷Ò³£ºhttp://blog.csdn.net/eson_15"
-				+ "£¬ÎÒ¾Í¸øÄã¸öÃ´Ã´ßÕ", "text/html;charset=utf-8");
-		//¸½¼şÈËµØÖ·
+		//å†™ä¿¡
+		message.setSubject("æ¬¢è¿è®¿é—®æˆ‘çš„CSDNåšå®¢ä¸»é¡µï¼");
+		//æ­£æ–‡å†…å®¹
+		message.setContent("å¦‚æœä½ å»è®¿é—®æˆ‘çš„CSDNåšå®¢ä¸»é¡µï¼šhttp://blog.csdn.net/eson_15"
+				+ "ï¼Œæˆ‘å°±ç»™ä½ ä¸ªä¹ˆä¹ˆå“’", "text/html;charset=utf-8");
+		//é™„ä»¶äººåœ°å€
 		message.setFrom(new InternetAddress("nishengwus@163.com"));
 		Transport transport = session.getTransport();
-		//Á´½ÓÓÊ¼ş·şÎñÆ÷µÄÈÏÖ¤ĞÅÏ¢
+		//é“¾æ¥é‚®ä»¶æœåŠ¡å™¨çš„è®¤è¯ä¿¡æ¯
 		transport.connect("smtp.163.com", "nishengwus", "nishengwu%&");
-		// ÉèÖÃÊÕ¼şÈËµØÖ·£¬²¢·¢ËÍÓÊ¼ş
+		// è®¾ç½®æ”¶ä»¶äººåœ°å€ï¼Œå¹¶å‘é€é‚®ä»¶
 		transport.sendMessage(message, new InternetAddress[]{new InternetAddress("1320873719@qq.com")});
 		transport.close();
 

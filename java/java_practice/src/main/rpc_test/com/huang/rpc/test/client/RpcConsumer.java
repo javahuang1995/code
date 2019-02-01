@@ -1,12 +1,12 @@
-package com.huang.rpc.test.client;
+ï»¿package com.huang.rpc.test.client;
 
 import com.huang.rpc.test.util.RpcFramework;
 
 public class RpcConsumer {
 	public static void main(String[] args) throws Exception {
-		// ÓÉRpcFrameworkÉú³ÉµÄHelloServiceµÄ´úÀí
+		// ç”±RpcFrameworkç”Ÿæˆçš„HelloServiceçš„ä»£ç†
 		HelloService service = RpcFramework.refer(HelloService.class, "127.0.0.1", 1234);
 		String hello = service.hello("World");
-		System.out.println("¿Í»§¶ËÊÕµ½Ô¶³Ìµ÷ÓÃµÄ½á¹û £º " + hello);
+		System.out.println("å®¢æˆ·ç«¯æ”¶åˆ°è¿œç¨‹è°ƒç”¨çš„ç»“æœ ï¼š " + hello);
 	}
 }

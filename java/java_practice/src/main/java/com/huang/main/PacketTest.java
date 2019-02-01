@@ -1,14 +1,14 @@
-package com.huang.main;
+ï»¿package com.huang.main;
 
 public class PacketTest {
 	public static void main(String[] args) {
 		int a = 1235454545;
 		String b = Integer.toString(a);
 
-		Boolean c = new Boolean(false);// ±ØĞë³õÊ¼»¯
+		Boolean c = new Boolean(false);// å¿…é¡»åˆå§‹åŒ–
 		System.out.println(c.toString());
 
-		boolean d;// ¿ÉÒÔ²»ÓÃ³õÊ¼»¯£¬ºÍint a Ò»Ñù,Ä¬ÈÏÊÇfalse
+		boolean d;// å¯ä»¥ä¸ç”¨åˆå§‹åŒ–ï¼Œå’Œint a ä¸€æ ·,é»˜è®¤æ˜¯false
 		int aa;
 
 	}

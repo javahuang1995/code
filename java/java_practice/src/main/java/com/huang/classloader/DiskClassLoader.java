@@ -1,4 +1,4 @@
-package com.huang.classloader;
+ï»¿package com.huang.classloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * ÓÃ»§×Ô¶¨ÒåµÄÀà¼ÓÔØÆ÷£¬Ä¬ÈÏµÄ¸¸¼ÓÔØÆ÷Ó¦¸ÃÊÇAppClassLoader
+ * ç”¨æˆ·è‡ªå®šä¹‰çš„ç±»åŠ è½½å™¨ï¼Œé»˜è®¤çš„çˆ¶åŠ è½½å™¨åº”è¯¥æ˜¯AppClassLoader
  * @author huang
  *
  */
@@ -21,7 +21,7 @@ public class DiskClassLoader extends ClassLoader {
 	}
 
 	/**
-	 * °ÑÎÄ¼ş×ª»»³ÉInputStreamÈ»ºó×ª»»³É×Ö½ÚÂë¡£È»ºóµ÷ÓÃdefineClass¼ÓÔØÕâ¸öclass.
+	 * æŠŠæ–‡ä»¶è½¬æ¢æˆInputStreamç„¶åè½¬æ¢æˆå­—èŠ‚ç ã€‚ç„¶åè°ƒç”¨defineClassåŠ è½½è¿™ä¸ªclass.
 	 */
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -58,8 +58,8 @@ public class DiskClassLoader extends ClassLoader {
 		return super.findClass(name);
 	}
 
-	// »ñÈ¡Òª¼ÓÔØ µÄclassÎÄ¼şÃû
-	//ÊäÈëÊÇcom.huang.classloader.Test Òª×ª»»³ÉTest.class
+	// è·å–è¦åŠ è½½ çš„classæ–‡ä»¶å
+	//è¾“å…¥æ˜¯com.huang.classloader.Test è¦è½¬æ¢æˆTest.class
 	private String getFileName(String name) {
 		// TODO Auto-generated method stub
 		int index = name.lastIndexOf('.');

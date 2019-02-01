@@ -1,11 +1,11 @@
-package com.huang.sort;
+ï»¿package com.huang.sort;
 
 import java.util.Arrays;
 
 /**
- * ¶ş²æ¶ÑÅÅĞò
+ * äºŒå‰å †æ’åº
  * 
- * @author Administrator ÆäÊµ¾ÍÊÇ¹¹ÔìÒ»¸ö¶ş²æ¶Ñ¡£¾ÍÍêÊÂÁË¡£¶ş²æ¶Ñ±¾À´¾ÍÊÇÓĞĞòµÄ¡£
+ * @author Administrator å…¶å®å°±æ˜¯æ„é€ ä¸€ä¸ªäºŒå‰å †ã€‚å°±å®Œäº‹äº†ã€‚äºŒå‰å †æœ¬æ¥å°±æ˜¯æœ‰åºçš„ã€‚
  *
  */
 public class HeapSort {
@@ -26,17 +26,17 @@ public class HeapSort {
 		currentIndex = 0;
 	}
 
-	// ²åÈëÊı¾İÏî£¬²¢ÅÅºÃĞò
+	// æ’å…¥æ•°æ®é¡¹ï¼Œå¹¶æ’å¥½åº
 	public void insertSort(int[] source) {
 		for (int i = 0; i < source.length; i++) {
-			array[currentIndex] = source[i]; // ²åÈëµ½½ÚµãÎ²
-			tickedUp(currentIndex++); // ÏòÉÏÖØĞÂÅÅºÃĞò£¬Ê¹µÃÂú×ã¶ÑµÄÌõ¼ş
+			array[currentIndex] = source[i]; // æ’å…¥åˆ°èŠ‚ç‚¹å°¾
+			tickedUp(currentIndex++); // å‘ä¸Šé‡æ–°æ’å¥½åºï¼Œä½¿å¾—æ»¡è¶³å †çš„æ¡ä»¶
 		}
 	}
 
 	private void tickedUp(int index) {
-		int parentIndex = (index - 1) / 2; // ¸¸½ÚµãµÄË÷Òı
-		int temp = array[index]; // ½«ĞÂ¼ÓµÄÎ²½Úµã´æÔÚtempÖĞ
+		int parentIndex = (index - 1) / 2; // çˆ¶èŠ‚ç‚¹çš„ç´¢å¼•
+		int temp = array[index]; // å°†æ–°åŠ çš„å°¾èŠ‚ç‚¹å­˜åœ¨tempä¸­
 		while (index > 0 && array[parentIndex] < temp) {
 			array[index] = array[parentIndex];
 			index = parentIndex;
@@ -45,7 +45,7 @@ public class HeapSort {
 		array[index] = temp;
 	}
 
-	// È¡³ö×î´óÖµ
+	// å–å‡ºæœ€å¤§å€¼
 	public int getMax() {
 		int maxNum = array[0];
 		array[0] = array[--currentIndex];

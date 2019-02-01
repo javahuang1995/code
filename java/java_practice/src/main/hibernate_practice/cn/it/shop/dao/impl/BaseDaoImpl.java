@@ -1,4 +1,4 @@
-package cn.it.shop.dao.impl;
+ï»¿package cn.it.shop.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import cn.it.shop.dao.BaseDao;
 
 /**
- * @Description TODO£¨¹«¹²Ä£¿éµÄ³éÈ¡£©
+ * @Description TODOï¼ˆå…¬å…±æ¨¡å—çš„æŠ½å–ï¼‰
  * @author Ni Shengwu
  *
  */
@@ -22,22 +22,22 @@ import cn.it.shop.dao.BaseDao;
 @Lazy(true)
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
-	private Class clazz; //clazzÖĞ´æ´¢ÁËµ±Ç°²Ù×÷µÄÀàĞÍ£¬¼´·ºĞÍT
+	private Class clazz; //clazzä¸­å­˜å‚¨äº†å½“å‰æ“ä½œçš„ç±»å‹ï¼Œå³æ³›å‹T
 	
-	@Resource //·ÅÔÚÊôĞÔÉÏÃæ£¬¾Í²»»áµ÷ÓÃset·½·¨£¬Ê¹ÓÃ·´Éä×¢½øÀ´£¬ËùÒÔ¿ÉÒÔ°Ñset·½·¨¸ÉµôÁË
+	@Resource //æ”¾åœ¨å±æ€§ä¸Šé¢ï¼Œå°±ä¸ä¼šè°ƒç”¨setæ–¹æ³•ï¼Œä½¿ç”¨åå°„æ³¨è¿›æ¥ï¼Œæ‰€ä»¥å¯ä»¥æŠŠsetæ–¹æ³•å¹²æ‰äº†
 	private SessionFactory sessionFactory;
 	
 	public BaseDaoImpl() {
-		System.out.println("this´ú±íµÄÊÇµ±Ç°µ÷ÓÃ¹¹Ôì·½·¨µÄ¶ÔÏó" + this);
-		System.out.println("»ñÈ¡µ±Ç°this¶ÔÏóµÄ¸¸ÀàĞÅÏ¢" + this.getClass().getSuperclass());
-		System.out.println("»ñÈ¡µ±Ç°this¶ÔÏóµÄ¸¸ÀàĞÅÏ¢(°üÀ¨·ºĞÍĞÅÏ¢)" + this.getClass().getGenericSuperclass());
-		//ÄÃµ½·ºĞÍµÄ²ÎÊıÀàĞÍ
+		System.out.println("thisä»£è¡¨çš„æ˜¯å½“å‰è°ƒç”¨æ„é€ æ–¹æ³•çš„å¯¹è±¡" + this);
+		System.out.println("è·å–å½“å‰thiså¯¹è±¡çš„çˆ¶ç±»ä¿¡æ¯" + this.getClass().getSuperclass());
+		System.out.println("è·å–å½“å‰thiså¯¹è±¡çš„çˆ¶ç±»ä¿¡æ¯(åŒ…æ‹¬æ³›å‹ä¿¡æ¯)" + this.getClass().getGenericSuperclass());
+		//æ‹¿åˆ°æ³›å‹çš„å‚æ•°ç±»å‹
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz = (Class)type.getActualTypeArguments()[0];
 	}
 	
 	protected Session getSession() {
-		//´Óµ±Ç°Ïß³Ì»ñÈ¡session£¬Èç¹ûÃ»ÓĞÔò´´½¨Ò»¸öĞÂµÄsession
+		//ä»å½“å‰çº¿ç¨‹è·å–sessionï¼Œå¦‚æœæ²¡æœ‰åˆ™åˆ›å»ºä¸€ä¸ªæ–°çš„session
 		return sessionFactory.getCurrentSession();
 	}
 	

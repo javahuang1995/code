@@ -1,5 +1,5 @@
-package com.huang.rpc.test.client;
-// 服务接口
+锘縫ackage com.huang.rpc.test.client;
+// 鏈嶅姟鎺ュ彛
 public interface HelloService {
 
     String hello(String name);
@@ -7,4 +7,4 @@ public interface HelloService {
     String hi(String msg);
 }
 
-// 服务本地实现
+// 鏈嶅姟鏈湴瀹炵幇

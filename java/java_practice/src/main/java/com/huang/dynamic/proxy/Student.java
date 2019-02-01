@@ -1,6 +1,6 @@
-package com.huang.dynamic.proxy;
+锘縫ackage com.huang.dynamic.proxy;
 /**
- * 需要被代理的类 实现了一个接口Person
+ * 闇�瑕佽浠ｇ悊鐨勭被 瀹炵幇浜嗕竴涓帴鍙erson
  * @author yujie.wang
  *
  */

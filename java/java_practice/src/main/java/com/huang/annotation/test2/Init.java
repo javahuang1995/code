@@ -1,4 +1,4 @@
-package com.huang.annotation.test2;
+ï»¿package com.huang.annotation.test2;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * Init.java
  * 
- * @author ITÌÆ²®»¢ 2014Äê7ÔÂ10ÈÕ
+ * @author ITå”ä¼¯è™ 2014å¹´7æœˆ10æ—¥
  */
 @Documented
 @Inherited

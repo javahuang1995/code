@@ -1,7 +1,7 @@
-package com.huang.reflect;
+ï»¿package com.huang.reflect;
 import java.lang.reflect.*;
 /**
- * ·´Éä¾ÍÊÇÔÚÔËĞĞÊ±²ÅÖªµÀÒª²Ù×÷µÄÀàÊÇÊ²Ã´£¬²¢ÇÒ¿ÉÒÔÔÚÔËĞĞÊ±»ñÈ¡ÀàµÄÍêÕû¹¹Ôì£¬²¢µ÷ÓÃ¶ÔÓ¦µÄ·½·¨¡£
+ * åå°„å°±æ˜¯åœ¨è¿è¡Œæ—¶æ‰çŸ¥é“è¦æ“ä½œçš„ç±»æ˜¯ä»€ä¹ˆï¼Œå¹¶ä¸”å¯ä»¥åœ¨è¿è¡Œæ—¶è·å–ç±»çš„å®Œæ•´æ„é€ ï¼Œå¹¶è°ƒç”¨å¯¹åº”çš„æ–¹æ³•ã€‚
  * @author huang
  *
  */
@@ -19,15 +19,15 @@ public class Apple {
 
     @SuppressWarnings(value = { "unchecked" })
     public static void main(String[] args) throws Exception{
-        //Õı³£µÄµ÷ÓÃ
+        //æ­£å¸¸çš„è°ƒç”¨
         Apple apple = new Apple();
         apple.setPrice(5);
         System.out.println("Apple Price:" + apple.getPrice());
         
-        //Ê¹ÓÃ·´Éäµ÷ÓÃ
+        //ä½¿ç”¨åå°„è°ƒç”¨
         Class clz = Class.forName("com.huang.reflect.Apple");
         Constructor appleConstructor = clz.getConstructor();
-        Method setPriceMethod = clz.getMethod("setPrice", int.class);//µÚÒ»¸ö²ÎÊıÊÇ·½·¨Ãû£¬µÚ¶ş¸ö²ÎÊıÊÇ·½·¨µÄ²ÎÊıÀàĞÍ¡£
+        Method setPriceMethod = clz.getMethod("setPrice", int.class);//ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯æ–¹æ³•åï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯æ–¹æ³•çš„å‚æ•°ç±»å‹ã€‚
         Object appleObj = appleConstructor.newInstance();
         setPriceMethod.invoke(appleObj, 14);
         Method getPriceMethod = clz.getMethod("getPrice");
@@ -39,7 +39,7 @@ public class Apple {
             System.out.println("method is "+method.getName()+"()");
         }
         
-        //»ñÈ¡ÊôĞÔ
+        //è·å–å±æ€§
         Field[] fields = clz.getFields();
         for (Field field : fields) {
             System.out.println("filed is "+field.getName());

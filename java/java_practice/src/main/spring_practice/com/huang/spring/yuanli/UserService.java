@@ -1,4 +1,4 @@
-package com.huang.spring.yuanli;
+﻿package com.huang.spring.yuanli;
 
 public class UserService {
 	private UserDAO userDAO;  

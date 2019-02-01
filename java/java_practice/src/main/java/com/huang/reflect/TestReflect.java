@@ -1,6 +1,6 @@
-package com.huang.reflect;
+ï»¿package com.huang.reflect;
 /**
- * Ğ´Ò»¸ö³ÌĞò¸ù¾İÓÃ»§Ìá¹©µÄÀàÃû£¬µ÷ÓÃ¸ÃÀàµÄÀïµÄmain·½·¨¡£
+ * å†™ä¸€ä¸ªç¨‹åºæ ¹æ®ç”¨æˆ·æä¾›çš„ç±»åï¼Œè°ƒç”¨è¯¥ç±»çš„é‡Œçš„mainæ–¹æ³•ã€‚
  */
 import java.lang.reflect.Method;
 
@@ -8,18 +8,18 @@ public class TestReflect {
     public static void main(String[] args) throws SecurityException, NoSuchMethodException, NoSuchFieldException, IllegalArgumentException, Exception {
         String str = args[0];
         /*
-         * ÕâÑù»áÊı×é½Ç±êÔ½½ç£¬ÒòÎªÑ¹¸ùÃ»ÓĞÕâ¸ö×Ö·ûÊı×é
-         * ĞèÒªÓÒ¼üÔÚrun as-configurations-argumentsÀïÊäÈëb.Inter£¨ÍêÕûÀàÃû£©
+         * è¿™æ ·ä¼šæ•°ç»„è§’æ ‡è¶Šç•Œï¼Œå› ä¸ºå‹æ ¹æ²¡æœ‰è¿™ä¸ªå­—ç¬¦æ•°ç»„
+         * éœ€è¦å³é”®åœ¨run as-configurations-argumentsé‡Œè¾“å…¥b.Interï¼ˆå®Œæ•´ç±»åï¼‰
          * 
          */
         Method m = Class.forName(str).getMethod("main",String[].class);
-        //ÏÂÃæÕâÁ½ÖÖ·½Ê½¶¼¿ÉÒÔ,main·½·¨ĞèÒªÒ»¸ö²ÎÊı
-        //invokeµÄµÚÒ»¸ö²ÎÊıÊÇ¶ÔÄÄ¸ö¶ÔÏóµ÷ÓÃÕâ¸ö·½·¨£¬Èç¹ûÊÇ¾²Ì¬·½·¨£¬ÄÇÃ´¾ÍÃ»ÓĞ¶ÔÏó£¬µÚÒ»¸ö²ÎÊı¾ÍÊÇnull,ÆäËû²ÎÊıÊÇ·½·¨µÄ²ÎÊı
+        //ä¸‹é¢è¿™ä¸¤ç§æ–¹å¼éƒ½å¯ä»¥,mainæ–¹æ³•éœ€è¦ä¸€ä¸ªå‚æ•°
+        //invokeçš„ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å¯¹å“ªä¸ªå¯¹è±¡è°ƒç”¨è¿™ä¸ªæ–¹æ³•ï¼Œå¦‚æœæ˜¯é™æ€æ–¹æ³•ï¼Œé‚£ä¹ˆå°±æ²¡æœ‰å¯¹è±¡ï¼Œç¬¬ä¸€ä¸ªå‚æ•°å°±æ˜¯null,å…¶ä»–å‚æ•°æ˜¯æ–¹æ³•çš„å‚æ•°
         m.invoke(null, new Object[]{new String[]{"111","222","333"}});
-        m.invoke(null, (Object)new String[]{"111","222","333"});//Õâ¸ö¿ÉÒÔËµÃ÷£¬Êı×éÒ²ÊÇObject
+        m.invoke(null, (Object)new String[]{"111","222","333"});//è¿™ä¸ªå¯ä»¥è¯´æ˜ï¼Œæ•°ç»„ä¹Ÿæ˜¯Object
         /*
          * m.invoke(null, new String[]{"111","222","333"})
-         * ÉÏÃæµÄ²»¿ÉÒÔ,ÒòÎªjava»á×Ô¶¯²ğ°ü
+         * ä¸Šé¢çš„ä¸å¯ä»¥,å› ä¸ºjavaä¼šè‡ªåŠ¨æ‹†åŒ…
          */
     }
 }

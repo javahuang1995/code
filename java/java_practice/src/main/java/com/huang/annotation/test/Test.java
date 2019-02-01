@@ -1,8 +1,8 @@
-package com.huang.annotation.test;
+ï»¿package com.huang.annotation.test;
 /**
  * Test.java
  * 
- * @author ITÌÆ²®»¢ 2014Äê7ÔÂ11ÈÕ
+ * @author ITå”ä¼¯è™ 2014å¹´7æœˆ11æ—¥
  */
 public class Test
 {

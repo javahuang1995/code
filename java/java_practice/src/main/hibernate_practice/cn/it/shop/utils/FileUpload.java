@@ -1,11 +1,11 @@
-package cn.it.shop.utils;
+ï»¿package cn.it.shop.utils;
 
 import cn.it.shop.model.FileImage;
 
 public interface FileUpload {
 
-	//ÊµÏÖÎÄ¼şÉÏ´«µÄ¹¦ÄÜ£¬·µ»ØÉÏ´«ºóĞÂµÄÎÄ¼şÃû³Æ
+	//å®ç°æ–‡ä»¶ä¸Šä¼ çš„åŠŸèƒ½ï¼Œè¿”å›ä¸Šä¼ åæ–°çš„æ–‡ä»¶åç§°
 	public abstract String uploadFile(FileImage fileImage);
-	//»ñµÃÒøĞĞµÄÍ¼±ê
+	//è·å¾—é“¶è¡Œçš„å›¾æ ‡
 	public String[] getBankImage();
 }

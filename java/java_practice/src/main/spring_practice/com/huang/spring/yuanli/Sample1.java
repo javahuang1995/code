@@ -1,4 +1,4 @@
-package com.huang.spring.yuanli;
+ï»¿package com.huang.spring.yuanli;
 import java.util.*;
 
 import org.jdom2.*;
@@ -8,9 +8,9 @@ public class Sample1 {
   public static void main(String[] args) throws Exception{ 
     SAXBuilder sb=new SAXBuilder();
     
-    Document doc=sb.build(Sample1.class.getClassLoader().getResourceAsStream("beans.xml")); //¹¹ÔìÎÄµµ¶ÔÏó
-    Element root=doc.getRootElement(); //»ñÈ¡¸ùÔªËØHD
-    List list=root.getChildren("bean");//È¡Ãû×ÖÎªdiskµÄËùÓĞÔªËØ
+    Document doc=sb.build(Sample1.class.getClassLoader().getResourceAsStream("beans.xml")); //æ„é€ æ–‡æ¡£å¯¹è±¡
+    Element root=doc.getRootElement(); //è·å–æ ¹å…ƒç´ HD
+    List list=root.getChildren("bean");//å–åå­—ä¸ºdiskçš„æ‰€æœ‰å…ƒç´ 
     for(int i=0;i<list.size();i++){
        Element element=(Element)list.get(i);
        String id=element.getAttributeValue("id");
@@ -18,14 +18,14 @@ public class Sample1 {
        System.out.println(id);
        System.out.println(clazz);
        /*
-       String capacity=element.getChildText("capacity");//È¡disk×ÓÔªËØcapacityµÄÄÚÈİ
+       String capacity=element.getChildText("capacity");//å–diskå­å…ƒç´ capacityçš„å†…å®¹
        String directories=element.getChildText("directories");
        String files=element.getChildText("files");
-       System.out.println("´ÅÅÌĞÅÏ¢:");
-       System.out.println("·ÖÇøÅÌ·û:"+name);
-       System.out.println("·ÖÇøÈİÁ¿:"+capacity);
-       System.out.println("Ä¿Â¼Êı:"+directories);
-       System.out.println("ÎÄ¼şÊı:"+files);
+       System.out.println("ç£ç›˜ä¿¡æ¯:");
+       System.out.println("åˆ†åŒºç›˜ç¬¦:"+name);
+       System.out.println("åˆ†åŒºå®¹é‡:"+capacity);
+       System.out.println("ç›®å½•æ•°:"+directories);
+       System.out.println("æ–‡ä»¶æ•°:"+files);
        System.out.println("-----------------------------------");
        */
     }  

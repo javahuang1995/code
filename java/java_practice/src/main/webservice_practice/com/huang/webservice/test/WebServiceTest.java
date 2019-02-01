@@ -1,4 +1,4 @@
-package com.huang.webservice.test;
+ï»¿package com.huang.webservice.test;
 
 import java.io.FileInputStream;
 
@@ -7,7 +7,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
 /**
- * ÕâÀïÊÇ»ùÓÚhttpclient3 ºÃ²»ÈİÒ×²ÅÕÒµ½ÕıÈ·µÄPom.xml
+ * è¿™é‡Œæ˜¯åŸºäºhttpclient3 å¥½ä¸å®¹æ˜“æ‰æ‰¾åˆ°æ­£ç¡®çš„Pom.xml
  * @author huang
  *
  */
@@ -25,79 +25,79 @@ public class WebServiceTest {
 		}
 	}
 	/**
-	 * @Description get·½Ê½ÇëÇó
+	 * @Description getæ–¹å¼è¯·æ±‚
 	 * @param number
 	 * @throws Exception
 	 */
 	public static void get(String number) throws Exception {
-		 //HttpClient£ºÔÚjava´úÂëÖĞÄ£ÄâHttpÇëÇó
-	    // ´´½¨ä¯ÀÀÆ÷¶ÔÏó
+		 //HttpClientï¼šåœ¨javaä»£ç ä¸­æ¨¡æ‹ŸHttpè¯·æ±‚
+	    // åˆ›å»ºæµè§ˆå™¨å¯¹è±¡
 	    HttpClient client = new HttpClient();
-	    // ÌîĞ´Êı¾İ£¬·¢ËÍget»òÕßpostÇëÇó
+	    // å¡«å†™æ•°æ®ï¼Œå‘é€getæˆ–è€…postè¯·æ±‚
 	    GetMethod get = new GetMethod("http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx"
 	            + "/getMobileCodeInfo?mobileCode=" + number + "&userID=");
-	    // Ö¸¶¨´«ÊäµÄ¸ñÊ½ÎªgetÇëÇó¸ñÊ½
+	    // æŒ‡å®šä¼ è¾“çš„æ ¼å¼ä¸ºgetè¯·æ±‚æ ¼å¼
 	    get.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-	    // ·¢ËÍÇëÇó
+	    // å‘é€è¯·æ±‚
 	    int code = client.executeMethod(get);
-	    System.out.println("Http:×´Ì¬ÂëÎª£º" + code);
+	    System.out.println("Http:çŠ¶æ€ç ä¸ºï¼š" + code);
 
 	    String result = get.getResponseBodyAsString();
-	    System.out.println("·µ»ØµÄ½á¹ûÎª£º" + result);
+	    System.out.println("è¿”å›çš„ç»“æœä¸ºï¼š" + result);
 
 	
 	}
 
 	/**
-	 * @Description post·½Ê½ÇëÇó
+	 * @Description postæ–¹å¼è¯·æ±‚
 	 * @param number
 	 * @throws Exception
 	 */
 	public static void post(String number) throws Exception {
-		// HttpClient£ºÔÚjava´úÂëÖĞÄ£ÄâHttpÇëÇó
-		// ´´½¨ä¯ÀÀÆ÷¶ÔÏó
+		// HttpClientï¼šåœ¨javaä»£ç ä¸­æ¨¡æ‹ŸHttpè¯·æ±‚
+		// åˆ›å»ºæµè§ˆå™¨å¯¹è±¡
 		HttpClient client = new HttpClient();
-		// ÌîĞ´Êı¾İ£¬·¢ËÍget»òÕßpostÇëÇó
+		// å¡«å†™æ•°æ®ï¼Œå‘é€getæˆ–è€…postè¯·æ±‚
 		PostMethod post = new PostMethod("http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx/getMobileCodeInfo");
 
-		// Ö¸¶¨´«ÊäµÄ¸ñÊ½ÎªÄ¬ÈÏpost¸ñÊ½
+		// æŒ‡å®šä¼ è¾“çš„æ ¼å¼ä¸ºé»˜è®¤postæ ¼å¼
 		post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		// ´«Êä²ÎÊı
+		// ä¼ è¾“å‚æ•°
 		post.setParameter("mobileCode", number);
 		post.setParameter("userID", "");
 
-		// ·¢ËÍÇëÇó
+		// å‘é€è¯·æ±‚
 		int code = client.executeMethod(post);
-		System.out.println("Http:×´Ì¬ÂëÎª£º" + code);
+		System.out.println("Http:çŠ¶æ€ç ä¸ºï¼š" + code);
 
 		String result = post.getResponseBodyAsString();
-		System.out.println("·µ»ØµÄ½á¹ûÎª£º" + result);
+		System.out.println("è¿”å›çš„ç»“æœä¸ºï¼š" + result);
 	}
 
 	/**
-	 * @Description soap post·½Ê½ÇëÇó£¬µ«ÊÇ´«ÊäµÄÊı¾İÎªxml¸ñÊ½£¬ÓĞÀûÓÚÊı¾İµÄÎ¬»¤
+	 * @Description soap postæ–¹å¼è¯·æ±‚ï¼Œä½†æ˜¯ä¼ è¾“çš„æ•°æ®ä¸ºxmlæ ¼å¼ï¼Œæœ‰åˆ©äºæ•°æ®çš„ç»´æŠ¤
 	 * @param number
 	 * @throws Exception
 	 */
 	@SuppressWarnings("deprecation")
 	public static void soap() throws Exception {
-		// HttpClient£ºÔÚjava´úÂëÖĞÄ£ÄâHttpÇëÇó
-		// ´´½¨ä¯ÀÀÆ÷¶ÔÏó
+		// HttpClientï¼šåœ¨javaä»£ç ä¸­æ¨¡æ‹ŸHttpè¯·æ±‚
+		// åˆ›å»ºæµè§ˆå™¨å¯¹è±¡
 		HttpClient client = new HttpClient();
-		// ÌîĞ´Êı¾İ£¬·¢ËÍget»òÕßpostÇëÇó
+		// å¡«å†™æ•°æ®ï¼Œå‘é€getæˆ–è€…postè¯·æ±‚
 		PostMethod post = new PostMethod("http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx");
 
-		// Ö¸¶¨´«ÊäµÄ¸ñÊ½Îªxml¸ñÊ½
+		// æŒ‡å®šä¼ è¾“çš„æ ¼å¼ä¸ºxmlæ ¼å¼
 		post.setRequestHeader("Content-Type", "application/soap+xml;charset=utf-8");
-		// ´«Êäxml£¬¼ÓÔØsoap.txt
+		// ä¼ è¾“xmlï¼ŒåŠ è½½soap.txt
 		post.setRequestBody(new FileInputStream("E:/github/client/src/soap.txt"));
-		// ·¢ËÍÇëÇó
+		// å‘é€è¯·æ±‚
 		int code = client.executeMethod(post);
-		System.out.println("Http:×´Ì¬ÂëÎª£º" + code);
+		System.out.println("Http:çŠ¶æ€ç ä¸ºï¼š" + code);
 
 		String result = post.getResponseBodyAsString();
-		// Èç¹û²ÉÓÃµÄÊÇsoap£¬Ôò·µ»ØµÄÊı¾İÒ²ÊÇ»ùÓÚxmlµÄsoap¸ñÊ½
-		System.out.println("·µ»ØµÄ½á¹ûÎª£º" + result);
+		// å¦‚æœé‡‡ç”¨çš„æ˜¯soapï¼Œåˆ™è¿”å›çš„æ•°æ®ä¹Ÿæ˜¯åŸºäºxmlçš„soapæ ¼å¼
+		System.out.println("è¿”å›çš„ç»“æœä¸ºï¼š" + result);
 	}
 
 }

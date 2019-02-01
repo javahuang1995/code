@@ -1,11 +1,11 @@
-package com.huang.main;  
+ï»¿package com.huang.main;  
  
 import java.text.ParseException;  
 import java.util.Collection;  
 import java.util.Map;  
  
 /** 
- * ³£ÓÃµÄÑéÖ¤·½·¨°ïÖúÀà,Ìá¹©¶Ô×Ö·û´®£¬¼¯ºÏ£¬Êı×é£¬ÊıÖµµÄÑéÖ¤ 
+ * å¸¸ç”¨çš„éªŒè¯æ–¹æ³•å¸®åŠ©ç±»,æä¾›å¯¹å­—ç¬¦ä¸²ï¼Œé›†åˆï¼Œæ•°ç»„ï¼Œæ•°å€¼çš„éªŒè¯ 
  *  
  * @au
 package com.camel.jelly.helper;  
@@ -15,16 +15,16 @@ import java.util.Collection;
 import java.util.Map;  
  
 /** 
- * ³£ÓÃµÄÑéÖ¤·½·¨°ïÖúÀà,Ìá¹©¶Ô×Ö·û´®£¬¼¯ºÏ£¬Êı×é£¬ÊıÖµµÄÑéÖ¤ 
+ * å¸¸ç”¨çš„éªŒè¯æ–¹æ³•å¸®åŠ©ç±»,æä¾›å¯¹å­—ç¬¦ä¸²ï¼Œé›†åˆï¼Œæ•°ç»„ï¼Œæ•°å€¼çš„éªŒè¯ 
  *  
  * @author Jelly <br/>2009-11-29 
  */ 
 public class ValidateHelper {  
     /** 
-     * ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñ²»ÊÇÒ»¸ö¿Õ×Ö·û´® 
+     * åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸æ˜¯ä¸€ä¸ªç©ºå­—ç¬¦ä¸² 
      *  
-     * @param s ÒªÅĞ¶ÏµÄ×Ö·û´® 
-     * @return Èç¹û²»Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param s è¦åˆ¤æ–­çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœä¸ä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isNotEmptyString(String s) {  
         //return ((s != null) && s.length() > 0);
@@ -32,100 +32,100 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÊÇÒ»¸ö¿Õ×Ö·û´® 
+     * åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯ä¸€ä¸ªç©ºå­—ç¬¦ä¸² 
      *  
-     * @param s ÒªÅĞ¶ÏµÄ×Ö·û´® 
-     * @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param s è¦åˆ¤æ–­çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isEmptyString(String s) {  
         return ((s == null) || (s.length() == 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öCollectionÀàĞÍµÄ¼¯ºÏÊÇ·ñ²»ÊÇÒ»¸ö¿Õ¼¯ºÏ 
+     * åˆ¤æ–­ä¸€ä¸ªCollectionç±»å‹çš„é›†åˆæ˜¯å¦ä¸æ˜¯ä¸€ä¸ªç©ºé›†åˆ 
      *  
-     * @param c ÒªÅĞ¶Ï¼¯ºÏ 
-     * @return Èç¹û²»Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­é›†åˆ 
+     * @return å¦‚æœä¸ä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isNotEmptyCollection(Collection c) {  
         return ((c != null) && (c.size() > 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öCollectionÀàĞÍµÄ¼¯ºÏÊÇ·ñÊÇÒ»¸ö¿Õ¼¯ºÏ 
+     * åˆ¤æ–­ä¸€ä¸ªCollectionç±»å‹çš„é›†åˆæ˜¯å¦æ˜¯ä¸€ä¸ªç©ºé›†åˆ 
      *  
-     * @param c ÒªÅĞ¶Ï¼¯ºÏ 
-     * @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­é›†åˆ 
+     * @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isEmptyCollection(Collection c) {  
         return ((c == null) || (c.size() == 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öMapÀàĞÍµÄ¼¯ºÏÊÇ·ñ²»ÊÇÒ»¸ö¿Õ¼¯ºÏ 
+     * åˆ¤æ–­ä¸€ä¸ªMapç±»å‹çš„é›†åˆæ˜¯å¦ä¸æ˜¯ä¸€ä¸ªç©ºé›†åˆ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄ¼¯ºÏ 
-     * @return Èç¹û²»Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„é›†åˆ 
+     * @return å¦‚æœä¸ä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isNotEmpty(Map m) {  
         return ((m != null) && (m.size() > 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öMapÀàĞÍµÄ¼¯ºÏÊÇ·ñÊÇÒ»¸ö¿Õ¼¯ºÏ 
+     * åˆ¤æ–­ä¸€ä¸ªMapç±»å‹çš„é›†åˆæ˜¯å¦æ˜¯ä¸€ä¸ªç©ºé›†åˆ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄ¼¯ºÏ 
-     * @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„é›†åˆ 
+     * @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isEmpty(Map m) {  
         return ((m == null) || (m.size() == 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öintÀàĞÍµÄÊı×éÊÇ·ñ²»ÊÇÒ»¸ö¿ÕÊı×é 
+     * åˆ¤æ–­ä¸€ä¸ªintç±»å‹çš„æ•°ç»„æ˜¯å¦ä¸æ˜¯ä¸€ä¸ªç©ºæ•°ç»„ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄÊı×é 
-     * @return Èç¹û²»Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„æ•°ç»„ 
+     * @return å¦‚æœä¸ä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isNotEmpty(int[] i) {  
         return ((i != null) && (i.length > 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öintÀàĞÍµÄÊı×éÊÇ·ñÊÇÒ»¸ö¿ÕÊı×é 
+     * åˆ¤æ–­ä¸€ä¸ªintç±»å‹çš„æ•°ç»„æ˜¯å¦æ˜¯ä¸€ä¸ªç©ºæ•°ç»„ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄÊı×é 
-     * @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„æ•°ç»„ 
+     * @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isEmpty(int[] i) {  
         return ((i == null) || (i.length == 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öStringÀàĞÍµÄÊı×éÊÇ·ñ²»ÊÇÒ»¸ö¿ÕÊı×é 
+     * åˆ¤æ–­ä¸€ä¸ªStringç±»å‹çš„æ•°ç»„æ˜¯å¦ä¸æ˜¯ä¸€ä¸ªç©ºæ•°ç»„ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄÊı×é 
-     * @return Èç¹û²»Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„æ•°ç»„ 
+     * @return å¦‚æœä¸ä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isNotEmpty(String[] s) {  
         return ((s != null) && (s.length > 0));  
     }  
  
     /** 
-     * ÅĞ¶ÏÒ»¸öStringÀàĞÍµÄÊı×éÊÇ·ñÊÇÒ»¸ö¿ÕÊı×é 
+     * åˆ¤æ–­ä¸€ä¸ªStringç±»å‹çš„æ•°ç»„æ˜¯å¦æ˜¯ä¸€ä¸ªç©ºæ•°ç»„ 
      *  
-     * @param c ÒªÅĞ¶ÏµÄÊı×é 
-     * @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+     * @param c è¦åˆ¤æ–­çš„æ•°ç»„ 
+     * @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
      */ 
     public static boolean isEmpty(String[] s) {  
         return ((s == null) || (s.length == 0));  
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇDoubleÀàĞÍ 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯Doubleç±»å‹ 
      *  
-     * @param s ÒªÑéÖ¤µÄ×Ö·û´® 
-     * @return Èç¹ûÊÇDoubleÀàĞÍÔò·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param s è¦éªŒè¯çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœæ˜¯Doubleç±»å‹åˆ™è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isDouble(String s) {  
         if (s == null || s.equals(""))  
@@ -149,10 +149,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇFloatÀàĞÍ 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯Floatç±»å‹ 
      *  
-     * @param s ÒªÑéÖ¤µÄ×Ö·û´® 
-     * @return Èç¹ûÊÇFloatÀàĞÍÔò·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param s è¦éªŒè¯çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœæ˜¯Floatç±»å‹åˆ™è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isFloat(String s) {  
         if (s == null || s.equals(""))  
@@ -176,10 +176,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇÕûĞÎ 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯æ•´å½¢ 
      *  
-     * @param s ÒªÑéÖ¤µÄ×Ö·û´® 
-     * @return Èç¹ûÊÇÕûĞÎÔò·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param s è¦éªŒè¯çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœæ˜¯æ•´å½¢åˆ™è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isInteger(String s) {  
         if (s == null || s.length() == 0) {  
@@ -205,10 +205,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇÒ»¸ö.ºÍÒ»×éÊı×Ö×é³É 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯ä¸€ä¸ª.å’Œä¸€ç»„æ•°å­—ç»„æˆ 
      *  
-     * @param s Òª´«ÈëµÄÊı×Ö×Ö·û´® 
-     * @return Èç¹ûÊÇÒ»¸ö³¤ÀàĞÍÊı×Ö·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param s è¦ä¼ å…¥çš„æ•°å­—å­—ç¬¦ä¸² 
+     * @return å¦‚æœæ˜¯ä¸€ä¸ªé•¿ç±»å‹æ•°å­—è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isLongNumber(String s) {  
         if (s == null || s.equals(""))  
@@ -225,10 +225,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇÊı×Ö×é³É 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯æ•°å­—ç»„æˆ 
      *  
-     * @param s ÒªÑéÖ¤µÄ×Ö·û´® 
-     * @return Èç¹û×Ö·û´®ÊÇÊı×Ö×é³ÉµÄÔò·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param s è¦éªŒè¯çš„å­—ç¬¦ä¸² 
+     * @return å¦‚æœå­—ç¬¦ä¸²æ˜¯æ•°å­—ç»„æˆçš„åˆ™è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isNumber(String s) {  
         if (s == null || s.equals(""))  
@@ -242,10 +242,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÒ»¸öºÏ·¨ÈÕÆÚ,ÈÕÆÚ¸ñÊ½£ºyyyy-MM-dd 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸€ä¸ªåˆæ³•æ—¥æœŸ,æ—¥æœŸæ ¼å¼ï¼šyyyy-MM-dd 
      *  
-     * @param date ÒªÑéÖ¤µÄ×Ö·û´®ÈÕÆÚ 
-     * @return Èç¹û×Ö·û´®ÊÇÒ»¸öºÏ·¨µÄÈÕÆÚ·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param date è¦éªŒè¯çš„å­—ç¬¦ä¸²æ—¥æœŸ 
+     * @return å¦‚æœå­—ç¬¦ä¸²æ˜¯ä¸€ä¸ªåˆæ³•çš„æ—¥æœŸè¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isDate(String date) {  
         java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");  
@@ -259,10 +259,10 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÒ»¸öºÏ·¨ÈÕÆÚÊ±¼ä,ÈÕÆÚÊ±¼ä¸ñÊ½£ºyyyy-MM-dd HH:mm:ss 
+     * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸€ä¸ªåˆæ³•æ—¥æœŸæ—¶é—´,æ—¥æœŸæ—¶é—´æ ¼å¼ï¼šyyyy-MM-dd HH:mm:ss 
      *  
-     * @param date ÒªÑéÖ¤µÄ×Ö·û´®ÈÕÆÚÊ±¼ä 
-     * @return Èç¹û×Ö·û´®ÊÇÒ»¸öºÏ·¨µÄÈÕÆÚÊ±¼ä·µ»Øtrue,·ñÔò·µ»Øfalse 
+     * @param date è¦éªŒè¯çš„å­—ç¬¦ä¸²æ—¥æœŸæ—¶é—´ 
+     * @return å¦‚æœå­—ç¬¦ä¸²æ˜¯ä¸€ä¸ªåˆæ³•çš„æ—¥æœŸæ—¶é—´è¿”å›true,å¦åˆ™è¿”å›false 
      */ 
     public static boolean isTimestamp(String time) {  
         java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
@@ -276,12 +276,12 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ¸ù¾İ×Ö½ÚÊı×éÖ¸¶¨µÄ¿ªÊ¼ºÍ½áÎ²³¤¶ÈÀ´¼ÆËã×Ö·û´®Öµ 
+     * æ ¹æ®å­—èŠ‚æ•°ç»„æŒ‡å®šçš„å¼€å§‹å’Œç»“å°¾é•¿åº¦æ¥è®¡ç®—å­—ç¬¦ä¸²å€¼ 
      *  
-     * @param bytes ×Ö½ÚÊı×é 
-     * @param begin ¿ªÊ¼Ë÷Òı 
-     * @param end ½áÊøË÷Òı 
-     * @return ×ª»»ºóµÄ×Ö·û´®½á¹û 
+     * @param bytes å­—èŠ‚æ•°ç»„ 
+     * @param begin å¼€å§‹ç´¢å¼• 
+     * @param end ç»“æŸç´¢å¼• 
+     * @return è½¬æ¢åçš„å­—ç¬¦ä¸²ç»“æœ 
      */ 
     public static String getString(byte[] bytes, int begin, int end) throws RuntimeException {  
         byte[] newBytes = new byte[end - begin];  
@@ -293,12 +293,12 @@ public class ValidateHelper {
     }  
  
     /** 
-     * ¸ù¾İ×Ö½ÚÊı×éÖ¸¶¨µÄ¿ªÊ¼ºÍ½áÎ²³¤¶ÈÀ´¼ÆËã×Ö·û´®µÄ×Ö½Ú³¤¶È 
+     * æ ¹æ®å­—èŠ‚æ•°ç»„æŒ‡å®šçš„å¼€å§‹å’Œç»“å°¾é•¿åº¦æ¥è®¡ç®—å­—ç¬¦ä¸²çš„å­—èŠ‚é•¿åº¦ 
      *  
-     * @param bytes ×Ö½ÚÊı×é 
-     * @param begin ¿ªÊ¼Ë÷Òı 
-     * @param end ½áÊøË÷Òı 
-     * @return ×ª»»ºóµÄ×Ö·û´®³¤¶È 
+     * @param bytes å­—èŠ‚æ•°ç»„ 
+     * @param begin å¼€å§‹ç´¢å¼• 
+     * @param end ç»“æŸç´¢å¼• 
+     * @return è½¬æ¢åçš„å­—ç¬¦ä¸²é•¿åº¦ 
      */ 
     public static int getLength(byte[] bytes, int begin, int end) {  
         byte[] newBytes = new byte[end - begin];  

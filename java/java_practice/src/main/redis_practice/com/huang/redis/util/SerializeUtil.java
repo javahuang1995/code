@@ -1,10 +1,10 @@
-package com.huang.redis.util;
+ï»¿package com.huang.redis.util;
 
 import java.io.*;
 
 public class SerializeUtil {
     /*
-     * ĞòÁĞ»¯
+     * åºåˆ—åŒ–
      * */
     public static byte[] serizlize(Object object){
         ObjectOutputStream oos = null;
@@ -32,7 +32,7 @@ public class SerializeUtil {
         return null;
     }
     /*
-     * ·´ĞòÁĞ»¯
+     * ååºåˆ—åŒ–
      * */
     public static Object deserialize(byte[] bytes){
         ByteArrayInputStream bais = null;

@@ -1,4 +1,4 @@
-package com.huang.datastruct.line;
+﻿package com.huang.datastruct.line;
 
 public class MyArray<T> {
 	
@@ -6,12 +6,12 @@ public class MyArray<T> {
 	private int size;
 	private static final int INIT = 10;
 	
-	public MyArray() { //锟斤拷始锟斤拷锟斤拷锟斤拷
+	public MyArray() { //阌熸枻鎷峰阌熸枻鎷烽敓鏂ゆ嫹阌熸枻鎷?
 		this.table = new Object[INIT];
 		this.size = 0;
 	}
 	
-	public MyArray(int max) { //锟斤拷始锟斤拷锟斤拷锟斤拷
+	public MyArray(int max) { //阌熸枻鎷峰阌熸枻鎷烽敓鏂ゆ嫹阌熸枻鎷?
 		this.table = new Object[max];
 		this.size = 0;
 	}
@@ -25,7 +25,7 @@ public class MyArray<T> {
 	}
 	
 	/**
-	 * 锟斤拷锟斤不锟斤拷要锟叫讹拷index锟角凤拷锟叫★拷锟�锟斤拷java锟斤拷锟絠ndex小锟斤拷0锟斤拷table[]锟酵会报锟�
+	 * 阌熸枻鎷烽敓鏂や笉阌熸枻鎷疯阌熷彨璁规嫹index阌熻鍑ゆ嫹阌熷彨钸呮嫹阌燂拷阌熸枻鎷穓ava阌熸枻鎷烽敓绲爊dex灏忛敓鏂ゆ嫹0阌熸枻鎷穞able[]阌熼叺浼氭姤阌燂拷
 	 * @param index
 	 * @return
 	 */

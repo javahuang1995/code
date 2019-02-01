@@ -1,4 +1,4 @@
-package cn.it.shop.service.impl;
+ï»¿package cn.it.shop.service.impl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import cn.it.shop.model.Category;
 import cn.it.shop.service.CategoryService;
 /**
- * @Description TODO£¨Ä£¿é×ÔÉíµÄÒµÎñÂß¼­£©
+ * @Description TODOï¼ˆæ¨¡å—è‡ªèº«çš„ä¸šåŠ¡é€»è¾‘ï¼‰
  * @author Ni Shengwu
  *
  */

@@ -1,4 +1,4 @@
-package com.huang.spring.test;
+﻿package com.huang.spring.test;
  
 public interface Human {
 	

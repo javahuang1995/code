@@ -1,4 +1,4 @@
-package com.huang.main;  
+ï»¿package com.huang.main;  
   
 import java.io.*;  
 import java.net.ServerSocket;  
@@ -13,7 +13,7 @@ public class TomcatServer {
     public static void main(String[] args) {  
   
         try {  
-            ServerSocket server = new ServerSocket(PORT);//¸ù¾İ¶Ë¿ÚºÅÆô¶¯Ò»¸öserverSocket  
+            ServerSocket server = new ServerSocket(PORT);//æ ¹æ®ç«¯å£å·å¯åŠ¨ä¸€ä¸ªserverSocket  
             ServletHandler servletHandler=new ServletHandler(server);  
             servletHandler.start();  
         } catch (Exception e) {  
@@ -36,51 +36,51 @@ public class TomcatServer {
             while (true) {  
                 try {  
                     Socket client = null;  
-                    client = server.accept();//ServerSocket×èÈûµÈ´ı¿Í»§¶ËÇëÇóÊı¾İ  
+                    client = server.accept();//ServerSocketé˜»å¡ç­‰å¾…å®¢æˆ·ç«¯è¯·æ±‚æ•°æ®  
                     if (client != null) {  
                         try {  
-                            System.out.println("½ÓÊÕµ½Ò»¸ö¿Í»§¶ËµÄÇëÇó");  
+                            System.out.println("æ¥æ”¶åˆ°ä¸€ä¸ªå®¢æˆ·ç«¯çš„è¯·æ±‚");  
   
-                            //¸ù¾İ¿Í»§¶ËµÄSocket¶ÔÏó»ñÈ¡ÊäÈëÁ÷¶ÔÏó¡£  
-                            //·â×°×Ö½ÚÁ÷µ½×Ö·ûÁ÷  
+                            //æ ¹æ®å®¢æˆ·ç«¯çš„Socketå¯¹è±¡è·å–è¾“å…¥æµå¯¹è±¡ã€‚  
+                            //å°è£…å­—èŠ‚æµåˆ°å­—ç¬¦æµ  
                             BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));  
   
                             // GET /test.jpg /HTTP1.1  
-                            //httpÇëÇóÓÉÈı²¿·Ö×é³É£¬·Ö±ğÊÇ£ºÇëÇóĞĞ¡¢ÏûÏ¢±¨Í·¡¢ÇëÇóÕıÎÄ¡£  
-                            //ÕâÀïÈ¡µÄµÚÒ»ĞĞÊı¾İ¾ÍÊÇÇëÇóĞĞ¡£httpĞ­ÒéÏê½â¿ÉÒÔ²Î¿¼http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.htmlËµµÄºÜÏêÏ¸  
+                            //httpè¯·æ±‚ç”±ä¸‰éƒ¨åˆ†ç»„æˆï¼Œåˆ†åˆ«æ˜¯ï¼šè¯·æ±‚è¡Œã€æ¶ˆæ¯æŠ¥å¤´ã€è¯·æ±‚æ­£æ–‡ã€‚  
+                            //è¿™é‡Œå–çš„ç¬¬ä¸€è¡Œæ•°æ®å°±æ˜¯è¯·æ±‚è¡Œã€‚httpåè®®è¯¦è§£å¯ä»¥å‚è€ƒhttp://www.cnblogs.com/li0803/archive/2008/11/03/1324746.htmlè¯´çš„å¾ˆè¯¦ç»†  
                             String line = reader.readLine();  
   
                             System.out.println("line: " + line);  
   
-                            //²ğ·ÖhttpÇëÇóÂ·¾¶£¬È¡httpĞèÒªÇëÇóµÄ×ÊÔ´ÍêÕûÂ·¾¶  
+                            //æ‹†åˆ†httpè¯·æ±‚è·¯å¾„ï¼Œå–httpéœ€è¦è¯·æ±‚çš„èµ„æºå®Œæ•´è·¯å¾„  
                             String resource = line.substring(line.indexOf('/'),line.lastIndexOf('/') - 5);  
   
                             System.out.println("the resource you request is: "+ resource);  
   
                             resource = URLDecoder.decode(resource, "UTF-8");  
   
-                            //»ñÈ¡µ½Õâ´ÎÇëÇóµÄ·½·¨ÀàĞÍ£¬±ÈÈçget»òpostÇëÇó  
+                            //è·å–åˆ°è¿™æ¬¡è¯·æ±‚çš„æ–¹æ³•ç±»å‹ï¼Œæ¯”å¦‚getæˆ–postè¯·æ±‚  
                             String method = new StringTokenizer(line).nextElement().toString();  
   
                             System.out.println("the request method you send is: "+ method);  
   
-                            //¼ÌĞøÑ­»·¶ÁÈ¡ä¯ÀÀÆ÷¿Í»§¶Ë·¢³öµÄÒ»ĞĞÒ»ĞĞµÄÊı¾İ  
+                            //ç»§ç»­å¾ªç¯è¯»å–æµè§ˆå™¨å®¢æˆ·ç«¯å‘å‡ºçš„ä¸€è¡Œä¸€è¡Œçš„æ•°æ®  
                             while ((line = reader.readLine()) != null) {  
-                                if (line.equals("")) {//µ±lineµÈÓÚ¿ÕĞĞµÄÊ±ºò±êÖ¾HeaderÏûÏ¢½áÊø  
+                                if (line.equals("")) {//å½“lineç­‰äºç©ºè¡Œçš„æ—¶å€™æ ‡å¿—Headeræ¶ˆæ¯ç»“æŸ  
                                     break;  
                                 }  
                                 System.out.println("the Http Header is : " + line);  
                             }  
   
-                            //Èç¹ûÊÇPOSTµÄÇëÇó£¬Ö±½Ó´òÓ¡POSTÌá½»ÉÏÀ´µÄÊı¾İ  
+                            //å¦‚æœæ˜¯POSTçš„è¯·æ±‚ï¼Œç›´æ¥æ‰“å°POSTæäº¤ä¸Šæ¥çš„æ•°æ®  
                             if ("post".equals(method.toLowerCase())) {  
                                 System.out.println("the post request body is: "  
                                         + reader.readLine());  
                             }else if("get".equals(method.toLowerCase())){  
-                                //ÅĞ¶ÏÊÇgetÀàĞÍµÄhttpÇëÇó´¦Àí  
-                                //¸ù¾İhttpÇëÇóµÄ×ÊÔ´ºó×ºÃûÀ´È·¶¨·µ»ØÊı¾İ  
+                                //åˆ¤æ–­æ˜¯getç±»å‹çš„httpè¯·æ±‚å¤„ç†  
+                                //æ ¹æ®httpè¯·æ±‚çš„èµ„æºåç¼€åæ¥ç¡®å®šè¿”å›æ•°æ®  
   
-                                //±ÈÈçÏÂÔØÒ»¸öÍ¼Æ¬ÎÄ¼ş£¬ÎÒÕâÀïÖ±½Ó¸ø¶¨Ò»¸öÍ¼Æ¬Â·¾¶À´Ä£ÄâÏÂÔØµÄÇé¿ö  
+                                //æ¯”å¦‚ä¸‹è½½ä¸€ä¸ªå›¾ç‰‡æ–‡ä»¶ï¼Œæˆ‘è¿™é‡Œç›´æ¥ç»™å®šä¸€ä¸ªå›¾ç‰‡è·¯å¾„æ¥æ¨¡æ‹Ÿä¸‹è½½çš„æƒ…å†µ  
                                 if (resource.endsWith(".jpg")) {  
                                     transferFileHandle("d://123.jpg", client);  
                                     closeSocket(client);  
@@ -88,25 +88,25 @@ public class TomcatServer {
   
                                 } else {  
   
-                             //Ö±½Ó·µ»ØÒ»¸öÍøÒ³Êı¾İ  
-                             //ÆäÊµ¾ÍÊÇ½«htmlµÄ´úÂëÒÔ×Ö½ÚÁ÷µÄĞÎÊ½Ğ´µ½IOÖĞ·´À¡¸ø¿Í»§¶Ëä¯ÀÀÆ÷¡£  
-                             //ä¯ÀÀÆ÷»á¸ù¾İhttp±¨ÎÄ¡°Content-Type¡±À´ÖªµÀ·´À¡¸øä¯ÀÀÆ÷µÄÊı¾İÊÇÊ²Ã´¸ñÊ½µÄ£¬²¢½øĞĞÊ²Ã´ÑùµÄ´¦Àí  
+                             //ç›´æ¥è¿”å›ä¸€ä¸ªç½‘é¡µæ•°æ®  
+                             //å…¶å®å°±æ˜¯å°†htmlçš„ä»£ç ä»¥å­—èŠ‚æµçš„å½¢å¼å†™åˆ°IOä¸­åé¦ˆç»™å®¢æˆ·ç«¯æµè§ˆå™¨ã€‚  
+                             //æµè§ˆå™¨ä¼šæ ¹æ®httpæŠ¥æ–‡â€œContent-Typeâ€æ¥çŸ¥é“åé¦ˆç»™æµè§ˆå™¨çš„æ•°æ®æ˜¯ä»€ä¹ˆæ ¼å¼çš„ï¼Œå¹¶è¿›è¡Œä»€ä¹ˆæ ·çš„å¤„ç†  
   
                              PrintStream writer = new PrintStream(client.getOutputStream(), true);  
-                             writer.println("HTTP/1.0 200 OK");// ·µ»ØÓ¦´ğÏûÏ¢,²¢½áÊøÓ¦´ğ  
+                             writer.println("HTTP/1.0 200 OK");// è¿”å›åº”ç­”æ¶ˆæ¯,å¹¶ç»“æŸåº”ç­”  
                              writer.println("Content-Type:text/html;charset=utf-8");  
                              writer.println();  
-                             //writer.println("Content-Length:" + html.getBytes().length);// ·µ»ØÄÚÈİ×Ö½ÚÊı  
+                             //writer.println("Content-Length:" + html.getBytes().length);// è¿”å›å†…å®¹å­—èŠ‚æ•°  
                              writer.println("<html><body>");  
-                             writer.println("<a href='www.baidu.com'>°Ù¶È</a>");  
+                             writer.println("<a href='www.baidu.com'>ç™¾åº¦</a>");  
                              writer.println("<img src='https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'></img>");  
                              writer.println("</html></body>");  
   
   
-                             //writer.println("HTTP/1.0 404 Not found");// ·µ»ØÓ¦´ğÏûÏ¢,²¢½áÊøÓ¦´ğ  
-                             writer.println();// ¸ù¾İ HTTP Ğ­Òé, ¿ÕĞĞ½«½áÊøÍ·ĞÅÏ¢  
+                             //writer.println("HTTP/1.0 404 Not found");// è¿”å›åº”ç­”æ¶ˆæ¯,å¹¶ç»“æŸåº”ç­”  
+                             writer.println();// æ ¹æ® HTTP åè®®, ç©ºè¡Œå°†ç»“æŸå¤´ä¿¡æ¯  
                              writer.close();  
-                             closeSocket(client);//ÇëÇó×ÊÔ´´¦ÀíÍê±Ï£¬¹Ø±ÕsocketÁ´½Ó  
+                             closeSocket(client);//è¯·æ±‚èµ„æºå¤„ç†å®Œæ¯•ï¼Œå…³é—­socketé“¾æ¥  
                              continue;  
                                 }  
                             }  
@@ -114,7 +114,7 @@ public class TomcatServer {
   
   
                         } catch (Exception e) {  
-                            System.out.println("HTTP·şÎñÆ÷´íÎó:"  
+                            System.out.println("HTTPæœåŠ¡å™¨é”™è¯¯:"  
                                     + e.getLocalizedMessage());  
                         }  
                     }  
@@ -130,7 +130,7 @@ public class TomcatServer {
             } catch (IOException ex) {  
                 ex.printStackTrace();  
             }  
-            System.out.println(socket + "Àë¿ªÁËHTTP·şÎñÆ÷");  
+            System.out.println(socket + "ç¦»å¼€äº†HTTPæœåŠ¡å™¨");  
         }  
   
         private void transferFileHandle(String path, Socket client) {  
@@ -139,12 +139,12 @@ public class TomcatServer {
   
             if (fileToSend.exists() && !fileToSend.isDirectory()) {  
                 try {  
-                    //¸ù¾İSocket»ñÈ¡Êä³öÁ÷¶ÔÏó£¬½«·ÃÎÊµÄ×ÊÔ´Êı¾İĞ´Èëµ½Êä³öÁ÷ÖĞ  
+                    //æ ¹æ®Socketè·å–è¾“å‡ºæµå¯¹è±¡ï¼Œå°†è®¿é—®çš„èµ„æºæ•°æ®å†™å…¥åˆ°è¾“å‡ºæµä¸­  
                     PrintStream writer = new PrintStream(client.getOutputStream());  
-                    writer.println("HTTP/1.0 200 OK");// ·µ»ØÓ¦´ğÏûÏ¢,²¢½áÊøÓ¦´ğ  
+                    writer.println("HTTP/1.0 200 OK");// è¿”å›åº”ç­”æ¶ˆæ¯,å¹¶ç»“æŸåº”ç­”  
                     writer.println("Content-Type:application/binary");  
-                    writer.println("Content-Length:" + fileToSend.length());// ·µ»ØÄÚÈİ×Ö½ÚÊı  
-                    writer.println();// ¸ù¾İ HTTP Ğ­Òé, ¿ÕĞĞ½«½áÊøÍ·ĞÅÏ¢  
+                    writer.println("Content-Length:" + fileToSend.length());// è¿”å›å†…å®¹å­—èŠ‚æ•°  
+                    writer.println();// æ ¹æ® HTTP åè®®, ç©ºè¡Œå°†ç»“æŸå¤´ä¿¡æ¯  
   
                     FileInputStream fis = new FileInputStream(fileToSend);  
                     byte[] buf = new byte[fis.available()];  

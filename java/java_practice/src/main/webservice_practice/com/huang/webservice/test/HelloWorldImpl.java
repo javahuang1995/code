@@ -1,9 +1,9 @@
-package com.huang.webservice.test;
+ï»¿package com.huang.webservice.test;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
-//ÕâÊÇÊµÏÖÀà
+//è¿™æ˜¯å®ç°ç±»
 @WebService
 public class HelloWorldImpl implements HelloWorld{
 

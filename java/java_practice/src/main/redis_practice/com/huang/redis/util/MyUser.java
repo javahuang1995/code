@@ -1,4 +1,4 @@
-package com.huang.redis.util;
+ï»¿package com.huang.redis.util;
 
 import java.io.Serializable;
 
@@ -31,6 +31,6 @@ public class MyUser implements Serializable {
 
 	@Override
 	public String toString() {
-		return "name:"+this.name + "sex£º"+this.sex;
+		return "name:"+this.name + "sexï¼š"+this.sex;
 	}
 }

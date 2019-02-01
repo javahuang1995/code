@@ -1,4 +1,4 @@
-package cn.it.shop.dao.impl;
+ï»¿package cn.it.shop.dao.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import cn.it.shop.dao.CategoryDao;
 import cn.it.shop.model.Category;
 
 /**
- * @Description TODO£¨Ä£¿é×ÔÉíµÄÒµÎñÂß¼­£©
+ * @Description TODOï¼ˆæ¨¡å—è‡ªèº«çš„ä¸šåŠ¡é€»è¾‘ï¼‰
  * @author Ni Shengwu
  *
  */
@@ -17,11 +17,11 @@ import cn.it.shop.model.Category;
 public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDao {
 
 	/*
-	 * ÕâÀïµÄ·ÖÒ³²éÑ¯½âÊÍÒ»ÏÂ
-	 * page±íÊ¾µÚ¼¸Ò³£¬size±íÊ¾ÏÔÊ¾¼¸¸ö
-	 * setFirstResult±íÊ¾´ÓµÚ¼¸¸ö¿ªÊ¼ÏÔÊ¾£¬ ÄÇ¿Ï¶¨¾ÍÊÇ(page-1)*size
-	 * setMaxResult±íÊ¾ÏÔÊ¾¼¸¸ö ÏÔÊ¾size¸ö¡£size¶¨ÒåÁËÃ¿¸öpageµÄ´óĞ¡¡£
-	 * ÀıÈçqueryJoinAccount(type,2,10)±íÊ¾²éÑ¯µÚ¶ş¸öpage,Ã¿¸öpageÊÇ10¸ö¡£
+	 * è¿™é‡Œçš„åˆ†é¡µæŸ¥è¯¢è§£é‡Šä¸€ä¸‹
+	 * pageè¡¨ç¤ºç¬¬å‡ é¡µï¼Œsizeè¡¨ç¤ºæ˜¾ç¤ºå‡ ä¸ª
+	 * setFirstResultè¡¨ç¤ºä»ç¬¬å‡ ä¸ªå¼€å§‹æ˜¾ç¤ºï¼Œ é‚£è‚¯å®šå°±æ˜¯(page-1)*size
+	 * setMaxResultè¡¨ç¤ºæ˜¾ç¤ºå‡ ä¸ª æ˜¾ç¤ºsizeä¸ªã€‚sizeå®šä¹‰äº†æ¯ä¸ªpageçš„å¤§å°ã€‚
+	 * ä¾‹å¦‚queryJoinAccount(type,2,10)è¡¨ç¤ºæŸ¥è¯¢ç¬¬äºŒä¸ªpage,æ¯ä¸ªpageæ˜¯10ä¸ªã€‚
 	 * @see cn.it.shop.dao.CategoryDao#queryJoinAccount(java.lang.String, int, int)
 	 */
 	@Override
@@ -29,8 +29,8 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDa
 		String hql = "from Category c left join fetch c.account where c.type like :type";
 		return getSession().createQuery(hql)
 				.setString("type", "%" + type + "%")
-				.setFirstResult((page-1) * size) //´ÓµÚ¼¸¸ö¿ªÊ¼ÏÔÊ¾
-				.setMaxResults(size) //ÏÔÊ¾¼¸¸ö
+				.setFirstResult((page-1) * size) //ä»ç¬¬å‡ ä¸ªå¼€å§‹æ˜¾ç¤º
+				.setMaxResults(size) //æ˜¾ç¤ºå‡ ä¸ª
 				.list();
 	}
 
@@ -39,7 +39,7 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDa
 		String hql = "select count(c) from Category c where c.type like :type";
 		return (Long) getSession().createQuery(hql)
 			.setString("type", "%" + type + "%")
-			.uniqueResult(); //·µ»ØÒ»Ìõ¼ÇÂ¼:×Ü¼ÇÂ¼Êı
+			.uniqueResult(); //è¿”å›ä¸€æ¡è®°å½•:æ€»è®°å½•æ•°
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.huang.sort;
+ï»¿package com.huang.sort;
 
 import java.util.Arrays;
 
@@ -51,7 +51,7 @@ public class Tree2Sort {
 		}
 	}
 
-	// ÖĞĞò±éÀú
+	// ä¸­åºéå†
 	public void inOrder(Node current) {
 		if (current != null) {
 			inOrder(current.leftChild);

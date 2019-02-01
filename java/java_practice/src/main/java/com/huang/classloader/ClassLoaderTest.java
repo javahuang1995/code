@@ -1,4 +1,4 @@
-package com.huang.classloader;
+ï»¿package com.huang.classloader;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -8,23 +8,23 @@ public class ClassLoaderTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		// ´´½¨×Ô¶¨Òåclassloader¶ÔÏó¡£
+		// åˆ›å»ºè‡ªå®šä¹‰classloaderå¯¹è±¡ã€‚
 		DiskClassLoader diskLoader = new DiskClassLoader("D:\\lib");
 		try {
-			// ¼ÓÔØclassÎÄ¼ş
+			// åŠ è½½classæ–‡ä»¶
 			Class c = diskLoader.loadClass("com.huang.classloader.Test");
 
 			if (c != null) {
 				try {
-					//ÕâÀïÊÇÓÃclass¶ÔÏó´´Ôìµ¥ÀıÄ£Ê½£¬¿É²»¿ÉÒÔ´´Ôì¶à¸ö¶ÔÏó£¿£¿
+					//è¿™é‡Œæ˜¯ç”¨classå¯¹è±¡åˆ›é€ å•ä¾‹æ¨¡å¼ï¼Œå¯ä¸å¯ä»¥åˆ›é€ å¤šä¸ªå¯¹è±¡ï¼Ÿï¼Ÿ
 					
 					
 					Object obj = c.newInstance();
 					Method method = c.getDeclaredMethod("say", null);
-					// Í¨¹ı·´Éäµ÷ÓÃTestÀàµÄsay·½·¨
+					// é€šè¿‡åå°„è°ƒç”¨Testç±»çš„sayæ–¹æ³•
 					method.invoke(obj, null);
-					//ÕâÊÇ·´ÉäÓÃµÄ×î¶àµÄµØ·½£¬·½·¨µ÷ÓÃ,springµÄIOC¾ÍÊÇÍ¨¹ı·´Éä+¹¤³§Ä£Ê½ÊµÏÖµÄ£¬ËûµÄclassĞÅÏ¢ÊÇÅäÖÃÔÚbeans.xmlÀïÃæ£¬
-					//ÕâÀïµÄÀàĞÅÏ¢ÊÇ´ÓÎÄ¼şÀïÃæ¶Á³öÀ´µÄ£¬Ö»ÊÇÀ´Ô´²»Í¬°ÕÁË
+					//è¿™æ˜¯åå°„ç”¨çš„æœ€å¤šçš„åœ°æ–¹ï¼Œæ–¹æ³•è°ƒç”¨,springçš„IOCå°±æ˜¯é€šè¿‡åå°„+å·¥å‚æ¨¡å¼å®ç°çš„ï¼Œä»–çš„classä¿¡æ¯æ˜¯é…ç½®åœ¨beans.xmlé‡Œé¢ï¼Œ
+					//è¿™é‡Œçš„ç±»ä¿¡æ¯æ˜¯ä»æ–‡ä»¶é‡Œé¢è¯»å‡ºæ¥çš„ï¼Œåªæ˜¯æ¥æºä¸åŒç½¢äº†
 				} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException
 						| IllegalArgumentException | InvocationTargetException e) {
 					// TODO Auto-generated catch block

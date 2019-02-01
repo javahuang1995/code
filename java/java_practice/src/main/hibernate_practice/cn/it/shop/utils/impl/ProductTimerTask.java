@@ -1,4 +1,4 @@
-package cn.it.shop.utils.impl;
+ï»¿package cn.it.shop.utils.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import cn.it.shop.model.Product;
 import cn.it.shop.service.CategoryService;
 import cn.it.shop.service.ProductService;
 /**
- * @Description: TODO(ÉèÖÃÈÎÎñ£ºrun·½·¨ÖĞÓÃÀ´¼ÓÔØÊ×Ò³ÉÌÆ·ĞÅÏ¢)
+ * @Description: TODO(è®¾ç½®ä»»åŠ¡ï¼šrunæ–¹æ³•ä¸­ç”¨æ¥åŠ è½½é¦–é¡µå•†å“ä¿¡æ¯)
  * @author Ni Shengwu
  *
  */
@@ -33,17 +33,17 @@ public class ProductTimerTask extends TimerTask {
 	}
 	
 	@Override
-	//ºÍ¼àÌıÆ÷ÔÚÏîÄ¿Æô¶¯µÄÊ±ºòÊı¾İ³õÊ¼»¯µÄÂß¼­Ò»Ñù
+	//å’Œç›‘å¬å™¨åœ¨é¡¹ç›®å¯åŠ¨çš„æ—¶å€™æ•°æ®åˆå§‹åŒ–çš„é€»è¾‘ä¸€æ ·
 	public void run() {
 		System.out.println("----run----");
-		List<List<Product>> bigList = new ArrayList<List<Product>>(); //bigListÖĞ´æ·ÅÒ»¸ö×°ÓĞCategoryÀàµÄlist
-		// 1. ²éÑ¯³öÈÈµãÀà±ğ
+		List<List<Product>> bigList = new ArrayList<List<Product>>(); //bigListä¸­å­˜æ”¾ä¸€ä¸ªè£…æœ‰Categoryç±»çš„list
+		// 1. æŸ¥è¯¢å‡ºçƒ­ç‚¹ç±»åˆ«
 		for(Category category : categoryService.queryByHot(true)) {
-			//¸ù¾İÈÈµãÀà±ğid»ñÈ¡ÍÆ¼öÉÌÆ·ĞÅÏ¢
+			//æ ¹æ®çƒ­ç‚¹ç±»åˆ«idè·å–æ¨èå•†å“ä¿¡æ¯
 			List<Product> lst = productService.querByCategoryId(category.getId());
-			bigList.add(lst); //½«×°ÓĞcategoryµÄlist·Åµ½bigListÖĞ
+			bigList.add(lst); //å°†è£…æœ‰categoryçš„listæ”¾åˆ°bigListä¸­
 		}
-		// 2. °Ñ²éÑ¯µÄbigList½»¸øapplicationÄÚÖÃ¶ÔÏó
+		// 2. æŠŠæŸ¥è¯¢çš„bigListäº¤ç»™applicationå†…ç½®å¯¹è±¡
 		application.setAttribute("bigList", bigList);
 	}
 

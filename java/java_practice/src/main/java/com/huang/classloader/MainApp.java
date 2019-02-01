@@ -1,4 +1,4 @@
-package com.huang.classloader;
+锘縫ackage com.huang.classloader;
 
 /**
  * ExtClassLoader
@@ -17,7 +17,7 @@ public class MainApp {
 		System.out.println("Parent ClassLoader is:"+cl.getParent().toString());
 		
 		ClassLoader c2=String.class.getClassLoader();
-		//System.out.println(c2.toString());//无法获取BootStrap，所以会报空指针错误
+		//System.out.println(c2.toString());//鏃犳硶鑾峰彇BootStrap锛屾墍浠ヤ細鎶ョ┖鎸囬拡閿欒
 		
 		Test b = new Test();
 		System.out.println("bbbb"+b.getClass().getClassLoader());

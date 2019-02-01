@@ -1,11 +1,11 @@
-package com.huang.rpc.test.server;
+锘縫ackage com.huang.rpc.test.server;
 
 import com.huang.rpc.test.util.RpcFramework;
 
 public class Main {
 	public static void main(String[] args) {
 		HelloService service = new HelloServiceImpl();
-        // RPC框架将服务暴露出来，供客户端消费
+        // RPC妗嗘灦灏嗘湇鍔℃毚闇插嚭鏉ワ紝渚涘鎴风娑堣垂
         try {
 			RpcFramework.export(service, 1234);
 		} catch (Exception e) {

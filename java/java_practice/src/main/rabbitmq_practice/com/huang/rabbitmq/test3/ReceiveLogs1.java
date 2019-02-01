@@ -1,4 +1,4 @@
-package com.huang.rabbitmq.test3;
+锘縫ackage com.huang.rabbitmq.test3;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -17,8 +17,8 @@ public class ReceiveLogs1 {
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
-        String queueName = channel.queueDeclare().getQueue();//获取队列
-        channel.queueBind(queueName, EXCHANGE_NAME, "");//这个队列和交换机绑定
+        String queueName = channel.queueDeclare().getQueue();//鑾峰彇闃熷垪
+        channel.queueBind(queueName, EXCHANGE_NAME, "");//杩欎釜闃熷垪鍜屼氦鎹㈡満缁戝畾
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 

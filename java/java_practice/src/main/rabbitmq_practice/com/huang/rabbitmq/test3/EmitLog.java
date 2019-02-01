@@ -1,14 +1,14 @@
-package com.huang.rabbitmq.test3;
+﻿package com.huang.rabbitmq.test3;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 /**
- * ʵ���ϣ�RabbitMQ����Ϣ����ģ�͵ĺ���˼���ǣ������߲�ֱ�ӷ�����Ϣ�����С�ʵ�ʵ����л����У��������ǲ�֪����Ϣ�ᷢ�͵��Ǹ������ϣ�
- * ��ֻ�Ὣ��Ϣ���͵�һ����������������Ҳ��һ�������ߣ���һ�߽��������߷�������Ϣ������һ������ݽ������򣬽���Ϣ�ŵ������С�
- * ����������֪���������յ���Ϣ��ʲô����Ӧ�ñ��ŵ��Ǹ������У���Ӧ�ñ����ӵ���������𣿻���Ӧ�ö�������Щ�����ǰ��ս������Ĺ�����ȷ���ġ� 
- * �����ᷢ����Ϣ����������Ȼ��RLog1��RLog2��һ���ģ����ǻ�ȡһ�����У�Ȼ��󶨵�������������棬����RLOG1��RLOG2�����ܵ�������Ϣ��
+ * 实际上，RabbitMQ中消息传递模型的核心思想是：生产者不直接发送消息到队列。实际的运行环境中，生产者是不知道消息会发送到那个队列上，
+ * 她只会将消息发送到一个交换器，交换器也像一个生产线，她一边接收生产者发来的消息，另外一边则根据交换规则，将消息放到队列中。
+ * 交换器必须知道她所接收的消息是什么？它应该被放到那个队列中？它应该被添加到多个队列吗？还是应该丢弃？这些规则都是按照交换器的规则来确定的。 
+ * 这个类会发送消息给交换机，然后RLog1和RLog2是一样的，都是获取一个队列，然后绑定到这个交换机上面，所以RLOG1和RLOG2都会受到所有消息。
  * @author huang
- * ��ط������͸����������и����⣬EmitLog������Ϻ�û��Ack���ơ�
+ * 这地方，发送给交换机，有个问题，EmitLog发送完毕后，没有Ack机制。
  *
  */
 public class EmitLog {
@@ -27,7 +27,7 @@ public class EmitLog {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
-//      �ַ���Ϣ
+//      分发消息
         for(int i = 0 ; i < 5; i++){
             String message = "Hello World! " + i;
              channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());

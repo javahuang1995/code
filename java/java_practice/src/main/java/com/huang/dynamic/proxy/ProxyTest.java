@@ -1,6 +1,6 @@
-package com.huang.dynamic.proxy;
+ï»¿package com.huang.dynamic.proxy;
 /**
- * ¾²Ì¬´úÀí£¬Õâ¸ö´úÀíÀàÒ²±ØĞëÒªÊµÏÖºÍ±»´úÀíÀàÏàÍ¬µÄPerson½Ó¿Ú
+ * é™æ€ä»£ç†ï¼Œè¿™ä¸ªä»£ç†ç±»ä¹Ÿå¿…é¡»è¦å®ç°å’Œè¢«ä»£ç†ç±»ç›¸åŒçš„Personæ¥å£
  * @author yujie.wang
  *
  */
@@ -14,14 +14,14 @@ public class ProxyTest implements Person{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//sÎª±»´úÀíµÄ¶ÔÏó£¬Ä³Ğ©Çé¿öÏÂ ÎÒÃÇ²»Ï£ÍûĞŞ¸ÄÒÑÓĞµÄ´úÂë£¬ÎÒÃÇ²ÉÓÃ´úÀíÀ´¼ä½Ó·ÃÎÊ
+		//sä¸ºè¢«ä»£ç†çš„å¯¹è±¡ï¼ŒæŸäº›æƒ…å†µä¸‹ æˆ‘ä»¬ä¸å¸Œæœ›ä¿®æ”¹å·²æœ‰çš„ä»£ç ï¼Œæˆ‘ä»¬é‡‡ç”¨ä»£ç†æ¥é—´æ¥è®¿é—®
 		Student s = new Student();
-		//´´½¨´úÀíÀà¶ÔÏó
+		//åˆ›å»ºä»£ç†ç±»å¯¹è±¡
 		ProxyTest proxy = new ProxyTest(s);
-		//µ÷ÓÃ´úÀíÀà¶ÔÏóµÄ·½·¨
+		//è°ƒç”¨ä»£ç†ç±»å¯¹è±¡çš„æ–¹æ³•
 		proxy.sayHello("welcome to java", 20);
 		System.out.println("******");
-		//µ÷ÓÃ´úÀíÀà¶ÔÏóµÄ·½·¨
+		//è°ƒç”¨ä»£ç†ç±»å¯¹è±¡çš„æ–¹æ³•
 		proxy.sayGoodBye(true, 100);
 
 	}
@@ -30,7 +30,7 @@ public class ProxyTest implements Person{
 	public void sayHello(String content, int age) {
 		// TODO Auto-generated method stub
 		System.out.println("ProxyTest sayHello begin");
-		//ÔÚ´úÀíÀàµÄ·½·¨ÖĞ ¼ä½Ó·ÃÎÊ±»´úÀí¶ÔÏóµÄ·½·¨
+		//åœ¨ä»£ç†ç±»çš„æ–¹æ³•ä¸­ é—´æ¥è®¿é—®è¢«ä»£ç†å¯¹è±¡çš„æ–¹æ³•
 		o.sayHello(content, age);
 		System.out.println("ProxyTest sayHello end");
 	}
@@ -39,7 +39,7 @@ public class ProxyTest implements Person{
 	public void sayGoodBye(boolean seeAgin, double time) {
 		// TODO Auto-generated method stub
 		System.out.println("ProxyTest sayHello begin");
-		//ÔÚ´úÀíÀàµÄ·½·¨ÖĞ ¼ä½Ó·ÃÎÊ±»´úÀí¶ÔÏóµÄ·½·¨
+		//åœ¨ä»£ç†ç±»çš„æ–¹æ³•ä¸­ é—´æ¥è®¿é—®è¢«ä»£ç†å¯¹è±¡çš„æ–¹æ³•
 		o.sayGoodBye(seeAgin, time);
 		System.out.println("ProxyTest sayHello end");
 	}

@@ -1,10 +1,10 @@
-package com.huang.rabbitmq.test5;
+ï»¿package com.huang.rabbitmq.test5;
 import com.rabbitmq.client.*;
 import java.io.IOException;
 /**
- * Ä£ºıÆ¥Åä
+ * æ¨¡ç³ŠåŒ¹é…
  * @author huang
- * Õâ¸öÀàºÍÖ®Ç°ÄÇ¸öÃ»Ê²Ã´Çø±ğ£¬¾ÍÊÇroutingKeyÓÃÍ¨Åä·û±íÊ¾ÁË¡£
+ * è¿™ä¸ªç±»å’Œä¹‹å‰é‚£ä¸ªæ²¡ä»€ä¹ˆåŒºåˆ«ï¼Œå°±æ˜¯routingKeyç”¨é€šé…ç¬¦è¡¨ç¤ºäº†ã€‚
  */
 public class ReceiveLogsTopic1 {
 
@@ -19,12 +19,12 @@ public class ReceiveLogsTopic1 {
 		factory.setPassword("1995");		
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
-//		ÉùÃ÷Ò»¸öÆ¥ÅäÄ£Ê½µÄ½»»»Æ÷
+//		å£°æ˜ä¸€ä¸ªåŒ¹é…æ¨¡å¼çš„äº¤æ¢å™¨
 		channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 		String queueName = channel.queueDeclare().getQueue();
-		// Â·ÓÉ¹Ø¼ü×Ö
-		String[] routingKeys = new String[]{"*.orange.*"};//ÕâÀïµÄ¹Ø¼ü×ÖÓÃÍ¨Åä·ûÀ´±íÊ¾ÁË¡£
-//		°ó¶¨Â·ÓÉ¹Ø¼ü×Ö
+		// è·¯ç”±å…³é”®å­—
+		String[] routingKeys = new String[]{"*.orange.*"};//è¿™é‡Œçš„å…³é”®å­—ç”¨é€šé…ç¬¦æ¥è¡¨ç¤ºäº†ã€‚
+//		ç»‘å®šè·¯ç”±å…³é”®å­—
 		for (String bindingKey : routingKeys) {
 			channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);
 			System.out.println("ReceiveLogsTopic1 exchange:"+EXCHANGE_NAME+", queue:"+queueName+", BindRoutingKey:" + bindingKey);
