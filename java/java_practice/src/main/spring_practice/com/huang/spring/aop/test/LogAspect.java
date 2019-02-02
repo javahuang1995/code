@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class LogAspect {
-    @Pointcut("execution(* com.huang.spring.aop.BusinessService.*(..))")
+    @Pointcut("execution(* com.huang.spring.aop.test.BusinessService.*(..))")
     public void pointcutName(){}
 
     @Before("pointcutName()")
@@ -17,7 +17,7 @@ public class LogAspect {
         System.out.println("Spring AOP");
     }
     
-    @After("execution(* com.huang.spring.aop.BusinessService.*(..))")
+    @After("execution(* com.huang.spring.aop.test.BusinessService.*(..))")
     public void myAfter(){
     	 System.out.println("Spring AOP");
     }
