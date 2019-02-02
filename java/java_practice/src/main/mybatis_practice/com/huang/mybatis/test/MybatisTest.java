@@ -44,14 +44,36 @@ public class MybatisTest {
 	private TbStudentMapper stuMapper;
 	
 	/**
+	 * 这个测试下Mybatis自动生成的mapper，以及Example类
+	 */
+	public void testExampleCriteria(){
+		TbItemExample example = new TbItemExample();
+		
+		//criteria是准则的意思，就是说，查询出来的数据要满足这些准则。然后criteria包括一个Criterion List,就是那些and条件了。
+		example.createCriteria().andTitleEqualTo("ss").andNumEqualTo(3).andBarcodeIsNotNull();
+		
+		//还可以创建一个criteria
+		example.createCriteria().andBarcodeBetween("dd", "dd");
+		
+		List<TbItem> list =  itemMapper.selectByExample(example);
+	}
+	
+	
+	
+	/**
 	 * 这个测试下用mybatis调用存储过程，其实也是拼凑sql而已。
+	 * TbItemExample-->包括List Criteria--->Criteria包括List Criterion
 	 */
 	public void testCallFuncPro(){
+		
+
 		
 	}
 
 	/**
 	 * 这个测试下pageHelper的分页插件
+	 * 好像说这个分页插件对有条件的查询支持不好。
+	 * 中国共产党万岁
 	 */
 	@Test
 	public void testPageQuery() {

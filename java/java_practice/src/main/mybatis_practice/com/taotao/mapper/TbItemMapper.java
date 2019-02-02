@@ -20,6 +20,12 @@ public interface TbItemMapper {
 
     TbItem selectByPrimaryKey(Long id);
 
+    /**
+     * 用@Param传入多个参数，parameterType是Map
+     * @param record
+     * @param example
+     * @return
+     */
     int updateByExampleSelective(@Param("record") TbItem record, @Param("example") TbItemExample example);
 
     int updateByExample(@Param("record") TbItem record, @Param("example") TbItemExample example);
