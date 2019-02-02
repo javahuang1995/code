@@ -49,24 +49,20 @@
 	</bean>
 
 	<!-- 如果要使用注解，添加扫描包的路径 -->
-	<context:component-scan base-package="com..">
-		<context:include-filter type="annotation"
-			expression="org.aspectj.lang.annotation.Aspect" />
-	</context:component-scan>
-	<!-- 希望spring容器 启动AspectJ功能 -->
+	<context:component-scan base-package="com.."/>
+	
+	<!-- 希望spring容器 启动AspectJ AOP功能 基于cglib的代理 -->
 	<aop:aspectj-autoproxy proxy-target-class="true">
 	</aop:aspectj-autoproxy>
 
 
-	<!-- 定义事务管理器（声明式的事务） -->
-	<!-- org.springframework.orm.hibernate4.HibernateTransactionManager类spring-orm-4.2.4.RELEASE.jar包 
-		的org.springframework.orm.hibernate4包中 -->
+	<!-- 定义事务管理器（声明式的事务） 开启注解@Tranctional-->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<!-- 使用注解 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- 使用注解 基于cglib的代理-->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
 
 </beans>
