@@ -42,6 +42,13 @@ public class MybatisTest {
 
 	@Resource
 	private TbStudentMapper stuMapper;
+	
+	/**
+	 * 这个测试下用mybatis调用存储过程，其实也是拼凑sql而已。
+	 */
+	public void testCallFuncPro(){
+		
+	}
 
 	/**
 	 * 这个测试下pageHelper的分页插件

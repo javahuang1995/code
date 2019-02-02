@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.huang.json.test.JsonUtils;
+import com.huang.redis.util.JedisClientCluster;
 import com.huang.redis.util.JedisClientSingle;
 import com.huang.redis.util.MyUser;
 
@@ -25,6 +26,9 @@ public class RedisTest {
 
 	@Autowired
 	private JedisClientSingle jedisClientSingle;
+	
+	@Autowired
+	private JedisClientCluster jedisClientCluster;
 
 	@Test
 	public void testClient() {

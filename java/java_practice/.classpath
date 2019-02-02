@@ -6,6 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src/main/solr_practice"/>
 	<classpathentry kind="src" path="src/main/algorithm"/>
 	<classpathentry kind="src" path="src/main/datastruct"/>
 	<classpathentry kind="src" path="src/main/webservice_practice"/>
