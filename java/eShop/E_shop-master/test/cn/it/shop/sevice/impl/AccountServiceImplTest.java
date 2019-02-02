@@ -28,15 +28,5 @@ public class AccountServiceImplTest {
 	public void testSave() {
 		accountService.save(new Account("admin", "小强", "admin"));
 	}
-	
-	@Test
-	public void testCon(){
-		//这样没办法获取连接
-		//Session s = sessionFactory.getCurrentSession();
-		Session s = sessionFactory.openSession();
-		System.out.println(s);
-		
-		
-	}
 
 }
