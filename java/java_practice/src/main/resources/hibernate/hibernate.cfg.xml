@@ -6,6 +6,9 @@
 <hibernate-configuration>
 
 	<session-factory>
+		<!-- 使用SessionFactory.getCurrentSession()需要在hibernate.cfg.xml中如下配置： -->
+		<property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
+
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
 		</property>
@@ -16,14 +19,11 @@
 		<property name="show_sql">true</property>
 
 		<!-- 开启二级缓存 ehcache -->
-	<!-- 	<prop key="hibernate.cache.use_second_level_cache">true</prop> -->
+		<!-- <prop key="hibernate.cache.use_second_level_cache">true</prop> -->
 		<!-- 开启查询的二级缓存 如果不需要就不设置 -->
-<!-- 		<prop key="hibernate.cache.use_query_cache">true</prop>
- -->		<!-- Hibernate4.0以上设置factory -->
-<!-- 		<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
- -->		<!-- 二级缓存 ehcache的配置文件位置 -->
-<!-- 		<prop key="hibernate.cache.provider_configuration_file_resource_path">classpath:hibernate/ehcache.xml</prop>
- -->
+		<!-- <prop key="hibernate.cache.use_query_cache">true</prop> -->		<!-- Hibernate4.0以上设置factory -->
+		<!-- <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop> -->		<!-- 二级缓存 ehcache的配置文件位置 -->
+		<!-- <prop key="hibernate.cache.provider_configuration_file_resource_path">classpath:hibernate/ehcache.xml</prop> -->
 
 		<!-- 配置二级缓存提供商，注意此处并不是缓存的jar包 -->
 		<property name="hibernate.cache.region.factory_class">

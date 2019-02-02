@@ -1,57 +1,54 @@
 ﻿package com.huang.hibernate.test;
+
+import java.util.List;
+
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import cn.it.shop.dao.AccountDao;
-import cn.it.shop.dao.BaseDao;
-import cn.it.shop.dao.CategoryDao;
-import cn.it.shop.dao.ForderDao;
-import cn.it.shop.dao.ProductDao;
-import cn.it.shop.dao.SorderDao;
-import cn.it.shop.dao.UserDao;
-import cn.it.shop.service.BaseService;
+import cn.it.shop.model.Product;
+import org.hibernate.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:spring/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
 public class HibernateTest {
 
 	@Resource
 	private SessionFactory sessionFactory;
-	
-	@Resource
-	private SqlSessionFactory sqlsessionFactory;
-	
-	private BaseDao baseDao;
-	@Resource
-	private AccountDao accountDao;
-	@Resource
-	private CategoryDao categoryDao;
-	@Resource
-	private ForderDao forderDao;
-	@Resource
-	private ProductDao productDao;
-	@Resource
-	private SorderDao sorderDao;
-	@Resource
-	private UserDao userDao;
-	
-	
-	
+
+
+	/**
+	 * save() delete() update() get()/fetch()
+	 * 
+	 * HQL查询::Hibernate Query Language
+	 */
 	@Test
-	public void testCon(){
-		//这样没办法获取连接
-		//Session s = sessionFactory.getCurrentSession();
-		Session s = sessionFactory.openSession();
-		System.out.println(s);
-		
+	public void testCRUD() {
+
+		String hql = "select * from product where name like ?";
+		getSession().createQuery(hql) //
+				.setParameter("0", "hi").list();
+		Criteria  c = getSession().createCriteria(Product.class);
+		List<Product> result=c.list();
+
 	}
 
+	protected Session getSession() {
+		// 从当前线程获取session，如果没有则创建一个新的session
+		return sessionFactory.getCurrentSession();
+	}
+
+	@Test
+	public void testCon() {
+		// 这样没办法获取连接
+		// Session s = sessionFactory.getCurrentSession();
+		Session s = sessionFactory.openSession();
+		System.out.println(s);
+
+	}
 
 }

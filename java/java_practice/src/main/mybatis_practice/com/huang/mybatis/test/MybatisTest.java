@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -30,9 +29,6 @@ import com.taotao.pojo.TbTeacher;
 public class MybatisTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(MybatisTest.class);
-
-	@Resource
-	private SessionFactory sessionFactory;
 
 	@Resource
 	private SqlSessionFactory sqlsessionFactory;
