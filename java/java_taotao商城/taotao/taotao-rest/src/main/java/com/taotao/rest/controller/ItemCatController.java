@@ -23,7 +23,8 @@ import com.taotao.rest.service.ItemCatService;
  * <p>
  * Company: www.itcast.com
  * </p>
- * 
+ * 这里是展示商品目录，也就是动态首页的商品分类信息那个功能
+ * 其实这里也可以用缓存，以后改写一下。
  * @author 入云龙
  * @date 2015年9月7日下午3:02:39
  * @version 1.0

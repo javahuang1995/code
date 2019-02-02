@@ -9,6 +9,11 @@ import com.taotao.common.utils.ExceptionUtil;
 import com.taotao.rest.dao.JedisClient;
 import com.taotao.rest.service.RedisService;
 
+/**
+ * 这里刷新缓存直接把redis里面的数据删除就行了，因为取数据的时候会把自己读取到的最新值更新到redis
+ * @author huang
+ *
+ */
 @Service
 public class RedisServiceImpl implements RedisService {
 

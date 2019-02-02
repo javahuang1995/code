@@ -17,6 +17,9 @@ import com.taotao.rest.service.RedisService;
  * @author	入云龙
  * @date	2015年9月9日下午3:47:18
  * @version 1.0
+ * 这里是同步缓存，需要手动同步，想办法搞一个定时任务和一个按钮让他同步一下。
+ * httpAPI是:/rest/cache/sync/content/89，前台是写死的。
+ * 89是大广告位，反正只用到了大广告，也只有打广告位用了缓存。
  */
 @Controller
 @RequestMapping("/cache/sync")
