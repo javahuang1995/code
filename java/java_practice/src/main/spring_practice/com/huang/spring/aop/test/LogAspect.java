@@ -1,4 +1,4 @@
-﻿package com.huang.spring.aop;
+﻿package com.huang.spring.aop.test;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

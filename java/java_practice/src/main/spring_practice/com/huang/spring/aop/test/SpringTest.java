@@ -1,4 +1,4 @@
-﻿package com.huang.spring.aop;
+﻿package com.huang.spring.aop.test;
 
 import javax.annotation.Resource;
 
@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.huang.spring.aop.BusinessService;
+import com.huang.spring.aop.test.BusinessService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
