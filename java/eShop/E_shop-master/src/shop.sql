@@ -1,252 +1,252 @@
-/*drop database if exists shop;*/
-/*´´½¨Êı¾İ¿â£¬²¢ÉèÖÃ±àÂë*/
+ï»¿/*drop database if exists shop;*/
+/*åˆ›å»ºæ•°æ®åº“ï¼Œå¹¶è®¾ç½®ç¼–ç */
 /*create database shop default character set utf8;*/
 
 /*use shop;*/
-/*É¾³ı¹ÜÀíÔ±±í*/
+/*åˆ é™¤ç®¡ç†å‘˜è¡¨*/
 drop table if exists account;
-/*É¾³ıÉÌÆ·Àà±ğ±í*/
+/*åˆ é™¤å•†å“ç±»åˆ«è¡¨*/
 drop table if exists category;
-/*É¾³ıÉÌÆ·ĞÅÏ¢±í*/
+/*åˆ é™¤å•†å“ä¿¡æ¯è¡¨*/
 drop table if exists product;
-/*É¾³ı¹ºÎïÏî±í*/
+/*åˆ é™¤è´­ç‰©é¡¹è¡¨*/
 drop table if exists forder;
-/*É¾³ı¹ºÎï³µ£¨¶©µ¥£©±í*/
+/*åˆ é™¤è´­ç‰©è½¦ï¼ˆè®¢å•ï¼‰è¡¨*/
 drop table if exists sorder;
-/*É¾³ı¶©µ¥×´Ì¬±í*/
+/*åˆ é™¤è®¢å•çŠ¶æ€è¡¨*/
 drop table if exists status;
-/*É¾³ıÓÃ»§±í*/
+/*åˆ é™¤ç”¨æˆ·è¡¨*/
 drop table if exists user;
 
 /*============================*/
-/*      Table£º¹ÜÀíÔ±±í½á¹¹                       */
+/*      Tableï¼šç®¡ç†å‘˜è¡¨ç»“æ„                       */
 /*============================*/
 create table account
 (
-	/* ¹ÜÀíÔ±±àºÅ£¬×Ô¶¯Ôö³¤ */
+	/* ç®¡ç†å‘˜ç¼–å·ï¼Œè‡ªåŠ¨å¢é•¿ */
 	id int primary key not null auto_increment,
-	/* ¹ÜÀíÔ±µÇÂ¼Ãû */
+	/* ç®¡ç†å‘˜ç™»å½•å */
 	login varchar(20),
-	/* ¹ÜÀíÔ±ĞÕÃû */
+	/* ç®¡ç†å‘˜å§“å */
 	name varchar(20),
-	/* ¹ÜÀíÔ±ÃÜÂë */
+	/* ç®¡ç†å‘˜å¯†ç  */
 	pass varchar(20)
 );
 
 /*============================*/
-/*     Table£ºÉÌÆ·Àà±ğ±í½á¹¹                      */
+/*     Tableï¼šå•†å“ç±»åˆ«è¡¨ç»“æ„                      */
 /*============================*/
 create table category
 (
-   /* Àà±ğ±àºÅ£¬×Ô¶¯Ôö³¤ */
+   /* ç±»åˆ«ç¼–å·ï¼Œè‡ªåŠ¨å¢é•¿ */
    id  int primary key not null auto_increment,
-   /* Àà±ğÃû³Æ */
+   /* ç±»åˆ«åç§° */
    type varchar(20),
-   /* Àà±ğÊÇ·ñÎªÈÈµãÀà±ğ£¬ÈÈµãÀà±ğ²ÅÓĞ¿ÉÄÜÏÔÊ¾ÔÚÊ×Ò³*/
+   /* ç±»åˆ«æ˜¯å¦ä¸ºçƒ­ç‚¹ç±»åˆ«ï¼Œçƒ­ç‚¹ç±»åˆ«æ‰æœ‰å¯èƒ½æ˜¾ç¤ºåœ¨é¦–é¡µ*/
    hot  bool default false,
-   /* Íâ¼ü£¬´ËÀà±ğÓÉÄÄÎ»¹ÜÀíÔ±¹ÜÀí */
+   /* å¤–é”®ï¼Œæ­¤ç±»åˆ«ç”±å“ªä½ç®¡ç†å‘˜ç®¡ç† */
    aid int,
    constraint aid_FK foreign key(aid) references account(id)
 );
 
 /*=============================*/
-/* Table: ÉÌÆ·±í½á¹¹	 		   */
+/* Table: å•†å“è¡¨ç»“æ„	 		   */
 /*=============================*/
 create table product
 (
-   /* ÉÌÆ·±àºÅ,×Ô¶¯Ôö³¤ */
+   /* å•†å“ç¼–å·,è‡ªåŠ¨å¢é•¿ */
    id                  int primary key not null auto_increment,
-   /* ÉÌÆ·Ãû³Æ */
+   /* å•†å“åç§° */
    name                varchar(50),
-   /* ÉÌÆ·¼Û¸ñ */
+   /* å•†å“ä»·æ ¼ */
    price               decimal(8,2),
-   /* ÉÌÆ·Í¼Æ¬ */
+   /* å•†å“å›¾ç‰‡ */
    pic                 varchar(300),
-   /* ÉÌÆ·¼òµ¥½éÉÜ */
+   /* å•†å“ç®€å•ä»‹ç» */
    remark              longtext,
-   /* ÉÌÆ·ÏêÏ¸½éÉÜ */
+   /* å•†å“è¯¦ç»†ä»‹ç» */
    xremark             longtext,
-   /* ÉÌÆ·Éú²úÈÕÆÚ */
+   /* å•†å“ç”Ÿäº§æ—¥æœŸ */
    date                timestamp default CURRENT_TIMESTAMP,
-   /* ÊÇ·ñÎªÍÆ¼öÉÌÆ·,ÍÆ¼öÉÌÆ·²ÅÓĞ¿ÉÄÜÏÔÊ¾ÔÚÉÌ³ÇÊ×Ò³ */
+   /* æ˜¯å¦ä¸ºæ¨èå•†å“,æ¨èå•†å“æ‰æœ‰å¯èƒ½æ˜¾ç¤ºåœ¨å•†åŸé¦–é¡µ */
    commend             bool,
-   /* ÊÇ·ñÎªÓĞĞ§ÉÌÆ·,ÓĞĞ§ÉÌÆ·²ÅÓĞ¿ÉÄÜÏÔÊ¾ÔÚÉÌ³ÇÊ×Ò³ */
+   /* æ˜¯å¦ä¸ºæœ‰æ•ˆå•†å“,æœ‰æ•ˆå•†å“æ‰æœ‰å¯èƒ½æ˜¾ç¤ºåœ¨å•†åŸé¦–é¡µ */
    open                bool,
-   /* ÉÌÆ·ËùÔÚµÄÀà±ğ±àºÅ*/
+   /* å•†å“æ‰€åœ¨çš„ç±»åˆ«ç¼–å·*/
    cid                  int,
    constraint cid_FK foreign key(cid) references category(id)
 );
 
 /*============================*/
-/* Table: ÓÃ»§±í½á¹¹ 		      */
+/* Table: ç”¨æˆ·è¡¨ç»“æ„ 		      */
 /*============================*/
 create table user
 (
-   /* ÓÃ»§±àºÅ,×Ô¶¯Ôö³¤ */
+   /* ç”¨æˆ·ç¼–å·,è‡ªåŠ¨å¢é•¿ */
    id                  int primary key not null auto_increment,
-   /* ÓÃ»§µÇÂ¼Ãû */
+   /* ç”¨æˆ·ç™»å½•å */
    login               varchar(20),
-   /* ÓÃ»§ÕæÊµĞÕÃû */
+   /* ç”¨æˆ·çœŸå®å§“å */
    name                varchar(20),
-   /* ÓÃ»§µÇÂ¼ÃÜÂë */
+   /* ç”¨æˆ·ç™»å½•å¯†ç  */
    pass                varchar(20),
-   /* ÓÃ»§ĞÔ±ğ */
+   /* ç”¨æˆ·æ€§åˆ« */
    sex                 varchar(20),
-   /* ÓÃ»§µç»° */
+   /* ç”¨æˆ·ç”µè¯ */
    phone               varchar(20),
-   /* ÓÃ»§Email */
+   /* ç”¨æˆ·Email */
    email               varchar(20)
 );
 
 /*=============================*/
-/* Table: ¶©µ¥×´Ì¬±í½á¹¹ 		       */
+/* Table: è®¢å•çŠ¶æ€è¡¨ç»“æ„ 		       */
 /*=============================*/
 create table status
 (
-   /* ×´Ì¬±àºÅ,×Ô¶¯Ôö³¤ */
+   /* çŠ¶æ€ç¼–å·,è‡ªåŠ¨å¢é•¿ */
    id                  int primary key not null auto_increment,
-   /* ¶©µ¥×´Ì¬ */
+   /* è®¢å•çŠ¶æ€ */
    status               varchar(10)
 );
 
 /*=============================*/
-/* Table: ¹ºÎï³µ£¨¶©µ¥£©±í½á¹¹		   */
+/* Table: è´­ç‰©è½¦ï¼ˆè®¢å•ï¼‰è¡¨ç»“æ„		   */
 /*=============================*/
 create table forder
 (
-   /* ¶©µ¥±àºÅ,×Ô¶¯Ôö³¤ */
+   /* è®¢å•ç¼–å·,è‡ªåŠ¨å¢é•¿ */
    id                  int primary key not null auto_increment,
-   /* ÊÕ¼şÈËÃû×Ö */
+   /* æ”¶ä»¶äººåå­— */
    name                varchar(20),
-   /* ÊÕ¼şÈËµç»° */
+   /* æ”¶ä»¶äººç”µè¯ */
    phone               varchar(20),
-   /* ÅäËÍĞÅÏ¢ */
+   /* é…é€ä¿¡æ¯ */
    remark              varchar(20),
-   /* ÏÂµ¥ÈÕÆÚ */
+   /* ä¸‹å•æ—¥æœŸ */
    date                timestamp default CURRENT_TIMESTAMP,
-   /* ¶©µ¥×Ü½ğ¶î */
+   /* è®¢å•æ€»é‡‘é¢ */
    total               decimal(8,2),
-   /* ÊÕ¼şÈËÓÊ±à */
+   /* æ”¶ä»¶äººé‚®ç¼– */
    post                varchar(20),
-    /* ÊÕ¼şÈËÓÊ±à */
+    /* æ”¶ä»¶äººé‚®ç¼– */
    address             varchar(200),
-   /* ¶©µ¥×´Ì¬ */
+   /* è®¢å•çŠ¶æ€ */
    sid                 int default 1,
-   /* »áÔ±±àºÅ */
+   /* ä¼šå‘˜ç¼–å· */
    uid                 int,
    constraint sid_FK foreign key(sid) references status(id),
    constraint uid_FK foreign key(uid) references user(id)
 );
 
-/* ĞŞ¸Ä×Ô¶¯Ôö³¤µÄ³õÊ¼Öµ */
+/* ä¿®æ”¹è‡ªåŠ¨å¢é•¿çš„åˆå§‹å€¼ */
 ALTER TABLE forder AUTO_INCREMENT = 201605001;
 
 /*=============================*/
-/* Table: ¹ºÎïÏî±í½á¹¹ 		       */
+/* Table: è´­ç‰©é¡¹è¡¨ç»“æ„ 		       */
 /*=============================*/
 
 create table sorder
 (
-   /* ¹ºÎïÏî±àºÅ,×Ô¶¯Ôö³¤ */
+   /* è´­ç‰©é¡¹ç¼–å·,è‡ªåŠ¨å¢é•¿ */
    id                  int primary key not null auto_increment,
-   /* ±»¹ºÂòÉÌÆ·µÄÃû³Æ */
+   /* è¢«è´­ä¹°å•†å“çš„åç§° */
    name                varchar(20),
-   /* ¹ºÂòÊ±ÉÌÆ·µÄ¼Û¸ñ */
+   /* è´­ä¹°æ—¶å•†å“çš„ä»·æ ¼ */
    price               decimal(8,2),
-   /* ¹ºÂòµÄÊıÁ¿ */
+   /* è´­ä¹°çš„æ•°é‡ */
    number              int not null,
-   /* ËùÊôÉÌÆ·±àºÅ */
+   /* æ‰€å±å•†å“ç¼–å· */
    pid                  int,
-   /* ´Ë¶©µ¥Ïî,ËùÊôµÄ¶©µ¥±àºÅ */
+   /* æ­¤è®¢å•é¡¹,æ‰€å±çš„è®¢å•ç¼–å· */
    fid                  int,
    constraint pid_FK foreign key(pid) references product(id),
    constraint fid_FK foreign key(fid) references forder(id)
 );
 
-/*²åÈë²âÊÔÓÃÀı*/
-insert into account(login,name,pass) values('admin','¹ÜÀíÔ±','admin');
-insert into account(login,name,pass) values('user','¿Í·şA','user');
+/*æ’å…¥æµ‹è¯•ç”¨ä¾‹*/
+insert into account(login,name,pass) values('admin','ç®¡ç†å‘˜','admin');
+insert into account(login,name,pass) values('user','å®¢æœA','user');
 
-INSERT INTO category (type,hot,aid) VALUES ('ÄĞÊ¿ĞİÏĞ',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('Å®Ê¿ĞİÏĞ',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('¶ùÍ¯ĞİÏĞ',true,2);
-INSERT INTO category (type,hot,aid) VALUES ('ÀÏÈËĞİÏĞ',true,2);
+INSERT INTO category (type,hot,aid) VALUES ('ç”·å£«ä¼‘é—²',true,1);
+INSERT INTO category (type,hot,aid) VALUES ('å¥³å£«ä¼‘é—²',true,1);
+INSERT INTO category (type,hot,aid) VALUES ('å„¿ç«¥ä¼‘é—²',true,2);
+INSERT INTO category (type,hot,aid) VALUES ('è€äººä¼‘é—²',true,2);
 
-/* ÉÌÆ·²âÊÔÓÃÀı */
+/* å•†å“æµ‹è¯•ç”¨ä¾‹ */
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('Ê¥µÃÎ÷·ş',2999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,1);
-
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('ÂŞÃÉÎ÷·ş',1999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,1);
+('åœ£å¾—è¥¿æœ',2999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,1);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('ÉÀÉÀÎ÷·ş',3999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,1);
+('ç½—è’™è¥¿æœ',1999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,1);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('½ğÀûÀ´Î÷·ş',4999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,1);
+('è¡«è¡«è¥¿æœ',3999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,1);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('º«°æÅ®×°',199.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,2);
+('é‡‘åˆ©æ¥è¥¿æœ',4999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,1);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('Ñ©µØÑ¥',299.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,2);
+('éŸ©ç‰ˆå¥³è£…',199.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,2);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('Å·°æÅ®×°',3999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,2);
+('é›ªåœ°é´',299.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,2);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('Å®¿îÊÖÌ×',4999.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,2);
+('æ¬§ç‰ˆå¥³è£…',3999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,2);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('¼ÑÄÜµ¥·´»ú',3998.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,3);
+('å¥³æ¬¾æ‰‹å¥—',4999.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,2);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('½ğÊ¿¶ÙÓÅÅÌ',299.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,3);
+('ä½³èƒ½å•åæœº',3998.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,3);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('ÈÕÁ¢Ó²ÅÌ',599.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,3);
+('é‡‘å£«é¡¿ä¼˜ç›˜',299.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,3);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('´óË®Å£»úÏä',399.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,3);
+('æ—¥ç«‹ç¡¬ç›˜',599.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,3);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('µçÄÔ×À',150.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,4);
+('å¤§æ°´ç‰›æœºç®±',399.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,3);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('ÀÏ°åÒÎ',199.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,4);
+('ç”µè„‘æ¡Œ',150.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,4);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('¿Õµ÷',3599.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,4);
+('è€æ¿æ¤…',199.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,4);
 
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
-('µçÊÓ',699.00,'test.jpg','ÕâÀïÊÇ¼òµ¥½éÉÜ','ÕâÀïÊÇÏêÏ¸½éÉÜ',true,true,4);
+('ç©ºè°ƒ',3599.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,4);
 
-/* ÓÃ»§²âÊÔÓÃÀı */
+INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+('ç”µè§†',699.00,'test.jpg','è¿™é‡Œæ˜¯ç®€å•ä»‹ç»','è¿™é‡Œæ˜¯è¯¦ç»†ä»‹ç»',true,true,4);
+
+/* ç”¨æˆ·æµ‹è¯•ç”¨ä¾‹ */
 INSERT INTO user (login,name,pass,sex,phone,email)
-VALUES ('user','Ğ¡¸Õ','user','ÄĞ','15216771570','nishengwus@163.com');
+VALUES ('user','å°åˆš','user','ç”·','15216771570','nishengwus@163.com');
 
 INSERT INTO user (login,name,pass,sex,phone,email)
-VALUES ('user2','Ğ¡ÇÙ','user2','Å®','13812345679','20000@qq.com');
+VALUES ('user2','å°ç´','user2','å¥³','13812345679','20000@qq.com');
 
-/*²åÈë×´Ì¬²âÊÔÓÃÀı*/
-INSERT INTO status (status) VALUES ('Î´Ö§¸¶');
-INSERT INTO status (status) VALUES ('ÒÑÖ§¸¶');
-INSERT INTO status (status) VALUES ('ÅäËÍÖĞ');
-INSERT INTO status (status) VALUES ('¶©µ¥Íê³É');
+/*æ’å…¥çŠ¶æ€æµ‹è¯•ç”¨ä¾‹*/
+INSERT INTO status (status) VALUES ('æœªæ”¯ä»˜');
+INSERT INTO status (status) VALUES ('å·²æ”¯ä»˜');
+INSERT INTO status (status) VALUES ('é…é€ä¸­');
+INSERT INTO status (status) VALUES ('è®¢å•å®Œæˆ');
 
-/*²åÈë¹ºÎï³µ²âÊÔÓÃÀı*/
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','±¸×¢',default,200.3,'¹ãÖİÌìºÓÇø','1000',1);
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','±¸×¢',default,200.3,'ÉÏº£¼Î¶¨Çø','1000',2);
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','±¸×¢',default,200.3,'ÉÏº£±¦É½Çø','1000',2);
+/*æ’å…¥è´­ç‰©è½¦æµ‹è¯•ç”¨ä¾‹*/
+INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','å¤‡æ³¨',default,200.3,'å¹¿å·å¤©æ²³åŒº','1000',1);
+INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','å¤‡æ³¨',default,200.3,'ä¸Šæµ·å˜‰å®šåŒº','1000',2);
+INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','å¤‡æ³¨',default,200.3,'ä¸Šæµ·å®å±±åŒº','1000',2);
 
-/*²åÈë¹ºÎï³µÏî²âÊÔÓÃÀı*/
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('¿Õµ÷',200,3,15,201605001);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('µçÊÓ',0.3,5,16,201605001);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('É¼É¼Î÷·ş',0.3,7,3,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('Ê¥µÂÎ÷·ş',0.3,12,1,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('º«°æÅ®×°',0.3,20,5,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('Ñ©µØÑ¥',0.3,10,6,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('Å·°æÅ®×°',0.3,9,7,201605003);
+/*æ’å…¥è´­ç‰©è½¦é¡¹æµ‹è¯•ç”¨ä¾‹*/
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('ç©ºè°ƒ',200,3,15,201605001);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('ç”µè§†',0.3,5,16,201605001);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('æ‰æ‰è¥¿æœ',0.3,7,3,201605003);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('åœ£å¾·è¥¿æœ',0.3,12,1,201605003);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('éŸ©ç‰ˆå¥³è£…',0.3,20,5,201605003);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('é›ªåœ°é´',0.3,10,6,201605003);
+INSERT INTO sorder (name,price,number,pid,fid) VALUES ('æ¬§ç‰ˆå¥³è£…',0.3,9,7,201605003);
 
 SELECT * FROM account;
 SELECT * FROM category;
@@ -255,4 +255,4 @@ SELECT * FROM user;
 SELECT * FROM status;
 SELECT * FROM forder;
 SELECT * FROM sorder;
-select sum(number) as 'ÏúÁ¿', name 'Ãû³Æ' from sorder group by pid
+select sum(number) as 'é”€é‡', name 'åç§°' from sorder group by pid

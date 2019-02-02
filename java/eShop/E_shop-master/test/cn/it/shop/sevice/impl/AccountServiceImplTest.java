@@ -21,7 +21,9 @@ public class AccountServiceImplTest {
 	
 	@Resource
 	private SessionFactory sessionFactory;
-	
+	/**
+	 * 测试spring和hibernate集成是否成功，数据库是否插入成功OK
+	 */
 	@Test
 	public void testSave() {
 		accountService.save(new Account("admin", "小强", "admin"));
