@@ -49,20 +49,39 @@
 	</bean>
 
 	<!-- 如果要使用注解，添加扫描包的路径 -->
-	<context:component-scan base-package="com.."/>
-	
+	<context:component-scan base-package="com.." />
+
 	<!-- 希望spring容器 启动AspectJ AOP功能 基于cglib的代理 -->
 	<aop:aspectj-autoproxy proxy-target-class="true">
 	</aop:aspectj-autoproxy>
 
 
-	<!-- 定义事务管理器（声明式的事务） 开启注解@Tranctional-->
+	<!-- 定义事务管理器（声明式的事务） 开启注解@Tranctional -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<!-- 使用注解 基于cglib的代理-->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	<!-- 使用注解 基于cglib的代理 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+<!-- 	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		配置哪些包的类要切入事务
+		<aop:pointcut id="pointcut"
+			expression="execution(* cn.it.shop.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
+			连接了上面的advice和上面的pointcut
+		出现一个很奇怪的问题，aop:pointcut要写在aop:advisor上面，否则会报错
+	</aop:config> -->
 
 
 </beans>
