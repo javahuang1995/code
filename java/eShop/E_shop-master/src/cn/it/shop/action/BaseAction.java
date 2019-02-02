@@ -110,6 +110,12 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,Session
 	
 	//ModelDriven
 	protected T model;
+	
+	/**
+	 * 通过反射方式获取model实例 newInstance
+	 * 1.获取class
+	 * 2.newInstance()
+	 */
 	@Override
 	public T getModel() {
 		ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();

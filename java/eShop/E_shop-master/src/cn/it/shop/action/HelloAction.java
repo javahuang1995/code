@@ -10,10 +10,19 @@ import org.springframework.stereotype.Controller;
 @Scope("prototype")
 public class HelloAction {
 	private static final Logger logger = LoggerFactory.getLogger(HelloAction.class);
-
-	public String hello() {
+	
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public static Logger getLogger() {
+		return logger;
+	}
+	public void hello() {
 		logger.info("hello,this is a test hello action");
-		return "index";
 	}
 
 }
