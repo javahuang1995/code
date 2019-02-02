@@ -30,13 +30,13 @@
 			org.hibernate.cache.ehcache.EhCacheRegionFactory
 		</property>
 
-		<mapping class="cn.it.shop.model.Category" />
-		<mapping class="cn.it.shop.model.Account" />
-		<mapping class="cn.it.shop.model.Product" />
-		<mapping class="cn.it.shop.model.User" />
-		<mapping class="cn.it.shop.model.Status" />
-		<mapping class="cn.it.shop.model.Forder" />
-		<mapping class="cn.it.shop.model.Sorder" />
+		<mapping class="com.shop.model.Category" />
+		<mapping class="com.shop.model.Account" />
+		<mapping class="com.shop.model.Product" />
+		<mapping class="com.shop.model.User" />
+		<mapping class="com.shop.model.Status" />
+		<mapping class="com.shop.model.Forder" />
+		<mapping class="com.shop.model.Sorder" />
 
 		<!-- 配置哪些类支持缓存 -->
 		<!-- <class-cache usage="read-write" class="cn.it.shop.model.Product" /> -->

@@ -1,5 +1,4 @@
-﻿package com.huang.spring.test;
-
+﻿package com.huang.spring.aop;
 
 import javax.annotation.Resource;
 
@@ -8,18 +7,17 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.huang.spring.aop.BusinessService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:spring/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
 public class SpringTest {
 
-	
 	@Resource
-	private HuManService huManService;
-	
+	private BusinessService businessService;
+
 	@Test
-	public void test() {
-		huManService.func();
+	public void aopTest() {
+		businessService.say();
 	}
-
-
 }
