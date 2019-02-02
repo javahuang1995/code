@@ -1,7 +1,7 @@
-/***************************************************************************************
+ï»¿/***************************************************************************************
 
 JSCharts v3.06 - Javascript charts component
-Copyright © 2013 SmartketerLLC | jscharts.com | jumpeyecomponents.com
+Copyright ?2013 SmartketerLLC | jscharts.com | jumpeyecomponents.com
 
 Shall not be used by any customer to create third party applications/components that may compete with Smartketer by providing the third party consumer with the possibility to have the embedded component within an editor application.
 To get the source codes, special customizations licenses please contact our sales department at sales [at] jumpeyecomponents.com.

@@ -1,4 +1,4 @@
-package cn.it.shop.dao;
+ï»¿package cn.it.shop.dao;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import cn.it.shop.model.Product;
 
 public interface ProductDao extends BaseDao<Product> {
 	
-	//²éÑ¯ÉÌÆ·ĞÅÏ¢£¬¼¶ÁªÀà±ğ
-	public List<Product> queryJoinCategory(String type, int page, int size); //Ê¹ÓÃÉÌÆ·µÄÃû³Æ²éÑ¯
-	//¸ù¾İ¹Ø¼ü×Ö²éÑ¯×Ü¼ÇÂ¼Êı
+	//æŸ¥è¯¢å•†å“ä¿¡æ¯ï¼Œçº§è”ç±»åˆ«
+	public List<Product> queryJoinCategory(String type, int page, int size); //ä½¿ç”¨å•†å“çš„åç§°æŸ¥è¯¢
+	//æ ¹æ®å…³é”®å­—æŸ¥è¯¢æ€»è®°å½•æ•°
 	public Long getCount(String type);
-	//¸ù¾İidsÉ¾³ı¶àÌõ¼ÇÂ¼
+	//æ ¹æ®idsåˆ é™¤å¤šæ¡è®°å½•
 	public void deleteByIds(String ids);
-	//¸ù¾İÈÈµãÀà±ğ²éÑ¯ÍÆ¼öÉÌÆ·£¨½ö½ö²éÑ¯Ç°4¸ö£©
+	//æ ¹æ®çƒ­ç‚¹ç±»åˆ«æŸ¥è¯¢æ¨èå•†å“ï¼ˆä»…ä»…æŸ¥è¯¢å‰4ä¸ªï¼‰
 	public List<Product> querByCategoryId(int cid);
 }

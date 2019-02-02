@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.io.ByteArrayInputStream;
 import java.util.Date;
@@ -16,37 +16,37 @@ public class ProductAction extends BaseAction<Product> {
 	
 	public String queryJoinCategory() {
 		System.out.println("name:" + model.getName());
-		System.out.println("page£º" + page);
-		System.out.println("rows£º" + rows);
+		System.out.println("pageï¼š" + page);
+		System.out.println("rowsï¼š" + rows);
 		
-		//ÓÃÀ´´æ´¢·ÖÒ³µÄÊı¾İ
+		//ç”¨æ¥å­˜å‚¨åˆ†é¡µçš„æ•°æ®
 		pageMap = new HashMap<String, Object>();
 		
-		//¸ù¾İ¹Ø¼ü×ÖºÍ·ÖÒ³µÄ²ÎÊı²éÑ¯ÏàÓ¦µÄÊı¾İ
+		//æ ¹æ®å…³é”®å­—å’Œåˆ†é¡µçš„å‚æ•°æŸ¥è¯¢ç›¸åº”çš„æ•°æ®
 		List<Product> productList = productService.queryJoinCategory(model.getName(), page, rows);
-		pageMap.put("rows", productList); //´æ´¢ÎªJSON¸ñÊ½
-		//¸ù¾İ¹Ø¼ü×Ö²éÑ¯×Ü¼ÇÂ¼Êı
+		pageMap.put("rows", productList); //å­˜å‚¨ä¸ºJSONæ ¼å¼
+		//æ ¹æ®å…³é”®å­—æŸ¥è¯¢æ€»è®°å½•æ•°
 		Long total = productService.getCount(model.getName());
 //				System.out.println(total);
-		pageMap.put("total", total); //´æ´¢ÎªJSON¸ñÊ½
+		pageMap.put("total", total); //å­˜å‚¨ä¸ºJSONæ ¼å¼
 		return "jsonMap";
 	}
 	
 	public void save() {
-		//fileUpload¹¤¾ßÀà±»³éÈ¡ÁË£¬uploadFile·½·¨Ö±½Ó½ÓÊÜÒ»¸öfileImage¶ÔÏó£¬·µ»ØĞÂµÄÍ¼Æ¬Ãû
+		//fileUploadå·¥å…·ç±»è¢«æŠ½å–äº†ï¼ŒuploadFileæ–¹æ³•ç›´æ¥æ¥å—ä¸€ä¸ªfileImageå¯¹è±¡ï¼Œè¿”å›æ–°çš„å›¾ç‰‡å
 		String pic = fileUpload.uploadFile(fileImage);
 		
-		model.setPic(pic);//picÊÇÍ¼Æ¬ÎÄ¼şÃû×Ö£¬model¾ÍÊÇProduct¶ÔÏó
+		model.setPic(pic);//picæ˜¯å›¾ç‰‡æ–‡ä»¶åå­—ï¼Œmodelå°±æ˜¯Productå¯¹è±¡
 		model.setDate(new Date());
 		System.out.println(model);
-		//ÉÌÆ·ĞÅÏ¢Èë¿â
+		//å•†å“ä¿¡æ¯å…¥åº“
 		productService.save(model);
 	}
 	
 	public String deleteByIds() {
 		System.out.println(ids);
 		productService.deleteByIds(ids);
-		//Èç¹ûÉ¾³ı³É¹¦¾Í»áÍùÏÂÖ´ĞĞ£¬ÎÒÃÇ½«"true"ÒÔÁ÷µÄĞÎÊ½´«¸øÇ°Ì¨
+		//å¦‚æœåˆ é™¤æˆåŠŸå°±ä¼šå¾€ä¸‹æ‰§è¡Œï¼Œæˆ‘ä»¬å°†"true"ä»¥æµçš„å½¢å¼ä¼ ç»™å‰å°
 		inputStream = new ByteArrayInputStream("true".getBytes());
 		return "stream";
 	}
@@ -56,7 +56,7 @@ public class ProductAction extends BaseAction<Product> {
 		model.setPic(pic);
 		model.setDate(new Date());
 		System.out.println(model);
-		//¸üĞÂÉÌÆ·
+		//æ›´æ–°å•†å“
 		productService.update(model);
 	}
 	

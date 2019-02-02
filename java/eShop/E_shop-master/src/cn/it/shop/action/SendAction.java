@@ -1,11 +1,11 @@
-package cn.it.shop.action;
+锘縫ackage cn.it.shop.action;
 
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @Description: TODO(此Action用来完成WEB-INF中JSP与JSP请求转发功能，此Action不处理任何的逻辑)
+ * @Description: TODO(姝ction鐢ㄦ潵瀹屾垚WEB-INF涓璊SP涓嶫SP璇锋眰杞彂鍔熻兘锛屾Action涓嶅鐞嗕换浣曠殑閫昏緫)
  * @author Ni Shengwu
  *
  */

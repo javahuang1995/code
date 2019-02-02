@@ -1,4 +1,4 @@
-package cn.it.shop.dao;
+锘縫ackage cn.it.shop.dao;
 
 import cn.it.shop.model.Forder;
 import cn.it.shop.model.Product;
@@ -6,6 +6,6 @@ import cn.it.shop.model.Sorder;
 import cn.it.shop.model.User;
 
 public interface UserDao extends BaseDao<User> {
-	//用户登陆，成功返回该User
+	//鐢ㄦ埛鐧婚檰锛屾垚鍔熻繑鍥炶User
 	public User login(User user);
 }

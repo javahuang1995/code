@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.util.Map;
 
@@ -14,11 +14,11 @@ import cn.it.shop.model.SendData;
 import cn.it.shop.model.Status;
 import cn.it.shop.model.User;
 /**
- * Struts´¦ÀíÁ÷³Ì£º
- * 1. »ñÈ¡ÇëÇóºó£¬ÏÈ´´½¨Action´úÀí£¬ÔÚ´´½¨´úÀíµÄÊ±ºòË³±ã´´½¨ÁËAction£¬
- * 2. Ö´ĞĞ18¸öÀ¹½ØÆ÷£¬À¹½ØÆ÷Ö´ĞĞ³É¹¦ºóÔÙµ÷ÓÃActionµÄ·½·¨
- * 3. ActionµÄ·½·¨Ö´ĞĞÍê±Ïºó£¬ÔÙµ÷ÓÃ18¸öÀ¹½ØÆ÷
- * ËùÒÔÏÈ´´½¨Action-->servletConfig(ÄÃµ½parameters)-->modelDriven
+ * Strutså¤„ç†æµç¨‹ï¼š
+ * 1. è·å–è¯·æ±‚åï¼Œå…ˆåˆ›å»ºActionä»£ç†ï¼Œåœ¨åˆ›å»ºä»£ç†çš„æ—¶å€™é¡ºä¾¿åˆ›å»ºäº†Actionï¼Œ
+ * 2. æ‰§è¡Œ18ä¸ªæ‹¦æˆªå™¨ï¼Œæ‹¦æˆªå™¨æ‰§è¡ŒæˆåŠŸåå†è°ƒç”¨Actionçš„æ–¹æ³•
+ * 3. Actionçš„æ–¹æ³•æ‰§è¡Œå®Œæ¯•åï¼Œå†è°ƒç”¨18ä¸ªæ‹¦æˆªå™¨
+ * æ‰€ä»¥å…ˆåˆ›å»ºAction-->servletConfig(æ‹¿åˆ°parameters)-->modelDriven
  * @author Ni Shengwu
  *
  */
@@ -46,17 +46,17 @@ public class PayAction extends BaseAction<Object> implements ParameterAware {
 	
 	public String goBank() {
 		SendData sendData = (SendData)model;
-		//1. ²¹È«²ÎÊı:P2 p3 pd PaĞèÒª´ÓsessionÖĞ»ñÈ¡
+		//1. è¡¥å…¨å‚æ•°:P2 p3 pd Paéœ€è¦ä»sessionä¸­è·å–
 		Forder forder = (Forder) session.get("oldForder");
 		User user = (User) session.get("user");
-		sendData.setP2_Order(forder.getId().toString()); //ÉÌ»§¶©µ¥ºÅ
-		sendData.setP3_Amt(forder.getTotal().toString()); //Ö§¸¶½ğ¶î
-		sendData.setPa_MP(user.getEmail() + "," + user.getPhone()); //ÉÌ»§À©Õ¹ĞÅÏ¢
-		//2. ¶Ô²ÎÊı½øĞĞ×·¼Ó		
-		//3. ¼ÓÃÜ»ñÈ¡Ç©Ãû		
-		//4. ´æ´¢µ½requestÓòÖĞ
-		payService.saveDataToRequest(request, sendData); //Íê³É2,3,4
-		//5. Ìø×ªµ½Ö§¸¶Ò³Ãæ
+		sendData.setP2_Order(forder.getId().toString()); //å•†æˆ·è®¢å•å·
+		sendData.setP3_Amt(forder.getTotal().toString()); //æ”¯ä»˜é‡‘é¢
+		sendData.setPa_MP(user.getEmail() + "," + user.getPhone()); //å•†æˆ·æ‰©å±•ä¿¡æ¯
+		//2. å¯¹å‚æ•°è¿›è¡Œè¿½åŠ 		
+		//3. åŠ å¯†è·å–ç­¾å		
+		//4. å­˜å‚¨åˆ°requeståŸŸä¸­
+		payService.saveDataToRequest(request, sendData); //å®Œæˆ2,3,4
+		//5. è·³è½¬åˆ°æ”¯ä»˜é¡µé¢
 		
 		return "pay";
 	}
@@ -66,12 +66,12 @@ public class PayAction extends BaseAction<Object> implements ParameterAware {
 		System.out.println(model);
 		boolean isOK = payService.checkBackData(backData);
 		if(isOK) {
-			//1. ¸üĞÂ¶©µ¥×´Ì¬,²ÎÊıÊÇ×Ô¼º¸ù¾İÊı¾İ¿âÖĞµÄÇé¿ö´«½øÈ¥µÄ£¬ÓÃÀ´²âÊÔ
+			//1. æ›´æ–°è®¢å•çŠ¶æ€,å‚æ•°æ˜¯è‡ªå·±æ ¹æ®æ•°æ®åº“ä¸­çš„æƒ…å†µä¼ è¿›å»çš„ï¼Œç”¨æ¥æµ‹è¯•
 			forderService.updateStatusById(Integer.parseInt(backData.getR6_Order()), 2);
-			//2. ¸ù¾İuserÓÊÏäµØÖ·£¬·¢ËÍÓÊ¼ş
+			//2. æ ¹æ®useré‚®ç®±åœ°å€ï¼Œå‘é€é‚®ä»¶
 			String emailAddress = backData.getR8_MP().split(",")[0];
 			emailUtil.sendEmail(emailAddress, backData.getR6_Order());
-			//3. ·¢ËÍÊÖ»ú¶ÌĞÅ
+			//3. å‘é€æ‰‹æœºçŸ­ä¿¡
 			String phoneNum = backData.getR8_MP().split(",")[1];
 			messageUtil.sendMessage(phoneNum, backData.getR6_Order());
 			System.out.println("----success!!----");

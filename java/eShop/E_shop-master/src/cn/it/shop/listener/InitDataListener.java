@@ -1,4 +1,4 @@
-package cn.it.shop.listener;
+ï»¿package cn.it.shop.listener;
 
 import java.util.List;
 import java.util.Timer;
@@ -12,11 +12,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import cn.it.shop.utils.FileUpload;
 import cn.it.shop.utils.impl.ProductTimerTask;
 /**
- * @Description: TODO(ÓÃÓÚÏîÄ¿Æô¶¯µÄÊ±ºòÊı¾İ³õÊ¼»¯)
+ * @Description: TODO(ç”¨äºé¡¹ç›®å¯åŠ¨çš„æ—¶å€™æ•°æ®åˆå§‹åŒ–)
  * @author Ni Shengwu
  *
  */
-//@Component //¼àÌıÆ÷ÊÇweb²ãµÄ×é¼ş£¬ËüÊÇtomcatÊµÀı»¯µÄ£¬²»ÊÇSpringÊµÀı»¯µÄ¡£²»ÄÜ·Åµ½SpringÖĞ
+//@Component //ç›‘å¬å™¨æ˜¯webå±‚çš„ç»„ä»¶ï¼Œå®ƒæ˜¯tomcatå®ä¾‹åŒ–çš„ï¼Œä¸æ˜¯Springå®ä¾‹åŒ–çš„ã€‚ä¸èƒ½æ”¾åˆ°Springä¸­
 public class InitDataListener implements ServletContextListener {
 	
 	private ApplicationContext context = null;
@@ -31,26 +31,26 @@ public class InitDataListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		// ½â¾ö·½°¸Ò»£¬¿ÉÒÔ¼ÓÔØproductService£¬µ«ÊÇSpring°ÑËùÓĞµÄservice¶¼ÊµÀı»¯ÁË2´Î£¬ÒòÎªÕâÀïÓÖ¼ÓÔØÁËÒ»´Î¡£²»¿ÉÈ¡¡£
+		// è§£å†³æ–¹æ¡ˆä¸€ï¼Œå¯ä»¥åŠ è½½productServiceï¼Œä½†æ˜¯SpringæŠŠæ‰€æœ‰çš„serviceéƒ½å®ä¾‹åŒ–äº†2æ¬¡ï¼Œå› ä¸ºè¿™é‡ŒåˆåŠ è½½äº†ä¸€æ¬¡ã€‚ä¸å¯å–ã€‚
 //		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 //		productService = (ProductService) context.getBean("productService");
 //		System.out.println(productService);
 //		
-		// ½â¾ö·½°¸¶ş£¬ÏîÄ¿ÔÚÆô¶¯Ê±£¬°ÑSpringÅäÖÃÎÄ¼şÍ¨¹ıSpringµÄ¼àÌıÆ÷¼ÓÔØ£¬´æ´¢µ½ServletContextÖĞ£¬ÎÒÃÇÖ»ÒªÔÚServletContextÖĞ»ñÈ¡¼´¿É¡£
-		// ´Ë·½°¸µÄkey±È½Ï³¤£¬²»ÈİÒ×¼Ç×¡
+		// è§£å†³æ–¹æ¡ˆäºŒï¼Œé¡¹ç›®åœ¨å¯åŠ¨æ—¶ï¼ŒæŠŠSpringé…ç½®æ–‡ä»¶é€šè¿‡Springçš„ç›‘å¬å™¨åŠ è½½ï¼Œå­˜å‚¨åˆ°ServletContextä¸­ï¼Œæˆ‘ä»¬åªè¦åœ¨ServletContextä¸­è·å–å³å¯ã€‚
+		// æ­¤æ–¹æ¡ˆçš„keyæ¯”è¾ƒé•¿ï¼Œä¸å®¹æ˜“è®°ä½
 //		ApplicationContext context = (ApplicationContext) event.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 //		productService = (ProductService) context.getBean("productService");
 //		System.out.println(productService);
 		
-		// ½â¾ö·½°¸Èı£¬Í¨¹ı¹¤¾ßÀà¼ÓÔØ¼´¿É
+		// è§£å†³æ–¹æ¡ˆä¸‰ï¼Œé€šè¿‡å·¥å…·ç±»åŠ è½½å³å¯
 		context = WebApplicationContextUtils.getWebApplicationContext(event.getServletContext());				
 		productTimerTask = (ProductTimerTask) context.getBean("productTimerTask");//
-		//°ÑÄÚÖÃ¶ÔÏó½»¸øproductTimerTask
+		//æŠŠå†…ç½®å¯¹è±¡äº¤ç»™productTimerTask
 		productTimerTask.setApplication(event.getServletContext());
-		//Í¨¹ıÉèÖÃ¶¨Ê±Æ÷£¬ÈÃÊ×Ò³µÄÊı¾İÃ¿¸öÒ»Ğ¡Ê±Í¬²½Ò»´Î£¨ÅäÖÃÎªÊØ»¤Ïß³Ì£©
-		new Timer(true).schedule(productTimerTask, 0, 1000*60*60);//Ã¿¸öÒ»Ğ¡Ê±Ö´ĞĞÒ»´ÎproductTimerTask
+		//é€šè¿‡è®¾ç½®å®šæ—¶å™¨ï¼Œè®©é¦–é¡µçš„æ•°æ®æ¯ä¸ªä¸€å°æ—¶åŒæ­¥ä¸€æ¬¡ï¼ˆé…ç½®ä¸ºå®ˆæŠ¤çº¿ç¨‹ï¼‰
+		new Timer(true).schedule(productTimerTask, 0, 1000*60*60);//æ¯ä¸ªä¸€å°æ—¶æ‰§è¡Œä¸€æ¬¡productTimerTask
 		
-		//½«´æ´¢ÒøĞĞÍ¼Æ¬µÄÊı×é·Åµ½applicationÖĞ£¬ÏîÄ¿Æô¶¯µÄÊ±ºò¼ÓÔØ
+		//å°†å­˜å‚¨é“¶è¡Œå›¾ç‰‡çš„æ•°ç»„æ”¾åˆ°applicationä¸­ï¼Œé¡¹ç›®å¯åŠ¨çš„æ—¶å€™åŠ è½½
 		fileUpload = (FileUpload) context.getBean("fileUpload");
 		event.getServletContext().setAttribute("bankImageList", fileUpload.getBankImage());
 	}

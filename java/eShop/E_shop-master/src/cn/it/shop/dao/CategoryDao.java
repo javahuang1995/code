@@ -1,16 +1,16 @@
-package cn.it.shop.dao;
+ï»¿package cn.it.shop.dao;
 
 import java.util.List;
 
 import cn.it.shop.model.Category;
 
 public interface CategoryDao extends BaseDao<Category> {
-	//²éÑ¯Àà±ğĞÅÏ¢£¬¼¶Áª¹ÜÀíÔ±
-	public List<Category> queryJoinAccount(String type, int page, int size); //Ê¹ÓÃÀà±ğµÄÃû³Æ²éÑ¯
-	//¸ù¾İ¹Ø¼ü×Ö²éÑ¯×Ü¼ÇÂ¼Êı
+	//æŸ¥è¯¢ç±»åˆ«ä¿¡æ¯ï¼Œçº§è”ç®¡ç†å‘˜
+	public List<Category> queryJoinAccount(String type, int page, int size); //ä½¿ç”¨ç±»åˆ«çš„åç§°æŸ¥è¯¢
+	//æ ¹æ®å…³é”®å­—æŸ¥è¯¢æ€»è®°å½•æ•°
 	public Long getCount(String type);
-	//¸ù¾İidsÉ¾³ı¶àÌõ¼ÇÂ¼
+	//æ ¹æ®idsåˆ é™¤å¤šæ¡è®°å½•
 	public void deleteByIds(String ids);
-	//¸ù¾İboelenÖµ²éÑ¯ÈÈµã»ò·ÇÈÈµãÀà±ğ
+	//æ ¹æ®boelenå€¼æŸ¥è¯¢çƒ­ç‚¹æˆ–éçƒ­ç‚¹ç±»åˆ«
 	public List<Category> queryByHot(boolean hot);
 }

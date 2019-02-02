@@ -1,4 +1,4 @@
-package cn.it.shop.filter;
+ï»¿package cn.it.shop.filter;
 
 import java.io.IOException;
 
@@ -24,22 +24,22 @@ public class UserFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		// ÅĞ¶Ïµ±Ç°sessionÊÇ·ñÓĞÓÃ»§ĞÅÏ¢
+		// åˆ¤æ–­å½“å‰sessionæ˜¯å¦æœ‰ç”¨æˆ·ä¿¡æ¯
 		if(req.getSession().getAttribute("user") == null) {
-			//±£´æµ±Ç°¿Í»§ÏëÒªÈ¥µÄurlµØÖ·
-			String goURL = req.getServletPath();//»ñµÃÓÃ»§ÏëÒªÈ¥µÄµØÖ·
-			String param = req.getQueryString(); //»ñµÃµØÖ·ÖĞĞ¯´øµÄ²ÎÊı
+			//ä¿å­˜å½“å‰å®¢æˆ·æƒ³è¦å»çš„urlåœ°å€
+			String goURL = req.getServletPath();//è·å¾—ç”¨æˆ·æƒ³è¦å»çš„åœ°å€
+			String param = req.getQueryString(); //è·å¾—åœ°å€ä¸­æºå¸¦çš„å‚æ•°
 			if(param != null) {
-				goURL = goURL + "?" + param; //ÖØĞÂÆ´ºÃÇëÇóµØÖ·+²ÎÊı
+				goURL = goURL + "?" + param; //é‡æ–°æ‹¼å¥½è¯·æ±‚åœ°å€+å‚æ•°
 			}
-			//°Ñµ±Ç°¿Í»§ÏëÒª·ÃÎÊµÄµØÖ·£¬´æ´¢µ½sessionÖĞ
+			//æŠŠå½“å‰å®¢æˆ·æƒ³è¦è®¿é—®çš„åœ°å€ï¼Œå­˜å‚¨åˆ°sessionä¸­
 			req.getSession().setAttribute("goURL", goURL);
 			
-			//·Ç·¨ÇëÇó£¬Ìø×ªµ½µÇÂ½Ò³Ãæ
-			req.getSession().setAttribute("error", "·Ç·¨ÇëÇó£¬ÇëµÇÂ¼£¡");
+			//éæ³•è¯·æ±‚ï¼Œè·³è½¬åˆ°ç™»é™†é¡µé¢
+			req.getSession().setAttribute("error", "éæ³•è¯·æ±‚ï¼Œè¯·ç™»å½•ï¼");
 			res.sendRedirect(req.getContextPath() + "/ulogin.jsp");
 		} else {
-			//Èç¹ûÓĞÏÂÒ»¸ö¹ıÂËÆ÷ÔòÌø×ª£¬·ñÔòÖ±½Óµ½Ä¿±êÒ³Ãæ
+			//å¦‚æœæœ‰ä¸‹ä¸€ä¸ªè¿‡æ»¤å™¨åˆ™è·³è½¬ï¼Œå¦åˆ™ç›´æ¥åˆ°ç›®æ ‡é¡µé¢
 			chain.doFilter(request, response);
 		}
 	}

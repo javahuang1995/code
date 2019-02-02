@@ -1,4 +1,4 @@
-package cn.it.shop.sevice.impl;
+ï»¿package cn.it.shop.sevice.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,19 +15,19 @@ import cn.it.shop.service.CategoryService;
 public class CategoryServiceImplTest {
 
 	/**
-	 * Òª²âÊÔÄÄ¸ö·şÎñ×é¼ş£¬°ÑËû×¢Èëµ½Test ClassÀïÃæ¾Í¿ÉÒÔÁË¡£
+	 * è¦æµ‹è¯•å“ªä¸ªæœåŠ¡ç»„ä»¶ï¼ŒæŠŠä»–æ³¨å…¥åˆ°Test Classé‡Œé¢å°±å¯ä»¥äº†ã€‚
 	 */
 	@Resource
 	private CategoryService categoryService;
 	
 	@Test
 	public void testSave() {
-		categoryService.save(new Category("²âÊÔÒ»ÏÂ", true));
+		categoryService.save(new Category("æµ‹è¯•ä¸€ä¸‹", true));
 	}
 
 	@Test
 	public void testUpdate() {
-		categoryService.update(new Category(2, "²âÊÔÒ»ÏÂ2", true));
+		categoryService.update(new Category(2, "æµ‹è¯•ä¸€ä¸‹2", true));
 	}
 
 	@Test

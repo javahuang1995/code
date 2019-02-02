@@ -1,46 +1,46 @@
-if ($.fn.pagination){
-	$.fn.pagination.defaults.beforePageText = '第';
-	$.fn.pagination.defaults.afterPageText = '共{pages}页';
-	$.fn.pagination.defaults.displayMsg = '显示{from}到{to},共{total}记录';
+﻿if ($.fn.pagination){
+	$.fn.pagination.defaults.beforePageText = '绗?;
+	$.fn.pagination.defaults.afterPageText = '鍏眦pages}椤?;
+	$.fn.pagination.defaults.displayMsg = '鏄剧ず{from}鍒皗to},鍏眦total}璁板綍';
 }
 if ($.fn.datagrid){
-	$.fn.datagrid.defaults.loadMsg = '正在处理，请稍待。。。';
+	$.fn.datagrid.defaults.loadMsg = '姝ｅ湪澶勭悊锛岃绋嶅緟銆伞€伞€?;
 }
 if ($.fn.treegrid && $.fn.datagrid){
 	$.fn.treegrid.defaults.loadMsg = $.fn.datagrid.defaults.loadMsg;
 }
 if ($.messager){
-	$.messager.defaults.ok = '确定';
-	$.messager.defaults.cancel = '取消';
+	$.messager.defaults.ok = '纭畾';
+	$.messager.defaults.cancel = '鍙栨秷';
 }
 if ($.fn.validatebox){
-	$.fn.validatebox.defaults.missingMessage = '该输入项为必输项';
-	$.fn.validatebox.defaults.rules.email.message = '请输入有效的电子邮件地址';
-	$.fn.validatebox.defaults.rules.url.message = '请输入有效的URL地址';
-	$.fn.validatebox.defaults.rules.length.message = '输入内容长度必须介于{0}和{1}之间';
-	$.fn.validatebox.defaults.rules.remote.message = '请修正该字段';
+	$.fn.validatebox.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
+	$.fn.validatebox.defaults.rules.email.message = '璇疯緭鍏ユ湁鏁堢殑鐢靛瓙闾欢鍦板潃';
+	$.fn.validatebox.defaults.rules.url.message = '璇疯緭鍏ユ湁鏁堢殑URL鍦板潃';
+	$.fn.validatebox.defaults.rules.length.message = '杈揿叆鍐呭闀垮害蹇呴』浠嬩簬{0}鍜寋1}涔嬮棿';
+	$.fn.validatebox.defaults.rules.remote.message = '璇蜂慨姝ｈ瀛楁';
 }
 if ($.fn.numberbox){
-	$.fn.numberbox.defaults.missingMessage = '该输入项为必输项';
+	$.fn.numberbox.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
 }
 if ($.fn.combobox){
-	$.fn.combobox.defaults.missingMessage = '该输入项为必输项';
+	$.fn.combobox.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
 }
 if ($.fn.combotree){
-	$.fn.combotree.defaults.missingMessage = '该输入项为必输项';
+	$.fn.combotree.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
 }
 if ($.fn.combogrid){
-	$.fn.combogrid.defaults.missingMessage = '该输入项为必输项';
+	$.fn.combogrid.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
 }
 if ($.fn.calendar){
-	$.fn.calendar.defaults.weeks = ['日','一','二','三','四','五','六'];
-	$.fn.calendar.defaults.months = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+	$.fn.calendar.defaults.weeks = ['镞?,'涓€','浜?,'涓?,'锲?,'浜?,'鍏?];
+	$.fn.calendar.defaults.months = ['涓€链?,'浜屾湀','涓夋湀','锲涙湀','浜旀湀','鍏湀','涓冩湀','鍏湀','涔濇湀','鍗佹湀','鍗佷竴链?,'鍗佷簩链?];
 }
 if ($.fn.datebox){
-	$.fn.datebox.defaults.currentText = '今天';
-	$.fn.datebox.defaults.closeText = '关闭';
-	$.fn.datebox.defaults.okText = '确定';
-	$.fn.datebox.defaults.missingMessage = '该输入项为必输项';
+	$.fn.datebox.defaults.currentText = '浠婂ぉ';
+	$.fn.datebox.defaults.closeText = '鍏抽棴';
+	$.fn.datebox.defaults.okText = '纭畾';
+	$.fn.datebox.defaults.missingMessage = '璇ヨ緭鍏ラ」涓哄繀杈挞」';
 	$.fn.datebox.defaults.formatter = function(date){
 		var y = date.getFullYear();
 		var m = date.getMonth()+1;

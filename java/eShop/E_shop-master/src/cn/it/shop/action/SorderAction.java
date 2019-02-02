@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -19,34 +19,34 @@ import cn.it.shop.model.Sorder;
 public class SorderAction extends BaseAction<Sorder> {
 	public String addSorder() {
 		
-		//1. ¸ù¾İproduct.id»ñÈ¡ÏàÓ¦µÄÉÌÆ·Êı¾İ
+		//1. æ ¹æ®product.idè·å–ç›¸åº”çš„å•†å“æ•°æ®
 		Product product = productService.get(model.getProduct().getId());
 		
-		//2. ÅĞ¶Ïµ±Ç°sessionÊÇ·ñÓĞ¹ºÎï³µ£¬Èç¹ûÃ»ÓĞÔò´´½¨
+		//2. åˆ¤æ–­å½“å‰sessionæ˜¯å¦æœ‰è´­ç‰©è½¦ï¼Œå¦‚æœæ²¡æœ‰åˆ™åˆ›å»º
 		if(session.get("forder") == null) {
-			//´´½¨ĞÂµÄ¹ºÎï³µ£¬´æ´¢µ½sessionÖĞ
+			//åˆ›å»ºæ–°çš„è´­ç‰©è½¦ï¼Œå­˜å‚¨åˆ°sessionä¸­
 			session.put("forder", new Forder(new ArrayList<Sorder>()));
 		} 
 
-		//3. °ÑÉÌÆ·ĞÅÏ¢×ª»¯Îªsorder,²¢ÇÒÌí¼Óµ½¹ºÎï³µÖĞ£¨ÅĞ¶Ï¹ºÎïÏîÊÇ·ñÖØ¸´£©
+		//3. æŠŠå•†å“ä¿¡æ¯è½¬åŒ–ä¸ºsorder,å¹¶ä¸”æ·»åŠ åˆ°è´­ç‰©è½¦ä¸­ï¼ˆåˆ¤æ–­è´­ç‰©é¡¹æ˜¯å¦é‡å¤ï¼‰
 		Forder forder = (Forder) session.get("forder");
 		forder = sorderService.addSorder(forder, product);
 		
-		//4. ¼ÆËã¹ºÎïµÄ×Ü¼Û¸ñ
+		//4. è®¡ç®—è´­ç‰©çš„æ€»ä»·æ ¼
 		forder.setTotal(forderService.cluTotal(forder));
-		//5. °ÑĞÂµÄ¹ºÎï³µ´æ´¢µ½sessionÖĞ
+		//5. æŠŠæ–°çš„è´­ç‰©è½¦å­˜å‚¨åˆ°sessionä¸­
 		session.put("forder", forder);
 		return "showCart";
 	}
 	
-	//¸ù¾İÉÌÆ·±àºÅ¸üĞÂÉÌÆ·ÊıÁ¿
+	//æ ¹æ®å•†å“ç¼–å·æ›´æ–°å•†å“æ•°é‡
 	public String updateSorder() {
 		Forder forder = (Forder) session.get("forder");
 		forder = sorderService.updateSorder(model, forder);
-		//¼ÆËãĞÂµÄ×Ü¼Û¸ñ
+		//è®¡ç®—æ–°çš„æ€»ä»·æ ¼
 		forder.setTotal(forderService.cluTotal(forder));
 		session.put("forder", forder);
-		//ÒÔÁ÷µÄĞÎÊ½·µ»ØĞÂµÄ×Ü¼Û¸ñ
+		//ä»¥æµçš„å½¢å¼è¿”å›æ–°çš„æ€»ä»·æ ¼
 		inputStream = new ByteArrayInputStream(forder.getTotal().toString().getBytes());
 		return "stream";
 	}
@@ -55,11 +55,11 @@ public class SorderAction extends BaseAction<Sorder> {
 	public String querySale() {
 		List<Object> jsonList = sorderService.querySale(model.getNumber());
 		
-		//µ«ÕâÀïjsonListÊÇ¸öList<Object>¶ÔÏó£¬²»ÊÇBaseActionÖĞµÄList<T>¶ÔÏó£¬ËùÒÔ²»ÄÜÊ¹ÓÃBaseActionÖĞµÄList<T>¶ÔÏóÀ´½ÓÊÕ
-		//ËùÒÔÒªÔÚÕâ¸öActionÖĞĞÂ½¨Ò»¸öList<Object>²¢ÊµÏÖset·½·¨£¬µ«ÊÇÓĞµãÂé·³
-		//ÕâÀï½éÉÜ¸ö¸ü¼Ó¼ò±ãµÄ·½·¨£¬Ö®Ç°¶¼ÊÇÏÈ°Ñ·µ»ØµÄjsonList¾­¹ıstrus.xmlÎÄ¼şÅäÖÃ¸øroot£¬È»ºó²ÅÄÜ½«jsonList×ª³Éjson¸ñÊ½
-		//ÆäÊµÎÒÃÇ²»ÓÃÔÚstruts.xmlÖĞÅäroot£¬struts2Èç¹ûÕÒ²»µ½root£¬¾Í»á´ÓÖµÕ»µÄÕ»¶¥ÄÃ³öÀ´Êı¾İÀ´×ªjson
-		//ËùÒÔÎÒÃÇÖ»Òª½«ÏÖÔÚÄÃµ½µÄjsonListÈÓµ½ÖµÕ»µÄÕ»¶¥£¬È»ºóÔÚÅäÖÃÎÄ¼şÖĞĞ´ºÃresult¾Í¿ÉÒÔÁË
+		//ä½†è¿™é‡ŒjsonListæ˜¯ä¸ªList<Object>å¯¹è±¡ï¼Œä¸æ˜¯BaseActionä¸­çš„List<T>å¯¹è±¡ï¼Œæ‰€ä»¥ä¸èƒ½ä½¿ç”¨BaseActionä¸­çš„List<T>å¯¹è±¡æ¥æ¥æ”¶
+		//æ‰€ä»¥è¦åœ¨è¿™ä¸ªActionä¸­æ–°å»ºä¸€ä¸ªList<Object>å¹¶å®ç°setæ–¹æ³•ï¼Œä½†æ˜¯æœ‰ç‚¹éº»çƒ¦
+		//è¿™é‡Œä»‹ç»ä¸ªæ›´åŠ ç®€ä¾¿çš„æ–¹æ³•ï¼Œä¹‹å‰éƒ½æ˜¯å…ˆæŠŠè¿”å›çš„jsonListç»è¿‡strus.xmlæ–‡ä»¶é…ç½®ç»™rootï¼Œç„¶åæ‰èƒ½å°†jsonListè½¬æˆjsonæ ¼å¼
+		//å…¶å®æˆ‘ä»¬ä¸ç”¨åœ¨struts.xmlä¸­é…rootï¼Œstruts2å¦‚æœæ‰¾ä¸åˆ°rootï¼Œå°±ä¼šä»å€¼æ ˆçš„æ ˆé¡¶æ‹¿å‡ºæ¥æ•°æ®æ¥è½¬json
+		//æ‰€ä»¥æˆ‘ä»¬åªè¦å°†ç°åœ¨æ‹¿åˆ°çš„jsonListæ‰”åˆ°å€¼æ ˆçš„æ ˆé¡¶ï¼Œç„¶ååœ¨é…ç½®æ–‡ä»¶ä¸­å†™å¥½resultå°±å¯ä»¥äº†
 		ActionContext.getContext().getValueStack().push(jsonList);
 		return "jsonList";
 	}

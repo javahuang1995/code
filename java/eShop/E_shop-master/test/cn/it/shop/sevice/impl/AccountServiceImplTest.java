@@ -1,4 +1,4 @@
-package cn.it.shop.sevice.impl;
+ï»¿package cn.it.shop.sevice.impl;
 
 
 import javax.annotation.Resource;
@@ -24,12 +24,12 @@ public class AccountServiceImplTest {
 	
 	@Test
 	public void testSave() {
-		accountService.save(new Account("admin", "Ğ¡Ç¿", "admin"));
+		accountService.save(new Account("admin", "å°å¼º", "admin"));
 	}
 	
 	@Test
 	public void testCon(){
-		//ÕâÑùÃ»°ì·¨»ñÈ¡Á¬½Ó
+		//è¿™æ ·æ²¡åŠæ³•è·å–è¿æ¥
 		//Session s = sessionFactory.getCurrentSession();
 		Session s = sessionFactory.openSession();
 		System.out.println(s);

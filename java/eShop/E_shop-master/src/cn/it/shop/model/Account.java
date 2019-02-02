@@ -1,4 +1,4 @@
-package cn.it.shop.model;
+﻿package cn.it.shop.model;
 
 import java.util.HashSet;
 import java.util.Set;

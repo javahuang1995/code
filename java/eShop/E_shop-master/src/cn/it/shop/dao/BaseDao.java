@@ -1,4 +1,4 @@
-package cn.it.shop.dao;
+﻿package cn.it.shop.dao;
 
 import java.util.List;
 

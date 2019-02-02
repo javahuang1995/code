@@ -1,4 +1,4 @@
-package cn.it.shop.dao;
+锘縫ackage cn.it.shop.dao;
 
 import java.util.List;
 
@@ -7,6 +7,6 @@ import cn.it.shop.model.Product;
 import cn.it.shop.model.Sorder;
 
 public interface SorderDao extends BaseDao<Sorder> {
-	//查询热点商品的销售量
+	//鏌ヨ鐑偣鍟嗗搧鐨勯攢鍞噺
 	public List<Object> querySale(int number);
 }

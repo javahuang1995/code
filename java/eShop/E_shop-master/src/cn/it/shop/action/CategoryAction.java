@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
@@ -16,19 +16,19 @@ public class CategoryAction extends BaseAction<Category> {
 	
 	public String queryJoinAccount() {
 		System.out.println("type:" + model.getType());
-		System.out.println("page£º" + page);
-		System.out.println("rows£º" + rows);
+		System.out.println("pageï¼š" + page);
+		System.out.println("rowsï¼š" + rows);
 		
-		//ÓÃÀ´´æ´¢·ÖÒ³µÄÊı¾İ
+		//ç”¨æ¥å­˜å‚¨åˆ†é¡µçš„æ•°æ®
 		pageMap = new HashMap<String, Object>();
 		
-		//¸ù¾İ¹Ø¼ü×ÖºÍ·ÖÒ³µÄ²ÎÊı²éÑ¯ÏàÓ¦µÄÊı¾İ
+		//æ ¹æ®å…³é”®å­—å’Œåˆ†é¡µçš„å‚æ•°æŸ¥è¯¢ç›¸åº”çš„æ•°æ®
 		List<Category> categoryList = categoryService.queryJoinAccount(model.getType(), page, rows);
-		pageMap.put("rows", categoryList); //´æ´¢ÎªJSON¸ñÊ½
-		//¸ù¾İ¹Ø¼ü×Ö²éÑ¯×Ü¼ÇÂ¼Êı
+		pageMap.put("rows", categoryList); //å­˜å‚¨ä¸ºJSONæ ¼å¼
+		//æ ¹æ®å…³é”®å­—æŸ¥è¯¢æ€»è®°å½•æ•°
 		Long total = categoryService.getCount(model.getType());
 //		System.out.println(total);
-		pageMap.put("total", total); //´æ´¢ÎªJSON¸ñÊ½
+		pageMap.put("total", total); //å­˜å‚¨ä¸ºJSONæ ¼å¼
 
 		return "jsonMap";
 	}
@@ -36,7 +36,7 @@ public class CategoryAction extends BaseAction<Category> {
 	public String deleteByIds() {
 		System.out.println(ids);
 		categoryService.deleteByIds(ids);
-		//Èç¹ûÉ¾³ı³É¹¦¾Í»áÍùÏÂÖ´ĞĞ£¬ÎÒÃÇ½«"true"ÒÔÁ÷µÄĞÎÊ½´«¸øÇ°Ì¨
+		//å¦‚æœåˆ é™¤æˆåŠŸå°±ä¼šå¾€ä¸‹æ‰§è¡Œï¼Œæˆ‘ä»¬å°†"true"ä»¥æµçš„å½¢å¼ä¼ ç»™å‰å°
 		inputStream = new ByteArrayInputStream("true".getBytes());
 		return "stream";
 	}

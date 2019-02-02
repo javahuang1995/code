@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -9,17 +9,17 @@ import cn.it.shop.model.User;
 @Scope("prototype")
 public class UserAction extends BaseAction<User> {
 	public String login() {
-		//½øĞĞµÇÂ½µÄÅĞ¶Ï
+		//è¿›è¡Œç™»é™†çš„åˆ¤æ–­
 		model = userService.login(model);
 		if(model == null) {
-			session.put("error", "µÇÂ½Ê§°Ü");
+			session.put("error", "ç™»é™†å¤±è´¥");
 			return "login";
 		} else {
-			//µÇÂ¼³É¹¦£¬ÏÈ½«ÓÃ»§´æ´¢µ½sessionÖĞ
+			//ç™»å½•æˆåŠŸï¼Œå…ˆå°†ç”¨æˆ·å­˜å‚¨åˆ°sessionä¸­
 			session.put("user", model);
-			//¸ù¾İsessionÖĞgoURLÊÇ·ñÓĞÖµ¶ø¾ö¶¨Ò³ÃæµÄÌø×ª
+			//æ ¹æ®sessionä¸­goURLæ˜¯å¦æœ‰å€¼è€Œå†³å®šé¡µé¢çš„è·³è½¬
 			if(session.get("goURL") == null) {
-				return "index"; //Ìøµ½Ê×Ò³
+				return "index"; //è·³åˆ°é¦–é¡µ
 			} else {
 				return "goURL";
 			}

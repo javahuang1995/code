@@ -1,4 +1,4 @@
-package cn.it.shop.sevice.impl;
+ï»¿package cn.it.shop.sevice.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class ProductServiceImplTest {
 		for(Product p : productService.queryJoinCategory("", 1, 5)) {
 			System.out.println(p + "," + p.getCategory());
 //			p.getCategory().setAccount(null);
-			System.out.println(JSONSerializer.toJSON(p));//ÀÁ¼ÓÔØÎÊÌâ
+			System.out.println(JSONSerializer.toJSON(p));//æ‡’åŠ è½½é—®é¢˜
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class ProductServiceImplTest {
 	@Test
 	public void testSave() {
 		Product t = new Product(null, "test2", new BigDecimal(23.22), "da8b3609-8ecf-4157-8075-a6e9028bd64d.jpg", "cccc", "cccc", null, true, true);
-		Category c = (Category) categoryService.queryJoinAccount("¶ùÍ¯ÐÝÏÐ", 1, 1).get(0);
+		Category c = (Category) categoryService.queryJoinAccount("å„¿ç«¥ä¼‘é—²", 1, 1).get(0);
 		c.setType(null);
 		c.setAccount(null);
 		c.setHot(null);

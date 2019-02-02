@@ -1,4 +1,4 @@
-package cn.it.shop.dao.impl;
+ï»¿package cn.it.shop.dao.impl;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import cn.it.shop.dao.ProductDao;
 import cn.it.shop.model.Product;
 
 /**
- * @Description TODO£¨Ä£¿é×ÔÉíµÄÒµÎñÂß¼­£©
+ * @Description TODOï¼ˆæ¨¡å—è‡ªèº«çš„ä¸šåŠ¡é€»è¾‘ï¼‰
  * @author Ni Shengwu
  *
  */
@@ -22,8 +22,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		String hql = "from Product p left join fetch p.category where p.name like :name";
 		return getSession().createQuery(hql)
 				.setString("name", "%" + name + "%")
-				.setFirstResult((page-1) * size) //´ÓµÚ¼¸¸ö¿ªÊ¼ÏÔÊ¾
-				.setMaxResults(size) //ÏÔÊ¾¼¸¸ö
+				.setFirstResult((page-1) * size) //ä»ç¬¬å‡ ä¸ªå¼€å§‹æ˜¾ç¤º
+				.setMaxResults(size) //æ˜¾ç¤ºå‡ ä¸ª
 				.list();
 	}
 	
@@ -32,15 +32,15 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		String hql = "select count(p) from Product p where p.name like :name";
 		return (Long) getSession().createQuery(hql)
 			.setString("name", "%" + name + "%")
-			.uniqueResult(); //·µ»ØÒ»Ìõ¼ÇÂ¼:×Ü¼ÇÂ¼Êı
+			.uniqueResult(); //è¿”å›ä¸€æ¡è®°å½•:æ€»è®°å½•æ•°
 	}
 
 	@Override
 	public void deleteByIds(String ids) {
 		String hql = "delete from Product p where p.id in (" + ids + ")";
 		getSession().createQuery(hql).executeUpdate();
-		//ÏàÓ¦µÄ·şÎñÆ÷¶Î±£´æµÄÕÕÆ¬Ò²µÃÉ¾µô¡­¡­
-		//¡­¡­
+		//ç›¸åº”çš„æœåŠ¡å™¨æ®µä¿å­˜çš„ç…§ç‰‡ä¹Ÿå¾—åˆ æ‰â€¦â€¦
+		//â€¦â€¦
 	}
 
 	@Override

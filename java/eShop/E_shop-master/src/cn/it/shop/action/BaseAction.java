@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.io.InputStream;
 import java.lang.reflect.ParameterizedType;
@@ -29,10 +29,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 /*
- * StrutsÖ´ĞĞÁ÷³Ì£ºÏÈ´´½¨Action£¬ÔÙµ÷ÓÃÀ¹½ØÆ÷£¬À¹½ØÆ÷·ÃÎÊ³É¹¦ÔÙµ÷ÓÃActionµÄ·½·¨
- * ÔÚÏîÄ¿Æô¶¯µÄÊ±ºòStrutsµÄ¹ıÂËÆ÷£¬ÒÑ¾­°ÑÏàÓ¦µÄÄÚÖÃ¶ÔÏó£¬ºÍÄÚÖÃ¶ÔÏó¶ÔÓ¦µÄMap´æ´¢µ½ÁËActionContextºÍÖµÕ»ÖĞ
- * Èç¹ûÊµÏÖÁËÏàÓ¦µÄxxxAware½Ó¿Ú£¬¾Í»á´ÓActionContextÖĞ»ñÈ¡ÏàÓ¦µÄMap½øĞĞ´«Èë¡£ÊµÏÖÕâ¸öµÄÀ¹½ØÆ÷Îª£ºservletConfig
- * servletConfig£ºÓĞÈçÏÂ´úÂë£ºÅĞ¶Ïµ±Ç°ÊµÏÖÊ²Ã´½Ó¿Ú£¬Ôò»á×¢ÈëÏàÓ¦µÄ¶ÔÏó
+ * Strutsæ‰§è¡Œæµç¨‹ï¼šå…ˆåˆ›å»ºActionï¼Œå†è°ƒç”¨æ‹¦æˆªå™¨ï¼Œæ‹¦æˆªå™¨è®¿é—®æˆåŠŸå†è°ƒç”¨Actionçš„æ–¹æ³•
+ * åœ¨é¡¹ç›®å¯åŠ¨çš„æ—¶å€™Strutsçš„è¿‡æ»¤å™¨ï¼Œå·²ç»æŠŠç›¸åº”çš„å†…ç½®å¯¹è±¡ï¼Œå’Œå†…ç½®å¯¹è±¡å¯¹åº”çš„Mapå­˜å‚¨åˆ°äº†ActionContextå’Œå€¼æ ˆä¸­
+ * å¦‚æœå®ç°äº†ç›¸åº”çš„xxxAwareæ¥å£ï¼Œå°±ä¼šä»ActionContextä¸­è·å–ç›¸åº”çš„Mapè¿›è¡Œä¼ å…¥ã€‚å®ç°è¿™ä¸ªçš„æ‹¦æˆªå™¨ä¸ºï¼šservletConfig
+ * servletConfigï¼šæœ‰å¦‚ä¸‹ä»£ç ï¼šåˆ¤æ–­å½“å‰å®ç°ä»€ä¹ˆæ¥å£ï¼Œåˆ™ä¼šæ³¨å…¥ç›¸åº”çš„å¯¹è±¡
  * if (action instanceof ApplicationAware) {
             ((ApplicationAware) action).setApplication(context.getApplication());
         }
@@ -49,24 +49,24 @@ import com.opensymphony.xwork2.ModelDriven;
 @Scope("prototype")
 public class BaseAction<T> extends ActionSupport implements RequestAware,SessionAware,ApplicationAware,ModelDriven<T> {
 
-	//·â×°ÁËÍ¼Æ¬ĞÅÏ¢µÄÀà
+	//å°è£…äº†å›¾ç‰‡ä¿¡æ¯çš„ç±»
 	protected FileImage fileImage;
 	
-	//ÓÃÀ´×°ÓĞ½«Òª±»´ò°ü³Éjson¸ñÊ½·µ»Ø¸øÇ°Ì¨µÄÊı¾İ£¬ÏÂÃæÒªÊµÏÖget·½·¨
+	//ç”¨æ¥è£…æœ‰å°†è¦è¢«æ‰“åŒ…æˆjsonæ ¼å¼è¿”å›ç»™å‰å°çš„æ•°æ®ï¼Œä¸‹é¢è¦å®ç°getæ–¹æ³•
 	protected List<T> jsonList = null;
 	
-	//»ñÈ¡ÒªÉ¾³ıµÄids£¬ÒªÓĞgetºÍset·½·¨
-	//Á÷ÊÇÓÃÀ´ÏëÇ°Ì¨·µ»ØÊı¾İµÄ£¬Õâ¸öÊı¾İÊÇÈÃstruts»ñÈ¡µÄ£¬È»ºóÍ¨¹ıÁ÷µÄĞÎÊ½´«µ½Ç°Ì¨£¬ËùÒÔÊµÏÖget·½·¨¼´¿É
+	//è·å–è¦åˆ é™¤çš„idsï¼Œè¦æœ‰getå’Œsetæ–¹æ³•
+	//æµæ˜¯ç”¨æ¥æƒ³å‰å°è¿”å›æ•°æ®çš„ï¼Œè¿™ä¸ªæ•°æ®æ˜¯è®©strutsè·å–çš„ï¼Œç„¶åé€šè¿‡æµçš„å½¢å¼ä¼ åˆ°å‰å°ï¼Œæ‰€ä»¥å®ç°getæ–¹æ³•å³å¯
 	protected String ids;
 	protected InputStream inputStream;
 	
-	//pageºÍrowsºÍ·ÖÒ³ÓĞ¹Ø£¬pageMap´æ·Å²éÑ¯µÄÊı¾İ£¬È»ºó´ò°ü³Éjson¸ñÊ½ÓÃµÄ
-	//pageºÍrowsÊµÏÖgetºÍset·½·¨£¬pageMapÖ»ĞèÒªÊµÏÖget·½·¨¼´¿É£¬ÒòÎªpageMap²»ÊÇ½ÓÊÕÇ°Ì¨²ÎÊıµÄ£¬ÊÇÈÃstruts»ñÈ¡µÄ
+	//pageå’Œrowså’Œåˆ†é¡µæœ‰å…³ï¼ŒpageMapå­˜æ”¾æŸ¥è¯¢çš„æ•°æ®ï¼Œç„¶åæ‰“åŒ…æˆjsonæ ¼å¼ç”¨çš„
+	//pageå’Œrowså®ç°getå’Œsetæ–¹æ³•ï¼ŒpageMapåªéœ€è¦å®ç°getæ–¹æ³•å³å¯ï¼Œå› ä¸ºpageMapä¸æ˜¯æ¥æ”¶å‰å°å‚æ•°çš„ï¼Œæ˜¯è®©strutsè·å–çš„
 	protected Integer page;
 	protected Integer rows;
 	protected Map<String, Object> pageMap = null;
 	
-	//service¶ÔÏó
+	//serviceå¯¹è±¡
 	@Resource
 	protected CategoryService categoryService;
 	@Resource
@@ -86,11 +86,11 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,Session
 	@Resource 
 	protected MessageUtil messageUtil;
 	
-	//ÉÏ´«ÎÄ¼ş¹¤¾ßÀà
+	//ä¸Šä¼ æ–‡ä»¶å·¥å…·ç±»
 	@Resource
 	protected FileUpload fileUpload;
 
-	//Óò¶ÔÏó
+	//åŸŸå¯¹è±¡
 	protected Map<String, Object> request;
 	protected Map<String, Object> session;
 	protected Map<String, Object> application;
@@ -122,7 +122,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,Session
 		return model;
 	}
 	
-	//getºÍset·½·¨
+	//getå’Œsetæ–¹æ³•
 	public Integer getPage() {
 		return page;
 	}

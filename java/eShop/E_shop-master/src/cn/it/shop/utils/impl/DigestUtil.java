@@ -1,4 +1,4 @@
-package cn.it.shop.utils.impl;
+ï»¿package cn.it.shop.utils.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -91,11 +91,11 @@ public class DigestUtil {
 	}
 	
 	public static void main(String[] args) {
-		// ²ÎÊý1: Ã÷ÎÄ(Òª¼ÓÃÜµÄÊý¾Ý)  ²ÎÊý2: ÃÜÔ¿
+		// å‚æ•°1: æ˜Žæ–‡(è¦åŠ å¯†çš„æ•°æ®)  å‚æ•°2: å¯†é’¥
 		System.out.println(DigestUtil.hmacSign("11111", "abc"));
 		System.out.println(DigestUtil.hmacSign("11112", "abc"));
-	//  ½â¾öÊý¾Ý°²È«ÐÔÎÊÌâ:  °ÑÃ÷ÎÄ¼ÓÃÜ--->ÃÜÎÄ    È»ºó°ÑÃ÷ÎÄºÍÃÜÎÄ¶¼½»¸øÒ×±¦ 
-	//  Ò×±¦ÄÃµ½Êý¾Ýºó,°Ñ´«¹ýÀ´µÄÃ÷ÎÄ¼ÓÃÜ, ºÍ´«¹ýÀ´ÃÜÎÄ±È½Ï,Èç¹ûÏàµÈÊý¾ÝÃ»ÓÐ±»´Û¸Ä (ÉÌ¼ÒÓëÒ×±¦¼ÓÃÜÊ±¶¼ÓÃµÄÊÇÏàÍ¬key)
+	//  è§£å†³æ•°æ®å®‰å…¨æ€§é—®é¢˜:  æŠŠæ˜Žæ–‡åŠ å¯†--->å¯†æ–‡    ç„¶åŽæŠŠæ˜Žæ–‡å’Œå¯†æ–‡éƒ½äº¤ç»™æ˜“å® 
+	//  æ˜“å®æ‹¿åˆ°æ•°æ®åŽ,æŠŠä¼ è¿‡æ¥çš„æ˜Žæ–‡åŠ å¯†, å’Œä¼ è¿‡æ¥å¯†æ–‡æ¯”è¾ƒ,å¦‚æžœç›¸ç­‰æ•°æ®æ²¡æœ‰è¢«ç¯¡æ”¹ (å•†å®¶ä¸Žæ˜“å®åŠ å¯†æ—¶éƒ½ç”¨çš„æ˜¯ç›¸åŒkey)
 		
 	}
 }

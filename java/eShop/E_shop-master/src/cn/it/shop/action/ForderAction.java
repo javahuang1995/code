@@ -1,4 +1,4 @@
-package cn.it.shop.action;
+ï»¿package cn.it.shop.action;
 
 import java.util.Date;
 
@@ -20,9 +20,9 @@ public class ForderAction extends BaseAction<Forder> {
 		return model;
 	}
 
-	//ÊµÏÖ¹ºÎï³µ£¨¶©µ¥£©Óë¹ºÎïÏî£¨¶©µ¥Ïî£©¼¶ÁªÈë¿â¹¦ÄÜ
+	//å®ç°è´­ç‰©è½¦ï¼ˆè®¢å•ï¼‰ä¸è´­ç‰©é¡¹ï¼ˆè®¢å•é¡¹ï¼‰çº§è”å…¥åº“åŠŸèƒ½
 	public String save() {
-//		// °ÑsessionÖĞµÄ¹ºÎïÏî½»¸øµ±Ç°µÄmodel¶ÔÏó
+//		// æŠŠsessionä¸­çš„è´­ç‰©é¡¹äº¤ç»™å½“å‰çš„modelå¯¹è±¡
 //		Forder forder = (Forder) session.get("forder");
 //		//model.setSorders(forder.getSorders());
 //		forder.setAddress(model.getAddress());
@@ -32,17 +32,17 @@ public class ForderAction extends BaseAction<Forder> {
 //		forder.setUser((User)session.get("user"));
 //		forder.setStatus(new Status(1));
 //		forder.setPost(model.getPost());
-//		//¼¶ÁªÈë¿â(ĞèÒªÔÚxml»òÕßPOJOµÄ×¢½âÖĞÅäÖÃ)£¬ĞèÒªsorder¹ØÁªforder
-//		//ÔÚSorderServiceImplÀàÖĞ×·¼Ósorder.setForder(forder);
+//		//çº§è”å…¥åº“(éœ€è¦åœ¨xmlæˆ–è€…POJOçš„æ³¨è§£ä¸­é…ç½®)ï¼Œéœ€è¦sorderå…³è”forder
+//		//åœ¨SorderServiceImplç±»ä¸­è¿½åŠ sorder.setForder(forder);
 //		forderService.save(forder);
 		
 		model.setUser((User)session.get("user"));
 		model.setStatus(new Status(1));
 		forderService.save(model);
 		
-		//´ËÊ±¹ºÎï³µÒÑ¾­Èë¿â£¬ÄÇÃ´Ô­À´sessionÖĞµÄ¹ºÎï³µ¾ÍÓ¦¸ÃÇå¿Õ
-		session.put("oldForder", session.get("forder"));//ÏÈ½«Ô­À´µÄ¹ºÎï³µĞÅÏ¢±£´æÏÂÀ´£¬ÒòÎªºóÃæ¸¶¿îµÄÊ±ºò»¹ĞèÒªÏà¹ØĞÅÏ¢
-		session.put("forder", new Forder());//newÒ»¸öĞÂµÄ¿Õ¹ºÎï³µ£¨Ïàµ±ÓÚÇå¿ÕÁË¹ºÎï³µ£©£¬»¹¿ÉÒÔ·½±ãÓÃ»§ÔÙÂò~
+		//æ­¤æ—¶è´­ç‰©è½¦å·²ç»å…¥åº“ï¼Œé‚£ä¹ˆåŸæ¥sessionä¸­çš„è´­ç‰©è½¦å°±åº”è¯¥æ¸…ç©º
+		session.put("oldForder", session.get("forder"));//å…ˆå°†åŸæ¥çš„è´­ç‰©è½¦ä¿¡æ¯ä¿å­˜ä¸‹æ¥ï¼Œå› ä¸ºåé¢ä»˜æ¬¾çš„æ—¶å€™è¿˜éœ€è¦ç›¸å…³ä¿¡æ¯
+		session.put("forder", new Forder());//newä¸€ä¸ªæ–°çš„ç©ºè´­ç‰©è½¦ï¼ˆç›¸å½“äºæ¸…ç©ºäº†è´­ç‰©è½¦ï¼‰ï¼Œè¿˜å¯ä»¥æ–¹ä¾¿ç”¨æˆ·å†ä¹°~
 		return "bank";
 	}
 }

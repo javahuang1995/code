@@ -1,4 +1,4 @@
-package cn.it.shop.service.impl;
+ï»¿package cn.it.shop.service.impl;
 
 import java.util.Map;
 
@@ -12,18 +12,18 @@ import cn.it.shop.utils.impl.DigestUtil;
 
 @Service("payService")
 public class PayServiceImpl implements PayService {
-	//ÃÜÔ¿
+	//å¯†é’¥
 	@Value("#{prop.key}")
 	private String key;	
 	@Value("#{prop.p1_MerId}")
-	//ÉÌ»§ÕËºÅ£¨²»ÊÇ¶©µ¥ºÅ£©
+	//å•†æˆ·è´¦å·ï¼ˆä¸æ˜¯è®¢å•å·ï¼‰
 	private String p1_MerId; 
-	//Ö§¸¶³É¹¦µÄ·µ»ØµØÖ·
+	//æ”¯ä»˜æˆåŠŸçš„è¿”å›åœ°å€
 	@Value("#{prop.p8_Url}")
 	private String p8_Url; 
-	//ÒÔÉÏÈı¸öÊôĞÔ¶¼ÊÇ¹Ì¶¨Öµ£¬ÎÒ½«ËüÃÇ·Åµ½pay.propertiesÅäÖÃÎÄ¼şÖĞÁË£¬µ½Ê±ºòÖ±½ÓÈ¡¼´¿É
+	//ä»¥ä¸Šä¸‰ä¸ªå±æ€§éƒ½æ˜¯å›ºå®šå€¼ï¼Œæˆ‘å°†å®ƒä»¬æ”¾åˆ°pay.propertiesé…ç½®æ–‡ä»¶ä¸­äº†ï¼Œåˆ°æ—¶å€™ç›´æ¥å–å³å¯
 
-	// ²¹È«SendDataµÄÊı¾İ, P2 p3 pd Pa ÊÇÇ°Ì¨×¢Èë£¬²»ĞèÒªÔÚÕâ²¹ÁË£¬ÒÑ¾­ÔÚActionÖĞÄÃµ½ÁË
+	// è¡¥å…¨SendDataçš„æ•°æ®, P2 p3 pd Pa æ˜¯å‰å°æ³¨å…¥ï¼Œä¸éœ€è¦åœ¨è¿™è¡¥äº†ï¼Œå·²ç»åœ¨Actionä¸­æ‹¿åˆ°äº†
 	private SendData finishSendData(SendData sendData) {
 			sendData.setP0_Cmd("Buy");
 			sendData.setP1_MerId(p1_MerId);
@@ -37,9 +37,9 @@ public class PayServiceImpl implements PayService {
 			return sendData;
 		}
 	
-	// Íê³ÉÊı¾İµÄ×·¼Ó£¬·µ»Ø×·¼ÓµÄÃ÷ÎÄ
+	// å®Œæˆæ•°æ®çš„è¿½åŠ ï¼Œè¿”å›è¿½åŠ çš„æ˜æ–‡
 		private String joinSendDataParam(SendData sendData) {
-			// Ìî³äµÄËùÓĞÊı¾İ
+			// å¡«å……çš„æ‰€æœ‰æ•°æ®
 			sendData = this.finishSendData(sendData);
 			StringBuffer infoBuffer = new StringBuffer();
 			infoBuffer.append(sendData.getP0_Cmd());
@@ -58,11 +58,11 @@ public class PayServiceImpl implements PayService {
 			return infoBuffer.toString();
 		}
 		
-		// °Ñ¼ÓÃÜºóµÄĞÅÏ¢´æ´¢µ½requestMapÖĞ
+		// æŠŠåŠ å¯†åçš„ä¿¡æ¯å­˜å‚¨åˆ°requestMapä¸­
 		@Override
 		public Map<String, Object> saveDataToRequest(Map<String, Object> request,
 				SendData sendData) {
-			// ·µ»ØÁË±»×·¼ÓµÄ×Ö·û´®£¨¼´Ã÷ÎÄ£©
+			// è¿”å›äº†è¢«è¿½åŠ çš„å­—ç¬¦ä¸²ï¼ˆå³æ˜æ–‡ï¼‰
 			String joinParam = joinSendDataParam(sendData);
 			request.put("p0_Cmd", sendData.getP0_Cmd());
 			request.put("p1_MerId", sendData.getP1_MerId());
@@ -77,14 +77,14 @@ public class PayServiceImpl implements PayService {
 			request.put("pa_MP", sendData.getPa_MP());
 			request.put("pd_FrpId", sendData.getPd_FrpId());
 			request.put("pr_NeedResponse", sendData.getPr_NeedResponse());
-			request.put("hmac", DigestUtil.hmacSign(joinParam, key));//×·¼ÓÖ®ºóµÄÇ©Ãû£¨ÃÜÎÄ£©
+			request.put("hmac", DigestUtil.hmacSign(joinParam, key));//è¿½åŠ ä¹‹åçš„ç­¾åï¼ˆå¯†æ–‡ï¼‰
 			return request;
 		}
 		
-		/******************************ÉÏÃæÊÇ·¢ËÍÇëÇóµÄ·½·¨**************************************/
-		// Íê³É·µ»ØÊı¾İµÄ×·¼Ó
+		/******************************ä¸Šé¢æ˜¯å‘é€è¯·æ±‚çš„æ–¹æ³•**************************************/
+		// å®Œæˆè¿”å›æ•°æ®çš„è¿½åŠ 
 		private String joinBackDataParam(BackData backData) {
-			// ×·¼Ó×Ö·û´®,Îª¼ÓÃÜÑéÖ¤×ö×¼±¸
+			// è¿½åŠ å­—ç¬¦ä¸²,ä¸ºåŠ å¯†éªŒè¯åšå‡†å¤‡
 			StringBuffer infoBuffer = new StringBuffer();
 			infoBuffer.append(backData.getP1_MerId());
 			infoBuffer.append(backData.getR0_Cmd());
@@ -100,12 +100,12 @@ public class PayServiceImpl implements PayService {
 			return infoBuffer.toString();
 		}
 		
-		// ¶Ô·µ»ØÀ´µÄÊı¾İ½øĞĞ¼ÓÃÜ,²¢ÇÒºÍ´«¹ıÀ´µÄÃÜÎÄ½øĞĞ±È½Ï,Èç¹ûOKÔòËµÃ÷Êı¾İÃ»ÓĞ±»´Û¸Ä
+		// å¯¹è¿”å›æ¥çš„æ•°æ®è¿›è¡ŒåŠ å¯†,å¹¶ä¸”å’Œä¼ è¿‡æ¥çš„å¯†æ–‡è¿›è¡Œæ¯”è¾ƒ,å¦‚æœOKåˆ™è¯´æ˜æ•°æ®æ²¡æœ‰è¢«ç¯¡æ”¹
 		public boolean checkBackData(BackData backData){
 			String joinParam=this.joinBackDataParam(backData);
-			// ¼ÓÃÜºóµÃµ½×Ô¼ºµÄÃÜÎÄ
+			// åŠ å¯†åå¾—åˆ°è‡ªå·±çš„å¯†æ–‡
 			String md5 = DigestUtil.hmacSign(joinParam.toString(),key);
-			// ÃÜÎÄºÍ´«¹ıÀ´ÃÜÎÄ±È½Ï
+			// å¯†æ–‡å’Œä¼ è¿‡æ¥å¯†æ–‡æ¯”è¾ƒ
 			return md5.equals(backData.getHmac());
 		}	
 }

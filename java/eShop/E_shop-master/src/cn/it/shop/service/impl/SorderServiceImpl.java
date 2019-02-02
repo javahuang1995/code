@@ -1,4 +1,4 @@
-package cn.it.shop.service.impl;
+ï»¿package cn.it.shop.service.impl;
 
 import java.util.List;
 
@@ -15,22 +15,22 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 
 	@Override
 	public Forder addSorder(Forder forder, Product product) {
-		boolean isHave = false; //ÓÃÀ´±ê¼ÇÓĞÃ»ÓĞÖØ¸´¹ºÎïÏî
-		//ÄÃµ½µ±Ç°µÄ¹ºÎïÏî
+		boolean isHave = false; //ç”¨æ¥æ ‡è®°æœ‰æ²¡æœ‰é‡å¤è´­ç‰©é¡¹
+		//æ‹¿åˆ°å½“å‰çš„è´­ç‰©é¡¹
 		Sorder sorder = productToSorder(product);
-		//ÅĞ¶Ïµ±Ç°¹ºÎïÏîÊÇ·ñÖØ¸´£¬Èç¹ûÖØ¸´£¬ÔòÌí¼ÓÊıÁ¿¼´¿É
+		//åˆ¤æ–­å½“å‰è´­ç‰©é¡¹æ˜¯å¦é‡å¤ï¼Œå¦‚æœé‡å¤ï¼Œåˆ™æ·»åŠ æ•°é‡å³å¯
 		for(Sorder old : forder.getSorders()) {
 			if(old.getProduct().getId().equals(sorder.getProduct().getId())) {
-				//¹ºÎïÏîÓĞÖØ¸´£¬Ìí¼ÓÊıÁ¿¼´¿É
+				//è´­ç‰©é¡¹æœ‰é‡å¤ï¼Œæ·»åŠ æ•°é‡å³å¯
 				old.setNumber(old.getNumber() + sorder.getNumber());
 				isHave = true;
 				break;
 			}
 		}
-		//µ±Ç°¹ºÎïÏîÔÚ¹ºÎï³µÖĞ²»´æÔÚ£¬ĞÂÌí¼Ó¼´¿É
+		//å½“å‰è´­ç‰©é¡¹åœ¨è´­ç‰©è½¦ä¸­ä¸å­˜åœ¨ï¼Œæ–°æ·»åŠ å³å¯
 		if(!isHave) {
-			//ÔÚÏò¹ºÎïÖĞÌí¼Ó¹ºÎïÏîÖ®Ç°£¬ÏÈ½¨Á¢¹ºÎïÏîÓë¹ºÎï³µµÄ¹ØÁª£¬µ«ÊÇ´ËÊ±forder.idÎªnull£¬
-			//µ«ÊÇÔÚÈë¿âµÄÊ±ºòÊÇÏÈÈë¿â¹ºÎï³µ£¬ÔÙÈë¿â¹ºÎïÏî£¬ÄÇÊ±ºò¾ÍÓĞÖ÷¼üÁË
+			//åœ¨å‘è´­ç‰©ä¸­æ·»åŠ è´­ç‰©é¡¹ä¹‹å‰ï¼Œå…ˆå»ºç«‹è´­ç‰©é¡¹ä¸è´­ç‰©è½¦çš„å…³è”ï¼Œä½†æ˜¯æ­¤æ—¶forder.idä¸ºnullï¼Œ
+			//ä½†æ˜¯åœ¨å…¥åº“çš„æ—¶å€™æ˜¯å…ˆå…¥åº“è´­ç‰©è½¦ï¼Œå†å…¥åº“è´­ç‰©é¡¹ï¼Œé‚£æ—¶å€™å°±æœ‰ä¸»é”®äº†
 			sorder.setForder(forder);
 			forder.getSorders().add(sorder);
 		}

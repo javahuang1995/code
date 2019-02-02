@@ -1,4 +1,4 @@
-package cn.it.shop.utils;
+﻿package cn.it.shop.utils;
 
 public interface EmailUtil {
 
