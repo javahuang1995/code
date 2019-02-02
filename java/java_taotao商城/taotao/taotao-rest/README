@@ -1,5 +1,14 @@
 后台工程提供数据服务。
 
 商品分类展示 前台js调用，需要处理一下跨域访问问题，可以改进一下，加入缓存。
-商品信息展示 http调用，使用了缓存。
-大广告位        http调用，使用了缓存。
+REDIS_ITEMCAT_KEY:itemcatid->String
+
+商品信息展示 http调用，使用了缓存。缓存数据结构是：
+KEY-VALUE数据
+REDIS_ITEM_KEY:itemid:base->String 商品基本信息
+REDIS_ITEM_KEY:itemid:desc->String 商品描述
+REDIS_ITEM_KEY:itemid:param->String 商品参数
+
+大广告位        http调用，使用了缓存。 
+缓存数据结构是个哈希表，INDEX_CONTENT_REDIS_KEY,key是content_id(大广告位是89),value是个List,转换json字符串。
+INDEX_CONTENT_REDIS_KEY->content_id->String
