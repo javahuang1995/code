@@ -19,7 +19,7 @@ import com.huang.redis.util.MyUser;
 import redis.clients.jedis.Jedis;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:spring/applicationContext-jedis.xml")
 public class RedisTest {
 
 	private static final String HOST = "192.168.0.104";

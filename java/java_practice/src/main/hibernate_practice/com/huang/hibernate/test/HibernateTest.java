@@ -6,12 +6,20 @@ import javax.annotation.Resource;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import cn.it.shop.model.Product;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.huang.mybatis.test.MybatisTest;
+import com.shop.model.Product;
+
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
@@ -19,7 +27,7 @@ public class HibernateTest {
 
 	@Resource
 	private SessionFactory sessionFactory;
-
+	private static final Logger logger = LoggerFactory.getLogger(HibernateTest.class);
 
 	/**
 	 * save() delete() update() get()/fetch()
@@ -27,14 +35,26 @@ public class HibernateTest {
 	 * HQL查询::Hibernate Query Language
 	 */
 	@Test
+	@Transactional
 	public void testCRUD() {
 
-		String hql = "select * from product where name like ?";
-		getSession().createQuery(hql) //
-				.setParameter("0", "hi").list();
-		Criteria  c = getSession().createCriteria(Product.class);
-		List<Product> result=c.list();
+		List<Product> result = null;
+		String hql = "from Product where name = ?";//这里要写Product类名，而不是表名，踩坑了。
+		
+		Query q = getSession().createQuery(hql).setParameter(0,"dsf");
+		Criteria c = getSession().createCriteria(Product.class).add(Restrictions.eq("name", "jack"));
+		
+		//result = c.list();
+		result = q.list();
+		
+		travse(result);
+		
+	}
 
+	public <T> void travse(List<T> list){
+		for(T tmp:list){
+			logger.info("travese"+tmp.toString());
+		}
 	}
 
 	protected Session getSession() {
