@@ -16,6 +16,7 @@ import com.taotao.portal.service.ItemService;
  * <p>Title: ItemController</p>
  * <p>Description: </p>
  * <p>Company: www.itcast.com</p> 
+ * item.jsp发送请求
  * @author	入云龙
  * @date	2015年9月12日下午2:48:16
  * @version 1.0

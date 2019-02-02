@@ -14,6 +14,8 @@ import com.taotao.rest.service.ItemService;
  * <p>Title: ItemController</p>
  * <p>Description: </p>
  * <p>Company: www.itcast.com</p> 
+ * 当我们用solr搜索之后，solr返回的是是一些json数据，并不是完整的商品信息
+ * 所以我们需要根据solr返回的数据，把商品详情信息从缓存中读取出来。
  * 这里是获取商品信息，也是从缓存里面获取。
  * @author	入云龙
  * @date	2015年9月12日上午10:22:11

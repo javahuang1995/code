@@ -26,6 +26,7 @@ import com.taotao.rest.service.ItemCatService;
  * 这里是展示商品目录，也就是动态首页的商品分类信息那个功能
  * 因为前端是直接在页面上通过js调用访问这个http接口的，所以这就有js跨域访问的问题
  * 所以用到了mappingjaksonvalue这个东东，实际上，如果前端不用js调用，用httpclient调用，就没这个鸟问题了。
+ * 也就是：js(ajax)->controller->httpclient->后台
  * 其实这里也可以用缓存，以后改写一下。
  * @author 入云龙
  * @date 2015年9月7日下午3:02:39
@@ -42,7 +43,6 @@ public class ItemCatController {
 	/*
 	 * @RequestMapping(value="/itemcat/list",
 	 * produces=MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-	 * 
 	 * @ResponseBody public String getItemCatList(String callback) { CatResult
 	 * catResult = itemCatService.getItemCatList(); //把pojo转换成字符串 String json =
 	 * JsonUtils.objectToJson(catResult); //拼装返回值 String result = callback + "("
