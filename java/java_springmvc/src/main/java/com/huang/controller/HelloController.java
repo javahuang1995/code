@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
-	@RequestMapping("/success")
+	@RequestMapping("/hello")
 	public ModelAndView success(){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("huang", "jjjjj");
-		mv.setViewName("success");
+		mv.setViewName("hello");
 		logger.info("hihihihihihihihihi");
 		return mv;
 	}

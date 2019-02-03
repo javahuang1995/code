@@ -20,12 +20,12 @@
 
 		<action name="hello" class="com.huang.action.HelloAction"
 			method="hello">
-			<result name="index">/index.jsp</result>
+			<result name="index">/WEB-INF/jsp/hello.jsp</result>
 		</action>
 
 		<action name="hello2" class="helloAction"
 			method="hello">
-			<result name="index">/index.jsp</result>
+			<result name="index">/WEB-INF/jsp/hello.jsp</result>
 		</action>
 
 

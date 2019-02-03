@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-success
-${hello}
+Spring Hello页面。。。
 </body>
 </html>

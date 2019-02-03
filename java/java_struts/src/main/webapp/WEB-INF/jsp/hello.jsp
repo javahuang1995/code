@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-success
-${hello}
+hello页面。。。。
 </body>
 </html>
