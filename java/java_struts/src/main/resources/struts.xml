@@ -18,9 +18,16 @@
 			</result>
 		</global-results>
 
-	<action name="hello" class="com.huang.action.HelloAction" method="hello">
-		<result name="index">/index.jsp</result>
-	</action>
+		<action name="hello" class="com.huang.action.HelloAction"
+			method="hello">
+			<result name="index">/index.jsp</result>
+		</action>
+
+		<action name="hello2" class="helloAction"
+			method="hello">
+			<result name="index">/index.jsp</result>
+		</action>
+
 
 	</package>
 
