@@ -28,9 +28,17 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
+	/**
+	 * 首页点击去购物车结算会到这里
+	 * 会跳转到购物车页面。
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/order-cart")
 	public String showOrderCart(HttpServletRequest request, HttpServletResponse response, Model model) {
-		//取购物车商品列表
+		//从Cookie中取购物车商品列表
 		List<CartItem> list = cartService.getCartItemList(request, response);
 		//传递给页面
 		model.addAttribute("cartList", list);
@@ -38,6 +46,13 @@ public class OrderController {
 		return "order-cart";
 	}
 	
+	/**
+	 * 在购物车页面点击确认提交订单，会提交到这里 
+	 * @param order
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/create")
 	public String createOrder(Order order, Model model, HttpServletRequest request) {
 		try {

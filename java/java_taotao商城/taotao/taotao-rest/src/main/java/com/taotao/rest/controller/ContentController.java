@@ -16,6 +16,7 @@ import com.taotao.rest.service.ContentService;
 /**
  * 内容管理Controller
  * 这里使用到了缓存来展示首页大广告位置。
+ * 打广告id:89，传入89
  * <p>Title: ContentController</p>
  * <p>Description: </p>
  * <p>Company: www.itcast.com</p> 

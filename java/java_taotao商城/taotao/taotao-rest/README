@@ -12,3 +12,20 @@ REDIS_ITEM_KEY:itemid:param->String 商品参数
 大广告位        http调用，使用了缓存。 
 缓存数据结构是个哈希表，INDEX_CONTENT_REDIS_KEY,key是content_id(大广告位是89),value是个List,转换json字符串。
 INDEX_CONTENT_REDIS_KEY->content_id->String
+
+
+单部件测试
+1.开启redis服务器，数据库
+2.访问：http://www.taotao.com:8081/rest/content/list/89 测试大广告缓存
+3.访问：http://www.taotao.com:8081/rest/itemcat/list 测试商品分类缓存
+4.访问：
+http://www.taotao.com:8081/rest/item/info/536563 获取商品id为536563的商品信息
+http://www.taotao.com:8081/rest/item/desc/536563 获取商品id为536563的商品描述
+http://www.taotao.com:8081/rest/item/param/536563 获取商品id为536563的商品参数
+5.
+http://www.taotao.com:8081/rest/cache/sync/content/89 同步大广告位缓存
+
+
+访问都OK那么rest部件没问题
+
+

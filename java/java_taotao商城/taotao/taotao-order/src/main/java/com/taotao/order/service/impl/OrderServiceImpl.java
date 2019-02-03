@@ -46,7 +46,11 @@ public class OrderServiceImpl implements OrderService {
 	@Value("${ORDER_DETAIL_GEN_KEY}")
 	private String ORDER_DETAIL_GEN_KEY;
 	
-	
+	/**
+	 * 1.补全pojo Order的属性
+	 * 2.插入orderItem表
+	 * 3.插入orderShip表
+	 */
 	@Override
 	public TaotaoResult createOrder(TbOrder order, List<TbOrderItem> itemList, TbOrderShipping orderShipping) {
 		//向订单表中插入记录
@@ -73,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
 			//取订单明细id
 			long orderDetailId = jedisClient.incr(ORDER_DETAIL_GEN_KEY);
 			tbOrderItem.setId(orderDetailId + "");
-			tbOrderItem.setOrderId(orderId + ""); 
+			tbOrderItem.setOrderId(orderId + "");//orderItem表和order表的关系通过业务层设定，数据库不设置外键。
 			//向订单明细插入记录
 			orderItemMapper.insert(tbOrderItem);
 		}
