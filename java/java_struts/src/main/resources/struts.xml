@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+
+
+	<package name="shop" extends="json-default"><!-- jason-default继承了struts-default -->
+		<global-results>
+			<result name="aindex">/WEB-INF/main/aindex.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="stream" type="stream">
+				<param name="inputName">inputStream</param>
+			</result>
+		</global-results>
+
+	<action name="hello" class="com.huang.action.HelloAction" method="hello">
+		<result name="index">/index.jsp</result>
+	</action>
+
+	</package>
+
+</struts>
