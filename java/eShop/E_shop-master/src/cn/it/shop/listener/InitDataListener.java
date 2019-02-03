@@ -14,6 +14,9 @@ import cn.it.shop.utils.impl.ProductTimerTask;
 /**
  * @Description: TODO(用于项目启动的时候数据初始化)
  * @author Ni Shengwu
+ * 监听器InitDataListener，在容器启动的时候就执行这里的代码。
+      1. 在项目启动时将首页的数据查询出来放到application
+      2.设置定时任务，也就是守护进程 productTimerTask，定时加载首页商品信息。
  *
  */
 //@Component //监听器是web层的组件，它是tomcat实例化的，不是Spring实例化的。不能放到Spring中

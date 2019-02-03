@@ -18,7 +18,7 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
+  <!-- 这个过滤器：如果要访问/user/*下的资源，必须要先登录 -->
   <filter>
   	<filter-name>UserFilter</filter-name>
   	<filter-class>cn.it.shop.filter.UserFilter</filter-class>

@@ -4,7 +4,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-
+/**
+ * 支付的时候这里要用到
+ * Digest签名认证
+ * @author huang
+ *
+ */
 public class DigestUtil {
 
 	private static String encodingCharset = "UTF-8";

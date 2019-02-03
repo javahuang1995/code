@@ -10,7 +10,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 过滤/user的请求，如果用户还没有登录，就跳转到登录页面。
+ * 其实可以用springMVC拦截器实现。
+ * @author huang
+ *
+ */
 public class UserFilter implements Filter {
 
 	@Override

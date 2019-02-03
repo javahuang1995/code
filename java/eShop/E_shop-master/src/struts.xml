@@ -17,10 +17,13 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</global-results>
-
+		
 		<action name="hello" class="helloAction" method="hello">
 		</action>
-
+		
+		<action name="admin" class="adminAction" method="toAdminPage">
+		</action>
+		
 		<!-- class对应的是Spring中配置该Action的id值，因为要交给Spring管理 -->
 		<action name="category_*" class="categoryAction" method="{1}">
 			<!-- 必须要先添加json包，然后上面继承json-default -->

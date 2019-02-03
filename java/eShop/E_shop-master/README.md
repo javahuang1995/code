@@ -1,4 +1,9 @@
-﻿# 基于Struts2+Hibernate4+Spring4+EasyUI+MySQL的网上商城项目实战源码
+﻿后台管理
+http://localhost:8080/E_shop/admin#
+1.类别crud
+2.商品crud(懒加载问题)
+
+# 基于Struts2+Hibernate4+Spring4+EasyUI+MySQL的网上商城项目实战源码
 
 ## [我的CSDN博客地址](http://blog.csdn.net/eson_15/)
 

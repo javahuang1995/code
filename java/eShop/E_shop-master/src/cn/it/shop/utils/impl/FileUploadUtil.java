@@ -15,6 +15,7 @@ import cn.it.shop.utils.FileUpload;
 
 /**
  * @Description: TODO(实现文件上传的业务逻辑)
+ * 这里没有用到ftp直接复制文件就完事。
  * @author Ni Shengwu
  *
  */
