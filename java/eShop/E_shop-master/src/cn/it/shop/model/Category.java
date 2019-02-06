@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  * Category entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_category")
 public class Category implements java.io.Serializable {
 
 	// Fields

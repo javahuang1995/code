@@ -42,7 +42,7 @@ public class HibernateTest {
 		String hql = "from Product where name = ?";//这里要写Product类名，而不是表名，踩坑了。
 		
 		Query q = getSession().createQuery(hql).setParameter(0,"dsf");
-		Criteria c = getSession().createCriteria(Product.class).add(Restrictions.eq("name", "jack"));
+		//Criteria c = getSession().createCriteria(Product.class).add(Restrictions.eq("name", "jack"));
 		
 		//result = c.list();
 		result = q.list();

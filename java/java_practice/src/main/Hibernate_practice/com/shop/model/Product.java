@@ -10,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Product entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_product")
 public class Product implements java.io.Serializable {
 
 	// Fields

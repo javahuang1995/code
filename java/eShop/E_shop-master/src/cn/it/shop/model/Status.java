@@ -16,6 +16,7 @@ import javax.persistence.Table;
  * Status entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_status")
 public class Status implements java.io.Serializable {
 
 	// Fields

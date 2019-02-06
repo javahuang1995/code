@@ -22,6 +22,7 @@ import javax.persistence.Table;
  * Forder entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_forder")
 public class Forder implements java.io.Serializable {
 
 	// Fields

@@ -16,6 +16,7 @@ import javax.persistence.Table;
  * Sorder entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_sorder")
 public class Sorder implements java.io.Serializable {
 
 	// Fields

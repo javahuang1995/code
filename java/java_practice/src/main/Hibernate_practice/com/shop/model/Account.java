@@ -16,6 +16,7 @@ import javax.persistence.Table;
  * Account entity. @author MyEclipse Persistence Tools
  */
 @Entity
+@Table(name = "t_account")
 public class Account implements java.io.Serializable {
 
 	// Fields
