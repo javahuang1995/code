@@ -57,7 +57,7 @@
 	<!-- com.mchange.v2.c3p0.ComboPooledDataSource类在c3p0-0.9.5.1.jar包的com.mchange.v2.c3p0包中 -->
 	<bean id="dataSource" class="${dataSource}">
 		<property name="driverClass" value="${driverClass}" />
-		<property name="jdbcUrl" value="${jdbcUrl}" />
+		<property name="jdbcUrl" value="${jdbcUrl}?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="${user}" />
 		<property name="password" value="${password}" />
 	</bean>

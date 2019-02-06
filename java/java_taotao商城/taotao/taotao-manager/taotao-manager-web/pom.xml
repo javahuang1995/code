@@ -9,6 +9,10 @@
 	<packaging>war</packaging>
 	<!-- 依赖管理 -->
 	<dependencies>
+			<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-manager-service</artifactId>

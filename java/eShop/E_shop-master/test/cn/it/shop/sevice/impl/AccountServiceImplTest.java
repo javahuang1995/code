@@ -41,5 +41,16 @@ public class AccountServiceImplTest {
 		String jsonResult = JsonUtils.objectToJson(result);
 		LOG.info(jsonResult);
 	}
+	
+	@Test
+	public void testDelet(){
+		accountService.delete(1);
+	}
+	
+	@Test
+	public void testUpdate(){
+		Account t = accountService.get(0);
+		accountService.update(t);
+	}
 
 }

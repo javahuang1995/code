@@ -1,4 +1,4 @@
-﻿package cn.it.shop.sevice.impl;
+package cn.it.shop.sevice.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -20,6 +20,9 @@ public class CategoryServiceImplTest {
 	@Resource
 	private CategoryService categoryService;
 	
+	/**
+	 * 这里其实是级联插入，同时会在account表里面也插入一条记录。
+	 */
 	@Test
 	public void testSave() {
 		categoryService.save(new Category("测试一下", true));

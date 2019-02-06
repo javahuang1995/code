@@ -1,4 +1,4 @@
-package com.taotao.controller;
+package com.taotao.web.test;
 
 import java.util.List;
 
