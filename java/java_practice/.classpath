@@ -15,10 +15,10 @@
 	<classpathentry kind="src" path="src/main/redis_practice"/>
 	<classpathentry kind="src" path="src/main/rpc_test"/>
 	<classpathentry kind="src" path="src/main/json_practice"/>
-	<classpathentry kind="src" path="src/main/SSH_hibernate_practice"/>
+	<classpathentry kind="src" path="src/main/Hibernate_practice"/>
 	<classpathentry kind="src" path="src/main/rabbitmq_practice"/>
-	<classpathentry kind="src" path="src/main/SSH_mybatis_practice"/>
-	<classpathentry kind="src" path="src/main/SSH_spring_practice"/>
+	<classpathentry kind="src" path="src/main/Mybatis_practice"/>
+	<classpathentry kind="src" path="src/main/Spring_practice"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
