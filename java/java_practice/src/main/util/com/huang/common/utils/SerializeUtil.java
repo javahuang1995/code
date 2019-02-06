@@ -1,4 +1,4 @@
-﻿package com.huang.redis.util;
+﻿package com.huang.common.utils;
 
 import java.io.*;
 

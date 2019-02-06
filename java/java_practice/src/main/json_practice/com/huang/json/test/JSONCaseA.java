@@ -1,4 +1,4 @@
-﻿package com.huang.json.test;
+package com.huang.json.test;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -34,14 +34,15 @@ public class MybatisTest {
 	private SqlSessionFactory sqlsessionFactory;
 
 	@Resource
-	private TbItemMapper itemMapper;
+	private TbItemMapper tbItemMapper;
 
 	@Resource
-	private TbStudentMapper stuMapper;
+	private TbStudentMapper tbStudentMapper;
 	
 	/**
 	 * 这个测试下Mybatis自动生成的mapper，以及Example类
 	 */
+	@Test
 	public void testExampleCriteria(){
 		TbItemExample example = new TbItemExample();
 		
@@ -51,7 +52,8 @@ public class MybatisTest {
 		//还可以创建一个criteria
 		example.createCriteria().andBarcodeBetween("dd", "dd");
 		
-		List<TbItem> list =  itemMapper.selectByExample(example);
+		List<TbItem> list =  tbItemMapper.selectByExample(example);
+		
 	}
 	
 	
@@ -60,6 +62,7 @@ public class MybatisTest {
 	 * 这个测试下用mybatis调用存储过程，其实也是拼凑sql而已。
 	 * TbItemExample-->包括List Criteria--->Criteria包括List Criterion
 	 */
+	@Test
 	public void testCallFuncPro(){
 		
 
@@ -76,7 +79,7 @@ public class MybatisTest {
 		// 分页处理，显示第一页的10条数据
 		PageHelper.startPage(1, 10);
 		TbItemExample example = new TbItemExample();
-		List<TbItem> list =  itemMapper.selectByExample(example);
+		List<TbItem> list =  tbItemMapper.selectByExample(example);
 		// 取商品列表
         for(TbItem item : list) {
            logger.info(item.getTitle());
@@ -96,10 +99,10 @@ public class MybatisTest {
 
 		// System.out.println(s);
 
-		TbItem a = itemMapper.selectByPrimaryKey((long) 536563);
+		TbItem a = tbItemMapper.selectByPrimaryKey((long) 536563);
 
 		// 这个是级联查询。。
-		TbStudent student = stuMapper.getStudent("1");
+		TbStudent student = tbStudentMapper.getStudent("1");
 		TbTeacher tt = student.getTeacher();
 
 		logger.info(student.getStudentName());
@@ -110,12 +113,12 @@ public class MybatisTest {
 		}
 
 		TbStudent student3 = null;
-		student3 = stuMapper.getStudentByName("黄宁");
+		student3 = tbStudentMapper.getStudentByName("黄宁");
 		logger.info(student3.getStudentSex());
 
 		Map<String, Object> cond = new HashMap<String, Object>();
 		cond.put("sex", "女");
-		List<TbStudent> list = stuMapper.getStudentByMap(cond);
+		List<TbStudent> list = tbStudentMapper.getStudentByMap(cond);
 		for (TbStudent tmp : list) {
 			logger.info(tmp.getStudentName());
 		}
@@ -125,11 +128,11 @@ public class MybatisTest {
 		student2.setStudentName("哈哈哈哈学渣");
 
 		// 插入
-		stuMapper.insertStudent(student2);
+		tbStudentMapper.insertStudent(student2);
 
 		// update
 		student2.setStudentName("fuckyou");
-		stuMapper.updateStudent(student2);
+		tbStudentMapper.updateStudent(student2);
 		// System.out.println(a.getTitle());
 
 		// delete

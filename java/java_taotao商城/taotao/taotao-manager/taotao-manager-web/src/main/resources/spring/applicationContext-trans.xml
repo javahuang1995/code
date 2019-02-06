@@ -14,7 +14,8 @@
 		<!-- 数据源 -->
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!-- 通知 -->
+	
+	<!-- advice 定义哪些方法需要被事务管理器管理-->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<!-- 传播行为 -->
@@ -24,11 +25,14 @@
 			<tx:method name="create*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
+			
+			<!-- 查询操作是只读事务 -->
 			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
 			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
 			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
+	
 	<!-- 切面 -->
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"

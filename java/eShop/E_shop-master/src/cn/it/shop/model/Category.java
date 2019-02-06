@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 /**
  * Category entity. @author MyEclipse Persistence Tools
@@ -19,6 +21,10 @@ public class Category implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -830770604417920448L;
 	private Integer id;
 	private Account account;
 	private String type;
@@ -72,6 +78,7 @@ public class Category implements java.io.Serializable {
 		this.id = id;
 	}
 
+	@JsonBackReference
 	@ManyToOne()
 	@JoinColumn(name = "aid")
 	public Account getAccount() {

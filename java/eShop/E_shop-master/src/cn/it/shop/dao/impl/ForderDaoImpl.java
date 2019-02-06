@@ -1,14 +1,10 @@
 ﻿package cn.it.shop.dao.impl;
 
 
-import java.math.BigDecimal;
 
 import org.springframework.stereotype.Repository;
-
-
 import cn.it.shop.dao.ForderDao;
 import cn.it.shop.model.Forder;
-import cn.it.shop.model.Sorder;
 
 
 @Repository("forderDao")

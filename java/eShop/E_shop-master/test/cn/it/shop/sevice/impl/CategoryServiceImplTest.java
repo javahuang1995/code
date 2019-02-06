@@ -35,18 +35,28 @@ public class CategoryServiceImplTest {
 		System.out.println(categoryService.get(2));
 	}
 
-	@Test
-	public void testQuery() {
-		for(Category temp : categoryService.query()) {
-			System.out.println(temp);
-		}
-	}
+
 
 	@Test
 	public void testDelete() {
 		categoryService.delete(3);
 	}
 	
+	/**
+	 * 普通查询 select * from category;
+	 * 因为在hibernate设置了对应关系，所以会产生关联查询
+	 */
+	@Test
+	public void testQuery() {
+		for(Category temp : categoryService.query()) {
+			System.out.println(temp);
+		}
+	}
+	
+	/**
+	 * 这里是利用数据库的外键进行left join 级联查询
+	 * from Category c left join fetch c.account where c.type like :type
+	 */
 	@Test
 	public void testQueryJoinAccount() {
 		for(Category c : categoryService.queryJoinAccount("",1,2)) {

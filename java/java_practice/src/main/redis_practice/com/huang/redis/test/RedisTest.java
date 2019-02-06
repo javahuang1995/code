@@ -11,10 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.huang.json.test.JsonUtils;
+import com.huang.common.utils.JsonUtils;
 import com.huang.redis.util.JedisClientCluster;
 import com.huang.redis.util.JedisClientSingle;
-import com.huang.redis.util.MyUser;
 
 import redis.clients.jedis.Jedis;
 
