@@ -26,7 +26,7 @@ public class Category implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -830770604417920448L;
 	private Integer id;
-	private Account account;
+	private Account account = new Account();
 	private String type;
 	private Boolean hot;
 //	private Set<Product> products = new HashSet<Product>(0);
@@ -79,7 +79,7 @@ public class Category implements java.io.Serializable {
 	}
 
 	@JsonBackReference
-	@ManyToOne()
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "aid")
 	public Account getAccount() {
 		return this.account;
