@@ -18,20 +18,31 @@ import com.taotao.rest.service.RedisService;
  * @date	2015年9月9日下午3:47:18
  * @version 1.0
  * 这里是同步缓存，需要手动同步，想办法搞一个定时任务和一个按钮让他同步一下。
- * httpAPI是:/rest/cache/sync/content/89，前台是写死的。
+ * httpAPI是:/rest/cache/sync/content/89,是写死的。
  * 89是大广告位，反正只用到了大广告，也只有打广告位用了缓存。
  */
 @Controller
-@RequestMapping("/cache/sync")
+@RequestMapping("/cache")
 public class RedisController {
 
 	@Autowired
 	private RedisService redisService;
 	
-	@RequestMapping("/content/{contentCid}")
+	/**
+	 * 同步缓存，就是把缓存项目都删掉就完事了。
+	 * @return
+	 */
 	@ResponseBody
-	public TaotaoResult contentCacheSync(@PathVariable Long contentCid) {
-		TaotaoResult result = redisService.syncContent(contentCid);
+	@RequestMapping("/sync")
+	public TaotaoResult cacheSync() {
+		TaotaoResult result = redisService.syncContent();
 		return result;
 	}
+	
+//	@RequestMapping("/content/{contentCid}")
+//	@ResponseBody
+//	public TaotaoResult contentCacheSync(@PathVariable Long contentCid) {
+//		TaotaoResult result = redisService.syncContent(contentCid);
+//		return result;
+//	}
 }
