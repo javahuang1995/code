@@ -96,24 +96,30 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	/**
 	 * 业务逻辑：
-	 *接收parentid、id两个参数。删除id对应的记录。需要判断parentid对应的记录下是否有子节点。
-	 *如果没有子节点。需要把parentid对应的记录的isparent改成false。
+	 * 如果没有子节点。需要把parentid对应的记录的isparent改成false。
 	 */
 	@Override
-	public TaotaoResult deleteContentCategory(long parentId, long id) {
+	public TaotaoResult deleteContentCategory(long id) {
 		
-		contentCategoryMapper.deleteByPrimaryKey(id);
-		
-		TbContentCategoryExample example = new TbContentCategoryExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andParentIdEqualTo(parentId);
-		List<TbContentCategory> result = contentCategoryMapper.selectByExample(example);//找出父节点是parentId的节点
-		if(null==result || result.size()==0){
-			TbContentCategory contentCategory =contentCategoryMapper.selectByPrimaryKey(parentId);
-			contentCategory.setIsParent(false);
-			contentCategoryMapper.updateByPrimaryKey(contentCategory);
-			
+		TbContentCategory tbContent = contentCategoryMapper.selectByPrimaryKey(id);
+		long parentId = 0;
+		if(tbContent != null){///判空指针，，哎，好麻烦。。。各种判断空指针
+			parentId = tbContent.getParentId();
 		}
+		
+		contentCategoryMapper.deleteByPrimaryKey(id);//删除掉
+		
+		//查看父亲节点还有没有子节点
+		TbContentCategoryExample example = new TbContentCategoryExample();
+		example.createCriteria().andParentIdEqualTo(parentId);
+		List<TbContentCategory> result = contentCategoryMapper.selectByExample(example);
+		
+		if(result == null || result.size() == 0){//如果父亲节点再没有子节点的话，就更新父节点的IsParent属性。
+			tbContent = contentCategoryMapper.selectByPrimaryKey(parentId);//找出父节点是parentId的节点
+			tbContent.setIsParent(false);
+			contentCategoryMapper.updateByPrimaryKey(tbContent);
+		}
+
 		
 		return TaotaoResult.ok();
 	}

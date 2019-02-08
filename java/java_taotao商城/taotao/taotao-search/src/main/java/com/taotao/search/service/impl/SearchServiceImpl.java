@@ -4,6 +4,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.search.dao.SearchDao;
 import com.taotao.search.pojo.SearchResult;
 import com.taotao.search.service.SearchService;
@@ -51,5 +52,6 @@ public class SearchServiceImpl implements SearchService {
 		
 		return searchResult;
 	}
+	
 
 }

@@ -15,11 +15,18 @@ import com.taotao.search.service.SearchService;
 
 /**
  * 商品查询Controller
- * <p>Title: SearchController</p>
- * <p>Description: </p>
- * <p>Company: www.itcast.com</p> 
- * @author	入云龙
- * @date	2015年9月11日下午4:22:42
+ * <p>
+ * Title: SearchController
+ * </p>
+ * <p>
+ * Description:
+ * </p>
+ * <p>
+ * Company: www.itcast.com
+ * </p>
+ * 
+ * @author 入云龙
+ * @date 2015年9月11日下午4:22:42
  * @version 1.0
  */
 @Controller
@@ -27,13 +34,12 @@ public class SearchController {
 
 	@Autowired
 	private SearchService searchService;
-	
-	@RequestMapping(value="/query", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/query", method = RequestMethod.GET)
 	@ResponseBody
-	public TaotaoResult search(@RequestParam("q")String queryString, 
-			@RequestParam(defaultValue="1")Integer page, 
-			@RequestParam(defaultValue="60")Integer rows) {
-		//查询条件不能为空
+	public TaotaoResult search(@RequestParam("q") String queryString, @RequestParam(defaultValue = "1") Integer page,
+			@RequestParam(defaultValue = "60") Integer rows) {
+		// 查询条件不能为空
 		if (StringUtils.isBlank(queryString)) {
 			return TaotaoResult.build(400, "查询条件不能为空");
 		}
@@ -46,7 +52,9 @@ public class SearchController {
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
 		}
 		return TaotaoResult.ok(searchResult);
-		
+
 	}
-	
+
+
+
 }

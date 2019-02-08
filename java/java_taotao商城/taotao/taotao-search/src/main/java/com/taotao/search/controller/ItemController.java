@@ -3,9 +3,11 @@ package com.taotao.search.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.common.utils.ExceptionUtil;
 import com.taotao.search.service.ItemService;
 
 /**
@@ -26,6 +28,8 @@ public class ItemController {
 
 	/**
 	 * 导入商品数据到索引库
+	 * 如果商品数据内容发生改变，重新执行一下这个url就可以了。
+	 * http://www.taotao.com:8083/search/manager/importall
 	 */
 	@RequestMapping("/importall")
 	@ResponseBody
@@ -33,4 +37,15 @@ public class ItemController {
 		TaotaoResult result = itemService.importAllItems();
 		return result;
 	}
+	
+	@RequestMapping(value = "/deleteAll", method = RequestMethod.GET)
+	@ResponseBody
+	public TaotaoResult deleteAll() {
+		try {
+			return itemService.deleteAll();
+		} catch (Exception e) {
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+	
 }

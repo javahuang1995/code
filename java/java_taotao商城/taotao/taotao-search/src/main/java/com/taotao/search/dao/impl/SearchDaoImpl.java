@@ -12,6 +12,7 @@ import org.apache.solr.common.SolrDocumentList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.search.dao.SearchDao;
 import com.taotao.search.pojo.Item;
 import com.taotao.search.pojo.SearchResult;
@@ -69,5 +70,6 @@ public class SearchDaoImpl implements SearchDao {
 		result.setItemList(itemList);
 		return result;
 	}
+
 
 }

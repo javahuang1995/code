@@ -52,5 +52,14 @@ public class ItemServiceImpl implements ItemService {
 		}
 		return TaotaoResult.ok();
 	}
+	
+
+	@Override
+	public TaotaoResult deleteAll() throws Exception {
+		solrServer.deleteByQuery("*:*");
+		solrServer.commit();
+		return TaotaoResult.ok();
+	}
+	
 
 }

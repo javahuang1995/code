@@ -63,12 +63,13 @@ public class ContentCategoryController {
 	
 	/**
 	 * 删除 出现空指针错误。。。
+	 * http://www.taotao.com:8080/content/category/delete?parentId=96&id=97
 	 */
 	@RequestMapping("/category/delete")
 	@ResponseBody
-	public TaotaoResult deleteContentCategory(@RequestParam("parentId")Long parentId, @RequestParam("id")Long id){
-		LOG.info("start deleteContentCategory 啪啪啪啪爽!!!");
-		TaotaoResult result = contentCategoryService.deleteContentCategory(parentId,id);
+	public TaotaoResult deleteContentCategory(@RequestParam("id")Long id){
+		LOG.info("start deleteContentCategory....");
+		TaotaoResult result = contentCategoryService.deleteContentCategory(id);
 		return result;
 	}
 	

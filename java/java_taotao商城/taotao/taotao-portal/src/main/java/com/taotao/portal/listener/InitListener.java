@@ -20,6 +20,9 @@ public class InitListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		context = WebApplicationContextUtils.getWebApplicationContext(event.getServletContext());
+
+		//这里其实可以配置多个task,task也可以配置在数据库中。。
+		//这里配置了一个同步缓存的task
 		syncTask = (SyncTask) context.getBean("syncTask");
 		syncTask.setApplication(event.getServletContext());// task依赖于他的父task
 		new Timer(true).schedule(syncTask, 0, 1000*60*10);//每隔十分钟自动刷新一次缓存。

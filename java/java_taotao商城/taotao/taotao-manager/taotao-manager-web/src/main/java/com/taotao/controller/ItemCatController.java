@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.EUTreeNode;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.pojo.TbItemCat;
 import com.taotao.service.ItemCatService;
 
 /**
@@ -21,7 +23,7 @@ import com.taotao.service.ItemCatService;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/item/cat")
+@RequestMapping("/itemcat")
 public class ItemCatController {
 
 	@Autowired
@@ -33,4 +35,27 @@ public class ItemCatController {
 		List<EUTreeNode> list = itemCatService.getCatList(parentId);
 		return list;
 	}
+	
+	@RequestMapping("/create")
+	@ResponseBody
+	public TaotaoResult addItemCat(long parentId, String name){
+		TaotaoResult result = itemCatService.addItemCat(parentId,name);
+		return result;
+	}
+	
+	@RequestMapping("/delete")
+	@ResponseBody
+	public TaotaoResult deleteItemCat(@RequestParam("id")Long id){
+		TaotaoResult result = itemCatService.deleteItemCat(id);
+		return result;
+	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public TaotaoResult updateItemCat(Long id,String name){
+		TaotaoResult result = itemCatService.updateIetmCat(id, name);
+		return result;
+	}
+	
+	
 }
