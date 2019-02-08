@@ -50,6 +50,8 @@ public class OrderServiceImpl implements OrderService {
 	 * 1.补全pojo Order的属性
 	 * 2.插入orderItem表
 	 * 3.插入orderShip表
+	 * 4.考虑一个问题，如果是双11高并发场景，这样大规模的写入，数据库肯定很容易被干死。
+	 * 所以，是不是可以考虑加入一个消息中间件来缓解写入压力。。不是直接插入表。
 	 */
 	@Override
 	public TaotaoResult createOrder(TbOrder order, List<TbOrderItem> itemList, TbOrderShipping orderShipping) {
