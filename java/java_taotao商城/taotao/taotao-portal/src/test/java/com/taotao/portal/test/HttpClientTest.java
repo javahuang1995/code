@@ -1,4 +1,4 @@
-package com.taotao.httpclient;
+package com.taotao.portal.test;
 
 import java.util.ArrayList;
 import java.util.List;

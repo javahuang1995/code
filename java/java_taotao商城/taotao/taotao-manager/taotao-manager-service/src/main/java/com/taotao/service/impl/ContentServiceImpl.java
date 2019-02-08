@@ -41,8 +41,8 @@ public class ContentServiceImpl implements ContentService {
 	private TbContentMapper contentMapper;
 	@Value("${REST_BASE_URL}")
 	private String REST_BASE_URL;
-	@Value("${REST_CONTENT_SYNC_URL}")
-	private String REST_CONTENT_SYNC_URL;
+	@Value("${REST_SYNC_URL}")
+	private String REST_SYNC_URL;
 
 	/**
 	 * 这是自己写的，不知道对不对
@@ -71,7 +71,7 @@ public class ContentServiceImpl implements ContentService {
 
 		// 添加缓存同步逻辑
 		try {
-			HttpClientUtil.doGet(REST_BASE_URL + REST_CONTENT_SYNC_URL + content.getCategoryId());
+			HttpClientUtil.doGet(REST_BASE_URL + REST_SYNC_URL);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

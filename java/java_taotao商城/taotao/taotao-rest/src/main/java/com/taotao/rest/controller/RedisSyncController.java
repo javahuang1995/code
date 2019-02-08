@@ -23,7 +23,7 @@ import com.taotao.rest.service.RedisService;
  */
 @Controller
 @RequestMapping("/cache")
-public class RedisController {
+public class RedisSyncController {
 
 	@Autowired
 	private RedisService redisService;

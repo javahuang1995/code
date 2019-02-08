@@ -12,4 +12,5 @@
 	<context:property-placeholder location="classpath:resource/*.properties" />
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="com.taotao.portal.service"></context:component-scan>
+	<context:component-scan base-package="com.taotao.portal.task"></context:component-scan>
 </beans>

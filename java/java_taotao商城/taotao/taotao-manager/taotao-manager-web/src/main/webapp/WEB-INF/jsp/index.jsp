@@ -28,12 +28,28 @@
 	         		<li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
 	         	</ul>
          	</li>
+         	
+         	<li>
+         		<span>商品分类管理</span>
+         		<ul>
+	         		<li data-options="attributes:{'url':'item-cat-list'}">商品分类</li>
+	         	</ul>
+         	</li>
+         	
          	<li>
          		<span>网站内容管理</span>
          		<ul>
 	         		<li data-options="attributes:{'url':'content-category'}">内容分类管理</li>
 	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
 	         	</ul>
+         	</li>
+         	
+         	<li>
+         		<span>缓存管理</span>
+         		<ul>
+         			<li data-options="attributes:{'url':'cache-update'}">缓存刷新</li>
+         			<li data-options="attributes:{'url':'cache-get'}">缓存访问</li>
+         		</ul>
          	</li>
          </ul>
     </div>

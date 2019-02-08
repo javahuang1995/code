@@ -35,17 +35,53 @@ public class ItemController {
 		return tbItem;
 	}
 	
+	/**
+	 * 分页查询所有
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
 	@RequestMapping("/item/list")
 	@ResponseBody
 	public EUDataGridResult getItemList(Integer page, Integer rows) {
 		EUDataGridResult result = itemService.getItemList(page, rows);
 		return result;
 	}
-	
+	/**
+	 * 新增商品
+	 * @param item
+	 * @param desc
+	 * @param itemParams
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/item/save", method=RequestMethod.POST)
 	@ResponseBody
 	private TaotaoResult createItem(TbItem item, String desc, String itemParams) throws Exception {
 		TaotaoResult result = itemService.createItem(item, desc, itemParams);
 		return result;
 	}
+	/**
+	 * 修改商品
+	 * @param item
+	 * @param desc
+	 * @param itemParams
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/item/edit", method=RequestMethod.POST)
+	@ResponseBody
+	private TaotaoResult editItem(TbItem item, String desc, String itemParams) throws Exception {
+		TaotaoResult result = itemService.updateItem(item, desc, itemParams);
+		return result;
+	}
+	
+	@RequestMapping(value="/item/delete", method=RequestMethod.POST)
+	@ResponseBody
+	private TaotaoResult deleteItem(Long ids) throws Exception {
+		TaotaoResult result = itemService.deleteItem(ids);
+		return result;
+	}
+	
+	
 }

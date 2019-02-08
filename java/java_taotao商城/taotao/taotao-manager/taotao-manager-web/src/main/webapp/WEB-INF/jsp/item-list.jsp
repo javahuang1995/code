@@ -17,7 +17,7 @@
         </tr>
     </thead>
 </table>
-<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'" style="width:80%;height:80%;padding:10px;">
+<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/item-edit'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
 
@@ -38,7 +38,7 @@
         handler:function(){
         	$(".tree-title:contains('新增商品')").parent().click();
         }
-    },{
+    },'-',{
         text:'编辑',
         iconCls:'icon-edit',
         handler:function(){
@@ -105,7 +105,7 @@
         		}
         	}).window("open");
         }
-    },{
+    },'-',{
         text:'删除',
         iconCls:'icon-cancel',
         handler:function(){
@@ -117,7 +117,7 @@
         	$.messager.confirm('确认','确定删除ID为 '+ids+' 的商品吗？',function(r){
         	    if (r){
         	    	var params = {"ids":ids};
-                	$.post("/rest/item/delete",params, function(data){
+                	$.post("/item/delete",params, function(data){
             			if(data.status == 200){
             				$.messager.alert('提示','删除商品成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
@@ -139,7 +139,7 @@
         	$.messager.confirm('确认','确定下架ID为 '+ids+' 的商品吗？',function(r){
         	    if (r){
         	    	var params = {"ids":ids};
-                	$.post("/rest/item/instock",params, function(data){
+                	$.post("/item/instock",params, function(data){
             			if(data.status == 200){
             				$.messager.alert('提示','下架商品成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
@@ -149,7 +149,7 @@
         	    }
         	});
         }
-    },{
+    },'-',{
         text:'上架',
         iconCls:'icon-remove',
         handler:function(){
@@ -161,7 +161,7 @@
         	$.messager.confirm('确认','确定上架ID为 '+ids+' 的商品吗？',function(r){
         	    if (r){
         	    	var params = {"ids":ids};
-                	$.post("/rest/item/reshelf",params, function(data){
+                	$.post("/item/reshelf",params, function(data){
             			if(data.status == 200){
             				$.messager.alert('提示','上架商品成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
@@ -171,5 +171,25 @@
         	    }
         	});
         }
-    }];
+    },'-',{ 
+    	//查询按钮不是LinkButton，它有语法，但是也支持解析HTML标签
+		text:"<input name='search' id='sc'/>",
+		iconCls:'icon-search'
+	}];
+    
+	$('#sc').searchbox({ 
+		//触发查询事件
+		searcher:function(value,name){ //value表示输入的值
+			alert("fuck")
+			//alert(value + "," + name)
+			//获取当前查询的关键字，通过DataGrid加载相应的信息，使用load加载和显示第一页的所有行。
+			//如果指定了参数，它将取代'queryParams'属性。通常可以通过传递一些参数执行一次查询，通过调用这个方法会向上面url指定的action去发送请求，从服务器加载新数据。
+			$('#itemList').datagrid('load',{
+				name: value
+			});
+
+		}, 
+		prompt:'请输入搜索关键字' 
+	}); 
+	
 </script>

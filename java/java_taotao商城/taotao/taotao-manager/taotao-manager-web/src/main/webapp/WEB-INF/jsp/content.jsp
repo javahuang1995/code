@@ -10,6 +10,7 @@
 		    <thead>
 		        <tr>
 		            <th data-options="field:'id',width:30">ID</th>
+		            <th data-options="field:'categoryId',width:30">目录ID</th>
 		            <th data-options="field:'title',width:120">内容标题</th>
 		            <th data-options="field:'subTitle',width:100">内容子标题</th>
 		            <th data-options="field:'titleDesc',width:120">内容描述</th>
@@ -28,15 +29,17 @@
 $(function(){
 	var tree = $("#contentCategoryTree");
 	var datagrid = $("#contentList");
+	
 	tree.tree({
 		onClick : function(node){
 			if(tree.tree("isLeaf",node.target)){
 				datagrid.datagrid('reload', {
-					categoryId :node.id
+					categoryId : node.id //这里是关键
 		        });
 			}
 		}
 	});
+	
 });
 var contentListToolbar = [{
     text:'新增',
