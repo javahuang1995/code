@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.taotao.common.pojo.EUTreeNode;
 import com.taotao.common.pojo.TaotaoResult;
@@ -114,7 +115,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		example.createCriteria().andParentIdEqualTo(parentId);
 		List<TbContentCategory> result = contentCategoryMapper.selectByExample(example);
 		
-		if(result == null || result.size() == 0){//如果父亲节点再没有子节点的话，就更新父节点的IsParent属性。
+		if(CollectionUtils.isEmpty(result)){//如果父亲节点再没有子节点的话，就更新父节点的IsParent属性。
 			tbContent = contentCategoryMapper.selectByPrimaryKey(parentId);//找出父节点是parentId的节点
 			tbContent.setIsParent(false);
 			contentCategoryMapper.updateByPrimaryKey(tbContent);
