@@ -69,10 +69,9 @@
 				<configuration>
 					<port>8081</port>
 					<path>/</path>
-<!-- 这个是热部署用的，开发的时候可以注释掉					
-					<url>http://192.168.25.136:8080/manager/text</url>
-					<username>tomcat</username>
-					<password>tomcat</password> -->
+					<url>http://localhost:8081/manager/text</url>
+					<username>huang</username>
+					<password>1995</password>
 				</configuration>
 			</plugin>
 		</plugins>

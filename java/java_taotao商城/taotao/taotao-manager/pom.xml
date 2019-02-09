@@ -32,8 +32,9 @@
 					<port>8080</port>
 					<path>/</path>
 					<contextReloadable>true</contextReloadable>
-					<!-- <url>http://192.168.25.135:8080/manager/text</url> <username>tomcat</username> 
-						<password>tomcat</password> -->
+					<url>http://localhost:8080/manager/text</url>
+					<username>huang</username> 
+					<password>1995</password>
 				</configuration>
 			</plugin>
 		</plugins>

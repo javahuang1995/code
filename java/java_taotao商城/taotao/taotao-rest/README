@@ -25,4 +25,10 @@ http://www.taotao.com:8081/rest/item/param/536563 获取商品id为536563的商�
 
 访问都OK那么rest部件没问题
 
+maven插件使用：
+热部署命令：
+clean tomcat7:redeploy -DskipTests
+运行：
+clean tomcat7:run -DskipTests
+
 
