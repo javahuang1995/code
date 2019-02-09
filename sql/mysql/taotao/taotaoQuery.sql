@@ -2,17 +2,32 @@
 
 -- tb_content有个广告，是大广告 category_id是89，也就是会在前台显示
 -- tb_content_category tb_content
+SELECT * from tb_content_category t where t.parent_id=0;-- 顶层目录
 SELECT * from tb_content_category t where t.id='89';
 SELECT * from tb_content t where t.category_id='89';
 
 
 -- 商品 商品分类 商品描述 tb_item tb_item_cat tb_item_desc
-select* from tb_item t where t.title='情趣内衣啪啪啪';
+select* from tb_item t where t.title='情趣内衣';
 select* from tb_item t where t.title like '%大电视%';
 select* from tb_item t where t.title like '%dd%';
+select* from tb_item t where t.title like '%合约%';
+select* from tb_item t where t.image like '%jd%';
+
+select * from tb_item tt where tt.id not in (select t.id from tb_item t where t.image like '%jd%')
+select * from tb_item t where t.image like '%jd%';
+
+update tb_item t set t.image='http://image.taotao.com/common.jpg' 
+where t.image like '%jd%';
+
+
 
 select* from tb_item t where t.id='1068557';
 select* from tb_item_cat t where t.id='560';
+select* from tb_item_cat t order by t.created desc;
+select* from tb_item_cat t where t.parent_id=0; -- 顶层商品目录
+select* from tb_item_cat t where t.parent_id=6666666;
+
 select * from tb_item_desc  t where t.item_id='1068557';
 
 -- 规格参数 tb_item_param tb_item_param_item

@@ -25,7 +25,7 @@ public class EmitLog {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
+        channel.exchangeDeclare(EXCHANGE_NAME, "fanout");//定义一个交换器exchange
 
 //      分发消息
         for(int i = 0 ; i < 5; i++){

@@ -12,7 +12,8 @@ public class ReceiveLogsTopic2 {
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost(HOST);
 		factory.setUsername("huang");
-		factory.setPassword("1995");		Connection connection = factory.newConnection();
+		factory.setPassword("1995");		
+		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 //		声明一个匹配模式的交换器
 		channel.exchangeDeclare(EXCHANGE_NAME, "topic");
