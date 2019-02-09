@@ -43,6 +43,15 @@ public class MyTest {
 		LOG.info(get);
 		
 	}
+	
+	@Test
+	public void testEnv(){
+		System.getProperties();
+		System.setProperty("log.path", "dd");
+		
+		String get = System.getProperty("log.path");
+		LOG.info(get);
+	}
 
 }
 
