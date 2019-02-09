@@ -60,7 +60,7 @@
 				<configuration>
 					<port>8084</port>
 					<path>/</path>
-					<url>http://localhost:8084/manager/text</url>
+					<url>http://www.taotao.com:8084/manager/text</url>
 					<username>huang</username>
 					<password>1995</password>
 				</configuration>

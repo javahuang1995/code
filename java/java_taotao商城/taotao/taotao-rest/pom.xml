@@ -69,7 +69,7 @@
 				<configuration>
 					<port>8081</port>
 					<path>/</path>
-					<url>http://localhost:8081/manager/text</url>
+					<url>http://www.taotao.com:8081/manager/text</url>
 					<username>huang</username>
 					<password>1995</password>
 				</configuration>

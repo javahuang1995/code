@@ -1,1 +1,36 @@
 后台管理系统
+host配置本地
+
+#开发环境
+#portal
+127.0.0.1 www.taotao.com
+
+
+#主要是给前台portal使用的
+127.0.0.1 rest.taotao.com
+127.0.0.1 search.taotao.com
+127.0.0.1 sso.taotao.com
+127.0.0.1 order.taotao.com
+127.0.0.1 manage.taotao.com
+
+
+192.168.0.104 www.db.com
+192.168.0.104 image.taotao.com
+
+
+# linux环境
+# portal
+192.168.0.104 www.taotao.com 
+
+#主要是给前台portal使用的
+192.168.0.104 rest.taotao.com
+192.168.0.104 search.taotao.com
+192.168.0.104 sso.taotao.com
+192.168.0.104 order.taotao.com
+192.168.0.104 manage.taotao.com
+
+192.168.0.104 www.db.com
+192.168.0.104 image.taotao.com
+
+
+

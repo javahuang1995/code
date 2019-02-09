@@ -32,7 +32,7 @@
 					<port>8080</port>
 					<path>/</path>
 					<contextReloadable>true</contextReloadable>
-					<url>http://localhost:8080/manager/text</url>
+					<url>http://www.taotao.com:8080/manager/text</url>
 					<username>huang</username> 
 					<password>1995</password>
 				</configuration>
