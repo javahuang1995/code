@@ -21,5 +21,6 @@ rest部件测试:开启redis服务器，数据库
 <a href="http://www.taotao.com:8081/rest/item/info/536563">获取商品id为536563的商品信息</a></br>
 <a href="http://www.taotao.com:8081/rest/item/desc/536563">获取商品id为536563的商品描述</a></br>
 <a href="http://www.taotao.com:8081/rest/item/param/536563">获取商品id为536563的商品参数</a></br>
+<a href="http://www.taotao.com:8081/rest/cache/sync">刷新缓存</a></br>
 </body>
 </html>
