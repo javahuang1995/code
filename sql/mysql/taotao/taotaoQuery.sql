@@ -8,7 +8,7 @@ SELECT * from tb_content t where t.category_id='89';
 
 
 -- 商品 商品分类 商品描述 tb_item tb_item_cat tb_item_desc
-select* from tb_item t where t.title='情趣内衣';
+select* from tb_item t where t.image!='http://image.taotao.com/common.jpg';
 select* from tb_item t where t.title like '%大电视%';
 select* from tb_item t where t.title like '%dd%';
 select* from tb_item t where t.title like '%合约%';

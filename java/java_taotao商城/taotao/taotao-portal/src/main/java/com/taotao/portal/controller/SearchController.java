@@ -26,7 +26,13 @@ public class SearchController {
 
 	@Autowired
 	private SearchService searchService;
-	
+	/**
+	 * 
+	 * @param queryString 查询String 比如手机
+	 * @param page        查询第几页，默认查询第一页，如果要翻页的话，就是传入2,3,4。。
+	 * @param model       这个就是model。。。。
+	 * @return
+	 */
 	@RequestMapping("/search")
 	public String search(@RequestParam("q")String queryString, @RequestParam(defaultValue="1")Integer page, Model model) {
 		if (queryString != null) {
@@ -39,8 +45,13 @@ public class SearchController {
 		SearchResult searchResult = searchService.search(queryString, page);
 		//向页面传递参数
 		model.addAttribute("query", queryString);
-		model.addAttribute("totalPages", searchResult.getPageCount());
-		model.addAttribute("itemList", searchResult.getItemList());
+		
+		//查询条件为空的时候，会报空指针，加上判空指针。。
+		if(searchResult != null){
+			model.addAttribute("totalPages", searchResult.getPageCount());
+			model.addAttribute("itemList", searchResult.getItemList());
+		}
+		
 		model.addAttribute("page", page);
 		
 		return "search";
