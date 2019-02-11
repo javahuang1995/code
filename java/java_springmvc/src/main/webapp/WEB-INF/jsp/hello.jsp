@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-Spring Hello页面。。。
+Spring Hello页面。。。</br>
+下面我们取一下model里面传过来的数据。也就是request里面的属性。。</br>
+我的女孩：${girl}<br>
+罩杯:${size}<br>
 </body>
 </html>
