@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.taotao.common.utils.CookieUtils;
 import com.taotao.pojo.TbUser;
-import com.taotao.portal.service.UserService;
 import com.taotao.portal.service.impl.UserServiceImpl;
 
 public class LoginInterceptor implements HandlerInterceptor {
@@ -28,7 +27,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		TbUser user = userService.getUserByToken(token);
 		//取不到用户信息
 		if (null == user) {
-			//跳转到登录页面，把用户请求的url作为参数传递给登录页面。
+			//跳转到登录页面，把用户请求的url作为参数传递给登录页面。因为这是用户请求的url，我们需要保存他，用户登录完成之后，需要把他引导那个地方去。
 			response.sendRedirect(userService.SSO_DOMAIN_BASE_USRL + userService.SSO_PAGE_LOGIN 
 					+ "?redirect=" + request.getRequestURL());
 			//返回false

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -92,7 +93,7 @@ public class CartServiceImpl implements CartService{
 	private List<CartItem> getCartItemList(HttpServletRequest request) {
 		//从cookie中取商品列表
 		String cartJson = CookieUtils.getCookieValue(request, "TT_CART", true);
-		if (cartJson == null) {
+		if (StringUtils.isEmpty(cartJson)) {
 			return new ArrayList<>();
 		}
 		//把json转换成商品列表

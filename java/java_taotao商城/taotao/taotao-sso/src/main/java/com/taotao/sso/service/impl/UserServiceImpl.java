@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService {
 		}
 		//生成token
 		String token = UUID.randomUUID().toString();
-		//保存用户之前，把用户对象中的密码清空。
+		//保存用户之前，把用户对象中的密码清空。(不该把用户的密码信息保存到redis里面去)
 		user.setPassword(null);
 		//把用户信息写入redis
 		jedisClient.set(REDIS_USER_SESSION_KEY + ":" + token, JsonUtils.objectToJson(user));

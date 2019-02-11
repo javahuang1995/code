@@ -134,7 +134,7 @@
               </div>
               <div class="total fr">
                   总计（不含运费）：
-                  <span class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>
+                  <span id="total_Price" class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>
               </div>
           </div>
       </div></div>

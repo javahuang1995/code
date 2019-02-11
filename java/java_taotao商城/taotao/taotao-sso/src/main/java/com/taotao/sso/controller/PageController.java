@@ -21,6 +21,14 @@ public class PageController {
 	public String showRegister() {
 		return "register";
 	}
+	
+	/**
+	 * redirect这个参数，是拦截器传过来的，是用户本来想去的地方。
+	 * redirect=http://www.taotao.com:8082/order/order-cart.html
+	 * @param redirect
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/login")
 	public String showLogin(String redirect, Model model) {
 		model.addAttribute("redirect", redirect);

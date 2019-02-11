@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +18,12 @@ import com.taotao.pojo.TbUser;
 import com.taotao.sso.service.UserService;
 
 /**
- * 用户Controller
- * <p>Title: UserController</p>
- * <p>Description: </p>
- * <p>Company: www.itcast.com</p> 
- * @author	入云龙
- * @date	2015年9月14日上午10:52:43
- * @version 1.0
+ * 1.checkData 查看用户是否已经注册
+ * 2.登录
+ * 3.注册
+ * 4.getUserToken 查看用户是否已经登录(比较redis存放的token和Cookie中的是否一样)
+ * @author huang
+ *
  */
 @Controller
 @RequestMapping("/user")

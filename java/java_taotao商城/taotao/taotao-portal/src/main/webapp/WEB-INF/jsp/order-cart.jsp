@@ -31,6 +31,7 @@
 <!--这个地方是提交订单，仍然采用了JSP的EL表达式，前端和后端没有完全解耦，有没有更好的办法？？-->
 <form id="orderForm" class="hide" action="/order/create.html" method="post">
 		<input type="hidden" name="paymentType" value="1"/>
+		<input type="hidden" name="token" value="${sessionScope.token}"/>
 		<c:forEach items="${cartList }" var="cart" varStatus="status">
 			<c:set var="totalPrice"  value="${ totalPrice + (cart.price * cart.num)}"/>
 			<input type="hidden" name="orderItems[${status.index}].itemId" value="${cart.id}"/>
