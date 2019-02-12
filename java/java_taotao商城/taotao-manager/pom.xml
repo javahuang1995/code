@@ -24,7 +24,6 @@
 	</modules>
 	<build>
 		<!-- 配置插件 -->
-		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
