@@ -41,6 +41,7 @@ select * from tb_order_item;
 select * from tb_order_shipping;
 
 
+
 -- 用户信息 tb_user
 select * from tb_user;
 select * from tb_user t where t.username='huang';
