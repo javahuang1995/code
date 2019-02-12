@@ -61,6 +61,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+	<finalName>ROOT</finalName>
 		<!-- 配置插件 -->
 		<plugins>
 			<plugin>
