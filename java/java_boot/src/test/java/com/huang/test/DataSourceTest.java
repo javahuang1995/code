@@ -1,6 +1,6 @@
 ﻿package com.huang.test;
 
-import com.huang.JsonUtils;
+import com.huang.common.utils.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MonsterlanApplicationTests {
+public class DataSourceTest {
    @Autowired
    private DataSourceProperties dataSourceProperties;
 

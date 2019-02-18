@@ -1,4 +1,4 @@
-﻿package com.huang.redis.util;
+﻿package com.huang.redis.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

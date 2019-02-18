@@ -53,4 +53,5 @@ dependencies {
     compile("com.alibaba:druid:1.0.9")
     //lombok
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+    compile ("com.huang:java_common:0.0.1-SNAPSHOT")
 }

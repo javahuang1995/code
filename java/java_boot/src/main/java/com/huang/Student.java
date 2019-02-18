@@ -1,4 +1,4 @@
-package com.huang.domain;
+package com.huang;
 
 import lombok.Data;
 

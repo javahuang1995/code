@@ -1,9 +1,5 @@
 ﻿package com.huang.redis.test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.huang.common.utils.JsonUtils;
-import com.huang.redis.util.JedisClientCluster;
-import com.huang.redis.util.JedisClientSingle;
+
 
 import redis.clients.jedis.Jedis;
 
