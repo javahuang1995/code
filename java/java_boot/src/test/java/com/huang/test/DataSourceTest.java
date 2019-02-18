@@ -1,4 +1,4 @@
-﻿package com.huang.test;
+package com.huang.test;
 
 import com.huang.common.utils.JsonUtils;
 import org.junit.Test;
