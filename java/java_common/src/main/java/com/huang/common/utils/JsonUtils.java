@@ -1,13 +1,13 @@
-package com.huang;
+package com.huang.common.utils;
+
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.List;
-
 /**
- * 
+ * 淘淘商城自定义响应结构
  */
 public class JsonUtils {
 

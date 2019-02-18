@@ -44,5 +44,13 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.springframework.boot:spring-boot-starter-test"
     compile("org.springframework.boot:spring-boot-starter-web")
+    //datasource
+    runtime('mysql:mysql-connector-java')
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("com.alibaba:druid:1.0.9")
+    //lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
 }

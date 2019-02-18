@@ -1,4 +1,4 @@
-﻿package com.huang;
+package com.huang;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

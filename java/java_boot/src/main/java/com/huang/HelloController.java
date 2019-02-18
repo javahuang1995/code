@@ -1,4 +1,4 @@
-﻿package com.huang;
+package com.huang;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
