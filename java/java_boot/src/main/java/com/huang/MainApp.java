@@ -3,11 +3,13 @@ package com.huang;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MainApp {
+public class MainApp
+{
     private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println("dkjjj");
     }
-    
+
 }

@@ -9,15 +9,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
- * 展示商品规格参数
- * <p>Title: ItemParamItemController</p>
- * <p>Description: </p>
- * <p>Company: www.itcast.com</p>
  *
- * @version 1.0
- * @author 入云龙
- * @date 2015年9月5日下午4:23:21
- */
+ * @Auther: 宁哥
+ * @Date: ${DATE} ${HOUR}:${MINUTE}
+ * @Description: 还不知道干嘛。
+ *
+ *                       .::::.
+ *                     .::::::::.
+ *                    :::::::::::
+ *                 ..:::::::::::'
+ *              '::::::::::::'
+ *                .::::::::::
+ *           '::::::::::::::..
+ *                ..::::::::::::.
+ *              ``::::::::::::::::
+ *               ::::``:::::::::'        .:::.
+ *              ::::'   ':::::'       .::::::::.
+ *            .::::'      ::::     .:::::::'::::.
+ *           .:::'       :::::  .:::::::::' ':::::.
+ *          .::'        :::::.:::::::::'      ':::::.
+ *         .::'         ::::::::::::::'         ``::::.
+ *     ...:::           ::::::::::::'              ``::.
+ *    ```` ':.          ':::::::::'                  ::::..
+ *                       '.:::::'                    ':'````..
+ **/
 @Controller
 public class ItemParamItemController
 {
