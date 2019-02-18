@@ -1,4 +1,4 @@
-﻿package com.huang.common.utils;
+package com.huang.common.utils;
 
 import java.io.*;
 

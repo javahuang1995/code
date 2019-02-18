@@ -1,39 +1,46 @@
 package com.huang;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
 @SpringBootApplication
-public class Application {
+@ComponentScan(basePackages = {"com.huang.service.impl"})
+@MapperScan("com.huang.mapper")
+public class Application
+{
 
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
+    {
         return application.sources(Application.class);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SpringApplication.run(Application.class, args);
     }
 
 
-
     @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-
+    public CommandLineRunner commandLineRunner(ApplicationContext ctx)
+    {
+        return args ->
+        {
             System.out.println("Let's inspect the beans provided by Spring Boot:");
-
             String[] beanNames = ctx.getBeanDefinitionNames();
             Arrays.sort(beanNames);
-            for (String beanName : beanNames) {
+            for (String beanName : beanNames)
+            {
                 System.out.println(beanName);
             }
-
         };
     }
 

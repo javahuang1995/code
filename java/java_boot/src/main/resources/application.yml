@@ -1,0 +1,9 @@
+mybatis:
+  typeAliasesPackage: com.taotao.pojo
+  mapperLocations: classpath:com/huang/mapper/*.xml
+
+pagehelper:
+  helpDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

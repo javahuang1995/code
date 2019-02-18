@@ -9,6 +9,15 @@
 	<artifactId>java_common</artifactId>
 	<!-- jar包的依赖 -->
 	<dependencies>
+
+		<dependency>
+			<groupId>com.github.miemiedev</groupId>
+			<artifactId>mybatis-paginator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
 		<!-- 时间操作组件 -->
 		<dependency>
 			<groupId>joda-time</groupId>
