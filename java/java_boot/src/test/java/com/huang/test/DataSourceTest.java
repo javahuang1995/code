@@ -3,6 +3,8 @@ package com.huang.test;
 import com.huang.common.utils.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +24,13 @@ public class DataSourceTest {
    @Autowired
    private ApplicationContext applicationContext;
 
+   private static final Logger logger = LoggerFactory.getLogger(DataSourceTest.class);
+
+
+   @Test
+   public void testLog(){
+      logger.info("lllll");
+   }
    @Test
    public void contextLoads() {
       // 获取配置的数据源
@@ -34,5 +43,6 @@ public class DataSourceTest {
       JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
       List<?> resultList = jdbcTemplate.queryForList("select * from tb_user");
       System.out.println("===>>>>>>>>>>>" + JsonUtils.objectToJson(resultList));
+
    }
 }

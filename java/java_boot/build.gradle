@@ -45,7 +45,11 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.springframework.boot:spring-boot-starter-test"
-    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-web"){
+        //不生效，不知道为什么。。
+        exclude module: 'org.springframework.boot:spring-boot-starter-logging'
+    }
+   // compile ('org.springframework.boot:spring-boot-starter-log4j2')
     //datasource
     runtime('mysql:mysql-connector-java')
     compile("org.springframework.boot:spring-boot-starter-jdbc")
@@ -53,5 +57,7 @@ dependencies {
     compile("com.alibaba:druid:1.0.9")
     //lombok
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
-    compile ("com.huang:java_common:0.0.1-SNAPSHOT")
+    compile ("com.huang:java_common:0.0.1-SNAPSHOT"){
+        exclude module:"slf4j-log4j12"
+    }
 }
