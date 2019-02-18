@@ -4,24 +4,24 @@
 
 /*use shop;*/
 /*删除管理员表*/
-drop table if exists account;
+drop table if exists t_account;
 /*删除商品类别表*/
-drop table if exists category;
+drop table if exists t_category;
 /*删除商品信息表*/
-drop table if exists product;
+drop table if exists t_product;
 /*删除购物项表*/
-drop table if exists forder;
+drop table if exists t_forder;
 /*删除购物车（订单）表*/
-drop table if exists sorder;
+drop table if exists t_sorder;
 /*删除订单状态表*/
-drop table if exists status;
+drop table if exists t_status;
 /*删除用户表*/
-drop table if exists user;
+drop table if exists t_user;
 
 /*============================*/
 /*      Table：管理员表结构                       */
 /*============================*/
-create table account
+create table t_account
 (
 	/* 管理员编号，自动增长 */
 	id int primary key not null auto_increment,
@@ -36,7 +36,7 @@ create table account
 /*============================*/
 /*     Table：商品类别表结构                      */
 /*============================*/
-create table category
+create table t_category
 (
    /* 类别编号，自动增长 */
    id  int primary key not null auto_increment,
@@ -46,13 +46,13 @@ create table category
    hot  bool default false,
    /* 外键，此类别由哪位管理员管理 */
    aid int,
-   constraint aid_FK foreign key(aid) references account(id)
+   constraint aid_FK foreign key(aid) references t_account(id)
 );
 
 /*=============================*/
 /* Table: 商品表结构	 		   */
 /*=============================*/
-create table product
+create table t_product
 (
    /* 商品编号,自动增长 */
    id                  int primary key not null auto_increment,
@@ -74,13 +74,13 @@ create table product
    open                bool,
    /* 商品所在的类别编号*/
    cid                  int,
-   constraint cid_FK foreign key(cid) references category(id)
+   constraint cid_FK foreign key(cid) references t_category(id)
 );
 
 /*============================*/
 /* Table: 用户表结构 		      */
 /*============================*/
-create table user
+create table t_user
 (
    /* 用户编号,自动增长 */
    id                  int primary key not null auto_increment,
@@ -101,7 +101,7 @@ create table user
 /*=============================*/
 /* Table: 订单状态表结构 		       */
 /*=============================*/
-create table status
+create table t_status
 (
    /* 状态编号,自动增长 */
    id                  int primary key not null auto_increment,
@@ -112,7 +112,7 @@ create table status
 /*=============================*/
 /* Table: 购物车（订单）表结构		   */
 /*=============================*/
-create table forder
+create table t_forder
 (
    /* 订单编号,自动增长 */
    id                  int primary key not null auto_increment,
@@ -134,8 +134,8 @@ create table forder
    sid                 int default 1,
    /* 会员编号 */
    uid                 int,
-   constraint sid_FK foreign key(sid) references status(id),
-   constraint uid_FK foreign key(uid) references user(id)
+   constraint sid_FK foreign key(sid) references t_status(id),
+   constraint uid_FK foreign key(uid) references t_user(id)
 );
 
 /* 修改自动增长的初始值 */
@@ -159,100 +159,100 @@ create table sorder
    pid                  int,
    /* 此订单项,所属的订单编号 */
    fid                  int,
-   constraint pid_FK foreign key(pid) references product(id),
-   constraint fid_FK foreign key(fid) references forder(id)
+   constraint pid_FK foreign key(pid) references t_product(id),
+   constraint fid_FK foreign key(fid) references t_forder(id)
 );
 
 /*插入测试用例*/
-insert into account(login,name,pass) values('admin','管理员','admin');
-insert into account(login,name,pass) values('user','客服A','user');
+insert into t_account(login,name,pass) values('admin','管理员','admin');
+insert into t_account(login,name,pass) values('user','客服A','user');
 
-INSERT INTO category (type,hot,aid) VALUES ('男士休闲',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('女士休闲',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('儿童休闲',true,2);
-INSERT INTO category (type,hot,aid) VALUES ('老人休闲',true,2);
+INSERT INTO t_category (type,hot,aid) VALUES ('男士休闲',true,1);
+INSERT INTO t_category (type,hot,aid) VALUES ('女士休闲',true,1);
+INSERT INTO t_category (type,hot,aid) VALUES ('儿童休闲',true,2);
+INSERT INTO t_category (type,hot,aid) VALUES ('老人休闲',true,2);
 
 /* 商品测试用例 */
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('圣得西服',2999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,1);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('罗蒙西服',1999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,1);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('衫衫西服',3999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,1);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('金利来西服',4999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,1);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('韩版女装',199.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,2);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('雪地靴',299.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,2);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('欧版女装',3999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,2);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('女款手套',4999.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,2);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('佳能单反机',3998.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,3);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('金士顿优盘',299.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,3);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('日立硬盘',599.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,3);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('大水牛机箱',399.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,3);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('电脑桌',150.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,4);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('老板椅',199.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,4);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('空调',3599.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,4);
 
-INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 
+INSERT INTO t_product (name,price,pic,remark,xremark,commend,open,cid) VALUES
 ('电视',699.00,'test.jpg','这里是简单介绍','这里是详细介绍',true,true,4);
 
 /* 用户测试用例 */
-INSERT INTO user (login,name,pass,sex,phone,email)
+INSERT INTO t_user (login,name,pass,sex,phone,email)
 VALUES ('user','小刚','user','男','15216771570','nishengwus@163.com');
 
-INSERT INTO user (login,name,pass,sex,phone,email)
+INSERT INTO t_user (login,name,pass,sex,phone,email)
 VALUES ('user2','小琴','user2','女','13812345679','20000@qq.com');
 
 /*插入状态测试用例*/
-INSERT INTO status (status) VALUES ('未支付');
-INSERT INTO status (status) VALUES ('已支付');
-INSERT INTO status (status) VALUES ('配送中');
-INSERT INTO status (status) VALUES ('订单完成');
+INSERT INTO t_status (status) VALUES ('未支付');
+INSERT INTO t_status (status) VALUES ('已支付');
+INSERT INTO t_status (status) VALUES ('配送中');
+INSERT INTO t_status (status) VALUES ('订单完成');
 
 /*插入购物车测试用例*/
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'广州天河区','1000',1);
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'上海嘉定区','1000',2);
-INSERT INTO forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'上海宝山区','1000',2);
+INSERT INTO t_forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'广州天河区','1000',1);
+INSERT INTO t_forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'上海嘉定区','1000',2);
+INSERT INTO t_forder (name,phone,remark,date,total,address,post,uid) VALUES ('bb','123','备注',default,200.3,'上海宝山区','1000',2);
 
 /*插入购物车项测试用例*/
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('空调',200,3,15,201605001);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('电视',0.3,5,16,201605001);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('杉杉西服',0.3,7,3,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('圣德西服',0.3,12,1,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('韩版女装',0.3,20,5,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('雪地靴',0.3,10,6,201605003);
-INSERT INTO sorder (name,price,number,pid,fid) VALUES ('欧版女装',0.3,9,7,201605003);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('空调',200,3,15,201605001);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('电视',0.3,5,16,201605001);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('杉杉西服',0.3,7,3,201605003);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('圣德西服',0.3,12,1,201605003);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('韩版女装',0.3,20,5,201605003);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('雪地靴',0.3,10,6,201605003);
+INSERT INTO t_sorder (name,price,number,pid,fid) VALUES ('欧版女装',0.3,9,7,201605003);
 
-SELECT * FROM account;
-SELECT * FROM category;
-SELECT * FROM product;
-SELECT * FROM user;
-SELECT * FROM status;
-SELECT * FROM forder;
-SELECT * FROM sorder;
+SELECT * FROM t_account;
+SELECT * FROM t_category;
+SELECT * FROM t_product;
+SELECT * FROM t_user;
+SELECT * FROM t_status;
+SELECT * FROM t_forder;
+SELECT * FROM t_sorder;
 select sum(number) as '销量', name '名称' from sorder group by pid

@@ -1,3 +1,21 @@
+
+select * from tb_student t;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**查看MYSQL数据库服务器和数据库字符集**/
 show variables like '%character%';
 
