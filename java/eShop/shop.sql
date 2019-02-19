@@ -145,7 +145,7 @@ ALTER TABLE forder AUTO_INCREMENT = 201605001;
 /* Table: 购物项表结构 		       */
 /*=============================*/
 
-create table sorder
+create table t_sorder
 (
    /* 购物项编号,自动增长 */
    id                  int primary key not null auto_increment,

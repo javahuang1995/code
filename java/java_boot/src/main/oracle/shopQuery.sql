@@ -12,4 +12,3 @@ SELECT * from t_forder t;-- 订单
 select * from t_user t;
 select * from t_status t;
 
-select t."name" from huang.t_user t;

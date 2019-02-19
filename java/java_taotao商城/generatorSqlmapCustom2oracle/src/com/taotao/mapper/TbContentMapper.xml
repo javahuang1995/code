@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.taotao.mapper.TbContentMapper" >
+  <resultMap id="BaseResultMap" type="com.taotao.pojo.TbContent" >
+    <id column="id" property="id" jdbcType="DECIMAL" />
+    <result column="CATEGORY_ID" property="categoryId" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="OTHER" />
+    <result column="SUB_TITLE" property="subTitle" jdbcType="OTHER" />
+    <result column="TITLE_DESC" property="titleDesc" jdbcType="OTHER" />
+    <result column="url" property="url" jdbcType="OTHER" />
+    <result column="PIC" property="pic" jdbcType="OTHER" />
+    <result column="PIC2" property="pic2" jdbcType="OTHER" />
+    <result column="content" property="content" jdbcType="OTHER" />
+    <result column="CREATED" property="created" jdbcType="DATE" />
+    <result column="updated" property="updated" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, CATEGORY_ID, TITLE, SUB_TITLE, TITLE_DESC, url, PIC, PIC2, content, CREATED, 
+    updated
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.taotao.pojo.TbContentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HUANG.TB_CONTENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from HUANG.TB_CONTENT
+    where id = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from HUANG.TB_CONTENT
+    where id = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.taotao.pojo.TbContentExample" >
+    delete from HUANG.TB_CONTENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.taotao.pojo.TbContent" >
+    insert into HUANG.TB_CONTENT (id, CATEGORY_ID, TITLE, 
+      SUB_TITLE, TITLE_DESC, url, 
+      PIC, PIC2, content, CREATED, 
+      updated)
+    values (#{id,jdbcType=DECIMAL}, #{categoryId,jdbcType=DECIMAL}, #{title,jdbcType=OTHER}, 
+      #{subTitle,jdbcType=OTHER}, #{titleDesc,jdbcType=OTHER}, #{url,jdbcType=OTHER}, 
+      #{pic,jdbcType=OTHER}, #{pic2,jdbcType=OTHER}, #{content,jdbcType=OTHER}, #{created,jdbcType=DATE}, 
+      #{updated,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.taotao.pojo.TbContent" >
+    insert into HUANG.TB_CONTENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="categoryId != null" >
+        CATEGORY_ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="subTitle != null" >
+        SUB_TITLE,
+      </if>
+      <if test="titleDesc != null" >
+        TITLE_DESC,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="pic != null" >
+        PIC,
+      </if>
+      <if test="pic2 != null" >
+        PIC2,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="created != null" >
+        CREATED,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=OTHER},
+      </if>
+      <if test="subTitle != null" >
+        #{subTitle,jdbcType=OTHER},
+      </if>
+      <if test="titleDesc != null" >
+        #{titleDesc,jdbcType=OTHER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=OTHER},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=OTHER},
+      </if>
+      <if test="pic2 != null" >
+        #{pic2,jdbcType=OTHER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=OTHER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=DATE},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.taotao.pojo.TbContentExample" resultType="java.lang.Integer" >
+    select count(*) from HUANG.TB_CONTENT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update HUANG.TB_CONTENT
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.categoryId != null" >
+        CATEGORY_ID = #{record.categoryId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=OTHER},
+      </if>
+      <if test="record.subTitle != null" >
+        SUB_TITLE = #{record.subTitle,jdbcType=OTHER},
+      </if>
+      <if test="record.titleDesc != null" >
+        TITLE_DESC = #{record.titleDesc,jdbcType=OTHER},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=OTHER},
+      </if>
+      <if test="record.pic != null" >
+        PIC = #{record.pic,jdbcType=OTHER},
+      </if>
+      <if test="record.pic2 != null" >
+        PIC2 = #{record.pic2,jdbcType=OTHER},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=OTHER},
+      </if>
+      <if test="record.created != null" >
+        CREATED = #{record.created,jdbcType=DATE},
+      </if>
+      <if test="record.updated != null" >
+        updated = #{record.updated,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update HUANG.TB_CONTENT
+    set id = #{record.id,jdbcType=DECIMAL},
+      CATEGORY_ID = #{record.categoryId,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=OTHER},
+      SUB_TITLE = #{record.subTitle,jdbcType=OTHER},
+      TITLE_DESC = #{record.titleDesc,jdbcType=OTHER},
+      url = #{record.url,jdbcType=OTHER},
+      PIC = #{record.pic,jdbcType=OTHER},
+      PIC2 = #{record.pic2,jdbcType=OTHER},
+      content = #{record.content,jdbcType=OTHER},
+      CREATED = #{record.created,jdbcType=DATE},
+      updated = #{record.updated,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.taotao.pojo.TbContent" >
+    update HUANG.TB_CONTENT
+    <set >
+      <if test="categoryId != null" >
+        CATEGORY_ID = #{categoryId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=OTHER},
+      </if>
+      <if test="subTitle != null" >
+        SUB_TITLE = #{subTitle,jdbcType=OTHER},
+      </if>
+      <if test="titleDesc != null" >
+        TITLE_DESC = #{titleDesc,jdbcType=OTHER},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=OTHER},
+      </if>
+      <if test="pic != null" >
+        PIC = #{pic,jdbcType=OTHER},
+      </if>
+      <if test="pic2 != null" >
+        PIC2 = #{pic2,jdbcType=OTHER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=OTHER},
+      </if>
+      <if test="created != null" >
+        CREATED = #{created,jdbcType=DATE},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.taotao.pojo.TbContent" >
+    update HUANG.TB_CONTENT
+    set CATEGORY_ID = #{categoryId,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=OTHER},
+      SUB_TITLE = #{subTitle,jdbcType=OTHER},
+      TITLE_DESC = #{titleDesc,jdbcType=OTHER},
+      url = #{url,jdbcType=OTHER},
+      PIC = #{pic,jdbcType=OTHER},
+      PIC2 = #{pic2,jdbcType=OTHER},
+      content = #{content,jdbcType=OTHER},
+      CREATED = #{created,jdbcType=DATE},
+      updated = #{updated,jdbcType=DATE}
+    where id = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
