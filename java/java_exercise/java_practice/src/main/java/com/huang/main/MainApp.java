@@ -11,12 +11,8 @@ public class MainApp
 {
 	
 	public static void main(String[] args) {
-		MainApp a= new MainApp();
-		//a.maptest();
-		//a.stream();
-		//a.outputStream();
-		//a.Reader();
-		ListStudy.for1();
+		int i = 10;
+		System.out.println(i/0);
 
 	}
 
@@ -36,7 +32,8 @@ public class MainApp
 		try {
 			FileOutputStream fos = new FileOutputStream("test.txt");
 			int count,n=512;
-			byte[] buffer = new byte[n];//字节流需要用字节数组
+			//字节流需要用字节数组
+			byte[] buffer = new byte[n];
 			count = System.in.read(buffer);
 			fos.write(buffer,0,count);
 			fos.flush();
