@@ -1,1 +1,7 @@
 /target/
+/.settings
+/.project
+/.classpath
+/java_common.iml
+
+*.class
