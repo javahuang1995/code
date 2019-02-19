@@ -1,4 +1,4 @@
-﻿package com.huang.annotation.test;
+package com.huang.annotation.test;
 /**
  * User.java
  * 在数据模型中使用注解

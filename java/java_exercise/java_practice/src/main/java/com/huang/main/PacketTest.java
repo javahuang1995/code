@@ -1,4 +1,4 @@
-﻿package com.huang.main;
+package com.huang.main;
 
 public class PacketTest {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-﻿package com.huang.sort;
+package com.huang.sort;
 
 public class ShellSort {
 	public static void main(String[] args) {

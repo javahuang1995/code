@@ -1,4 +1,4 @@
-﻿package com.shop.service.impl;
+package com.shop.service.impl;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;

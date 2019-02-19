@@ -1,4 +1,4 @@
-﻿package com.huang.dynamic.proxy;
+package com.huang.dynamic.proxy;
 /**
  * 需要被代理的类 实现了一个接口Person
  * @author yujie.wang

@@ -1,4 +1,4 @@
-﻿package com.huang.main;  
+package com.huang.main;  
  
 import java.text.ParseException;  
 import java.util.Collection;  

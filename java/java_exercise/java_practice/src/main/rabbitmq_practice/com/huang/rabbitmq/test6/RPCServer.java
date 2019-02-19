@@ -1,4 +1,4 @@
-﻿package com.huang.rabbitmq.test6;
+package com.huang.rabbitmq.test6;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;

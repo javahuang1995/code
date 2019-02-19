@@ -1,4 +1,4 @@
-﻿package com.huang.datastruct.rbtree;
+package com.huang.datastruct.rbtree;
 
 public class RBTree<T extends Comparable<T>> {
 

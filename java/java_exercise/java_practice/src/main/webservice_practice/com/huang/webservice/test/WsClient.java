@@ -1,4 +1,4 @@
-﻿package com.huang.webservice.test;
+package com.huang.webservice.test;
  
 public class WsClient {
  

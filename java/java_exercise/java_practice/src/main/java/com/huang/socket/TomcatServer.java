@@ -1,4 +1,4 @@
-﻿package com.huang.socket;  
+package com.huang.socket;  
   
 import java.io.*;  
 import java.net.ServerSocket;  

@@ -1,4 +1,4 @@
-﻿package com.huang.webservice.test;
+package com.huang.webservice.test;
 
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 

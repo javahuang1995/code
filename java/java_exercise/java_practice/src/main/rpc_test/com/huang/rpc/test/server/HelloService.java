@@ -1,4 +1,4 @@
-﻿package com.huang.rpc.test.server;
+package com.huang.rpc.test.server;
 // 服务接口
 public interface HelloService {
 

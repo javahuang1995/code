@@ -1,4 +1,4 @@
-﻿package com.huang.reflect;
+package com.huang.reflect;
 /**
  * 写一个程序根据用户提供的类名，调用该类的里的main方法。
  */

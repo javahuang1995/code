@@ -51,3 +51,5 @@
 /*.log
 /java/3rd source
 /java/generatorSqlmapCustom/bin
+/java/tool/*.log
+/sublime

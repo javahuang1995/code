@@ -1,4 +1,4 @@
-﻿package com.huang.spring.aop.test;
+package com.huang.spring.aop.test;
 
 import javax.annotation.Resource;
 

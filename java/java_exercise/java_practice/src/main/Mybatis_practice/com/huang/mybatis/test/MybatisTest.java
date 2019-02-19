@@ -1,4 +1,4 @@
-﻿package com.huang.mybatis.test;
+package com.huang.mybatis.test;
 
 import java.util.HashMap;
 import java.util.List;

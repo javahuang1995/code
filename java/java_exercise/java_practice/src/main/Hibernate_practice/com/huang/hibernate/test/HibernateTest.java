@@ -1,4 +1,4 @@
-﻿package com.huang.hibernate.test;
+package com.huang.hibernate.test;
 
 import java.util.List;
 

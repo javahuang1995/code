@@ -1,4 +1,4 @@
-﻿package com.huang.dynamic.proxy;
+package com.huang.dynamic.proxy;
 /**
  * 顶层接口
  * @author yujie.wang

@@ -1,4 +1,4 @@
-﻿package com.shop.model;
+package com.shop.model;
 
 import java.util.HashSet;
 import java.util.Set;

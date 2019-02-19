@@ -1,4 +1,4 @@
-﻿package com.huang.reflect;
+package com.huang.reflect;
 import java.lang.reflect.*;
 /**
  * 反射就是在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。

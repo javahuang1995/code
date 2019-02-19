@@ -1,4 +1,4 @@
-﻿package com.huang.annotation.test;
+package com.huang.annotation.test;
 /**
  * Test.java
  * 

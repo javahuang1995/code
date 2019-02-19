@@ -1,4 +1,4 @@
-﻿package com.huang.sort;
+package com.huang.sort;
 
 /**
  * 冒泡排序 选择排序 插入排序

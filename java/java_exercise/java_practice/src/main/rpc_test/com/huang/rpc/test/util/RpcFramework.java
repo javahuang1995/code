@@ -1,4 +1,4 @@
-﻿package com.huang.rpc.test.util;
+package com.huang.rpc.test.util;
 
 import java.util.*;
 import java.net.*;

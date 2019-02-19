@@ -1,4 +1,4 @@
-﻿
+
 package com.huang.webservice.test;
 
 import javax.jws.WebMethod;

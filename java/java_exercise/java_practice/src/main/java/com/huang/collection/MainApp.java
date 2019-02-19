@@ -1,4 +1,4 @@
-﻿package com.huang.collection;
+package com.huang.collection;
 
 import java.util.HashSet;
 import java.util.Hashtable;

@@ -1,4 +1,4 @@
-﻿package com.huang.annotation.test;
+package com.huang.annotation.test;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

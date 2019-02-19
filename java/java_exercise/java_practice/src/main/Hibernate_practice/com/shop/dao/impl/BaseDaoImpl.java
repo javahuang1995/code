@@ -1,4 +1,4 @@
-﻿package com.shop.dao.impl;
+package com.shop.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

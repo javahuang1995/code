@@ -1,4 +1,4 @@
-﻿package com.huang.redis.test;
+package com.huang.redis.test;
 
 public interface JedisClient {
 

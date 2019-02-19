@@ -1,4 +1,4 @@
-﻿package com.huang.spring.ioc.test;
+package com.huang.spring.ioc.test;
  
 public interface Human {
 	

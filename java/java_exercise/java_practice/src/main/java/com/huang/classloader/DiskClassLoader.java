@@ -1,4 +1,4 @@
-﻿package com.huang.classloader;
+package com.huang.classloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

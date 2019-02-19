@@ -1,4 +1,4 @@
-﻿package com.huang.datastruct.btree;
+package com.huang.datastruct.btree;
 
 public class TreeTest {
 	public static void main(String[] args) {

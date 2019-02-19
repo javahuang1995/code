@@ -1,4 +1,4 @@
-﻿package com.huang.rabbitmq.test3;
+package com.huang.rabbitmq.test3;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;

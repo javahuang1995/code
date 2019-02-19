@@ -1,4 +1,4 @@
-﻿package com.huang.datastruct.btree;
+package com.huang.datastruct.btree;
 
 import com.huang.datastruct.rbtree.BNode;
 

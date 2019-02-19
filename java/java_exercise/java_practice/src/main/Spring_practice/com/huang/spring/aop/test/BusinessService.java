@@ -1,4 +1,4 @@
-﻿package com.huang.spring.aop.test;
+package com.huang.spring.aop.test;
 import org.springframework.stereotype.Service;
 
 @Service

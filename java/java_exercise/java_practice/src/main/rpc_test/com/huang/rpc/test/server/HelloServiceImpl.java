@@ -1,4 +1,4 @@
-﻿package com.huang.rpc.test.server;
+package com.huang.rpc.test.server;
 public class HelloServiceImpl implements HelloService{
     @Override
     public String hello(String name) {

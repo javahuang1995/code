@@ -1,24 +1,23 @@
-﻿package com.huang.main;
+package com.huang.main;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainClass {
+public class MainApp
+{
 	
 	public static void main(String[] args) {
-		MainClass a= new MainClass();
+		MainApp a= new MainApp();
 		//a.maptest();
 		//a.stream();
 		//a.outputStream();
 		//a.Reader();
 		ListStudy.for1();
+
 	}
 
 	public void maptest(){

@@ -1,4 +1,4 @@
-﻿package com.huang.datastruct.heap;
+package com.huang.datastruct.heap;
 public class HeapApp {
 
 	public static void main(String[] args) {

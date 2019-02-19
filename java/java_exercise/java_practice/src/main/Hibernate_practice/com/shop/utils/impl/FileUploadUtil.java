@@ -1,4 +1,4 @@
-﻿package com.shop.utils.impl;
+package com.shop.utils.impl;
 
 import java.io.File;
 import java.io.FilenameFilter;

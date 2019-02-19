@@ -1,4 +1,4 @@
-﻿package com.huang.reflect;
+package com.huang.reflect;
 
 import java.lang.reflect.*;
 

@@ -1,4 +1,4 @@
-﻿package com.huang.spring.main;
+package com.huang.spring.main;
 
 
 import org.springframework.context.ApplicationContext;

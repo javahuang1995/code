@@ -1,4 +1,4 @@
-﻿package com.huang.rpc.test.client;
+package com.huang.rpc.test.client;
 
 import com.huang.rpc.test.util.RpcFramework;
 

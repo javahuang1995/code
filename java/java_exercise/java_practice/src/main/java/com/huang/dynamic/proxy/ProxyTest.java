@@ -1,4 +1,4 @@
-﻿package com.huang.dynamic.proxy;
+package com.huang.dynamic.proxy;
 /**
  * 静态代理，这个代理类也必须要实现和被代理类相同的Person接口
  * @author yujie.wang

@@ -1,4 +1,4 @@
-﻿package com.huang.annotation.test2;
+package com.huang.annotation.test2;
 
 import java.lang.reflect.Method;
 
