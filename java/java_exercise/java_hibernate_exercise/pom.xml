@@ -14,6 +14,7 @@
             <artifactId>java_common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
         <!-- 添加Hibernate依赖 -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -23,6 +24,8 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
         </dependency>
+
+
         <!-- 二级缓存ehcache -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>

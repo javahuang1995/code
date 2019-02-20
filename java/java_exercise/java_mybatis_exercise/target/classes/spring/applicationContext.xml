@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- 数据库连接池 -->
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:resources/*.properties" />
+
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!-- 配置sqlsessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!-- 配置扫描包，加载mapper代理对象 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.taotao.mapper"></property>
+	</bean>
+
+
+	<!--配置注解式事务-->
+	<!--1.如果要使用注解，添加扫描包的路径 -->
+	<context:component-scan base-package="com.taotao.service" />
+	<!--2.希望spring容器 启动AspectJ AOP功能 基于cglib的代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true">
+	</aop:aspectj-autoproxy>
+	<!--3.定义事务管理器（声明式的事务） 开启注解@Tranctional -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<!--4.使用注解 基于cglib的代理 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+
+<!-- 	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="SUPPORTS" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		配置哪些包的类要切入事务
+		<aop:pointcut id="pointcut"
+			expression="execution(* cn.it.shop.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
+			连接了上面的advice和上面的pointcut
+		出现一个很奇怪的问题，aop:pointcut要写在aop:advisor上面，否则会报错
+	</aop:config> -->
+
+
+</beans>

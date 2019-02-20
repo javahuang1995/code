@@ -1,2 +1,2 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://test.webservice.huang.com/")
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://study.webservice.huang.com/")
 package ws.client.c;

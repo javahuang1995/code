@@ -22,7 +22,7 @@ public class HelloAction {
 		return logger;
 	}
 	public String hello() {
-		logger.info("hello,this is a test hello action");
+		logger.info("hello,this is a study hello action");
 		return "index";
 	}
 
