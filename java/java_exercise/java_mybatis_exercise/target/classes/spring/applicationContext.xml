@@ -8,10 +8,8 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<!-- 数据库连接池 -->
 	<!-- 加载配置文件 -->
-	<context:property-placeholder location="classpath:resources/*.properties" />
-
+	<context:property-placeholder location="classpath:*.properties" />
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		destroy-method="close">
@@ -24,12 +22,12 @@
 	</bean>
 	<!-- 配置sqlsessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<!-- 配置扫描包，加载mapper代理对象 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.taotao.mapper"></property>
+		<property name="basePackage" value="com.taotao.mapper"/>
 	</bean>
 
 
@@ -37,35 +35,36 @@
 	<!--1.如果要使用注解，添加扫描包的路径 -->
 	<context:component-scan base-package="com.taotao.service" />
 	<!--2.希望spring容器 启动AspectJ AOP功能 基于cglib的代理 -->
-	<aop:aspectj-autoproxy proxy-target-class="true">
-	</aop:aspectj-autoproxy>
-	<!--3.定义事务管理器（声明式的事务） 开启注解@Tranctional -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+
+	<!-- 事务管理器 -->
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sqlSessionFactory" />
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 数据源 -->
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!--4.使用注解 基于cglib的代理 -->
-	<tx:annotation-driven transaction-manager="transactionManager"
-		proxy-target-class="true" />
-
-
-<!-- 	<tx:advice id="advice" transaction-manager="transactionManager">
+	<!-- advice 定义哪些方法需要被事务管理器管理-->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
+			<!-- 传播行为 -->
 			<tx:method name="save*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
-			<tx:method name="*" propagation="SUPPORTS" />
+			<tx:method name="update*" propagation="REQUIRED" />
+
+			<!-- 查询操作是只读事务 -->
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
 
+	<!-- 切面 -->
 	<aop:config>
-		配置哪些包的类要切入事务
-		<aop:pointcut id="pointcut"
-			expression="execution(* cn.it.shop.service.impl.*.*(..))" />
-		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
-			连接了上面的advice和上面的pointcut
-		出现一个很奇怪的问题，aop:pointcut要写在aop:advisor上面，否则会报错
-	</aop:config> -->
-
+		<aop:advisor advice-ref="txAdvice"
+					 pointcut="execution(* com.taotao.service.*.*(..))" />
+	</aop:config>
 
 </beans>

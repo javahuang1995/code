@@ -41,6 +41,8 @@ public class MybatisTest {
 	 * 这个测试下Mybatis自动生成的mapper，以及Example类
 	 */
 	@Test
+
+
 	public void testExampleCriteria(){
 		TbItemExample example = new TbItemExample();
 		

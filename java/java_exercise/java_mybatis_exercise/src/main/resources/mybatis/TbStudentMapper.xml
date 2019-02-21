@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taotao.mapper.TbStudentMapper">
+	<resultMap id="studentResultMap" type="com.taotao.pojo.TbStudent">
+		<id property="studentID" column="STUDENT_ID" javaType="String" />
+		<result property="studentName" column="STUDENT_NAME" />
+		<result property="studentSex" column="STUDENT_SEX" />
+		<result property="studentBirthday" column="STUDENT_BIRTHDAY" />
+		<association property="teacher" column="TEACHER_ID"
+			select="getTeacher" />
+	</resultMap>
+
+	<!-- 复用sql语句 查询student表所有字段 -->
+	<sql id="selectStudent">
+		SELECT t.STUDENT_ID,
+		t.STUDENT_NAME,
+		t.STUDENT_SEX,
+		t.STUDENT_BIRTHDAY,
+		t.CLASS_ID
+		FROM tb_student t
+	</sql>
+
+	<!-- 查询学生，根据id -->
+	<select id="getStudent" parameterType="String" resultType="TbStudent"
+		resultMap="studentResultMap">
+		<![CDATA[
+			SELECT * from tb_student t
+				WHERE t.STUDENT_ID = #{studentID} 
+		]]>
+	</select>
+
+	<!-- 查询学生，根据name 这里可以复用sql -->
+	<select id="getStudentByName" parameterType="String" resultMap="studentResultMap">
+		<include refid="selectStudent" />
+		WHERE t.STUDENT_NAME = #{studentName}
+	</select>
+
+	<!-- 查询学生，根据name 这里可以复用sql -->
+	<select id="getStudentByMap" parameterType="Map" resultMap="studentResultMap">
+		<include refid="selectStudent" />
+		WHERE t.STUDENT_NAME = #{name}
+		and t.STUDENT_SEX = #{sex}
+		and t.STUDENT_BIRTHDAY = #{date}
+		and t.CLASS_ID
+		= #{class}
+		and t.teacher_id = #{teacher};
+	</select>
+
+
+
+
+	<!-- 查询学生列表 -->
+	<select id="getStudentAll" resultType="com.taotao.pojo.TbStudent"
+		resultMap="studentResultMap">
+		<![CDATA[
+			SELECT * from tb_student
+		]]>
+	</select>
+
+
+	<select id="getTeacher" parameterType="String"
+		resultType="com.taotao.pojo.TbTeacher">
+		SELECT
+		*
+		FROM tb_teacher t
+		WHERE t.TEACHER_ID = #{teacherID}
+	</select>
+
+	<!-- 插入学生 keyProperty应该写bean属性的名字-->
+	<insert id="insertStudent" parameterType="TbStudent">
+		<selectKey keyProperty="studentID" order="BEFORE" resultType="java.lang.String">
+			select UUID()
+		</selectKey>
+		INSERT INTO tb_student
+		(STUDENT_ID,
+		STUDENT_NAME,
+		STUDENT_SEX,
+		STUDENT_BIRTHDAY,
+		CLASS_ID)
+		VALUES
+		(#{studentID},
+		#{studentName},
+		#{studentSex},
+		#{studentBirthday},
+		#{classEntity.classID})
+	</insert>
+
+	<!-- 更新学生信息 -->
+	<update id="updateStudent" parameterType="TbStudent">
+		UPDATE tb_student
+		SET
+		tb_student.STUDENT_NAME = #{studentName},
+		tb_student.STUDENT_SEX =
+		#{studentSex},
+		tb_student.STUDENT_BIRTHDAY = #{studentBirthday},
+		tb_student.CLASS_ID = #{classEntity.classID}
+		WHERE
+		tb_student.STUDENT_ID = #{studentID};
+	</update>
+
+	<!-- 删除学生 -->
+	<delete id="deleteStudent" parameterType="TbStudent">
+		DELETE FROM tb_student
+		WHERE STUDENT_ID = #{studentID};
+	</delete>
+
+
+
+
+</mapper>

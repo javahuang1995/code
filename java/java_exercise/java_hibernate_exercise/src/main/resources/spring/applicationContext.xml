@@ -28,7 +28,7 @@
 		5.3 在struts.xml中class对应的是Spring中配置action的id值 5.4 在web.xml中配置监听器ContextLoaderListener，启动的时候加载Spring配置文件 
 		Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory) -->
 	<context:annotation-config />
-	<context:component-scan base-package="cn.it.shop.." />
+	<context:component-scan base-package="com.shop.*" />
 
 	<!-- 所有的properties文件应该交给Spring管理，而且在启动的时候加载 Spring支持两种方式，property-placeholder仅仅在xml中使用，即在beans.xml中获取properties文件中的对应的value -->
 	<!-- <context:property-placeholder location="classpath:conn.properties"/> -->
@@ -54,19 +54,22 @@
 		</property>
 	</bean>
 
-	<!-- com.mchange.v2.c3p0.ComboPooledDataSource类在c3p0-0.9.5.1.jar包的com.mchange.v2.c3p0包中 -->
-	<bean id="dataSource" class="${dataSource}">
-		<property name="driverClass" value="${driverClass}" />
-		<property name="jdbcUrl" value="${jdbcUrl}?useUnicode=true&amp;characterEncoding=UTF-8" />
-		<property name="user" value="${user}" />
-		<property name="password" value="${password}" />
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="${dataSource}"
+		  destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
 	</bean>
 
 	<!-- org.springframework.orm.hibernate4.LocalSessionFactoryBean类在spring-orm-4.2.4.RELEASE.jar包的org.springframework.orm.hibernate4包中 -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:hibernate.cfg.xml" /> <!-- 加载hibernate配置文件 -->
+		<property name="configLocation" value="classpath:hibernate/hibernate.cfg.xml" /> <!-- 加载hibernate配置文件 -->
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -94,7 +97,7 @@
 	<aop:config>
 		<!-- 配置哪些包的类要切入事务 -->
 		<aop:pointcut id="pointcut"
-			expression="execution(* cn.it.shop.service.impl.*.*(..))" />
+			expression="execution(* com.shop.service.impl.*.*(..))" />
 		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" /><!-- 
 			连接了上面的advice和上面的pointcut -->
 		<!-- 出现一个很奇怪的问题，aop:pointcut要写在aop:advisor上面，否则会报错 -->
