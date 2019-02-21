@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +18,12 @@ import java.util.Arrays;
 @MapperScan("com.huang.mapper")
 public class Application
 {
+
+    /**
+     * @Auther: 宁哥
+     * @Date: ${DATE} ${HOUR}:${MINUTE}
+     * 启动类需要添加Servlet的支持 extends SpringBootServletInitializer
+     */
 
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
     {

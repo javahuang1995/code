@@ -30,6 +30,11 @@ select * from tb_user t where t.username='huang';
 
 
 
+
+
+
+
+
 INSERT INTO `taotao`.`tb_content` (
 	`id`,
 	`category_id`,

@@ -1,9 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: 1995
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  thymeleaf:
+    cache: false
+  rabbitmq:
+    host: 192.168.0.10
+    port: 5672
+    username: huang
+    password: 1995
+  redis:
+    database: 0
+    host: 192.168.0.10
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+
 mybatis:
-  typeAliasesPackage: com.taotao.pojo
-  mapperLocations: classpath:com/huang/mapper/*.xml
+  config-location: classpath:mybatis/SqlMapConfig.xml
+  mapper-locations: classpath:mybatis/*Mapper.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.huang.pojo  # 注意：对应实体类的路径
 
 pagehelper:
   helpDialect: mysql
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+
+REST_BASE_URL: http://rest.taotao.com:8081/rest
+REST_SYNC_URL: /cache/sync/
+FTP_ADDRESS: image.taotao.com
+FTP_PORT: 21
+FTP_USERNAME: ftpuser
+FTP_PASSWORD: 1995
+FTP_BASE_PATH: /home/ftpuser/www/images
+IMAGE_BASE_URL: http://image.taotao.com/images

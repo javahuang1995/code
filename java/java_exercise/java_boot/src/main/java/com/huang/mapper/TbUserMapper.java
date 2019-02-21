@@ -4,6 +4,9 @@ import com.huang.pojo.TbUser;
 import com.huang.pojo.TbUserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
 
 public interface TbUserMapper {
     int countByExample(TbUserExample example);
@@ -27,4 +30,12 @@ public interface TbUserMapper {
     int updateByPrimaryKeySelective(TbUser record);
 
     int updateByPrimaryKey(TbUser record);
+
+    /**
+     * @Auther: 宁哥
+     * @Date: ${DATE} ${HOUR}:${MINUTE}
+     * @Description: 按照用户查询
+     */
+    @Select("select * from tb_user t where t.username=#{name}")
+    List<TbUser> getUserByName(String name);
 }

@@ -47,6 +47,7 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     compile("org.springframework.boot:spring-boot-starter-web"){
         //不生效，不知道为什么。。
+        exclude module:"spring-boot-starter-tomcat"
         exclude module: 'org.springframework.boot:spring-boot-starter-logging'
     }
    // compile ('org.springframework.boot:spring-boot-starter-log4j2')
@@ -54,7 +55,10 @@ dependencies {
     runtime('mysql:mysql-connector-java')
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    //compile("org.springframework.boot:spring-boot-starter-redis")
+    compile("org.springframework.boot:spring-boot-starter-redis:1.4.7.RELEASE")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-amqp")
     compile("com.alibaba:druid:1.0.9")
     compile("org.projectlombok:lombok")
     //common
