@@ -1,178 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d8f9002-f097-464d-be19-74e26e1f1a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/confirm/Recv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/confirm/Send1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/confirm/Send2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/confirm/Send3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/ps/Recv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/ps/Recv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/ps/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/routing/Recv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/routing/Recv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/routing/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/simple/Recv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/simple/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/spring/MyConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/spring/SpringMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/topic/Recv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/topic/Recv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/topic/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/tx/TxRecv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/tx/TxSend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/util/ConnectionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/work/Recv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/work/Recv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/work/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/workfair/Recv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/workfair/Recv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/java/com/mmr/rabbitmq/workfair/Send.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/src/main/java/com/taotao/rabbitmq/spring/OrderConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/src/main/resources/spring/applicationContext-mq.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-portal/src/main/java/com/taotao/portal/service/impl/OrderServiceMQImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-portal/src/main/resources/spring/applicationContext-mq.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-portal/src/test/java/com/taotao/portal/service/impl/OrderServiceMQImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_boot/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_exercise/java_boot/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/huang/hibernate/study/HibernateTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/AccountDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/CategoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/ForderDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/ProductDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/SorderDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/AccountDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/BaseDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/CategoryDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/ForderDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/ProductDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/SorderDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/dao/impl/UserDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/BackData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/FileImage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Forder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/SendData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Sorder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/Status.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/AccountService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/BaseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/CategoryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/ForderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/PayService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/SorderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/AccountServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/BaseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/CategoryServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/ForderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/ProductServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/SorderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_hibernate_exercise/target/classes/com/shop/service/impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/resources/applicationContext-mq.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/src/main/resources/applicationContext-mq.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mq/target/classes/META-INF/java_mq.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mq/target/classes/applicationContext-mq.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_exercise/java_mq/target/classes/applicationContext-mq.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/huang/mybatis/study/MybatisTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/ItemMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbContentCategoryMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbContentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbItemCatMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbItemDescMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbItemMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbItemParamItemMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbItemParamMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbOrderItemMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbOrderMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbOrderShippingMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbStudentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbTeacherMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/mapper/TbUserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentCategory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentCategoryExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentCategoryExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentCategoryExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentCategoryExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbContentExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemCat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemCatExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemCatExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemCatExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemCatExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemDesc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemDescExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemDescExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemDescExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemDescExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamItemExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamItemExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamItemExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbItemParamItemExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderItemExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderItemExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderItemExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderItemExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderShipping.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderShippingExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderShippingExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderShippingExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbOrderShippingExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbStudent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbTeacher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbUserExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbUserExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbUserExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/pojo/TbUserExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ContentCategoryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ContentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ItemCatService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ItemParamItemService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ItemParamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/ItemService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/PictureService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ContentCategoryServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ContentServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ItemCatServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ItemParamItemServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ItemParamServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/ItemServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_exercise/java_mybatis_exercise/target/classes/com/taotao/service/impl/PictureServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/taotao-order.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java_taotao商城/taotao-order/taotao-order.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1d8f9002-f097-464d-be19-74e26e1f1a14" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/study/com/huang/reptile/mz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="250">
+              <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
               <folding>
                 <element signature="e#69#84#0" expanded="true" />
               </folding>
@@ -237,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="466" />
     <option name="y" value="56" />
     <option name="width" value="1400" />
@@ -276,14 +105,6 @@
               <item name="study" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="huang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="study" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="huang" type="462c0819:PsiDirectoryNode" />
-              <item name="excel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="python" type="b2602c69:ProjectViewProjectNode" />
@@ -451,10 +272,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1014" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1014" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19546892" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19546892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -595,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/study/com/huang/reptile/mz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="250">
+          <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
           <folding>
             <element signature="e#69#84#0" expanded="true" />
           </folding>
