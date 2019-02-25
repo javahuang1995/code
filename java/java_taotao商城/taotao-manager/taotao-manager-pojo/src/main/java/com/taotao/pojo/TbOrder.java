@@ -1,8 +1,12 @@
 package com.taotao.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbOrder {
+public class TbOrder implements Serializable
+{
+    private static final long serialVersionUID=1L;
+
     private String orderId;
 
     private String payment;

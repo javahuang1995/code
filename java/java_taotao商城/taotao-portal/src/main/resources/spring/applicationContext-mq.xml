@@ -14,7 +14,7 @@
 
 
     <!-- 2.定义Rabbit模板，指定连接工厂以及定义exchange -->
-    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="fanoutExchange" />
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="taotaoExchange" />
 
     <!-- MQ的管理，包括队列、交换器 声明等 -->
     <rabbit:admin connection-factory="connectionFactory" />

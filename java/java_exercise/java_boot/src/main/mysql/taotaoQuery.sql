@@ -15,6 +15,7 @@ select * from tb_item_desc  t where t.item_id='1068557';
 
 --分组查询 按照商品类型来分组，查询每种类型商品有多少个。
 select t.cid,avg(t.price),count(t.cid) from tb_item t group by t.cid;
+select t.* from tb_item t group by t.id,t.title;
 
 -- 规格参数 tb_item_param tb_item_param_item
 SELECT * from tb_item_param t where t.item_cat_id='560';

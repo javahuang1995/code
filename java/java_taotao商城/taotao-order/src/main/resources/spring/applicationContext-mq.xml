@@ -12,7 +12,7 @@
 
 
     <!-- 2.定义Rabbit模板，指定连接工厂以及定义exchange -->
-    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="fanoutExchange" />
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="taotaoExchange" />
 
     <!-- MQ的管理，包括队列、交换器 声明等 -->
     <rabbit:admin connection-factory="connectionFactory" />
@@ -29,10 +29,10 @@
     <!-- 定义队列，自动声明 这个队列是持久化的-->
     <rabbit:queue name="orderQueue" auto-declare="true" durable="true" />
     <!-- 消费者 -->
-    <bean id="orderConsumer" class="com.taotao.rabbitmq.spring.OrderConsumer" />
+    <bean id="orderConsumer2" class="com.taotao.order.service.impl.OrderConsumer2" />
     <!-- 将消费者绑定到这个队列上面 队列绑定到交换机上面，这样联系起来了-->
     <rabbit:listener-container connection-factory="connectionFactory" acknowledge="manual">
-        <rabbit:listener ref="orderConsumer" method="orderListen" queue-names="orderQueue" />
+        <rabbit:listener ref="orderConsumer2" method="onMessage" queue-names="orderQueue" />
     </rabbit:listener-container>
 
 

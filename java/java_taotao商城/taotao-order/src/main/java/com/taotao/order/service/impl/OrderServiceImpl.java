@@ -22,75 +22,80 @@ import com.taotao.pojo.TbOrderShipping;
  * 订单管理Service
  * <p>Title: OrderServiceImpl</p>
  * <p>Description: </p>
- * <p>Company: www.itcast.com</p> 
- * @author	入云龙
- * @date	2015年9月16日上午10:00:48
+ * <p>Company: www.itcast.com</p>
+ *
+ * @author 入云龙
  * @version 1.0
+ * @date 2015年9月16日上午10:00:48
  */
 @Service
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl implements OrderService
+{
 
-	@Autowired
-	private TbOrderMapper orderMapper;
-	@Autowired
-	private TbOrderItemMapper orderItemMapper;
-	@Autowired
-	private TbOrderShippingMapper orderShippingMapper;
-	@Autowired
-	private JedisClient jedisClient;
-	
-	@Value("${ORDER_GEN_KEY}")
-	private String ORDER_GEN_KEY;
-	@Value("${ORDER_INIT_ID}")
-	private String ORDER_INIT_ID;
-	@Value("${ORDER_DETAIL_GEN_KEY}")
-	private String ORDER_DETAIL_GEN_KEY;
-	
-	/**
-	 * 1.补全pojo Order的属性
-	 * 2.插入orderItem表
-	 * 3.插入orderShip表
-	 * 4.考虑一个问题，如果是双11高并发场景，这样大规模的写入，数据库肯定很容易被干死。
-	 * 所以，是不是可以考虑加入一个消息中间件来缓解写入压力。。不是直接插入表。
-	 */
-	@Override
-	public TaotaoResult createOrder(TbOrder order, List<TbOrderItem> itemList, TbOrderShipping orderShipping) {
-		//向订单表中插入记录
-		//获得订单号
-		String string = jedisClient.get(ORDER_GEN_KEY);
-		if (StringUtils.isBlank(string)) {
-			jedisClient.set(ORDER_GEN_KEY, ORDER_INIT_ID);
-		}
-		long orderId = jedisClient.incr(ORDER_GEN_KEY);
-		//补全pojo的属性
-		order.setOrderId(orderId + "");
-		//状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
-		order.setStatus(1);
-		Date date = new Date();
-		order.setCreateTime(date);
-		order.setUpdateTime(date);
-		//0：未评价 1：已评价
-		order.setBuyerRate(0);
-		//向订单表插入数据
-		orderMapper.insert(order);
-		//插入订单明细
-		for (TbOrderItem tbOrderItem : itemList) {
-			//补全订单明细
-			//取订单明细id
-			long orderDetailId = jedisClient.incr(ORDER_DETAIL_GEN_KEY);
-			tbOrderItem.setId(orderDetailId + "");
-			tbOrderItem.setOrderId(orderId + "");//orderItem表和order表的关系通过业务层设定，数据库不设置外键。
-			//向订单明细插入记录
-			orderItemMapper.insert(tbOrderItem);
-		}
-		//插入物流表
-		//补全物流表的属性
-		orderShipping.setOrderId(orderId + "");
-		orderShipping.setCreated(date);
-		orderShipping.setUpdated(date);
-		orderShippingMapper.insert(orderShipping);
-		
-		return TaotaoResult.ok(orderId);
-	}
+    @Autowired
+    private TbOrderMapper orderMapper;
+    @Autowired
+    private TbOrderItemMapper orderItemMapper;
+    @Autowired
+    private TbOrderShippingMapper orderShippingMapper;
+    @Autowired
+    private JedisClient jedisClient;
+
+    @Value("${ORDER_GEN_KEY}")
+    private String ORDER_GEN_KEY;
+    @Value("${ORDER_INIT_ID}")
+    private String ORDER_INIT_ID;
+    @Value("${ORDER_DETAIL_GEN_KEY}")
+    private String ORDER_DETAIL_GEN_KEY;
+
+    /**
+     * 1.补全pojo Order的属性
+     * 2.插入orderItem表
+     * 3.插入orderShip表
+     * 4.考虑一个问题，如果是双11高并发场景，这样大规模的写入，数据库肯定很容易被干死。
+     * 所以，是不是可以考虑加入一个消息中间件来缓解写入压力。。不是直接插入表。
+     */
+    @Override
+    public TaotaoResult createOrder(TbOrder order, List<TbOrderItem> itemList, TbOrderShipping orderShipping)
+    {
+        //向订单表中插入记录
+        //获得订单号
+        String string = jedisClient.get(ORDER_GEN_KEY);
+        if (StringUtils.isBlank(string))
+        {
+            jedisClient.set(ORDER_GEN_KEY, ORDER_INIT_ID);
+        }
+        long orderId = jedisClient.incr(ORDER_GEN_KEY);
+        //补全pojo的属性
+        order.setOrderId(orderId + "");
+        //状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
+        order.setStatus(1);
+        Date date = new Date();
+        order.setCreateTime(date);
+        order.setUpdateTime(date);
+        //0：未评价 1：已评价
+        order.setBuyerRate(0);
+        //向订单表插入数据
+        orderMapper.insert(order);
+        //插入订单明细
+        for (TbOrderItem tbOrderItem : itemList)
+        {
+            //补全订单明细
+            //取订单明细id
+            long orderDetailId = jedisClient.incr(ORDER_DETAIL_GEN_KEY);
+            tbOrderItem.setId(orderDetailId + "");
+            tbOrderItem.setOrderId(orderId + "");//orderItem表和order表的关系通过业务层设定，数据库不设置外键。
+            //向订单明细插入记录
+            orderItemMapper.insert(tbOrderItem);
+        }
+        //插入物流表
+        //补全物流表的属性
+        orderShipping.setOrderId(orderId + "");
+        orderShipping.setCreated(date);
+        orderShipping.setUpdated(date);
+        orderShippingMapper.insert(orderShipping);
+
+        return TaotaoResult.ok(orderId);
+    }
 
 }

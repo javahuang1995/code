@@ -6,6 +6,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.taotao.pojo.Order;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.taotao.common.utils.CookieUtils;
-import com.taotao.common.utils.ExceptionUtil;
 import com.taotao.pojo.TbUser;
 import com.taotao.portal.pojo.CartItem;
-import com.taotao.portal.pojo.Order;
 import com.taotao.portal.service.CartService;
 import com.taotao.portal.service.OrderService;
 /**
@@ -91,7 +90,7 @@ public class OrderController {
 	 * @return
 	 */
 	@RequestMapping("/create")
-	public String createOrder(Order order, Model model, HttpServletRequest request,HttpServletResponse response) {
+	public String createOrder(Order order, Model model, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			String clientToken = request.getParameter("token");
 			String sessionToken = (String) request.getSession().getAttribute("token");

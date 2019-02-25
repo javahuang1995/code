@@ -1,5 +1,6 @@
 package com.taotao.order.controller;
 
+import com.taotao.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.ExceptionUtil;
-import com.taotao.order.pojo.Order;
 import com.taotao.order.service.OrderService;
 
 /**
