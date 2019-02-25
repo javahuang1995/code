@@ -1,6 +1,5 @@
 package com.huang.wait.notify.test.mytest;
 
-import com.huang.thread.study.runnable.PrintRunnable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,30 +14,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 
-/**
- * @Auther: 宁哥
- * @Date: 2019/2/21 11:07
- * @Description: 还不知道干嘛。
- * <p>
- * .::::.
- * .::::::::.
- * :::::::::::
- * ..:::::::::::'
- * '::::::::::::'
- * .::::::::::
- * '::::::::::::::..
- * ..::::::::::::.
- * ``::::::::::::::::
- * ::::``:::::::::'        .:::.
- * ::::'   ':::::'       .::::::::.
- * .::::'      ::::     .:::::::'::::.
- * .:::'       :::::  .:::::::::' ':::::.
- * .::'        :::::.:::::::::'      ':::::.
- * .::'         ::::::::::::::'         ``::::.
- * ...:::           ::::::::::::'              ``::.
- * ```` ':.          ':::::::::'                  ::::..
- * '.:::::'                    ':'````..
- **/
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
 public class ThreadPoolTest
