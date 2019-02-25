@@ -1,15 +1,14 @@
-package com.taotao.portal.pojo;
+package com.taotao.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-import com.taotao.pojo.TbOrder;
-import com.taotao.pojo.TbOrderItem;
-import com.taotao.pojo.TbOrderShipping;
+public class Order extends TbOrder implements Serializable
+{
+	private static final long serialVersionUID=1L;
 
-public class Order extends TbOrder {
-
-	private List<TbOrderItem> orderItems;
-	private TbOrderShipping orderShipping;
+	private List<TbOrderItem> orderItems;//是一个List，包括买的商品列表
+	private TbOrderShipping orderShipping;//这是物流信息，记录购买人的收件地址。
 	public List<TbOrderItem> getOrderItems() {
 		return orderItems;
 	}

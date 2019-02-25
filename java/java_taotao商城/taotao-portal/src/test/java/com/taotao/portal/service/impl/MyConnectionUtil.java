@@ -1,10 +1,6 @@
-package com.huang.mq.util;
+package com.taotao.portal.service.impl;
 
-import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 /**
  * @Auther: 宁哥
@@ -12,11 +8,11 @@ import java.util.concurrent.TimeoutException;
  * @Description:AMQP协议 这里可以用单例+工厂模式，
  * 单例来获取工厂对象，工厂获取连接对象。
  */
-public class ConnectionUtil
+public class MyConnectionUtil
 {
 
     private static String HOST = "localhost";
-    private static String VHOST = "/vhost";
+    private static String VHOST = "/taotao";
     private static int PORT = 5672;
     private static String USER = "huang";
     private static String PASS = "1995";
@@ -27,7 +23,7 @@ public class ConnectionUtil
     {
         if (connectionFactory == null)
         {
-            synchronized (ConnectionUtil.class)
+            synchronized (MyConnectionUtil.class)
             {
                 if (connectionFactory == null)
                 {
