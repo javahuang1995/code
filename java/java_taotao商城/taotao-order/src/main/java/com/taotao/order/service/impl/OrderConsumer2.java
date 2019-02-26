@@ -15,6 +15,7 @@ import java.io.ObjectInputStream;
 
 /**
  *
+ * 消息手动签收
  */
 
 public class OrderConsumer2 implements ChannelAwareMessageListener
@@ -37,20 +38,24 @@ public class OrderConsumer2 implements ChannelAwareMessageListener
         try
         {
             Order order = (Order) getObjectFromBytes(message.getBody());
-            logger.info("order info is :"+JsonUtils.objectToJson(order));
+            logger.info("order info is :" + JsonUtils.objectToJson(order));
 
             //insert into db
-            orderService.createOrder(order,order.getOrderItems(),order.getOrderShipping());
+            orderService.createOrder(order, order.getOrderItems(), order.getOrderShipping());
 
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            logger.error("get order error!!!!!");
-        }finally
+            logger.error("insert order error!!!!!");
+            //如果消息处理失败，应该将消息放回队列中，也就是NACK重回队列
+            //第三个参数为是否重返队列
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+        }
+        finally
         {
-            //手动回执
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
+            //手动回执，相当于买东西要签收快递一样，手动签收快递，确认收货。
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         }
     }
 

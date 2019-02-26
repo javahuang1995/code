@@ -9,6 +9,7 @@ import com.rabbitmq.client.Connection;
 
 /**
  * @author old wang
+ * 批量模式，每发送一批消息之后，调用waitForConfirms
  *普通模式
  */
 public class Send2 {

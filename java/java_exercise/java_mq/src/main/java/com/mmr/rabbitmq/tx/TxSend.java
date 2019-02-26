@@ -6,6 +6,11 @@ import java.util.concurrent.TimeoutException;
 import com.mmr.rabbitmq.util.ConnectionUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
+/**
+ * 消息确认机制事务机制。
+ * 使用事务的方式确认消息是否送达到消息中间件。
+ *  这种方式是很耗时间的，降低了rabbitmq的消息吞吐量。
+ */
 
 public class TxSend {
 	

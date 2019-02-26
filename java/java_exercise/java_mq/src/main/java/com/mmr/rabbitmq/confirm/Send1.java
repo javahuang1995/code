@@ -9,7 +9,10 @@ import com.rabbitmq.client.Connection;
 
 /**
  * @author old wang
- *普通模式
+ * 消息确认机制之confirm模式 普通模式
+ * 生产者将信道channel设置成confirm模式，所以在该信道发送的消息都会指定一个id,一旦消息被投放到指定的队列后
+ * rabbitmq会发送一个回执给生产者，生产者就知道消息已经发送成功了。
+ * confirm模式是最大的好处是他是异步的
  */
 public class Send1 {
 	private static final String QUEUE_NAME="test_queue_confirm1";

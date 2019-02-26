@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.taotao.pojo.Order;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +57,13 @@ public class OrderController {
 	@Autowired
 	private CartService cartService;
 
+	/**
+	 * 这里的注入有2个实现，一个是通过http发送order生成订单
+	 * 一个是发送订单信息给消息中间件RabbitMQ
+	 */
+	
 	@Autowired
+	@Qualifier("orderServiceMqImpl")
 	private OrderService orderService;
 
 	/**

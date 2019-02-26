@@ -10,7 +10,9 @@ import com.mmr.rabbitmq.util.ConnectionUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
 import com.rabbitmq.client.Connection;
-
+/**
+ * 这个是异步模式
+ */
 public class Send3 {
 	private static final String QUEUE_NAME="test_queue_confirm3";
 	
@@ -29,6 +31,7 @@ public class Send3 {
 		channel.addConfirmListener(new ConfirmListener() {
 		
 			//没有问题的handleAck
+			@@Override
 			public void handleAck(long deliveryTag, boolean multiple)
 					throws IOException {
 				if(multiple){
