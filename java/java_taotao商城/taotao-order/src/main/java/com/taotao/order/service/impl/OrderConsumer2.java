@@ -47,7 +47,7 @@ public class OrderConsumer2 implements ChannelAwareMessageListener
         catch (Exception e)
         {
             e.printStackTrace();
-            logger.error("insert order error!!!!!");
+            logger.error("insert order error!!!!! message return to the broker");
             //如果消息处理失败，应该将消息放回队列中，也就是NACK重回队列
             //第三个参数为是否重返队列
             channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
