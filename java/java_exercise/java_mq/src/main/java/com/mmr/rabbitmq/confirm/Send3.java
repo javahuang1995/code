@@ -31,7 +31,7 @@ public class Send3 {
 		channel.addConfirmListener(new ConfirmListener() {
 		
 			//没有问题的handleAck
-			@@Override
+			@Override
 			public void handleAck(long deliveryTag, boolean multiple)
 					throws IOException {
 				if(multiple){
@@ -43,7 +43,8 @@ public class Send3 {
 				}
 			}
 			
-			//handleNack 
+			//handleNack
+			@Override
 			public void handleNack(long deliveryTag, boolean multiple)
 					throws IOException {
 				if(multiple){
